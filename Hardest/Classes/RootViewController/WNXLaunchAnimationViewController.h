@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LaunchAnimationViewController : UIViewController
+@interface WNXLaunchAnimationViewController : UIViewController
 
 @property (nonatomic, copy) void (^animationFinish)();
 

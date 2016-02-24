@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "LaunchAnimationViewController.h"
+#import "WNXLaunchAnimationViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     [NSThread sleepForTimeInterval:2.0];
@@ -29,8 +29,13 @@
 
 - (void)setKeyWindow {
     
+    WNXLaunchAnimationViewController *launchAnimationVC = [[WNXLaunchAnimationViewController alloc] init];
+    launchAnimationVC.animationFinish = ^{
+//        self.window.rootViewController = 
+    };
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[LaunchAnimationViewController alloc] init];
+    self.window.rootViewController = launchAnimationVC;
     [self.window makeKeyAndVisible];
 }
 

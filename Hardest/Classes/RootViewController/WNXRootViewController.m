@@ -6,13 +6,13 @@
 //  Copyright © 2016年 sfbest. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "WNXRootViewController.h"
 
-@interface RootViewController ()
+@interface WNXRootViewController ()
 
 @end
 
-@implementation RootViewController
+@implementation WNXRootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
