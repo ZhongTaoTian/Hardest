@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WNXLaunchAnimationViewController.h"
+#import "WNXBaseNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,7 @@
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
-    [NSThread sleepForTimeInterval:2.0];
+    [NSThread sleepForTimeInterval:1.0];
     
     [self setKeyWindow];
     
@@ -28,10 +29,12 @@
 }
 
 - (void)setKeyWindow {
-    
+
     WNXLaunchAnimationViewController *launchAnimationVC = [[WNXLaunchAnimationViewController alloc] init];
     launchAnimationVC.animationFinish = ^{
-//        self.window.rootViewController = 
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        WNXBaseNavigationController *rootNav = (WNXBaseNavigationController *)[sb instantiateViewControllerWithIdentifier:@"RootNavigationController"];
+        self.window.rootViewController = rootNav;
     };
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

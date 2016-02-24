@@ -16,6 +16,7 @@
 		B32C1E8C1C7C57FE00B2C577 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B32C1E881C7C57FE00B2C577 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
 		B32C1E8D1C7C57FE00B2C577 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B32C1E891C7C57FE00B2C577 /* Default.png */; settings = {ASSET_TAGS = (); }; };
 		B32C1E8E1C7C57FE00B2C577 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B32C1E8A1C7C57FE00B2C577 /* Default@2x.png */; settings = {ASSET_TAGS = (); }; };
+		B39472A81C7DAE2A00CAAB6D /* WNXBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39472A71C7DAE2A00CAAB6D /* WNXBaseNavigationController.m */; settings = {ASSET_TAGS = (); }; };
 		B3E561961C7C6F650081C720 /* WNXLaunchAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E561941C7C6F650081C720 /* WNXLaunchAnimationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B3E561971C7C6F650081C720 /* WNXLaunchAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E561951C7C6F650081C720 /* WNXLaunchAnimationViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		B3EEACF41C7C61EB00992B34 /* WNXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EEACF31C7C61EB00992B34 /* WNXRootViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -56,6 +57,8 @@
 		B32C1E891C7C57FE00B2C577 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B32C1E8A1C7C57FE00B2C577 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B39472A11C7DA6AC00CAAB6D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B39472A61C7DAE2A00CAAB6D /* WNXBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXBaseNavigationController.h; sourceTree = "<group>"; };
+		B39472A71C7DAE2A00CAAB6D /* WNXBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXBaseNavigationController.m; sourceTree = "<group>"; };
 		B3E561931C7C6F650081C720 /* WNXLaunchAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXLaunchAnimationViewController.h; sourceTree = "<group>"; };
 		B3E561941C7C6F650081C720 /* WNXLaunchAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXLaunchAnimationViewController.m; sourceTree = "<group>"; };
 		B3E561951C7C6F650081C720 /* WNXLaunchAnimationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXLaunchAnimationViewController.xib; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 		B32C1E851C7C57A300B2C577 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B39472A31C7DAE0300CAAB6D /* BaseClass */,
 				B3EEACF11C7C61D300992B34 /* RootViewController */,
 				B32C1E861C7C57FE00B2C577 /* Resources */,
 			);
@@ -182,6 +186,31 @@
 			children = (
 			);
 			path = Sound;
+			sourceTree = "<group>";
+		};
+		B39472A31C7DAE0300CAAB6D /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				B39472A41C7DAE0300CAAB6D /* BaseView */,
+				B39472A51C7DAE0300CAAB6D /* BaseViewController */,
+			);
+			path = BaseClass;
+			sourceTree = "<group>";
+		};
+		B39472A41C7DAE0300CAAB6D /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
+		B39472A51C7DAE0300CAAB6D /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B39472A61C7DAE2A00CAAB6D /* WNXBaseNavigationController.h */,
+				B39472A71C7DAE2A00CAAB6D /* WNXBaseNavigationController.m */,
+			);
+			path = BaseViewController;
 			sourceTree = "<group>";
 		};
 		B3EEACF11C7C61D300992B34 /* RootViewController */ = {
@@ -334,6 +363,7 @@
 			files = (
 				B3E561961C7C6F650081C720 /* WNXLaunchAnimationViewController.m in Sources */,
 				B32C1E551C7C4DF600B2C577 /* AppDelegate.m in Sources */,
+				B39472A81C7DAE2A00CAAB6D /* WNXBaseNavigationController.m in Sources */,
 				B3EEACF41C7C61EB00992B34 /* WNXRootViewController.m in Sources */,
 				B32C1E521C7C4DF600B2C577 /* main.m in Sources */,
 			);

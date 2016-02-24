@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="J0l-MR-a1M">
             <objects>
-                <navigationController navigationBarHidden="YES" id="PAP-1t-4Bc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNavigationController" navigationBarHidden="YES" id="PAP-1t-4Bc" customClass="WNXBaseNavigationController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -17,54 +17,31 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SAv-aG-M2h"/>
+                        <segue destination="v4j-O1-j6A" kind="relationship" relationship="rootViewController" id="Onb-Az-bdz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Yg-aD-CUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-279" y="561"/>
+            <point key="canvasLocation" x="-245" y="623"/>
         </scene>
         <!--Root View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="1xa-bA-3E4">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WNXRootViewController" sceneMemberID="viewController">
+                <viewController id="v4j-O1-j6A" customClass="WNXRootViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="CpY-0J-Z3o"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Zf-mV-LBT"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="HBo-Tw-Z3J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D68h" translatesAutoresizingMaskIntoConstraints="NO" id="Oqr-5U-zi9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boy_00-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="Oh6-qP-Ucr">
-                                <rect key="frame" x="106" y="199" width="109" height="109"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="text-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="qIT-90-iJB">
-                                <rect key="frame" x="75" y="365" width="171" height="39"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Oqr-5U-zi9" secondAttribute="bottom" id="6DB-qY-Ezh"/>
-                            <constraint firstAttribute="trailing" secondItem="Oqr-5U-zi9" secondAttribute="trailing" id="HHE-EA-F0a"/>
-                            <constraint firstItem="Oqr-5U-zi9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Zan-g0-3k0"/>
-                            <constraint firstItem="Oqr-5U-zi9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uHQ-u3-mYR"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SBO-ZL-8hM"/>
-                    <nil key="simulatedStatusBarMetrics"/>
+                    <navigationItem key="navigationItem" id="QtK-Fa-bTY"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dIW-pc-aUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="451" y="636"/>
+            <point key="canvasLocation" x="252" y="623"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="D68h" width="320" height="568"/>
-        <image name="boy_00-iphone4" width="218" height="218"/>
-        <image name="text-iphone4" width="341" height="80"/>
-    </resources>
 </document>
