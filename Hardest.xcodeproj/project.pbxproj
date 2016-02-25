@@ -13,10 +13,14 @@
 		B32C1E5D1C7C4DF600B2C577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B32C1E5C1C7C4DF600B2C577 /* Assets.xcassets */; };
 		B32C1E6B1C7C4DF600B2C577 /* HardestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B32C1E6A1C7C4DF600B2C577 /* HardestTests.m */; };
 		B32C1E761C7C4DF600B2C577 /* HardestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B32C1E751C7C4DF600B2C577 /* HardestUITests.m */; };
-		B32C1E8C1C7C57FE00B2C577 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B32C1E881C7C57FE00B2C577 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
-		B32C1E8D1C7C57FE00B2C577 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B32C1E891C7C57FE00B2C577 /* Default.png */; settings = {ASSET_TAGS = (); }; };
-		B32C1E8E1C7C57FE00B2C577 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B32C1E8A1C7C57FE00B2C577 /* Default@2x.png */; settings = {ASSET_TAGS = (); }; };
+		B384CD251C7E9F42008AFA9E /* WXNSoundToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B384CD241C7E9F42008AFA9E /* WXNSoundToolManager.m */; settings = {ASSET_TAGS = (); }; };
+		B384CD281C7EE616008AFA9E /* sound.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B384CD271C7EE616008AFA9E /* sound.bundle */; settings = {ASSET_TAGS = (); }; };
+		B384CD2A1C7EE9C4008AFA9E /* bg_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B384CD291C7EE9C4008AFA9E /* bg_music.mp3 */; settings = {ASSET_TAGS = (); }; };
+		B384CD2D1C7F0CD5008AFA9E /* UIView+WXNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B384CD2C1C7F0CD5008AFA9E /* UIView+WXNImage.m */; settings = {ASSET_TAGS = (); }; };
 		B39472A81C7DAE2A00CAAB6D /* WNXBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39472A71C7DAE2A00CAAB6D /* WNXBaseNavigationController.m */; settings = {ASSET_TAGS = (); }; };
+		B39472AA1C7DC4BD00CAAB6D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B39472A91C7DC4BD00CAAB6D /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
+		B39472AD1C7DC73200CAAB6D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B39472AB1C7DC73200CAAB6D /* Default@2x.png */; settings = {ASSET_TAGS = (); }; };
+		B39472AE1C7DC73200CAAB6D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B39472AC1C7DC73200CAAB6D /* Default.png */; settings = {ASSET_TAGS = (); }; };
 		B3E561961C7C6F650081C720 /* WNXLaunchAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E561941C7C6F650081C720 /* WNXLaunchAnimationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B3E561971C7C6F650081C720 /* WNXLaunchAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E561951C7C6F650081C720 /* WNXLaunchAnimationViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		B3EEACF41C7C61EB00992B34 /* WNXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EEACF31C7C61EB00992B34 /* WNXRootViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -53,12 +57,19 @@
 		B32C1E711C7C4DF600B2C577 /* HardestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HardestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32C1E751C7C4DF600B2C577 /* HardestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HardestUITests.m; sourceTree = "<group>"; };
 		B32C1E771C7C4DF600B2C577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B32C1E881C7C57FE00B2C577 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		B32C1E891C7C57FE00B2C577 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		B32C1E8A1C7C57FE00B2C577 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B384CD231C7E9F42008AFA9E /* WXNSoundToolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXNSoundToolManager.h; sourceTree = "<group>"; };
+		B384CD241C7E9F42008AFA9E /* WXNSoundToolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXNSoundToolManager.m; sourceTree = "<group>"; };
+		B384CD261C7EE513008AFA9E /* SoundNamesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundNamesHeader.h; sourceTree = "<group>"; };
+		B384CD271C7EE616008AFA9E /* sound.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = sound.bundle; sourceTree = "<group>"; };
+		B384CD291C7EE9C4008AFA9E /* bg_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg_music.mp3; sourceTree = "<group>"; };
+		B384CD2B1C7F0CD5008AFA9E /* UIView+WXNImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WXNImage.h"; sourceTree = "<group>"; };
+		B384CD2C1C7F0CD5008AFA9E /* UIView+WXNImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WXNImage.m"; sourceTree = "<group>"; };
 		B39472A11C7DA6AC00CAAB6D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B39472A61C7DAE2A00CAAB6D /* WNXBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXBaseNavigationController.h; sourceTree = "<group>"; };
 		B39472A71C7DAE2A00CAAB6D /* WNXBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXBaseNavigationController.m; sourceTree = "<group>"; };
+		B39472A91C7DC4BD00CAAB6D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B39472AB1C7DC73200CAAB6D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B39472AC1C7DC73200CAAB6D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B3E561931C7C6F650081C720 /* WNXLaunchAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXLaunchAnimationViewController.h; sourceTree = "<group>"; };
 		B3E561941C7C6F650081C720 /* WNXLaunchAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXLaunchAnimationViewController.m; sourceTree = "<group>"; };
 		B3E561951C7C6F650081C720 /* WNXLaunchAnimationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXLaunchAnimationViewController.xib; sourceTree = "<group>"; };
@@ -155,6 +166,7 @@
 		B32C1E851C7C57A300B2C577 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B384CD221C7E9F1B008AFA9E /* CommonTools */,
 				B39472A31C7DAE0300CAAB6D /* BaseClass */,
 				B3EEACF11C7C61D300992B34 /* RootViewController */,
 				B32C1E861C7C57FE00B2C577 /* Resources */,
@@ -174,9 +186,9 @@
 		B32C1E871C7C57FE00B2C577 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B32C1E881C7C57FE00B2C577 /* Default-568h@2x.png */,
-				B32C1E891C7C57FE00B2C577 /* Default.png */,
-				B32C1E8A1C7C57FE00B2C577 /* Default@2x.png */,
+				B39472A91C7DC4BD00CAAB6D /* Default-568h@2x.png */,
+				B39472AB1C7DC73200CAAB6D /* Default@2x.png */,
+				B39472AC1C7DC73200CAAB6D /* Default.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -184,8 +196,20 @@
 		B32C1E8B1C7C57FE00B2C577 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				B384CD291C7EE9C4008AFA9E /* bg_music.mp3 */,
+				B384CD271C7EE616008AFA9E /* sound.bundle */,
 			);
 			path = Sound;
+			sourceTree = "<group>";
+		};
+		B384CD221C7E9F1B008AFA9E /* CommonTools */ = {
+			isa = PBXGroup;
+			children = (
+				B384CD231C7E9F42008AFA9E /* WXNSoundToolManager.h */,
+				B384CD241C7E9F42008AFA9E /* WXNSoundToolManager.m */,
+				B384CD261C7EE513008AFA9E /* SoundNamesHeader.h */,
+			);
+			path = CommonTools;
 			sourceTree = "<group>";
 		};
 		B39472A31C7DAE0300CAAB6D /* BaseClass */ = {
@@ -200,6 +224,8 @@
 		B39472A41C7DAE0300CAAB6D /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				B384CD2B1C7F0CD5008AFA9E /* UIView+WXNImage.h */,
+				B384CD2C1C7F0CD5008AFA9E /* UIView+WXNImage.m */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -287,8 +313,9 @@
 		B32C1E451C7C4DF600B2C577 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = WXN;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = sfbest;
+				ORGANIZATIONNAME = "维尼的小熊";
 				TargetAttributes = {
 					B32C1E4C1C7C4DF600B2C577 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -332,11 +359,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3E561971C7C6F650081C720 /* WNXLaunchAnimationViewController.xib in Resources */,
+				B39472AE1C7DC73200CAAB6D /* Default.png in Resources */,
 				B32C1E5D1C7C4DF600B2C577 /* Assets.xcassets in Resources */,
+				B384CD2A1C7EE9C4008AFA9E /* bg_music.mp3 in Resources */,
+				B39472AD1C7DC73200CAAB6D /* Default@2x.png in Resources */,
 				B32C1E5B1C7C4DF600B2C577 /* Main.storyboard in Resources */,
-				B32C1E8E1C7C57FE00B2C577 /* Default@2x.png in Resources */,
-				B32C1E8C1C7C57FE00B2C577 /* Default-568h@2x.png in Resources */,
-				B32C1E8D1C7C57FE00B2C577 /* Default.png in Resources */,
+				B39472AA1C7DC4BD00CAAB6D /* Default-568h@2x.png in Resources */,
+				B384CD281C7EE616008AFA9E /* sound.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +390,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B384CD2D1C7F0CD5008AFA9E /* UIView+WXNImage.m in Sources */,
 				B3E561961C7C6F650081C720 /* WNXLaunchAnimationViewController.m in Sources */,
+				B384CD251C7E9F42008AFA9E /* WXNSoundToolManager.m in Sources */,
 				B32C1E551C7C4DF600B2C577 /* AppDelegate.m in Sources */,
 				B39472A81C7DAE2A00CAAB6D /* WNXBaseNavigationController.m in Sources */,
 				B3EEACF41C7C61EB00992B34 /* WNXRootViewController.m in Sources */,
@@ -496,12 +527,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hardest/PrefixHeader.pch;
 				INFOPLIST_FILE = Hardest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tianzhongtao.Hardest;
+				PRODUCT_BUNDLE_IDENTIFIER = weinidexiaoxiong.Hardest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -510,12 +542,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hardest/PrefixHeader.pch;
 				INFOPLIST_FILE = Hardest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tianzhongtao.Hardest;
+				PRODUCT_BUNDLE_IDENTIFIER = weinidexiaoxiong.Hardest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -7,13 +7,16 @@
 //
 
 #import "WNXLaunchAnimationViewController.h"
+#import "WXNSoundToolManager.h"
 
 #define kMaxHandClickCount 15
+#define kClickAnimationDuration 0.1
 
 @interface WNXLaunchAnimationViewController ()
 {
     int _clickCount;
     int _keyCount;
+    BOOL _isNotFristLoad;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *handImageView;
@@ -32,30 +35,53 @@
 
 @implementation WNXLaunchAnimationViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.view.clipsToBounds = NO;
+    
+    if (!iPhone5) {
+        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 480, 320, ScreenHeightDifference)];
+        bottomView.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:bottomView];
+    }
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     
+    if (!_isNotFristLoad && !iPhone5) {
+        CGRect newFrame = self.view.frame;
+        newFrame.origin.y -= ScreenHeightDifference;
+        self.view.frame = newFrame;
+    }
+    
     [super viewDidAppear:animated];
     
+    self.handImageView.hidden = NO;
     self.blackIconImageView.hidden = YES;
     self.bombButtonImageView.hidden = YES;
     self.eyeMaskView.hidden = YES;
     
     for (int i = 0; i < kMaxHandClickCount; i++) {
-        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:i * 0.1 target:self selector:@selector(handButtonImageViewClickAnimation) userInfo:nil repeats:NO];
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:i * kClickAnimationDuration target:self selector:@selector(handButtonImageViewClickAnimation) userInfo:nil repeats:NO];
         [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     }
+    
+    _isNotFristLoad = YES;
 }
 
 - (void)handButtonImageViewClickAnimation {
     
     _clickCount++;
     
-    [UIView animateWithDuration:0.05 animations:^{
+    [UIView animateWithDuration:kClickAnimationDuration * 0.5 animations:^{
         self.handImageView.transform = CGAffineTransformMakeTranslation(0, 20);
     } completion:^(BOOL finished) {
+        
+        [[WXNSoundToolManager sharedSoundToolManager] playSoundWithSoundName:KSoundLaunchClickName];
+        
         self.buttonImageView.image = [UIImage imageNamed:@"play_01-iphone4"];
-        [UIView animateWithDuration:0.05 animations:^{
+        [UIView animateWithDuration:kClickAnimationDuration * 0.5 animations:^{
             self.handImageView.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
             self.buttonImageView.image = [UIImage imageNamed:@"play_00-iphone4"];
@@ -79,11 +105,15 @@
     self.topBombImageView2.hidden = NO;
     self.topBombImageView1.hidden = NO;
     
+    [[WXNSoundToolManager sharedSoundToolManager] playSoundWithSoundName:KSoundLaunchBoum];
+    
     [UIView animateWithDuration:0.2 animations:^{
         self.bottomBombImageView.transform = CGAffineTransformMakeScale(4.0, 4.0);
         self.topBombImageView1.transform = CGAffineTransformMakeScale(4.0, 4.0);
         self.topBombImageView2.transform = CGAffineTransformMakeScale(4.0, 4.0);
     } completion:^(BOOL finished) {
+        [[WXNSoundToolManager sharedSoundToolManager] playSoundWithSoundName:KSoundLaunchBoum2];
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.buttonImageView removeFromSuperview];
             
@@ -102,7 +132,7 @@
 }
 
 - (void)smokeAnimation {
-
+    
     for (int i = 0; i < self.smokeImageViews.count; i++) {
         UIImageView *smokeImageView = self.smokeImageViews[i];
         smokeImageView.layer.anchorPoint = CGPointMake(0.5, 1);
@@ -127,7 +157,6 @@
                 
             }];
         }];
-        
     }
     
 }

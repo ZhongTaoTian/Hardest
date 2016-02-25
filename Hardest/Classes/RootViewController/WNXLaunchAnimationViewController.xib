@@ -59,7 +59,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boy_01-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="eo5-n1-izS">
                     <rect key="frame" x="190" y="321" width="34" height="29"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play_02-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="zau-NU-ojn">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play_02-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="zau-NU-ojn">
                     <rect key="frame" x="181" y="350" width="49" height="39"/>
                 </imageView>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="explosion_04-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="Bo9-1b-mGz">

@@ -13,4 +13,16 @@
 #define LaunchAnimationDidFinish @"LaunchAnimationDidFinish"
 
 
+/* common */
+#define iPhone5 ([[UIScreen mainScreen] bounds].size.height == 568 || [[UIScreen mainScreen] bounds].size.height == 1136)
+#define ScreenHeightDifference ((568 - 480) * 0.5)
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
+/* import Class */
+
 #endif /* PrefixHeader_pch */
