@@ -13,6 +13,9 @@
 #define kSoundType @"kSoundType"
 
 @interface WNXSoundToolManager()
+{
+    BOOL _loadData;
+}
 
 @property (nonatomic, strong) AVAudioPlayer *bgPlayer;
 @property (nonatomic, strong) NSMutableDictionary *soundIDs;
@@ -38,15 +41,33 @@ static WNXSoundToolManager *instance = nil;
 - (instancetype)init {
     if (self = [super init]) {
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
+        _loadData = YES;
         
         self.bgMusicType = [[NSUserDefaults standardUserDefaults] integerForKey:kMusicType];
-        self.bgMusicType = [[NSUserDefaults standardUserDefaults] integerForKey:kSoundType];
+        self.soundType = [[NSUserDefaults standardUserDefaults] integerForKey:kSoundType];
         
-        [self loadBgMusic];
         [self loadSounds];
     }
     
     return self;
+}
+
+- (AVAudioPlayer *)bgPlayer {
+    if (!_bgPlayer) {
+        
+        NSURL *bgMusicURL = [[NSBundle mainBundle] URLForResource:kBgMusicURLName withExtension:nil];
+        
+        _bgPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:bgMusicURL error:nil];
+        [_bgPlayer prepareToPlay];
+        _bgPlayer.numberOfLoops = -1;
+        
+        _bgPlayer.volume = [self volumeOfSoundPlayType:[[NSUserDefaults standardUserDefaults] integerForKey:kMusicType]];
+        
+        AudioSessionAddPropertyListener(kAudioSessionProperty_CurrentHardwareOutputVolume,
+                                        audioVolumeChange, NULL);
+    }
+    
+    return _bgPlayer;
 }
 
 - (void)setBgMusicType:(SoundPlayType)bgMusicType {
@@ -55,13 +76,34 @@ static WNXSoundToolManager *instance = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     self.bgPlayer.volume = [self volumeOfSoundPlayType:bgMusicType];
-    
+
+    if (!_loadData) {
+        if (bgMusicType == SoundPlayTypeMute) {
+            [self.bgPlayer stop];
+        } else {
+            [self.bgPlayer play];
+        }
+    }
+    _loadData = NO;
 }
 
 - (void)setSoundType:(SoundPlayType)soundType {
     _soundType = soundType;
     [[NSUserDefaults standardUserDefaults] setInteger:soundType forKey:kSoundType];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    switch (soundType) {
+        case SoundPlayTypeHight:
+            [self setSoundVolumn:1.0f];
+            break;
+        case SoundPlayTypeMiddle:
+            [self setSoundVolumn:0.65];
+        case SoundPlayTypeLow:
+            [self setSoundVolumn:0.35];
+        default:
+            [self setSoundVolumn:0];
+            break;
+    }
 }
 
 - (void)playBgMusicWihtPlayAgain:(BOOL)playAgain {
@@ -80,8 +122,6 @@ static WNXSoundToolManager *instance = nil;
         return;
     }
     
-    [self loadBgMusic];
-    
     if (playAgain) {
         [self.bgPlayer stop];
     }
@@ -95,21 +135,6 @@ static WNXSoundToolManager *instance = nil;
 
 -  (void)stopBgMusic {
     [self.bgPlayer stop];
-}
-
-- (void)loadBgMusic {
-    if (self.bgPlayer) return;
-    
-    NSURL *bgMusicURL = [[NSBundle mainBundle] URLForResource:kBgMusicURLName withExtension:nil];
-    
-    self.bgPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:bgMusicURL error:nil];
-    [self.bgPlayer prepareToPlay];
-    self.bgPlayer.numberOfLoops = -1;
-    
-    self.bgPlayer.volume = [self volumeOfSoundPlayType:[[NSUserDefaults standardUserDefaults] integerForKey:kMusicType]];
-    
-    AudioSessionAddPropertyListener(kAudioSessionProperty_CurrentHardwareOutputVolume,
-                                    audioVolumeChange, NULL);
 }
 
 - (void)playSoundWithSoundName:(NSString *)soundName {
@@ -132,7 +157,7 @@ static WNXSoundToolManager *instance = nil;
     float volume;
     
     switch (type) {
-        case SoundPlayTypeMuteHight:
+        case SoundPlayTypeHight:
             volume = 1.0;
             break;
         case SoundPlayTypeMiddle:
@@ -140,6 +165,9 @@ static WNXSoundToolManager *instance = nil;
             break;
         case SoundPlayTypeLow:
             volume = 0.35;
+            break;
+        case SoundPlayTypeMute:
+            volume = 0;
             break;
         default:
             break;
@@ -202,6 +230,7 @@ void audioVolumeChange(void *inUserData, AudioSessionPropertyID inPropertyID,
 - (float)currentVolumn {
     float volume;
     UInt32 dataSize = sizeof(float);
+
     AudioSessionGetProperty (kAudioSessionProperty_CurrentHardwareOutputVolume,
                              &dataSize,
                              &volume);
@@ -209,7 +238,8 @@ void audioVolumeChange(void *inUserData, AudioSessionPropertyID inPropertyID,
 }
 
 - (void)setSoundVolumn:(float) volumn {
-    AudioSessionSetProperty(kAudioSessionProperty_AudioInputAvailable,
+//    [[AVAudioSession sharedInstance] setValue:@(volumn) forKey:@"outputVolume"];
+    AudioSessionSetProperty(kAudioSessionProperty_CurrentHardwareOutputVolume,
                             sizeof(float),
                             &volumn);
 }

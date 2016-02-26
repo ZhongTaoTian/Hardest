@@ -10,9 +10,9 @@
 #import "SoundNamesHeader.h"
 
 typedef NS_ENUM(NSInteger, SoundPlayType) {
-    SoundPlayTypeMuteHight = 0,
-    SoundPlayTypeLow,
+    SoundPlayTypeHight = 0,
     SoundPlayTypeMiddle,
+    SoundPlayTypeLow,
     SoundPlayTypeMute
 };
 

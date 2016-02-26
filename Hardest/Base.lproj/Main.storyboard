@@ -27,7 +27,6 @@
         <!--Root View Controller-->
         <scene sceneID="1xa-bA-3E4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dIW-pc-aUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="v4j-O1-j6A" customClass="WNXRootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CpY-0J-Z3o"/>
@@ -44,6 +43,7 @@
                         <segue destination="4YA-dv-u5i" kind="show" identifier="PlayGame" id="Chf-QC-NZB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dIW-pc-aUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146" y="516"/>
         </scene>
@@ -59,45 +59,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdo-dV-Bcc">
-                                <rect key="frame" x="40" y="60" width="240" height="62"/>
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdo-dV-Bcc">
+                                <rect key="frame" x="35" y="60" width="250" height="62"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="BC3-Rk-u3b"/>
+                                    <constraint firstAttribute="width" constant="250" id="BC3-Rk-u3b"/>
                                     <constraint firstAttribute="height" constant="62" id="ydq-Jz-zME"/>
                                 </constraints>
-                                <state key="normal" title="Button" backgroundImage="bt_green"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                <state key="normal" title="MUSIC [HIGH]" backgroundImage="bt_green">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClick:" destination="Mai-kF-i4N" eventType="touchUpInside" id="smv-3K-nBG"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uK5-Lv-eus">
-                                <rect key="frame" x="40" y="143" width="240" height="62"/>
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uK5-Lv-eus">
+                                <rect key="frame" x="35" y="143" width="250" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="fQT-QO-XBq"/>
-                                    <constraint firstAttribute="width" constant="240" id="iZH-Ri-mdv"/>
+                                    <constraint firstAttribute="width" constant="250" id="iZH-Ri-mdv"/>
                                 </constraints>
-                                <state key="normal" title="Button" backgroundImage="bt_green"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                <state key="normal" title="SOUND [HIGH]" backgroundImage="bt_green">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClick:" destination="Mai-kF-i4N" eventType="touchUpInside" id="vKp-vc-452"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-EK-yL6">
-                                <rect key="frame" x="40" y="225" width="240" height="62"/>
+                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-EK-yL6">
+                                <rect key="frame" x="35" y="225" width="250" height="62"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="02n-3I-PdS"/>
+                                    <constraint firstAttribute="width" constant="250" id="02n-3I-PdS"/>
                                     <constraint firstAttribute="height" constant="62" id="Nmy-Bh-7bZ"/>
                                 </constraints>
-                                <state key="normal" title="Button" backgroundImage="bt_green"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                <state key="normal" title="RESTORE PURCHASE" backgroundImage="bt_blue-iphone4">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClick:" destination="Mai-kF-i4N" eventType="touchUpInside" id="vUk-aK-Pnm"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jv-aF-Pg3">
-                                <rect key="frame" x="40" y="307" width="240" height="62"/>
+                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jv-aF-Pg3">
+                                <rect key="frame" x="35" y="307" width="250" height="62"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="DuK-Ld-yQe"/>
+                                    <constraint firstAttribute="width" constant="250" id="DuK-Ld-yQe"/>
                                     <constraint firstAttribute="height" constant="62" id="vUQ-kR-0DV"/>
                                 </constraints>
-                                <state key="normal" title="Button" backgroundImage="bt_green"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                <state key="normal" title="PRAVCY POLICY" backgroundImage="bt_blue-iphone4">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClick:" destination="Mai-kF-i4N" eventType="touchUpInside" id="4mP-bi-zQm"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELP-98-5VG">
-                                <rect key="frame" x="40" y="389" width="240" height="62"/>
+                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELP-98-5VG">
+                                <rect key="frame" x="35" y="389" width="250" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="6l7-YF-cN5"/>
-                                    <constraint firstAttribute="width" constant="240" id="LSY-8D-GHC"/>
+                                    <constraint firstAttribute="width" constant="250" id="LSY-8D-GHC"/>
                                 </constraints>
-                                <state key="normal" title="Button" backgroundImage="bt_green"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                <state key="normal" title="FACEBOOK LOGIN" backgroundImage="bt_blue-iphone4">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClick:" destination="Mai-kF-i4N" eventType="touchUpInside" id="JW8-ht-UZR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,6 +146,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="86q-GW-omb"/>
                     <connections>
+                        <outlet property="bgMusicButton" destination="cdo-dV-Bcc" id="8Aw-3P-Bbq"/>
+                        <outlet property="other1Button" destination="cDX-EK-yL6" id="hbG-as-3EG"/>
+                        <outlet property="other2Button" destination="8Jv-aF-Pg3" id="70h-YL-KkV"/>
+                        <outlet property="other3Button" destination="ELP-98-5VG" id="Zn1-wk-5n8"/>
+                        <outlet property="soundButton" destination="uK5-Lv-eus" id="56w-EQ-aFw"/>
                         <outlet property="topMargin" destination="YRn-af-oZi" id="u2L-Le-DFp"/>
                     </connections>
                 </viewController>
@@ -144,6 +179,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bt_blue-iphone4" width="468" height="120"/>
         <image name="bt_green" width="468" height="119"/>
     </resources>
 </document>
