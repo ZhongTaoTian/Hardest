@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, SoundPlayType) {
     SoundPlayTypeMute
 };
 
-@interface WXNSoundToolManager : NSObject
+@interface WNXSoundToolManager : NSObject
 
 @property (nonatomic, assign) SoundPlayType bgMusicType;
 @property (nonatomic, assign) SoundPlayType soundType;

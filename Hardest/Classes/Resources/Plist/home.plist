@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>iphone4</key>
+	<dict>
+		<key>btn_setting_frame</key>
+		<string>{{8, 135}, {45, 45}}</string>
+		<key>btn_language_frame</key>
+		<string>{{8, 197}, {45, 45}}</string>
+		<key>btn_more_frame</key>
+		<string>{{8, 258}, {45, 45}}</string>
+		<key>btn_rank_frame</key>
+		<string>{{15, 395}, {80, 50}}</string>
+		<key>btn_play_frame</key>
+		<string>{{100, 380}, {125, 80}}</string>
+		<key>btn_get_frame</key>
+		<string>{{230, 395}, {80, 50}}</string>
+	</dict>
+	<key>iphone5</key>
+	<dict>
+		<key>btn_more_frame</key>
+		<string>{{8, 302}, {45, 45}}</string>
+		<key>btn_rank_frame</key>
+		<string>{{15, 439}, {80, 50}}</string>
+		<key>btn_play_frame</key>
+		<string>{{100, 424}, {125, 80}}</string>
+		<key>btn_get_frame</key>
+		<string>{{230, 439}, {80, 50}}</string>
+		<key>btn_language_frame</key>
+		<string>{{8, 241}, {45, 45}}</string>
+		<key>btn_setting_frame</key>
+		<string>{{8, 179}, {45, 45}}</string>
+	</dict>
+</dict>
+</plist>

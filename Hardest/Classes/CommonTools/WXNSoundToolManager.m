@@ -6,30 +6,30 @@
 //  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 
-#import "WXNSoundToolManager.h"
+#import "WNXSoundToolManager.h"
 #import <AVFoundation/AVFoundation.h>
 
 #define kMusicType @"kMusicType"
 #define kSoundType @"kSoundType"
 
-@interface WXNSoundToolManager()
+@interface WNXSoundToolManager()
 
 @property (nonatomic, strong) AVAudioPlayer *bgPlayer;
 @property (nonatomic, strong) NSMutableDictionary *soundIDs;
 
 @end
 
-@implementation WXNSoundToolManager
+@implementation WNXSoundToolManager
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
-static WXNSoundToolManager *instance = nil;
+static WNXSoundToolManager *instance = nil;
 
 + (instancetype)sharedSoundToolManager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[WXNSoundToolManager alloc] init];
+        instance = [[WNXSoundToolManager alloc] init];
     });
     
     return instance;
@@ -103,8 +103,11 @@ static WXNSoundToolManager *instance = nil;
     NSURL *bgMusicURL = [[NSBundle mainBundle] URLForResource:kBgMusicURLName withExtension:nil];
     
     self.bgPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:bgMusicURL error:nil];
+    [self.bgPlayer prepareToPlay];
     self.bgPlayer.numberOfLoops = -1;
-    self.bgPlayer.volume = [[NSUserDefaults standardUserDefaults] integerForKey:kMusicType];
+    
+    self.bgPlayer.volume = [self volumeOfSoundPlayType:[[NSUserDefaults standardUserDefaults] integerForKey:kMusicType]];
+    
     AudioSessionAddPropertyListener(kAudioSessionProperty_CurrentHardwareOutputVolume,
                                     audioVolumeChange, NULL);
 }
@@ -154,9 +157,9 @@ void audioVolumeChange(void *inUserData, AudioSessionPropertyID inPropertyID,
     
     // 2.根据当前音量决定播放还是暂停背景音乐
     if (value > 0) {
-        [[WXNSoundToolManager sharedSoundToolManager] playBgMusicWihtPlayAgain:YES];
+        [[WNXSoundToolManager sharedSoundToolManager] playBgMusicWihtPlayAgain:YES];
     } else {
-        [[WXNSoundToolManager sharedSoundToolManager] pauseBgMusic];
+        [[WNXSoundToolManager sharedSoundToolManager] pauseBgMusic];
     }
 }
 

@@ -7,7 +7,6 @@
 //
 
 #import "WNXLaunchAnimationViewController.h"
-#import "WXNSoundToolManager.h"
 
 #define kMaxHandClickCount 15
 #define kClickAnimationDuration 0.1
@@ -78,7 +77,7 @@
         self.handImageView.transform = CGAffineTransformMakeTranslation(0, 20);
     } completion:^(BOOL finished) {
         
-        [[WXNSoundToolManager sharedSoundToolManager] playSoundWithSoundName:KSoundLaunchClickName];
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundLaunchClickName];
         
         self.buttonImageView.image = [UIImage imageNamed:@"play_01-iphone4"];
         [UIView animateWithDuration:kClickAnimationDuration * 0.5 animations:^{
@@ -105,14 +104,14 @@
     self.topBombImageView2.hidden = NO;
     self.topBombImageView1.hidden = NO;
     
-    [[WXNSoundToolManager sharedSoundToolManager] playSoundWithSoundName:KSoundLaunchBoum];
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundLaunchBoum];
     
     [UIView animateWithDuration:0.2 animations:^{
         self.bottomBombImageView.transform = CGAffineTransformMakeScale(4.0, 4.0);
         self.topBombImageView1.transform = CGAffineTransformMakeScale(4.0, 4.0);
         self.topBombImageView2.transform = CGAffineTransformMakeScale(4.0, 4.0);
     } completion:^(BOOL finished) {
-        [[WXNSoundToolManager sharedSoundToolManager] playSoundWithSoundName:KSoundLaunchBoum2];
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundLaunchBoum2];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.buttonImageView removeFromSuperview];

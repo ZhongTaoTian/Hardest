@@ -27,21 +27,123 @@
         <!--Root View Controller-->
         <scene sceneID="1xa-bA-3E4">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dIW-pc-aUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="v4j-O1-j6A" customClass="WNXRootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CpY-0J-Z3o"/>
                         <viewControllerLayoutGuide type="bottom" id="8Zf-mV-LBT"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HBo-Tw-Z3J">
+                    <view key="view" contentMode="scaleToFill" id="HBo-Tw-Z3J" customClass="WNXFullBackgroundView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="QtK-Fa-bTY"/>
+                    <connections>
+                        <segue destination="Mai-kF-i4N" kind="show" identifier="Setting" id="PPr-L4-ZTH"/>
+                        <segue destination="4YA-dv-u5i" kind="show" identifier="PlayGame" id="Chf-QC-NZB"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dIW-pc-aUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52" y="528"/>
+            <point key="canvasLocation" x="-146" y="516"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="zMO-kZ-41A">
+            <objects>
+                <viewController id="Mai-kF-i4N" customClass="WNXSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EYR-WG-dhN"/>
+                        <viewControllerLayoutGuide type="bottom" id="beL-be-tTE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="klV-fW-Vqc" customClass="WNXFullBackgroundView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdo-dV-Bcc">
+                                <rect key="frame" x="40" y="60" width="240" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="BC3-Rk-u3b"/>
+                                    <constraint firstAttribute="height" constant="62" id="ydq-Jz-zME"/>
+                                </constraints>
+                                <state key="normal" title="Button" backgroundImage="bt_green"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uK5-Lv-eus">
+                                <rect key="frame" x="40" y="143" width="240" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="fQT-QO-XBq"/>
+                                    <constraint firstAttribute="width" constant="240" id="iZH-Ri-mdv"/>
+                                </constraints>
+                                <state key="normal" title="Button" backgroundImage="bt_green"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-EK-yL6">
+                                <rect key="frame" x="40" y="225" width="240" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="02n-3I-PdS"/>
+                                    <constraint firstAttribute="height" constant="62" id="Nmy-Bh-7bZ"/>
+                                </constraints>
+                                <state key="normal" title="Button" backgroundImage="bt_green"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jv-aF-Pg3">
+                                <rect key="frame" x="40" y="307" width="240" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="DuK-Ld-yQe"/>
+                                    <constraint firstAttribute="height" constant="62" id="vUQ-kR-0DV"/>
+                                </constraints>
+                                <state key="normal" title="Button" backgroundImage="bt_green"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELP-98-5VG">
+                                <rect key="frame" x="40" y="389" width="240" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="6l7-YF-cN5"/>
+                                    <constraint firstAttribute="width" constant="240" id="LSY-8D-GHC"/>
+                                </constraints>
+                                <state key="normal" title="Button" backgroundImage="bt_green"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cDX-EK-yL6" firstAttribute="top" secondItem="uK5-Lv-eus" secondAttribute="bottom" constant="20" id="E1T-9Y-oJG"/>
+                            <constraint firstItem="8Jv-aF-Pg3" firstAttribute="centerX" secondItem="klV-fW-Vqc" secondAttribute="centerX" id="Gyl-B7-ibA"/>
+                            <constraint firstItem="8Jv-aF-Pg3" firstAttribute="top" secondItem="cDX-EK-yL6" secondAttribute="bottom" constant="20" id="LwJ-Dt-0BL"/>
+                            <constraint firstItem="cdo-dV-Bcc" firstAttribute="top" secondItem="EYR-WG-dhN" secondAttribute="bottom" constant="60" id="YRn-af-oZi"/>
+                            <constraint firstItem="uK5-Lv-eus" firstAttribute="centerX" secondItem="klV-fW-Vqc" secondAttribute="centerX" id="Zwc-Zh-arb"/>
+                            <constraint firstItem="ELP-98-5VG" firstAttribute="centerX" secondItem="klV-fW-Vqc" secondAttribute="centerX" id="lVB-wc-D8X"/>
+                            <constraint firstItem="ELP-98-5VG" firstAttribute="top" secondItem="8Jv-aF-Pg3" secondAttribute="bottom" constant="20" id="nog-bJ-uf8"/>
+                            <constraint firstItem="cdo-dV-Bcc" firstAttribute="centerX" secondItem="klV-fW-Vqc" secondAttribute="centerX" id="vbh-3d-tgO"/>
+                            <constraint firstItem="uK5-Lv-eus" firstAttribute="top" secondItem="cdo-dV-Bcc" secondAttribute="bottom" constant="21" id="wfV-m4-M7Q"/>
+                            <constraint firstItem="cDX-EK-yL6" firstAttribute="centerX" secondItem="klV-fW-Vqc" secondAttribute="centerX" id="wq5-Xf-YSH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="86q-GW-omb"/>
+                    <connections>
+                        <outlet property="topMargin" destination="YRn-af-oZi" id="u2L-Le-DFp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tMa-r2-ANW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297" y="534"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Y7R-kT-Eml">
+            <objects>
+                <viewController id="4YA-dv-u5i" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="07J-lC-Yhr"/>
+                        <viewControllerLayoutGuide type="bottom" id="NSQ-FL-Vgv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LAS-Dx-imb" customClass="WNXFullBackgroundView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1m6-qx-qOa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KD7-0b-Ldd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="610" y="1217"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bt_green" width="468" height="119"/>
+    </resources>
 </document>

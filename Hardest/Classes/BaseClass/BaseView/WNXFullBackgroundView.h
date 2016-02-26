@@ -1,13 +1,13 @@
 //
-//  UIView+WXNImage.m
+//  WXNFullBackgroundView.h
 //  Hardest
 //
 //  Created by sfbest on 16/2/25.
 //  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 
-#import "UIView+WXNImage.h"
+#import <UIKit/UIKit.h>
 
-@implementation UIView (WXNImage)
+@interface WNXFullBackgroundView : UIView
 
 @end

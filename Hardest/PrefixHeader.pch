@@ -24,5 +24,7 @@
 #endif
 
 /* import Class */
+#import "UIView+WNXImage.h"
+#import "WNXSoundToolManager.h"
 
 #endif /* PrefixHeader_pch */

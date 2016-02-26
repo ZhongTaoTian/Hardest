@@ -14,9 +14,8 @@
 
 @implementation WNXBaseNavigationController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    [super pushViewController:viewController animated:NO];
 }
 
 @end
