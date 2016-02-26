@@ -143,12 +143,11 @@
             smokeImageView.transform = CGAffineTransformMakeScale(1, 2);
             smokeImageView.alpha = 0.4;
         } completion:^(BOOL finished) {
-            [UIView animateWithDuration:0.2 animations:^{
+            [UIView animateWithDuration:0.3 animations:^{
                 smokeImageView.alpha = 0;
-                [smokeImageView removeFromSuperview];
             } completion:^(BOOL finished) {
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if (self.animationFinish) {
                         self.animationFinish();
                     }

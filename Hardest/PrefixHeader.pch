@@ -16,6 +16,9 @@
 /* common */
 #define iPhone5 ([[UIScreen mainScreen] bounds].size.height == 568 || [[UIScreen mainScreen] bounds].size.height == 1136)
 #define ScreenHeightDifference ((568 - 480) * 0.5)
+#define ScreenBounds [UIScreen mainScreen].bounds
+#define ScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
 #ifdef DEBUG
 #define NSLog(...) NSLog(__VA_ARGS__)
@@ -26,5 +29,7 @@
 /* import Class */
 #import "UIView+WNXImage.h"
 #import "WNXSoundToolManager.h"
+#import "WNXBackViewController.h"
+#import "WNXFullBackgroundView.h"
 
 #endif /* PrefixHeader_pch */

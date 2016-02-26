@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="297" y="534"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Stage View Controller-->
         <scene sceneID="Y7R-kT-Eml">
             <objects>
-                <viewController id="4YA-dv-u5i" sceneMemberID="viewController">
+                <viewController id="4YA-dv-u5i" customClass="WNXSelectStageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="07J-lC-Yhr"/>
                         <viewControllerLayoutGuide type="bottom" id="NSQ-FL-Vgv"/>
@@ -169,13 +169,29 @@
                     <view key="view" contentMode="scaleToFill" id="LAS-Dx-imb" customClass="WNXFullBackgroundView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="eyP-Kn-y1o">
+                                <rect key="frame" x="0.0" y="511" width="320" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="sLn-lC-qhC"/>
+                                </constraints>
+                            </pageControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NSQ-FL-Vgv" firstAttribute="top" secondItem="eyP-Kn-y1o" secondAttribute="bottom" constant="27" id="Jaj-qg-lZZ"/>
+                            <constraint firstAttribute="trailing" secondItem="eyP-Kn-y1o" secondAttribute="trailing" id="Lif-ti-0su"/>
+                            <constraint firstItem="eyP-Kn-y1o" firstAttribute="leading" secondItem="LAS-Dx-imb" secondAttribute="leading" id="pqx-Fg-SEu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1m6-qx-qOa"/>
+                    <connections>
+                        <outlet property="pageControl" destination="eyP-Kn-y1o" id="fa3-Pm-b6D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KD7-0b-Ldd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610" y="1217"/>
+            <point key="canvasLocation" x="534" y="1223"/>
         </scene>
     </scenes>
     <resources>
