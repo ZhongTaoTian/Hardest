@@ -9,6 +9,7 @@
 #import "WNXStageListView.h"
 #import "WNXStage.h"
 #import "WNXStageView.h"
+#import "WNXStageInfoManager.h"
 
 @implementation WNXStageListView
 
@@ -41,10 +42,12 @@
     CGFloat stageViewH = 100;
     CGFloat viewMaxgin = ScreenWidth - stageViewW * 2 - 25 * 2;
     CGFloat topMagin = iPhone5 ? 130 : 80;
+    WNXStageInfoManager *manager = [WNXStageInfoManager sharedStageInfoManager];
     
     for (int i = 0; i < stageArr.count; i++) {
         WNXStage *stage = [WNXStage stageWithDict:stageArr[i]];
         stage.num = i + 1;
+        stage.userInfo = [manager stageInfoWithNumber:i + 1];
         
         WNXStageView *stageView = [WNXStageView stageViewWithStage:stage];
         

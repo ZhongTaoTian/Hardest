@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class WNXStageUserInfo;
+@class WNXStageInfo;
 
 @interface WNXStage : NSObject
 
@@ -21,7 +21,7 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *unit;
 
-@property (nonatomic, strong) WNXStageUserInfo *userInfo;
+@property (nonatomic, strong) WNXStageInfo *userInfo;
 
 + (instancetype)stageWithDict:(NSDictionary *)dict;
 

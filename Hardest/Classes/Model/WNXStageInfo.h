@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WNXStageUserInfo : NSObject <NSCoding>
+@interface WNXStageInfo : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *rank;
 @property (nonatomic, assign) int num;

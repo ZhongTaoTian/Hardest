@@ -9,6 +9,7 @@
 #import "WNXStageView.h"
 #import "UIView+WNXImage.h"
 #import "WNXStage.h"
+#import "WNXStageInfo.h"
 
 @interface WNXStageView ()
 
@@ -36,9 +37,6 @@
 - (void)awakeFromNib {
     self.clipsToBounds = NO;
     self.numButton.userInteractionEnabled = NO;
-    self.rankImageView.hidden = YES;
-    self.stageNewImageView.hidden = YES;
-    self.rankShadowView.hidden = YES;
 }
 
 - (void)setStage:(WNXStage *)stage {
@@ -49,7 +47,14 @@
 }
 
 - (void)updateStageViewInfo {
-    
+    if (self.stage.userInfo) {
+        
+    } else {
+        self.userInteractionEnabled = NO;
+        self.rankImageView.hidden = YES;
+        self.stageNewImageView.hidden = YES;
+        self.rankShadowView.hidden = YES;
+    }
 }
 
 - (void)startUnLockAnmiation {

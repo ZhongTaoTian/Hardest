@@ -6,14 +6,14 @@
 //  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 
-#import "WNXStageUserInfo.h"
+#import "WNXStageInfo.h"
 
 #define kRank @"rank"
 #define kScore @"score"
 #define kUnlock @"unlock"
 #define kNum @"num"
 
-@implementation WNXStageUserInfo
+@implementation WNXStageInfo
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
