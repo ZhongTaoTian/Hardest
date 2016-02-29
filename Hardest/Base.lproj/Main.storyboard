@@ -171,7 +171,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="eyP-Kn-y1o">
-                                <rect key="frame" x="0.0" y="511" width="320" height="30"/>
+                                <rect key="frame" x="0.0" y="523" width="320" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="sLn-lC-qhC"/>
                                 </constraints>
@@ -179,7 +179,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NSQ-FL-Vgv" firstAttribute="top" secondItem="eyP-Kn-y1o" secondAttribute="bottom" constant="27" id="Jaj-qg-lZZ"/>
+                            <constraint firstItem="NSQ-FL-Vgv" firstAttribute="top" secondItem="eyP-Kn-y1o" secondAttribute="bottom" constant="15" id="Jaj-qg-lZZ"/>
                             <constraint firstAttribute="trailing" secondItem="eyP-Kn-y1o" secondAttribute="trailing" id="Lif-ti-0su"/>
                             <constraint firstItem="eyP-Kn-y1o" firstAttribute="leading" secondItem="LAS-Dx-imb" secondAttribute="leading" id="pqx-Fg-SEu"/>
                         </constraints>

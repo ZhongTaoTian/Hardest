@@ -25,6 +25,7 @@
     [self.view setBackgroundImageWihtImageName:@"select_bg"];
     
     [self.view insertSubview:self.listView atIndex:0];
+
 }
 
 - (WNXStageListView *)listView {

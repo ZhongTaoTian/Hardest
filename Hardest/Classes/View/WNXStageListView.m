@@ -7,6 +7,8 @@
 //
 
 #import "WNXStageListView.h"
+#import "WNXStage.h"
+#import "WNXStageView.h"
 
 @implementation WNXStageListView
 
@@ -25,9 +27,35 @@
             [self addSubview:listView];
         }
         
+        [self loadStageInfo];
     }
 
     return self;
+}
+
+- (void)loadStageInfo {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"stages.plist" ofType:nil];
+    NSArray *stageArr = [NSArray arrayWithContentsOfFile:path];
+    
+    CGFloat stageViewW = 120;
+    CGFloat stageViewH = 100;
+    CGFloat viewMaxgin = ScreenWidth - stageViewW * 2 - 25 * 2;
+    CGFloat topMagin = iPhone5 ? 130 : 80;
+    
+    for (int i = 0; i < stageArr.count; i++) {
+        WNXStage *stage = [WNXStage stageWithDict:stageArr[i]];
+        stage.num = i + 1;
+        
+        WNXStageView *stageView = [WNXStageView stageViewWithStage:stage];
+        
+        CGFloat scrollX = ((int)(i / 6)) * ScreenWidth;
+        
+        CGFloat startX = 25 + ((i % 6) / 3) * (stageViewW + viewMaxgin) + scrollX;
+        CGFloat startY = topMagin + (i % 3) * (stageViewH + 30);
+        
+        stageView.frame = CGRectMake(startX, startY, stageViewW, stageViewH);
+        [self addSubview:stageView];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
