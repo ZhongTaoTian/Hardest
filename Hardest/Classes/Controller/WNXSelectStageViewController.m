@@ -8,6 +8,9 @@
 
 #import "WNXSelectStageViewController.h"
 #import "WNXStageListView.h"
+#import "WNXPrepareViewController.h"
+
+#define kPrepareIdentifier @"prepare"
 
 @interface WNXSelectStageViewController ()
 
@@ -21,25 +24,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self.view setBackgroundImageWihtImageName:@"select_bg"];
     
-    [self.view insertSubview:self.listView atIndex:0];
-
+    [self.view setBackgroundImageWihtImageName:@"select_bg"];
 }
 
-- (WNXStageListView *)listView {
-    if (!_listView) {
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (!self.listView) {
         __weak __typeof(self) weakSelf = self;
-        _listView = [[WNXStageListView alloc] init];
-        _listView.didChangeScrollPage = ^(int page){
+        self.listView = [[WNXStageListView alloc] init];
+        self.listView.didChangeScrollPage = ^(int page) {
             weakSelf.pageControl.currentPage = page;
         };
+        
+        self.listView.didSelectedStageView = ^(WNXStage *stage) {
+            [weakSelf performSegueWithIdentifier:kPrepareIdentifier sender:stage];
+        };
+        
+        [self.view insertSubview:self.listView atIndex:0];
     }
-
-    return _listView;
 }
 
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:kPrepareIdentifier]) {
+        WNXPrepareViewController *prepaerVC = segue.destinationViewController;
+        prepaerVC.stage = (WNXStage *)sender;
+    }
+}
 
 @end

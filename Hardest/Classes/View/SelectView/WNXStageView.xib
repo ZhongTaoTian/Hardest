@@ -29,10 +29,10 @@
                     </state>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="select_stage_a" translatesAutoresizingMaskIntoConstraints="NO" id="47i-fP-V4v">
-                    <rect key="frame" x="66" y="37" width="57" height="62"/>
+                    <rect key="frame" x="66" y="39" width="57" height="62"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="select_new" translatesAutoresizingMaskIntoConstraints="NO" id="tuC-M9-fWj">
-                    <rect key="frame" x="30" y="-3" width="65" height="29"/>
+                    <rect key="frame" x="30" y="-10" width="65" height="29"/>
                 </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BrQ-tn-284">
                     <rect key="frame" x="0.0" y="13" width="125" height="76"/>
@@ -50,7 +50,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="select_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="5xw-AP-lY9">
-                    <rect key="frame" x="64" y="94" width="64" height="13"/>
+                    <rect key="frame" x="62" y="94" width="64" height="15"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

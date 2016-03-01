@@ -30,7 +30,7 @@
 }
 
 - (void)backButtonClick {
-    
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundCliclName];
     [self.navigationController popViewControllerAnimated:NO];
     
 }

@@ -1,18 +1,17 @@
 //
-//  WNXStageView.h
+//  WNXPrepareViewController.h
 //  Hardest
 //
-//  Created by sfbest on 16/2/26.
+//  Created by sfbest on 16/3/1.
 //  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+
 @class WNXStage;
 
-@interface WNXStageView : UIView
+@interface WNXPrepareViewController : UIViewController
 
 @property (nonatomic, strong) WNXStage *stage;
-
-+ (instancetype)stageViewWithStage:(WNXStage *)stage frame:(CGRect)frame;
 
 @end

@@ -18,6 +18,7 @@
 		B34333A61C8446060086EF87 /* WNXStageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34333A21C8446060086EF87 /* WNXStageListView.m */; settings = {ASSET_TAGS = (); }; };
 		B34333A71C8446060086EF87 /* WNXStageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34333A41C8446060086EF87 /* WNXStageView.m */; settings = {ASSET_TAGS = (); }; };
 		B34333A81C8446060086EF87 /* WNXStageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34333A51C8446060086EF87 /* WNXStageView.xib */; settings = {ASSET_TAGS = (); }; };
+		B34333AC1C8535340086EF87 /* WNXPrepareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34333AB1C8535340086EF87 /* WNXPrepareViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B384CD251C7E9F42008AFA9E /* WXNSoundToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B384CD241C7E9F42008AFA9E /* WXNSoundToolManager.m */; settings = {ASSET_TAGS = (); }; };
 		B384CD281C7EE616008AFA9E /* sound.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B384CD271C7EE616008AFA9E /* sound.bundle */; settings = {ASSET_TAGS = (); }; };
 		B384CD2A1C7EE9C4008AFA9E /* bg_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B384CD291C7EE9C4008AFA9E /* bg_music.mp3 */; settings = {ASSET_TAGS = (); }; };
@@ -78,6 +79,8 @@
 		B34333A31C8446060086EF87 /* WNXStageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStageView.h; sourceTree = "<group>"; };
 		B34333A41C8446060086EF87 /* WNXStageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStageView.m; sourceTree = "<group>"; };
 		B34333A51C8446060086EF87 /* WNXStageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXStageView.xib; sourceTree = "<group>"; };
+		B34333AA1C8535340086EF87 /* WNXPrepareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXPrepareViewController.h; sourceTree = "<group>"; };
+		B34333AB1C8535340086EF87 /* WNXPrepareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXPrepareViewController.m; sourceTree = "<group>"; };
 		B384CD231C7E9F42008AFA9E /* WNXSoundToolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXSoundToolManager.h; sourceTree = "<group>"; };
 		B384CD241C7E9F42008AFA9E /* WXNSoundToolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXNSoundToolManager.m; sourceTree = "<group>"; };
 		B384CD261C7EE513008AFA9E /* SoundNamesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundNamesHeader.h; sourceTree = "<group>"; };
@@ -249,6 +252,19 @@
 			path = SelectView;
 			sourceTree = "<group>";
 		};
+		B34333A91C8534B90086EF87 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B384CD3C1C7FF8D7008AFA9E /* WNXSettingViewController.h */,
+				B384CD3D1C7FF8D7008AFA9E /* WNXSettingViewController.m */,
+				B384CD441C804BA8008AFA9E /* WNXSelectStageViewController.h */,
+				B384CD451C804BA8008AFA9E /* WNXSelectStageViewController.m */,
+				B34333AA1C8535340086EF87 /* WNXPrepareViewController.h */,
+				B34333AB1C8535340086EF87 /* WNXPrepareViewController.m */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
 		B384CD221C7E9F1B008AFA9E /* CommonTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,11 +298,8 @@
 		B384CD381C7FF892008AFA9E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B34333A91C8534B90086EF87 /* MainViewController */,
 				B3EEACF11C7C61D300992B34 /* RootViewController */,
-				B384CD3C1C7FF8D7008AFA9E /* WNXSettingViewController.h */,
-				B384CD3D1C7FF8D7008AFA9E /* WNXSettingViewController.m */,
-				B384CD441C804BA8008AFA9E /* WNXSelectStageViewController.h */,
-				B384CD451C804BA8008AFA9E /* WNXSelectStageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -509,6 +522,7 @@
 				B3E561961C7C6F650081C720 /* WNXLaunchAnimationViewController.m in Sources */,
 				B384CD251C7E9F42008AFA9E /* WXNSoundToolManager.m in Sources */,
 				B384CD3E1C7FF8D7008AFA9E /* WNXSettingViewController.m in Sources */,
+				B34333AC1C8535340086EF87 /* WNXPrepareViewController.m in Sources */,
 				B34333A71C8446060086EF87 /* WNXStageView.m in Sources */,
 				B343339F1C842D1A0086EF87 /* WNXStageInfoManager.m in Sources */,
 				B34333A61C8446060086EF87 /* WNXStageListView.m in Sources */,

@@ -49,15 +49,16 @@
         stage.num = i + 1;
         stage.userInfo = [manager stageInfoWithNumber:i + 1];
         
-        WNXStageView *stageView = [WNXStageView stageViewWithStage:stage];
-        
         CGFloat scrollX = ((int)(i / 6)) * ScreenWidth;
-        
         CGFloat startX = 25 + ((i % 6) / 3) * (stageViewW + viewMaxgin) + scrollX;
         CGFloat startY = topMagin + (i % 3) * (stageViewH + 30);
         
-        stageView.frame = CGRectMake(startX, startY, stageViewW, stageViewH);
-        [self addSubview:stageView];
+        WNXStageView *stageView = [WNXStageView stageViewWithStage:stage frame:CGRectMake(startX, startY, stageViewW, stageViewH)];
+        stageView.tag = 100 + i;
+        [self insertSubview:stageView atIndex:5];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(stageViewDidSelected:)];
+        [stageView addGestureRecognizer:tap];
     }
 }
 
@@ -68,6 +69,12 @@
         if (page < 0) page = 0;
         if (page > 3) page = 3;
         self.didChangeScrollPage(page);
+    }
+}
+
+- (void)stageViewDidSelected:(UITapGestureRecognizer *)tap {
+    if (self.didSelectedStageView) {
+        self.didSelectedStageView(((WNXStageView *)tap.view).stage);
     }
 }
 

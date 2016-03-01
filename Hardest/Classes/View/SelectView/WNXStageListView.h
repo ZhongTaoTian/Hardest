@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class WNXStage;
 
 @interface WNXStageListView : UIScrollView <UIScrollViewDelegate>
 
 @property (nonatomic, copy) void (^didChangeScrollPage)(int page);
+@property (nonatomic, copy) void (^didSelectedStageView)(WNXStage *stage);
 
 @end
