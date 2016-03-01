@@ -47,6 +47,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([segue.identifier isEqualToString:kPrepareIdentifier]) {
         WNXPrepareViewController *prepaerVC = segue.destinationViewController;
         prepaerVC.stage = (WNXStage *)sender;

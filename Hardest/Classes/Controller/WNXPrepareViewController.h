@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class WNXStage;
-
 @interface WNXPrepareViewController : UIViewController
 
 @property (nonatomic, strong) WNXStage *stage;

@@ -206,42 +206,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCk-0A-iC8" customClass="WNXFullBackgroundView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="STAGE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHE-LE-HUA">
-                                        <rect key="frame" x="96" y="0.0" width="160" height="71"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="40"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUh-gB-T0j">
-                                        <rect key="frame" x="246" y="11" width="56" height="67"/>
-                                        <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="30"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="699-yb-2Zw">
-                                        <rect key="frame" x="36" y="108" width="248" height="74"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvU-ml-ITJ">
-                                        <rect key="frame" x="36" y="206" width="248" height="74"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZR7-2V-6co">
-                                        <rect key="frame" x="36" y="308" width="248" height="74"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5C-48-YvF">
                                 <rect key="frame" x="253" y="10" width="56" height="51"/>
                                 <state key="normal" backgroundImage="ready_btplay"/>
@@ -291,7 +255,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-qO-itK">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-qO-itK" customClass="WNXPrepareScoreView">
                                 <rect key="frame" x="0.0" y="410" width="320" height="128"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ready_score" translatesAutoresizingMaskIntoConstraints="NO" id="BNb-tk-BZz">
@@ -338,6 +302,52 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="arrowImageView" destination="Ud8-qD-fhI" id="L84-66-7vs"/>
+                                    <outlet property="scoreImageView" destination="BNb-tk-BZz" id="muu-c0-Xtg"/>
+                                    <outletCollection property="labels" destination="gcC-7m-B3a" id="WdH-nz-n8f"/>
+                                    <outletCollection property="labels" destination="emL-1z-T5a" id="W0P-5D-2GP"/>
+                                    <outletCollection property="labels" destination="ZKC-db-FYC" id="o7G-pb-d49"/>
+                                    <outletCollection property="labels" destination="eYA-FT-3Xb" id="B6C-Zr-6Vg"/>
+                                    <outletCollection property="labels" destination="grD-5h-JUx" id="MOR-lu-Rla"/>
+                                    <outletCollection property="labels" destination="kXs-2a-b58" id="jGR-wT-3Xs"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCk-0A-iC8" customClass="WNXFullBackgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="STAGE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHE-LE-HUA">
+                                        <rect key="frame" x="96" y="0.0" width="160" height="71"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="40"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUh-gB-T0j">
+                                        <rect key="frame" x="246" y="11" width="56" height="67"/>
+                                        <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="699-yb-2Zw">
+                                        <rect key="frame" x="36" y="108" width="248" height="74"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvU-ml-ITJ">
+                                        <rect key="frame" x="36" y="206" width="248" height="74"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZR7-2V-6co">
+                                        <rect key="frame" x="36" y="308" width="248" height="74"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.41960784313725491" green="0.70588235294117652" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
@@ -355,9 +365,10 @@
                         <outlet property="number1Label" destination="SGd-Oz-l9P" id="R2p-R8-YBX"/>
                         <outlet property="numberLabel" destination="UUh-gB-T0j" id="UAP-Zl-eHY"/>
                         <outlet property="playButton" destination="Y5C-48-YvF" id="gPl-TL-uIc"/>
-                        <outletCollection property="labels" destination="699-yb-2Zw" id="zru-24-IBR"/>
-                        <outletCollection property="labels" destination="WvU-ml-ITJ" id="3xc-Jo-JyF"/>
-                        <outletCollection property="labels" destination="ZR7-2V-6co" id="usa-je-sj9"/>
+                        <outlet property="scoreView" destination="P6d-qO-itK" id="jHW-3t-8qF"/>
+                        <outletCollection property="labels" destination="699-yb-2Zw" id="2bv-zc-i9g"/>
+                        <outletCollection property="labels" destination="WvU-ml-ITJ" id="8we-C6-V91"/>
+                        <outletCollection property="labels" destination="ZR7-2V-6co" id="Nye-HK-cQf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j50-As-zUR" userLabel="First Responder" sceneMemberID="firstResponder"/>

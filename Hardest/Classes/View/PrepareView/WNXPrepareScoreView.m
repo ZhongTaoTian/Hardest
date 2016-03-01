@@ -7,15 +7,36 @@
 //
 
 #import "WNXPrepareScoreView.h"
+#import "WNXStage.h"
+#import "WNXStageInfo.h"
+
+@interface WNXPrepareScoreView ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *arrowImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *scoreImageView;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
+
+@end
 
 @implementation WNXPrepareScoreView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setStage:(WNXStage *)stage {
+    _stage = stage;
+    
+    double dif = stage.max - stage.min;
+    double equal = dif / 5;
+
+    ((UILabel *)self.labels[0]).text = [NSString stringWithFormat:stage.format, stage.min];
+    ((UILabel *)self.labels[5]).text = [NSString stringWithFormat:stage.format, stage.max];
+    
+    for (int i = 1; i < self.labels.count; i++) {
+        UILabel *label = self.labels[i];
+        label.text = [NSString stringWithFormat:stage.format, stage.min + equal * i];
+    }
 }
-*/
+
+- (void)showScroeView {
+    
+}
 
 @end

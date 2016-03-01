@@ -31,5 +31,6 @@
 #import "WNXSoundToolManager.h"
 #import "WNXBackViewController.h"
 #import "WNXFullBackgroundView.h"
+#import "WNXStage.h"
 
 #endif /* PrefixHeader_pch */

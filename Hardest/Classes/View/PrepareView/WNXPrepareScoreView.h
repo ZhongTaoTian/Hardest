@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class WNXStage;
+
 @interface WNXPrepareScoreView : UIView
+
+@property (nonatomic, strong) WNXStage *stage;
+
+- (void)showScroeView;
 
 @end
