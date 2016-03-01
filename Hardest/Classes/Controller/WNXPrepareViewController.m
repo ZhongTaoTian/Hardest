@@ -13,6 +13,10 @@
 @property (weak, nonatomic) IBOutlet WNXFullBackgroundView *animationView;
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *number1Label;
+@property (weak, nonatomic) IBOutlet UILabel *describeLabel;
 
 @end
 
@@ -21,4 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
+
+- (IBAction)playGameClick {
+}
+
+
 @end

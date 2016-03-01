@@ -245,12 +245,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5C-48-YvF">
                                 <rect key="frame" x="253" y="10" width="56" height="51"/>
                                 <state key="normal" backgroundImage="ready_btplay"/>
+                                <connections>
+                                    <action selector="playGameClick" destination="b2f-vH-2hp" eventType="touchUpInside" id="E5f-yb-Xbv"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ready_play" translatesAutoresizingMaskIntoConstraints="NO" id="heY-Ch-lLv">
                                 <rect key="frame" x="127" y="17" width="116" height="38"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ready_loading" translatesAutoresizingMaskIntoConstraints="NO" id="Y6K-PR-vWW">
-                                <rect key="frame" x="60" y="12" width="201" height="48"/>
+                                <rect key="frame" x="57" y="12" width="205" height="43"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pel-Qb-Hsg">
                                 <rect key="frame" x="0.0" y="30" width="320" height="505"/>
@@ -347,7 +350,11 @@
                     </view>
                     <connections>
                         <outlet property="animationView" destination="nCk-0A-iC8" id="Mv2-2X-d8R"/>
+                        <outlet property="describeLabel" destination="6R8-C4-ydA" id="NDo-6H-iew"/>
+                        <outlet property="iconImageView" destination="6wJ-Kq-4Ye" id="L10-b6-xgF"/>
+                        <outlet property="number1Label" destination="SGd-Oz-l9P" id="R2p-R8-YBX"/>
                         <outlet property="numberLabel" destination="UUh-gB-T0j" id="UAP-Zl-eHY"/>
+                        <outlet property="playButton" destination="Y5C-48-YvF" id="gPl-TL-uIc"/>
                         <outletCollection property="labels" destination="699-yb-2Zw" id="zru-24-IBR"/>
                         <outletCollection property="labels" destination="WvU-ml-ITJ" id="3xc-Jo-JyF"/>
                         <outletCollection property="labels" destination="ZR7-2V-6co" id="usa-je-sj9"/>
