@@ -23,19 +23,24 @@
 - (void)setStage:(WNXStage *)stage {
     _stage = stage;
     
-    double dif = stage.max - stage.min;
-    double equal = dif / 5;
-
-    ((UILabel *)self.labels[0]).text = [NSString stringWithFormat:stage.format, stage.min];
-    ((UILabel *)self.labels[5]).text = [NSString stringWithFormat:stage.format, stage.max];
+    for (int i = 100; i < 106; i++) {
+        UILabel *label = (UILabel *)[self viewWithTag:i];
+        label.text = [NSString stringWithFormat:stage.format, stage.min + (label.tag - 100) * ((stage.max - stage.min) / 5)];
+    }
     
-    for (int i = 1; i < self.labels.count; i++) {
-        UILabel *label = self.labels[i];
-        label.text = [NSString stringWithFormat:stage.format, stage.min + equal * i];
+    if (!self.stage.userInfo.rank) {
+        [self.arrowImageView removeFromSuperview];
+        [self.scoreImageView removeFromSuperview];
+    } else {
+        [self calculateArrowLocation];
     }
 }
 
 - (void)showScroeView {
+    
+}
+
+- (void)calculateArrowLocation {
     
 }
 

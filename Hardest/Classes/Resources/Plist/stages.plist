@@ -4,15 +4,15 @@
 <array>
 	<dict>
 		<key>format</key>
-		<string>%d</string>
+		<string>%.f</string>
 		<key>icon</key>
 		<string>select_image01.png</string>
 		<key>intro</key>
 		<string>尽可能在7秒内给脚挠痒！\n使用下方的3个顏色按钮</string>
 		<key>max</key>
-		<string>25</string>
+		<string>25.0</string>
 		<key>min</key>
-		<string>20</string>
+		<string>20.0</string>
 		<key>title</key>
 		<string>你妹\n别挠我\n！</string>
 		<key>unit</key>

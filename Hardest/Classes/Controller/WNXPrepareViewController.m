@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *number1Label;
 @property (weak, nonatomic) IBOutlet UILabel *describeLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMargin;
 
 @end
 
@@ -31,12 +32,21 @@
     if (self.stage) {
         [self initStage];
     }
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     [self startTitleAnimation];
+    
+    if (!iPhone5) {
+        self.topMargin.constant = 0;
+        [self.view setNeedsLayout];
+    }
+
+    [self.describeLabel sizeToFit];
+    
 }
 
 
@@ -45,12 +55,13 @@
     self.number1Label.text = [NSString stringWithFormat:@"%d", self.stage.num];
     self.numberLabel.text = self.number1Label.text;
     self.iconImageView.image = [UIImage imageNamed:self.stage.icon];
-    self.describeLabel.text = self.stage.intro;
-
+    self.describeLabel.text = [self.stage.intro stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
+    
+    
     NSArray *array = [self.stage.title componentsSeparatedByString:@"\\n"];
-
+    
     for (int i = 0; i < array.count; i++) {
-        UILabel *label = self.labels[i];
+        UILabel *label = (UILabel *)[self.animationView viewWithTag:i + 10];
         label.text = array[i];
     }
 }
@@ -58,10 +69,10 @@
 - (void)startTitleAnimation {
     double allTime = 0;
     for (int i = 0; i < self.labels.count; i++) {
-        UILabel *titleLabel = self.labels[i];
+        UILabel *titleLabel = (UILabel *)[self.animationView viewWithTag:i + 10];
         
         allTime += (i + 1) * 0.3;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((i + 1) * 0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((i + 1) * 0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             CABasicAnimation *scale = [CABasicAnimation animationWithKeyPath:@"transform.scale.x"];
             scale.fromValue = @0;
             titleLabel.hidden = NO;
@@ -78,18 +89,18 @@
             
             [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundPrepaerTitle(i+1)];
         });
-            
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)( (allTime + 1) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)( (allTime + 1.3) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.animationView removeFromSuperview];
             
             [self showPlayView];
         });
     }
-
+    
 }
 
 - (void)showPlayView {
-
+    
 }
 
 - (IBAction)playGameClick {

@@ -219,7 +219,7 @@
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ready_loading" translatesAutoresizingMaskIntoConstraints="NO" id="Y6K-PR-vWW">
                                 <rect key="frame" x="57" y="12" width="205" height="43"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pel-Qb-Hsg">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pel-Qb-Hsg">
                                 <rect key="frame" x="0.0" y="30" width="320" height="505"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ready_intro" translatesAutoresizingMaskIntoConstraints="NO" id="NgI-wF-B2t">
@@ -244,7 +244,7 @@
                                         <rect key="frame" x="172" y="74" width="148" height="126"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6R8-C4-ydA">
-                                        <rect key="frame" x="22" y="208" width="259" height="67"/>
+                                        <rect key="frame" x="22" y="208" width="259" height="83"/>
                                         <string key="text">金可萌啊飒飒大师大师大师的
 阿斯达撒打算打算的
 啊飒飒大师大师大师的</string>
@@ -254,6 +254,9 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="505" id="3YO-z0-QMj"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-qO-itK" customClass="WNXPrepareScoreView">
                                 <rect key="frame" x="0.0" y="410" width="320" height="128"/>
@@ -264,37 +267,37 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ready_score_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-qD-fhI">
                                         <rect key="frame" x="-1" y="19" width="30" height="90"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcC-7m-B3a">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcC-7m-B3a">
                                         <rect key="frame" x="257" y="64" width="48" height="27"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emL-1z-T5a">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emL-1z-T5a">
                                         <rect key="frame" x="205" y="64" width="48" height="27"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKC-db-FYC">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKC-db-FYC">
                                         <rect key="frame" x="155" y="64" width="48" height="27"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYA-FT-3Xb">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYA-FT-3Xb">
                                         <rect key="frame" x="105" y="64" width="48" height="27"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grD-5h-JUx">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grD-5h-JUx">
                                         <rect key="frame" x="57" y="64" width="48" height="27"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXs-2a-b58">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXs-2a-b58">
                                         <rect key="frame" x="6" y="64" width="48" height="27"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -305,12 +308,9 @@
                                 <connections>
                                     <outlet property="arrowImageView" destination="Ud8-qD-fhI" id="L84-66-7vs"/>
                                     <outlet property="scoreImageView" destination="BNb-tk-BZz" id="muu-c0-Xtg"/>
-                                    <outletCollection property="labels" destination="gcC-7m-B3a" id="WdH-nz-n8f"/>
-                                    <outletCollection property="labels" destination="emL-1z-T5a" id="W0P-5D-2GP"/>
-                                    <outletCollection property="labels" destination="ZKC-db-FYC" id="o7G-pb-d49"/>
-                                    <outletCollection property="labels" destination="eYA-FT-3Xb" id="B6C-Zr-6Vg"/>
-                                    <outletCollection property="labels" destination="grD-5h-JUx" id="MOR-lu-Rla"/>
-                                    <outletCollection property="labels" destination="kXs-2a-b58" id="jGR-wT-3Xs"/>
+                                    <outletCollection property="labels" destination="gcC-7m-B3a" id="5z5-km-Azg"/>
+                                    <outletCollection property="labels" destination="emL-1z-T5a" id="S9r-7n-GSq"/>
+                                    <outletCollection property="labels" destination="ZKC-db-FYC" id="vOA-cV-lf5"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCk-0A-iC8" customClass="WNXFullBackgroundView">
@@ -328,19 +328,19 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="699-yb-2Zw">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="699-yb-2Zw">
                                         <rect key="frame" x="36" y="108" width="248" height="74"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvU-ml-ITJ">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvU-ml-ITJ">
                                         <rect key="frame" x="36" y="206" width="248" height="74"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZR7-2V-6co">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="猜猜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZR7-2V-6co">
                                         <rect key="frame" x="36" y="308" width="248" height="74"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -352,7 +352,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.41960784313725491" green="0.70588235294117652" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Pel-Qb-Hsg" firstAttribute="leading" secondItem="sw7-oF-kpB" secondAttribute="leading" id="3Ju-z7-aFb"/>
                             <constraint firstAttribute="trailing" secondItem="nCk-0A-iC8" secondAttribute="trailing" id="FY7-2E-keX"/>
+                            <constraint firstAttribute="trailing" secondItem="Pel-Qb-Hsg" secondAttribute="trailing" id="MG4-8h-jAG"/>
+                            <constraint firstItem="Pel-Qb-Hsg" firstAttribute="top" secondItem="tcj-jJ-Uf0" secondAttribute="bottom" constant="30" id="eBd-wN-Xis"/>
                             <constraint firstItem="zHf-XG-pZS" firstAttribute="top" secondItem="nCk-0A-iC8" secondAttribute="bottom" id="giI-8r-i1c"/>
                             <constraint firstItem="nCk-0A-iC8" firstAttribute="leading" secondItem="sw7-oF-kpB" secondAttribute="leading" id="go4-AQ-Hqf"/>
                             <constraint firstItem="nCk-0A-iC8" firstAttribute="top" secondItem="tcj-jJ-Uf0" secondAttribute="bottom" id="ioq-Uc-Wqp"/>
@@ -366,6 +369,7 @@
                         <outlet property="numberLabel" destination="UUh-gB-T0j" id="UAP-Zl-eHY"/>
                         <outlet property="playButton" destination="Y5C-48-YvF" id="gPl-TL-uIc"/>
                         <outlet property="scoreView" destination="P6d-qO-itK" id="jHW-3t-8qF"/>
+                        <outlet property="topMargin" destination="eBd-wN-Xis" id="Ww5-w9-WOW"/>
                         <outletCollection property="labels" destination="699-yb-2Zw" id="2bv-zc-i9g"/>
                         <outletCollection property="labels" destination="WvU-ml-ITJ" id="8we-C6-V91"/>
                         <outletCollection property="labels" destination="ZR7-2V-6co" id="Nye-HK-cQf"/>
