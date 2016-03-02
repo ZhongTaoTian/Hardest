@@ -8,6 +8,8 @@
 
 #import "WNXPrepareViewController.h"
 #import "WNXPrepareScoreView.h"
+#import "WNXGameControllerViewManager.h"
+#import "WNXBaseGameViewController.h"
 
 @interface WNXPrepareViewController ()
 
@@ -20,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *number1Label;
 @property (weak, nonatomic) IBOutlet UILabel *describeLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMargin;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomMargin;
+
 
 @end
 
@@ -32,7 +36,7 @@
     if (self.stage) {
         [self initStage];
     }
-
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -42,9 +46,10 @@
     
     if (!iPhone5) {
         self.topMargin.constant = 0;
+        self.bottomMargin.constant = -5;
         [self.view setNeedsLayout];
     }
-
+    
     [self.describeLabel sizeToFit];
     
 }
@@ -67,11 +72,10 @@
 }
 
 - (void)startTitleAnimation {
-    double allTime = 0;
+
     for (int i = 0; i < self.labels.count; i++) {
         UILabel *titleLabel = (UILabel *)[self.animationView viewWithTag:i + 10];
         
-        allTime += (i + 1) * 0.3;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((i + 1) * 0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             CABasicAnimation *scale = [CABasicAnimation animationWithKeyPath:@"transform.scale.x"];
             scale.fromValue = @0;
@@ -90,21 +94,27 @@
             [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundPrepaerTitle(i+1)];
         });
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)( (allTime + 1.3) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.animationView removeFromSuperview];
-            
-            [self showPlayView];
-        });
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)( (1.5) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.animationView removeFromSuperview];
+        
+        [self showPlayView];
+    });
     
 }
 
 - (void)showPlayView {
-    
+    __weak __typeof(&*self)weakSelf = self;
+    [self.scoreView showScroeViewWithCompletion:^{
+        weakSelf.playButton.userInteractionEnabled = YES;
+    }];
 }
 
 - (IBAction)playGameClick {
-    
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundCliclName];
+    WNXBaseGameViewController *gameVC = [WNXGameControllerViewManager viewControllerWithStage:self.stage];
+    [self.navigationController pushViewController:gameVC animated:NO];
 }
 
 @end

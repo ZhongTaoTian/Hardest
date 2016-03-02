@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WNXRYBViewController">
+            <connections>
+                <outlet property="blueButton" destination="Yqv-Pw-GDE" id="Re3-aa-rrG"/>
+                <outlet property="blueImageView" destination="bZW-dk-R6S" id="roh-vB-a1x"/>
+                <outlet property="redButton" destination="YpR-fB-fl4" id="Naf-Uz-Est"/>
+                <outlet property="redImageView" destination="ui8-xK-aqP" id="LCA-mf-a0H"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yellowButton" destination="Yav-DX-1Ma" id="Ivc-HS-62S"/>
+                <outlet property="yellowImageView" destination="rXD-3z-CUb" id="lrD-wL-o8O"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="00_Rbg01-iphone4" highlightedImage="00_Rbg02-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="ui8-xK-aqP">
+                    <rect key="frame" x="0.0" y="0.0" width="107" height="568"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="00_Ybg01-iphone4" highlightedImage="00_Ybg02-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="rXD-3z-CUb">
+                    <rect key="frame" x="107" y="0.0" width="106" height="568"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="00_Bbg01-iphone4" highlightedImage="00_Bbg02-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="bZW-dk-R6S">
+                    <rect key="frame" x="213" y="0.0" width="107" height="568"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MW5-iE-fBR">
+                    <rect key="frame" x="0.0" y="461" width="320" height="107"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpR-fB-fl4">
+                            <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
+                            <inset key="imageEdgeInsets" minX="7" minY="7" maxX="7" maxY="7"/>
+                            <state key="normal" backgroundImage="00_Rbt-iphone4"/>
+                            <connections>
+                                <action selector="bottomButtonClick:" destination="-1" eventType="touchDown" id="xUY-qC-aFW"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqv-Pw-GDE">
+                            <rect key="frame" x="213" y="0.0" width="107" height="107"/>
+                            <state key="normal" backgroundImage="00_Bbt-iphone4"/>
+                            <connections>
+                                <action selector="bottomButtonClick:" destination="-1" eventType="touchUpInside" id="dia-lR-GL2"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yav-DX-1Ma">
+                            <rect key="frame" x="107" y="0.0" width="106" height="107"/>
+                            <state key="normal" backgroundImage="00_Ybt-iphone4"/>
+                            <connections>
+                                <action selector="bottomButtonClick:" destination="-1" eventType="touchUpInside" id="XGk-Tf-I3B"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Yav-DX-1Ma" firstAttribute="leading" secondItem="YpR-fB-fl4" secondAttribute="trailing" id="0I9-ds-b0I"/>
+                        <constraint firstItem="Yqv-Pw-GDE" firstAttribute="top" secondItem="MW5-iE-fBR" secondAttribute="top" id="1LB-D6-0M4"/>
+                        <constraint firstItem="Yav-DX-1Ma" firstAttribute="height" secondItem="YpR-fB-fl4" secondAttribute="height" id="1mP-bW-4es"/>
+                        <constraint firstAttribute="bottom" secondItem="Yav-DX-1Ma" secondAttribute="bottom" id="2Zj-6O-dHp"/>
+                        <constraint firstItem="Yqv-Pw-GDE" firstAttribute="leading" secondItem="Yav-DX-1Ma" secondAttribute="trailing" id="HGz-fO-eMP"/>
+                        <constraint firstItem="Yqv-Pw-GDE" firstAttribute="width" secondItem="YpR-fB-fl4" secondAttribute="width" id="JFq-td-JPH"/>
+                        <constraint firstItem="Yqv-Pw-GDE" firstAttribute="height" secondItem="YpR-fB-fl4" secondAttribute="height" id="JMp-Vd-7H9"/>
+                        <constraint firstItem="Yav-DX-1Ma" firstAttribute="width" secondItem="YpR-fB-fl4" secondAttribute="width" id="KxZ-zK-lx5"/>
+                        <constraint firstAttribute="height" constant="107" id="PKx-tP-T3j"/>
+                        <constraint firstItem="Yav-DX-1Ma" firstAttribute="leading" secondItem="YpR-fB-fl4" secondAttribute="trailing" id="QaE-9N-rao"/>
+                        <constraint firstAttribute="bottom" secondItem="Yqv-Pw-GDE" secondAttribute="bottom" id="QpZ-cM-WHh"/>
+                        <constraint firstItem="YpR-fB-fl4" firstAttribute="leading" secondItem="MW5-iE-fBR" secondAttribute="leading" id="Sy7-PV-1S4"/>
+                        <constraint firstItem="Yqv-Pw-GDE" firstAttribute="leading" secondItem="Yav-DX-1Ma" secondAttribute="trailing" id="W66-Yb-XV4"/>
+                        <constraint firstAttribute="bottom" secondItem="YpR-fB-fl4" secondAttribute="bottom" id="rKc-60-OXq"/>
+                        <constraint firstAttribute="trailing" secondItem="Yqv-Pw-GDE" secondAttribute="trailing" id="tD1-5j-Orc"/>
+                        <constraint firstItem="Yav-DX-1Ma" firstAttribute="top" secondItem="MW5-iE-fBR" secondAttribute="top" id="ykU-Xk-v0f"/>
+                        <constraint firstItem="YpR-fB-fl4" firstAttribute="top" secondItem="MW5-iE-fBR" secondAttribute="top" id="yob-2z-lau"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="bZW-dk-R6S" firstAttribute="width" secondItem="ui8-xK-aqP" secondAttribute="width" id="9VA-Pr-Xa2"/>
+                <constraint firstItem="bZW-dk-R6S" firstAttribute="leading" secondItem="rXD-3z-CUb" secondAttribute="trailing" id="ANv-JQ-s3p"/>
+                <constraint firstAttribute="bottom" secondItem="ui8-xK-aqP" secondAttribute="bottom" id="C8q-ni-eUv"/>
+                <constraint firstAttribute="bottom" secondItem="bZW-dk-R6S" secondAttribute="bottom" id="DDP-ea-GZk"/>
+                <constraint firstItem="rXD-3z-CUb" firstAttribute="width" secondItem="ui8-xK-aqP" secondAttribute="width" id="FFZ-ts-3dK"/>
+                <constraint firstItem="rXD-3z-CUb" firstAttribute="height" secondItem="ui8-xK-aqP" secondAttribute="height" id="FuY-QY-qkT"/>
+                <constraint firstItem="bZW-dk-R6S" firstAttribute="leading" secondItem="rXD-3z-CUb" secondAttribute="trailing" id="JMD-00-dA8"/>
+                <constraint firstItem="bZW-dk-R6S" firstAttribute="height" secondItem="ui8-xK-aqP" secondAttribute="height" id="KVx-La-CBh"/>
+                <constraint firstItem="bZW-dk-R6S" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QKX-wg-pOf"/>
+                <constraint firstItem="MW5-iE-fBR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Uzq-4k-aJ6"/>
+                <constraint firstItem="rXD-3z-CUb" firstAttribute="leading" secondItem="ui8-xK-aqP" secondAttribute="trailing" id="YZE-QI-Of8"/>
+                <constraint firstAttribute="trailing" secondItem="bZW-dk-R6S" secondAttribute="trailing" id="ZKI-Qh-fmx"/>
+                <constraint firstItem="rXD-3z-CUb" firstAttribute="leading" secondItem="ui8-xK-aqP" secondAttribute="trailing" id="cHO-dJ-drf"/>
+                <constraint firstItem="ui8-xK-aqP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="o7I-Iy-Fnj"/>
+                <constraint firstAttribute="bottom" secondItem="MW5-iE-fBR" secondAttribute="bottom" id="oxr-zp-clQ"/>
+                <constraint firstAttribute="trailing" secondItem="MW5-iE-fBR" secondAttribute="trailing" id="tRq-s2-N6j"/>
+                <constraint firstItem="rXD-3z-CUb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vAQ-bg-hS4"/>
+                <constraint firstItem="ui8-xK-aqP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vPe-st-quA"/>
+                <constraint firstAttribute="bottom" secondItem="rXD-3z-CUb" secondAttribute="bottom" id="xwi-PN-FW1"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="00_Bbg01-iphone4" width="214" height="1136"/>
+        <image name="00_Bbg02-iphone4" width="214" height="1136"/>
+        <image name="00_Bbt-iphone4" width="214" height="208"/>
+        <image name="00_Rbg01-iphone4" width="214" height="1136"/>
+        <image name="00_Rbg02-iphone4" width="214" height="1136"/>
+        <image name="00_Rbt-iphone4" width="214" height="208"/>
+        <image name="00_Ybg01-iphone4" width="215" height="1136"/>
+        <image name="00_Ybg02-iphone4" width="215" height="1136"/>
+        <image name="00_Ybt-iphone4" width="214" height="208"/>
+    </resources>
+</document>

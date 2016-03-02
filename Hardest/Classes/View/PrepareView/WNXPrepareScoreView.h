@@ -14,6 +14,6 @@
 
 @property (nonatomic, strong) WNXStage *stage;
 
-- (void)showScroeView;
+- (void)showScroeViewWithCompletion:(void (^)(void))completion;
 
 @end

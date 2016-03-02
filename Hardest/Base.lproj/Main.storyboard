@@ -206,13 +206,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5C-48-YvF">
-                                <rect key="frame" x="253" y="10" width="56" height="51"/>
-                                <state key="normal" backgroundImage="ready_btplay"/>
-                                <connections>
-                                    <action selector="playGameClick" destination="b2f-vH-2hp" eventType="touchUpInside" id="E5f-yb-Xbv"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ready_play" translatesAutoresizingMaskIntoConstraints="NO" id="heY-Ch-lLv">
                                 <rect key="frame" x="127" y="17" width="116" height="38"/>
                             </imageView>
@@ -258,14 +251,11 @@
                                     <constraint firstAttribute="height" constant="505" id="3YO-z0-QMj"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-qO-itK" customClass="WNXPrepareScoreView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-qO-itK" customClass="WNXPrepareScoreView">
                                 <rect key="frame" x="0.0" y="410" width="320" height="128"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ready_score" translatesAutoresizingMaskIntoConstraints="NO" id="BNb-tk-BZz">
                                         <rect key="frame" x="6" y="23" width="308" height="83"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ready_score_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-qD-fhI">
-                                        <rect key="frame" x="-1" y="19" width="30" height="90"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcC-7m-B3a">
                                         <rect key="frame" x="257" y="64" width="48" height="27"/>
@@ -303,8 +293,14 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ready_score_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-qD-fhI">
+                                        <rect key="frame" x="290" y="16" width="30" height="90"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="gHO-gQ-adU"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="arrowImageView" destination="Ud8-qD-fhI" id="L84-66-7vs"/>
                                     <outlet property="scoreImageView" destination="BNb-tk-BZz" id="muu-c0-Xtg"/>
@@ -313,6 +309,13 @@
                                     <outletCollection property="labels" destination="ZKC-db-FYC" id="vOA-cV-lf5"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5C-48-YvF">
+                                <rect key="frame" x="253" y="10" width="56" height="51"/>
+                                <state key="normal" backgroundImage="ready_btplay"/>
+                                <connections>
+                                    <action selector="playGameClick" destination="b2f-vH-2hp" eventType="touchUpInside" id="E5f-yb-Xbv"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCk-0A-iC8" customClass="WNXFullBackgroundView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -353,8 +356,11 @@
                         <color key="backgroundColor" red="0.41960784313725491" green="0.70588235294117652" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Pel-Qb-Hsg" firstAttribute="leading" secondItem="sw7-oF-kpB" secondAttribute="leading" id="3Ju-z7-aFb"/>
+                            <constraint firstItem="P6d-qO-itK" firstAttribute="leading" secondItem="sw7-oF-kpB" secondAttribute="leading" id="7nE-iQ-yhA"/>
+                            <constraint firstItem="zHf-XG-pZS" firstAttribute="top" secondItem="P6d-qO-itK" secondAttribute="bottom" constant="30" id="DyU-Ou-teN"/>
                             <constraint firstAttribute="trailing" secondItem="nCk-0A-iC8" secondAttribute="trailing" id="FY7-2E-keX"/>
                             <constraint firstAttribute="trailing" secondItem="Pel-Qb-Hsg" secondAttribute="trailing" id="MG4-8h-jAG"/>
+                            <constraint firstAttribute="trailing" secondItem="P6d-qO-itK" secondAttribute="trailing" id="MeI-64-DXn"/>
                             <constraint firstItem="Pel-Qb-Hsg" firstAttribute="top" secondItem="tcj-jJ-Uf0" secondAttribute="bottom" constant="30" id="eBd-wN-Xis"/>
                             <constraint firstItem="zHf-XG-pZS" firstAttribute="top" secondItem="nCk-0A-iC8" secondAttribute="bottom" id="giI-8r-i1c"/>
                             <constraint firstItem="nCk-0A-iC8" firstAttribute="leading" secondItem="sw7-oF-kpB" secondAttribute="leading" id="go4-AQ-Hqf"/>
@@ -363,6 +369,7 @@
                     </view>
                     <connections>
                         <outlet property="animationView" destination="nCk-0A-iC8" id="Mv2-2X-d8R"/>
+                        <outlet property="bottomMargin" destination="DyU-Ou-teN" id="3mm-8g-ZE8"/>
                         <outlet property="describeLabel" destination="6R8-C4-ydA" id="NDo-6H-iew"/>
                         <outlet property="iconImageView" destination="6wJ-Kq-4Ye" id="L10-b6-xgF"/>
                         <outlet property="number1Label" destination="SGd-Oz-l9P" id="R2p-R8-YBX"/>
