@@ -8,6 +8,7 @@
 
 #import "WNXBaseGameViewController.h"
 #import "WNXStageInfo.h"
+#import "WNXReadyGoView.h"
 
 @interface WNXBaseGameViewController ()
 
@@ -42,24 +43,53 @@
     } else if (self.guideType == WNXGameGuideTypeMultiPointClick) {
         animationImages = @[[UIImage imageNamed:@"02-1-iphone4"], [UIImage imageNamed:@"02-2-iphone4"], [UIImage imageNamed:@"02-4-iphone4"], [UIImage imageNamed:@"02-5-iphone4"]];
     }
-
+    
     self.guideImageView.animationDuration = animationImages.count * 0.15;
     self.guideImageView.animationImages = animationImages;
     self.guideImageView.animationRepeatCount = -1;
     [self.guideImageView startAnimating];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(guideImageViewClick)];
+    self.guideImageView.userInteractionEnabled = YES;
     [self.guideImageView addGestureRecognizer:tap];
 }
 
 - (void)guideImageViewClick {
     [self.guideImageView removeFromSuperview];
+    self.countScore.hidden = NO;
     
-    [self beginRedayGoView];
+    __weak __typeof(self) weakSelf = self;
+    if (self.scoreboardType == WNXScoreboardTypeCountPTS) {
+        [(WNXScoreboardCountView *)self.countScore startAnimationWithCompletion:^(BOOL finished) {
+            [weakSelf beginRedayGoView];
+        }];
+    }
 }
 
-- (void)beginRedayGoView {
+- (void)setScoreboardType:(WNXScoreboardType)scoreboardType {
+    _scoreboardType = scoreboardType;
     
+    if (scoreboardType == WNXScoreboardTypeNone) {
+        return;
+    } else if (scoreboardType == WNXScoreboardTypeCountPTS) {
+        self.countScore = [WNXScoreboardCountView viewFromNib];
+        self.countScore.hidden = YES;
+        self.countScore.frame = CGRectMake(-40, -180, self.countScore.frame.size.width, self.countScore.frame.size.height);
+        if (self.guideImageView) {
+            [self.view insertSubview:self.countScore belowSubview:self.guideImageView];
+        } else {
+            [self.view addSubview:self.countScore];
+        }
+        return;
+    }
+}
+
+#pragma mark -
+#pragma mark - public method
+- (void)beginRedayGoView {
+    [WNXReadyGoView showReadyGoViewWithSuperView:self.view completion:^{
+        
+    }];
 }
 
 - (void)beginGame {}

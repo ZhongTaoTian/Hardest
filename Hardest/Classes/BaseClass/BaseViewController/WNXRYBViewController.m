@@ -21,9 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self setBackgroundImages];
+    [self setBackgroundImages];
     
-//    [self setBottomButtons];
+    [self setBottomButtons];
 }
 
 - (void)setBackgroundImages {

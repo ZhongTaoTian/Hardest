@@ -8,12 +8,41 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WNXScoreboardCountView">
-            <rect key="frame" x="0.0" y="0.0" width="265" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="286" height="52"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ing_word" translatesAutoresizingMaskIntoConstraints="NO" id="JjA-sU-ppS">
+                    <rect key="frame" x="0.0" y="0.0" width="286" height="52"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="002" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PS4-Cl-l37" customClass="WNXStrokeLabel">
+                    <rect key="frame" x="0.0" y="-61" width="230" height="171"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="90"/>
+                    <color key="textColor" red="0.89411764705882357" green="0.47058823529411764" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <size key="shadowOffset" width="2" height="2"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKz-Vu-UyV" customClass="WNXStrokeLabel">
+                    <rect key="frame" x="191" y="-25" width="95" height="57"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="50"/>
+                    <color key="textColor" red="0.89411764709999997" green="0.47058823529999999" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <size key="shadowOffset" width="2" height="2"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="673.5" y="192"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="JjA-sU-ppS" id="OrI-Jy-jaT"/>
+                <outlet property="countLabel" destination="PS4-Cl-l37" id="trP-GM-sqU"/>
+                <outlet property="ptsLabel" destination="QKz-Vu-UyV" id="Fqo-3u-g6d"/>
+            </connections>
+            <point key="canvasLocation" x="644" y="188"/>
         </view>
     </objects>
+    <resources>
+        <image name="ing_word" width="544" height="92"/>
+    </resources>
 </document>

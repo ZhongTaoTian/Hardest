@@ -18,7 +18,9 @@
     [super viewDidLoad];
 
     self.buttonImageNames = @[@"01-btfeather", @"01-btfeather", @"01-btfeather"];
-    [self.view insertSubview:self.guideImageView atIndex:self.view.subviews.count - 2];
+
+//    [self.view insertSubview:self.countScore aboveSubview:self.guideImageView];
+    [self.view bringSubviewToFront:self.guideImageView];
 }
 
 @end

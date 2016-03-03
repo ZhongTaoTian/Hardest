@@ -14,4 +14,6 @@
 
 + (id)viewFromNib;
 
+- (void)cleanSawtooth;
+
 @end

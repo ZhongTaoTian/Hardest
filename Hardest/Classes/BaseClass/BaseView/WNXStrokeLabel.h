@@ -1,5 +1,5 @@
 //
-//  WNXScoreboardCountView.h
+//  WNXStrokeLabel.h
 //  Hardest
 //
 //  Created by sfbest on 16/3/3.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WNXScoreboardCountView : UIView
+@interface WNXStrokeLabel : UILabel
 
-- (void)startAnimationWithCompletion:(void (^)(BOOL finished))completion;
+- (void)setTextStorkeWidth:(CGFloat)width;
 
 @end

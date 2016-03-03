@@ -19,6 +19,7 @@
         case 1:
             gameVC = [[WNXStage01ViewController alloc] init];
             gameVC.guideType = WNXGameGuideTypeOneFingerClick;
+            gameVC.scoreboardType = WNXScoreboardTypeCountPTS;
             break;
             
         default:
