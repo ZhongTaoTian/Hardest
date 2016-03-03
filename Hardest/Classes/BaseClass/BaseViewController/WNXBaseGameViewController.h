@@ -19,5 +19,12 @@ typedef NS_ENUM(NSInteger, WNXGameGuideType) {
 
 @property (nonatomic, assign) WNXGameGuideType guideType;
 @property (nonatomic, strong) WNXStage *stage;
+@property (nonatomic, strong) UIImageView *guideImageView;
+
+- (void)beginGame;
+
+- (void)endGame;
+
+- (void)beginRedayGoView;
 
 @end

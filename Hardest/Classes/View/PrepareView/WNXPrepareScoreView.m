@@ -31,6 +31,10 @@
     if (!self.stage.userInfo.rank) {
         [self.arrowImageView removeFromSuperview];
         [self.scoreImageView removeFromSuperview];
+        for (int i = 100; i < 106; i++) {
+            UILabel *label = (UILabel *)[self viewWithTag:i];
+            [label removeFromSuperview];
+        }
     } else {
         [self calculateArrowLocation];
     }

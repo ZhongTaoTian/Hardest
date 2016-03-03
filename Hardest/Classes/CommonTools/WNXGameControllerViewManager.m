@@ -8,6 +8,7 @@
 
 #import "WNXGameControllerViewManager.h"
 #import "WNXRYBViewController.h"
+#import "WNXStage01ViewController.h"
 
 @implementation WNXGameControllerViewManager
 
@@ -16,7 +17,7 @@
     
     switch (stage.num) {
         case 1:
-            gameVC = [[WNXRYBViewController alloc] init];
+            gameVC = [[WNXStage01ViewController alloc] init];
             gameVC.guideType = WNXGameGuideTypeOneFingerClick;
             break;
             

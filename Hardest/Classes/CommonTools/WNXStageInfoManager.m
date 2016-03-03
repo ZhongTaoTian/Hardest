@@ -38,25 +38,9 @@ static WNXStageInfoManager *instance = nil;
             self.allStageInfos = [NSMutableDictionary dictionary];
             WNXStageInfo *info = [WNXStageInfo new];
             info.num = 1;
-            info.rank = @"s";
-            info.unlock = YES;
-            info.score = 29;
             [self.allStageInfos setObject:info forKey:@1];
             
-            WNXStageInfo *info2 = [WNXStageInfo new];
-            info2.num = 2;
-            info2.rank = @"a";
-            info2.score = 10;
-            info2.unlock = YES;
-            [self.allStageInfos setObject:info2 forKey:@2];
-//
-            WNXStageInfo *info3 = [WNXStageInfo new];
-            info3.num = 3;
-            [self.allStageInfos setObject:info3 forKey:@3];
-            
-//            WNXStageInfo *info4 = [WNXStageInfo new];
-//            info4.num = 4;
-//            [self.allStageInfos setObject:info forKey:@1];
+            [self saveStageInfo:info];
         }
     }
     

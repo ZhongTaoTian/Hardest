@@ -9,13 +9,14 @@
 #import "WNXBaseGameViewController.h"
 
 @interface WNXRYBViewController : WNXBaseGameViewController
-@property (weak, nonatomic) IBOutlet UIImageView *redImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *yellowImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *blueImageView;
-@property (weak, nonatomic) IBOutlet UIButton *redButton;
-@property (weak, nonatomic) IBOutlet UIButton *yellowButton;
-@property (weak, nonatomic) IBOutlet UIButton *blueButton;
 
-- (void)setButtonsImageWiht:(NSArray *)imagesName;
+@property (strong, nonatomic) UIImageView *redImageView;
+@property (strong, nonatomic) UIImageView *yellowImageView;
+@property (strong, nonatomic) UIImageView *blueImageView;
+@property (strong, nonatomic) UIButton    *redButton;
+@property (strong, nonatomic) UIButton    *yellowButton;
+@property (strong, nonatomic) UIButton    *blueButton;
+
+@property (nonatomic, strong) NSArray *buttonImageNames;
 
 @end
