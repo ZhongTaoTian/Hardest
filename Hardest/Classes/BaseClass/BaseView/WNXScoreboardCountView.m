@@ -31,7 +31,7 @@
 
 - (void)startAnimationWithCompletion:(void (^)(BOOL))completion{
 
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.4 animations:^{
         self.transform = CGAffineTransformMakeRotation(M_PI_4 / 8);
     } completion:^(BOOL finished) {
         if (completion) {

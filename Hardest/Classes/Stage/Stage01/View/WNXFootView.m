@@ -35,6 +35,17 @@
         self.footImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 120, 180)];
         self.footImageView.image = [UIImage imageNamed:@"01-feet01"];
         [self addSubview:self.footImageView];
+        
+        self.footImageView .animationImages = @[
+                                      [UIImage imageNamed:@"01-feet01.png"],
+                                      [UIImage imageNamed:@"01-feet02.png"],
+                                      [UIImage imageNamed:@"01-feet02.png"],
+                                      [UIImage imageNamed:@"01-feet02.png"],
+                                      [UIImage imageNamed:@"01-feet02.png"],
+                                      [UIImage imageNamed:@"01-feet03.png"]
+                                      ];
+        self.footImageView .animationRepeatCount = 1;
+        self.footImageView .animationDuration = 0.3;
     }
     
     return self;
@@ -94,7 +105,7 @@
 }
 
 - (void)startShakeImage {
-    
+    [self.footImageView startAnimating];
 }
 
 @end

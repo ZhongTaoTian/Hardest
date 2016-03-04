@@ -76,6 +76,12 @@
 - (void)featherClick:(UIButton *)sender {
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFeatherClickName];
     
+    if ([self.footView attackFootViewAtIndex:sender.tag]) {
+        // 击中
+    } else {
+        // 未击中
+    }
+    
 }
 
 @end
