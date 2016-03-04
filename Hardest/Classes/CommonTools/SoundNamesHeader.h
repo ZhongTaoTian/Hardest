@@ -12,3 +12,6 @@
 #define kSoundPrepaerTitle(n) [NSString stringWithFormat:@"drop_title_%d.mp3", n]
 
 #define kSoundReadyGoName     @"ready_go.mp3"
+
+//stage01
+#define kSoundFeatherClickName @"tap.mp3"

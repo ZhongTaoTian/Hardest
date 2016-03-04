@@ -39,4 +39,6 @@ typedef NS_ENUM(NSInteger, WNXScoreboardType) {
 
 - (void)beginRedayGoView;
 
+- (void)readyGoAnimationFinish;
+
 @end

@@ -24,6 +24,10 @@
     [self showGuideImageView];
 }
 
+- (void)dealloc {
+     NSLog(@"%s", __func__);
+}
+
 - (void)initGuideImageView {
     self.guideImageView = [[UIImageView alloc] initWithFrame:ScreenBounds];
     [self.view addSubview:self.guideImageView];
@@ -88,10 +92,13 @@
 #pragma mark - public method
 - (void)beginRedayGoView {
     [WNXReadyGoView showReadyGoViewWithSuperView:self.view completion:^{
-        
+        [self readyGoAnimationFinish];
     }];
 }
 
+#pragma mark - 
+#pragma ChildViewController method
+- (void)readyGoAnimationFinish{}
 - (void)beginGame {}
 - (void)endGame{}
 

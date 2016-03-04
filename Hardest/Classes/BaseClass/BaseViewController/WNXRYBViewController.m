@@ -60,14 +60,22 @@
     CGFloat btnW = ScreenWidth / 3;
     btn.frame = CGRectMake(tag * btnW, ScreenHeight - btnW, btnW, btnW);
     btn.adjustsImageWhenHighlighted = NO;
+    btn.tag = tag;
+    btn.userInteractionEnabled = NO;
     [btn setBackgroundImage:[UIImage imageNamed:kBottomButtonImageNames[tag]] forState:UIControlStateNormal];
     btn.contentEdgeInsets = UIEdgeInsetsMake(15, 15, 15, 15);
     btn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:btn];
-    
-    if (self.buttonImageNames && self.buttonImageNames.count == 3) {
-        [btn setImage:[UIImage imageNamed:self.buttonImageNames[tag]] forState:UIControlStateNormal];
-    }
+}
+
+- (void)readyGoAnimationFinish {
+    [self setButtonsIsActivate:YES];
+}
+
+- (void)setButtonsIsActivate:(BOOL)isActivate {
+    self.redButton.userInteractionEnabled = isActivate;
+    self.yellowButton.userInteractionEnabled = isActivate;
+    self.blueButton.userInteractionEnabled = isActivate;
 }
 
 - (void)setButtonImageNames:(NSArray *)buttonImageNames {

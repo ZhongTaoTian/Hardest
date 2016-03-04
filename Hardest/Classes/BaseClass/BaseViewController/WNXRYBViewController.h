@@ -19,4 +19,6 @@
 
 @property (nonatomic, strong) NSArray *buttonImageNames;
 
+- (void)setButtonsIsActivate:(BOOL)isActivate;
+
 @end
