@@ -8,10 +8,14 @@
 
 #import "WNXStage01ViewController.h"
 #import "WNXCountDownLabel.h"
+#import "WNXFootView.h"
+
+#define kStage01Duration 7.0
 
 @interface WNXStage01ViewController ()
 
 @property (nonatomic, strong) WNXCountDownLabel *timeLabel;
+@property (nonatomic, strong) WNXFootView *footView;
 
 @end
 
@@ -23,6 +27,8 @@
     [self setStageInfo];
     
     [self initTimeLabel];
+    
+    [self initFootView];
 }
 
 - (void)setStageInfo {
@@ -36,12 +42,15 @@
 }
 
 - (void)initTimeLabel {
-    self.timeLabel = [[WNXCountDownLabel alloc] initWithFrame:CGRectMake(ScreenWidth - 55, ScreenHeight - self.redButton.frame.size.height - 50, 60, 50) startTime:7.0 textSize:30];
+    self.timeLabel = [[WNXCountDownLabel alloc] initWithFrame:CGRectMake(ScreenWidth - 55, ScreenHeight - self.redButton.frame.size.height - 50, 60, 50)
+                                                    startTime:kStage01Duration textSize:30];
     [self.view insertSubview:self.timeLabel aboveSubview:self.redButton];
 }
 
 - (void)readyGoAnimationFinish {
     [super readyGoAnimationFinish];
+    
+    [self beginGame];
     
     __weak __typeof(&*self)weakSelf = self;
     [self.timeLabel startCountDownWithCompletion:^{
@@ -49,8 +58,18 @@
     }];
 }
 
+- (void)initFootView {
+    self.footView = [[WNXFootView alloc] initWithFrame:CGRectMake(0, ScreenHeight - self.redButton.frame.size.height - 200 - 45, ScreenWidth / 3, 200)];
+    [self.view insertSubview:self.footView aboveSubview:self.redButton];
+}
+
 - (void)endGame {
     [super setButtonsIsActivate:NO];
+    [self.footView stopFootView];
+}
+
+- (void)beginGame {
+    [self.footView startAnimation];
 }
 
 #pragma mark - action
