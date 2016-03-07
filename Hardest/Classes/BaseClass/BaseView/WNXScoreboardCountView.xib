@@ -14,7 +14,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ing_word" translatesAutoresizingMaskIntoConstraints="NO" id="JjA-sU-ppS">
                     <rect key="frame" x="0.0" y="0.0" width="286" height="52"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="002" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PS4-Cl-l37" customClass="WNXStrokeLabel">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PS4-Cl-l37" customClass="WNXStrokeLabel">
                     <rect key="frame" x="0.0" y="-61" width="230" height="171"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="90"/>
                     <color key="textColor" red="0.89411764705882357" green="0.47058823529411764" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>

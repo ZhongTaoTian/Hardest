@@ -150,6 +150,10 @@ static WNXSoundToolManager *instance = nil;
     AudioServicesPlaySystemSound(soundID);
 }
 
+- (void)setBackgroundMusicVolume:(float)volume {
+    [self.bgPlayer setVolume:volume];
+}
+
 #pragma mark -
 #pragma mark 私有方法
 

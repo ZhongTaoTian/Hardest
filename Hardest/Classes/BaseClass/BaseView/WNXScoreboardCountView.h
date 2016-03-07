@@ -12,4 +12,6 @@
 
 - (void)startAnimationWithCompletion:(void (^)(BOOL finished))completion;
 
+- (void)hit;
+
 @end

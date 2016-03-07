@@ -74,6 +74,7 @@
 
 - (void)stageViewDidSelected:(UITapGestureRecognizer *)tap {
     if (self.didSelectedStageView) {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundSelectedStage];
         self.didSelectedStageView(((WNXStageView *)tap.view).stage);
     }
 }

@@ -11,6 +11,9 @@
 #import "WNXReadyGoView.h"
 
 @interface WNXBaseGameViewController ()
+{
+    float _volume;
+}
 
 @end
 
@@ -99,8 +102,18 @@
 #pragma mark - 
 #pragma ChildViewController method
 - (void)readyGoAnimationFinish{}
-- (void)beginGame {}
-- (void)endGame{}
+
+- (void)beginGame {
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"kMusicType"] == SoundPlayTypeMute) {
+        [[WNXSoundToolManager sharedSoundToolManager] setBackgroundMusicVolume:0.3];
+        _volume = 0.3;
+    }
+}
+- (void)endGame {
+    if (_volume) {
+        [[WNXSoundToolManager sharedSoundToolManager] setBackgroundMusicVolume:1.0];
+    }
+}
 
 
 @end

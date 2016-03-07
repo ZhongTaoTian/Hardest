@@ -45,6 +45,8 @@
     self.timeLabel = [[WNXCountDownLabel alloc] initWithFrame:CGRectMake(ScreenWidth - 55, ScreenHeight - self.redButton.frame.size.height - 50, 60, 50)
                                                     startTime:kStage01Duration textSize:30];
     [self.view insertSubview:self.timeLabel aboveSubview:self.redButton];
+    
+    
 }
 
 - (void)readyGoAnimationFinish {
@@ -69,6 +71,8 @@
 }
 
 - (void)beginGame {
+    [super beginGame];
+    
     [self.footView startAnimation];
 }
 
@@ -76,12 +80,25 @@
 - (void)featherClick:(UIButton *)sender {
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFeatherClickName];
     
-    if ([self.footView attackFootViewAtIndex:sender.tag]) {
+    if ([self.footView attackFootViewAtIndex:(int)sender.tag]) {
         // 击中
+        [(WNXScoreboardCountView *)self.countScore hit];
     } else {
         // 未击中
+        [self showMissImageViewAtIndex:sender.tag];
     }
-    
+}
+
+- (void)showMissImageViewAtIndex:(int)index {
+    UIImageView *missIV = [[UIImageView alloc] initWithFrame:CGRectMake((index * ScreenWidth / 3) + (ScreenWidth / 3 - 80) * 0.5, CGRectGetMinY(self.footView.frame), 80, 31)];
+    missIV.image = [UIImage imageNamed:@"01_miss"];
+    [self.view insertSubview:missIV belowSubview:self.footView];
+    [UIView animateWithDuration:0.15 animations:^{
+        missIV.transform = CGAffineTransformMakeTranslation(0, -100);
+        missIV.alpha = 0;
+    } completion:^(BOOL finished) {
+        [missIV removeFromSuperview];
+    }];
 }
 
 @end

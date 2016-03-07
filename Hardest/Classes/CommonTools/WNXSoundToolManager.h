@@ -27,6 +27,8 @@ typedef NS_ENUM(NSInteger, SoundPlayType) {
 
 - (void)playSoundWithSoundName:(NSString *)soundName;
 
+- (void)setBackgroundMusicVolume:(float)volume;
+
 + (instancetype)sharedSoundToolManager;
 
 @end
