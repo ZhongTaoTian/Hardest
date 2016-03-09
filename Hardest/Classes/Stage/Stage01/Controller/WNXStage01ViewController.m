@@ -9,6 +9,7 @@
 #import "WNXStage01ViewController.h"
 #import "WNXCountDownLabel.h"
 #import "WNXFootView.h"
+#import "WNXFeatherView.h"
 
 #define kStage01Duration 7.0
 
@@ -16,6 +17,7 @@
 
 @property (nonatomic, strong) WNXCountDownLabel *timeLabel;
 @property (nonatomic, strong) WNXFootView *footView;
+@property (nonatomic, strong) WNXFeatherView *featherView;
 
 @end
 
@@ -29,6 +31,8 @@
     [self initTimeLabel];
     
     [self initFootView];
+    
+    [self initFeaterView];
 }
 
 - (void)setStageInfo {
@@ -65,9 +69,17 @@
     [self.view insertSubview:self.footView aboveSubview:self.redButton];
 }
 
+- (void)initFeaterView {
+    self.featherView = [[WNXFeatherView alloc] initWithFrame:CGRectMake((ScreenWidth / 3 - 100) * 0.5, ScreenHeight - self.redButton.frame.size.height - 160, 100, 73)];
+    [self.view insertSubview:self.featherView aboveSubview:self.footView];
+}
+
 - (void)endGame {
-    [super setButtonsIsActivate:NO];
+    self.view.userInteractionEnabled = NO;
     [self.footView stopFootView];
+    [self.featherView removeFromSuperview];
+    
+    // 算分
 }
 
 - (void)beginGame {
@@ -79,12 +91,10 @@
 #pragma mark - action
 - (void)featherClick:(UIButton *)sender {
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFeatherClickName];
-    
+    [self.featherView attack:sender.tag];
     if ([self.footView attackFootViewAtIndex:(int)sender.tag]) {
-        // 击中
         [(WNXScoreboardCountView *)self.countScore hit];
     } else {
-        // 未击中
         [self showMissImageViewAtIndex:sender.tag];
     }
 }
