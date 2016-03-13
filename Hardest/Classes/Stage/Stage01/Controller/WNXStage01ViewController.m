@@ -37,7 +37,6 @@
 
 - (void)setStageInfo {
     self.buttonImageNames = @[@"01-btfeather", @"01-btfeather", @"01-btfeather"];
-    
     [self.view bringSubviewToFront:self.guideImageView];
     
     [self.redButton addTarget:self action:@selector(featherClick:) forControlEvents:UIControlEventTouchDown];

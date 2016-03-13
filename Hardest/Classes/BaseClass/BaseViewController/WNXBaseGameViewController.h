@@ -29,16 +29,17 @@ typedef NS_ENUM(NSInteger, WNXScoreboardType) {
 @property (nonatomic, strong) WNXStage *stage;
 @property (nonatomic, assign) WNXScoreboardType scoreboardType;
 @property (nonatomic, strong) UIImageView *guideImageView;
-
-// 积分板
 @property (nonatomic, strong) UIView *countScore;
+@property (nonatomic, strong) UIButton *playAgainButton;
+@property (nonatomic, strong) UIButton *pauseButton;
 
 - (void)beginGame;
-
 - (void)endGame;
-
 - (void)beginRedayGoView;
-
 - (void)readyGoAnimationFinish;
+- (void)pauseGame;
+- (void)continueGame;
+
+- (void)playAgainGame;
 
 @end

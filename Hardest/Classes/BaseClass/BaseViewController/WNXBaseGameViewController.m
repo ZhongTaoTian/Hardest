@@ -9,6 +9,7 @@
 #import "WNXBaseGameViewController.h"
 #import "WNXStageInfo.h"
 #import "WNXReadyGoView.h"
+#import "WNXPauseViewController.h"
 
 @interface WNXBaseGameViewController ()
 {
@@ -25,10 +26,61 @@
     [self initGuideImageView];
     
     [self showGuideImageView];
+    
+    [self buildPlayAgainButton];
+    
+    [self buildPauseButton];
 }
 
 - (void)dealloc {
-     NSLog(@"%s", __func__);
+    NSLog(@"%s", __func__);
+}
+
+#pragma mark - Pubilc Method
+- (void)playAgainGame {
+    NSLog(@"重新游戏");
+}
+
+- (void)pauseGame {
+    WNXPauseViewController *pauseVC = [[WNXPauseViewController alloc] init];
+    [self.navigationController pushViewController:pauseVC animated:NO];
+}
+
+- (void)continueGame {
+    NSLog(@"继续游戏");
+}
+
+- (void)readyGoAnimationFinish {}
+
+- (void)beginGame {
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"kMusicType"] == SoundPlayTypeMute) {
+        [[WNXSoundToolManager sharedSoundToolManager] setBackgroundMusicVolume:0.3];
+        _volume = 0.3;
+    }
+}
+- (void)endGame {
+    if (_volume) {
+        [[WNXSoundToolManager sharedSoundToolManager] setBackgroundMusicVolume:1.0];
+    }
+}
+
+#pragma mark - Private Method
+- (void)buildPlayAgainButton {
+    self.playAgainButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 55, 75, 110, 52)];
+    self.playAgainButton.adjustsImageWhenHighlighted = NO;
+    [self.playAgainButton setBackgroundImage:[UIImage imageNamed:@"ing_retry"] forState:UIControlStateNormal];
+    [self.playAgainButton addTarget:self action:@selector(playAgainGame) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:self.playAgainButton];
+}
+
+
+
+- (void)buildPauseButton {
+    self.pauseButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 55, CGRectGetMaxY(self.playAgainButton.frame) + 13, 110, 52)];
+    [self.pauseButton setBackgroundImage:[UIImage imageNamed:@"ing_pause"] forState:UIControlStateNormal];
+    self.pauseButton.adjustsImageWhenHighlighted = NO;
+    [self.pauseButton addTarget:self action:@selector(pauseGame) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:self.pauseButton];
 }
 
 - (void)initGuideImageView {
@@ -64,6 +116,8 @@
 - (void)guideImageViewClick {
     [self.guideImageView removeFromSuperview];
     self.countScore.hidden = NO;
+    [self.view bringSubviewToFront:self.playAgainButton];
+    [self.view bringSubviewToFront:self.pauseButton];
     
     __weak __typeof(self) weakSelf = self;
     if (self.scoreboardType == WNXScoreboardTypeCountPTS) {
@@ -81,7 +135,7 @@
     } else if (scoreboardType == WNXScoreboardTypeCountPTS) {
         self.countScore = [WNXScoreboardCountView viewFromNib];
         self.countScore.hidden = YES;
-        self.countScore.frame = CGRectMake(-40, -180, self.countScore.frame.size.width, self.countScore.frame.size.height);
+        self.countScore.frame = CGRectMake(-40, -140, self.countScore.frame.size.width, self.countScore.frame.size.height);
         if (self.guideImageView) {
             [self.view insertSubview:self.countScore belowSubview:self.guideImageView];
         } else {
@@ -91,29 +145,11 @@
     }
 }
 
-#pragma mark -
-#pragma mark - public method
 - (void)beginRedayGoView {
+
     [WNXReadyGoView showReadyGoViewWithSuperView:self.view completion:^{
         [self readyGoAnimationFinish];
     }];
 }
-
-#pragma mark - 
-#pragma ChildViewController method
-- (void)readyGoAnimationFinish{}
-
-- (void)beginGame {
-    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"kMusicType"] == SoundPlayTypeMute) {
-        [[WNXSoundToolManager sharedSoundToolManager] setBackgroundMusicVolume:0.3];
-        _volume = 0.3;
-    }
-}
-- (void)endGame {
-    if (_volume) {
-        [[WNXSoundToolManager sharedSoundToolManager] setBackgroundMusicVolume:1.0];
-    }
-}
-
 
 @end

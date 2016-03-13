@@ -69,6 +69,7 @@
 }
 
 - (void)readyGoAnimationFinish {
+    [super readyGoAnimationFinish];
     [self setButtonsIsActivate:YES];
 }
 
