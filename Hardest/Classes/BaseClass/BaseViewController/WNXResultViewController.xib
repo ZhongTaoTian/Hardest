@@ -15,24 +15,46 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score_f" translatesAutoresizingMaskIntoConstraints="NO" id="Xaq-Bh-HiG">
-                    <rect key="frame" x="82" y="317" width="157" height="201"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score_a" translatesAutoresizingMaskIntoConstraints="NO" id="Xaq-Bh-HiG">
+                    <rect key="frame" x="82" y="267" width="157" height="201"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="201" id="AoW-GE-zkN"/>
                         <constraint firstAttribute="width" constant="157" id="nSY-ok-g5i"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfg-JK-UCz">
+                    <rect key="frame" x="105" y="501" width="110" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="g0F-Ja-iR7"/>
+                        <constraint firstAttribute="height" constant="47" id="kNl-wD-oT4"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="rank_home"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTa-jc-SzZ">
+                    <rect key="frame" x="20" y="494" width="58" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Vod-A7-B4q"/>
+                        <constraint firstAttribute="width" constant="58" id="WW2-Nt-dLn"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="rank_retry"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="qTa-jc-SzZ" firstAttribute="centerY" secondItem="yfg-JK-UCz" secondAttribute="centerY" id="5OH-lI-d1r"/>
+                <constraint firstAttribute="bottom" secondItem="yfg-JK-UCz" secondAttribute="bottom" constant="20" id="G1D-Pl-X5a"/>
+                <constraint firstItem="qTa-jc-SzZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="IxR-8D-iMV"/>
                 <constraint firstItem="Xaq-Bh-HiG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QQQ-Bz-my0"/>
-                <constraint firstAttribute="bottom" secondItem="Xaq-Bh-HiG" secondAttribute="bottom" constant="50" id="wip-Ng-fJA"/>
+                <constraint firstItem="yfg-JK-UCz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="q9p-um-Ygk"/>
+                <constraint firstAttribute="bottom" secondItem="Xaq-Bh-HiG" secondAttribute="bottom" constant="100" id="wip-Ng-fJA"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
-        <image name="score_f" width="292" height="393"/>
+        <image name="rank_home" width="259" height="128"/>
+        <image name="rank_retry" width="130" height="128"/>
+        <image name="score_a" width="385" height="394"/>
     </resources>
 </document>
