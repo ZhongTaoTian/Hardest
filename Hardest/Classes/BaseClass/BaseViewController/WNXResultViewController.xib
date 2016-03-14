@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WNXResultViewController">
@@ -15,24 +15,24 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score_b" translatesAutoresizingMaskIntoConstraints="NO" id="Xaq-Bh-HiG">
-                    <rect key="frame" x="70" y="294" width="179" height="234"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score_f" translatesAutoresizingMaskIntoConstraints="NO" id="Xaq-Bh-HiG">
+                    <rect key="frame" x="82" y="317" width="157" height="201"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="179" id="QgI-aP-Ddf"/>
-                        <constraint firstAttribute="height" constant="234" id="fAi-t8-IKy"/>
+                        <constraint firstAttribute="height" constant="201" id="AoW-GE-zkN"/>
+                        <constraint firstAttribute="width" constant="157" id="nSY-ok-g5i"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Xaq-Bh-HiG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9Xl-5W-Ifv"/>
-                <constraint firstAttribute="bottom" secondItem="Xaq-Bh-HiG" secondAttribute="bottom" constant="40" id="u7i-pz-EwT"/>
+                <constraint firstItem="Xaq-Bh-HiG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QQQ-Bz-my0"/>
+                <constraint firstAttribute="bottom" secondItem="Xaq-Bh-HiG" secondAttribute="bottom" constant="50" id="wip-Ng-fJA"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
-        <image name="score_b" width="332" height="394"/>
+        <image name="score_f" width="292" height="393"/>
     </resources>
 </document>

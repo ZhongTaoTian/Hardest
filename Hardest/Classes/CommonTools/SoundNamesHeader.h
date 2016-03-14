@@ -16,3 +16,18 @@
 
 //stage01
 #define kSoundFeatherClickName @"tap.mp3"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

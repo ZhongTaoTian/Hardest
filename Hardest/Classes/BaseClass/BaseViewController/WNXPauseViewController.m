@@ -10,6 +10,9 @@
 #import "WNXSettingViewController.h"
 
 #define kPushDuration 2.5
+#define kAuthorGithubURLString @"https://github.com/ZhongTaoTian"
+#define kAuthorSineWeiBoUrlString @"http://weibo.com/tianzhongtao"
+#define kAuthorBlogURLString @"http://www.jianshu.com/users/5fe7513c7a57/latest_articles"
 
 @interface WNXPauseViewController ()
 {
@@ -39,7 +42,7 @@
     
     _adImageNames = [NSArray arrayWithObjects:@"ad01", @"ad02", @"ad03", @"ad04", nil];
     
-    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(rightWithTag:) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(rightWithTag:) userInfo:nil repeats:YES];
 }
 
 
@@ -75,7 +78,22 @@
 }
 
 - (void)showAD {
-    NSLog(@"显示广告%d", _index);
+    switch (_index) {
+        case 0:
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kAuthorSineWeiBoUrlString]];
+            break;
+        case 1:
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kAuthorGithubURLString]];
+            break;
+        case 2:
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kAuthorBlogURLString]];
+            break;
+        case 3:
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kAuthorGithubURLString]];
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)rightWithTag:(int)tag {
