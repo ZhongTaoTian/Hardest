@@ -49,6 +49,7 @@
 		B39472AE1C7DC73200CAAB6D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B39472AC1C7DC73200CAAB6D /* Default.png */; };
 		B3B0D7371C83DD6A0048C380 /* WNXStage.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B0D7361C83DD6A0048C380 /* WNXStage.m */; };
 		B3B0D7391C83DFF20048C380 /* stages.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3B0D7381C83DFF20048C380 /* stages.plist */; };
+		B3B4119A1C97AFA800D4073D /* WNXResultScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B411991C97AFA800D4073D /* WNXResultScoreView.m */; settings = {ASSET_TAGS = (); }; };
 		B3E561961C7C6F650081C720 /* WNXLaunchAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E561941C7C6F650081C720 /* WNXLaunchAnimationViewController.m */; };
 		B3E561971C7C6F650081C720 /* WNXLaunchAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E561951C7C6F650081C720 /* WNXLaunchAnimationViewController.xib */; };
 		B3EEACF41C7C61EB00992B34 /* WNXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EEACF31C7C61EB00992B34 /* WNXRootViewController.m */; };
@@ -150,6 +151,8 @@
 		B3B0D7351C83DD6A0048C380 /* WNXStage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage.h; sourceTree = "<group>"; };
 		B3B0D7361C83DD6A0048C380 /* WNXStage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage.m; sourceTree = "<group>"; };
 		B3B0D7381C83DFF20048C380 /* stages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stages.plist; sourceTree = "<group>"; };
+		B3B411981C97AFA800D4073D /* WNXResultScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXResultScoreView.h; sourceTree = "<group>"; };
+		B3B411991C97AFA800D4073D /* WNXResultScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXResultScoreView.m; sourceTree = "<group>"; };
 		B3E561931C7C6F650081C720 /* WNXLaunchAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXLaunchAnimationViewController.h; sourceTree = "<group>"; };
 		B3E561941C7C6F650081C720 /* WNXLaunchAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXLaunchAnimationViewController.m; sourceTree = "<group>"; };
 		B3E561951C7C6F650081C720 /* WNXLaunchAnimationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXLaunchAnimationViewController.xib; sourceTree = "<group>"; };
@@ -465,6 +468,8 @@
 				B30885FE1C884D3600AE83B2 /* WNXReadyGoView.m */,
 				B30886031C892A8C00AE83B2 /* WNXCountDownLabel.h */,
 				B30886041C892A8C00AE83B2 /* WNXCountDownLabel.m */,
+				B3B411981C97AFA800D4073D /* WNXResultScoreView.h */,
+				B3B411991C97AFA800D4073D /* WNXResultScoreView.m */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -679,6 +684,7 @@
 				B3EEACF41C7C61EB00992B34 /* WNXRootViewController.m in Sources */,
 				B32C1E521C7C4DF600B2C577 /* main.m in Sources */,
 				B38CCE351C86CFF300E750C2 /* WNXBaseGameViewController.m in Sources */,
+				B3B4119A1C97AFA800D4073D /* WNXResultScoreView.m in Sources */,
 				B34106D31C8826DD005969C8 /* WNXScoreboardCountView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

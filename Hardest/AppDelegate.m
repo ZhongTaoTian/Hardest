@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "WNXLaunchAnimationViewController.h"
 #import "WNXBaseNavigationController.h"
+#import "WNXResultViewController.h"
 
 @interface AppDelegate ()
 
@@ -32,9 +33,11 @@
 
     WNXLaunchAnimationViewController *launchAnimationVC = [[WNXLaunchAnimationViewController alloc] init];
     launchAnimationVC.animationFinish = ^{
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        WNXBaseNavigationController *rootNav = (WNXBaseNavigationController *)[sb instantiateViewControllerWithIdentifier:@"RootNavigationController"];
-        self.window.rootViewController = rootNav;
+//        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        WNXBaseNavigationController *rootNav = (WNXBaseNavigationController *)[sb instantiateViewControllerWithIdentifier:@"RootNavigationController"];
+//        self.window.rootViewController = rootNav;
+        WNXResultViewController *res = [[WNXResultViewController alloc] init];
+        self.window.rootViewController = res;
     };
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

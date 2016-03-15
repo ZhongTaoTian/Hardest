@@ -161,7 +161,7 @@
         </view>
     </objects>
     <resources>
-        <image name="ad01" width="642" height="566"/>
+        <image name="ad01" width="400" height="353"/>
         <image name="bt_download-iphone4" width="311" height="150"/>
         <image name="bt_home" width="137" height="168"/>
         <image name="bt_resume" width="136" height="168"/>

@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self.view setBackgroundImageWihtImageName:@"rank_bg"];
 }
 
 
