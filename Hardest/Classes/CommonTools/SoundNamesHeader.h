@@ -14,6 +14,8 @@
 #define kSoundReadyGoName     @"ready_go.mp3"
 #define kSoundSelectedStage   @"stage_ready.mp3"
 
+#define kSoundNewRecordName1  @"hiScore02.mp3"
+#define kSoundNewRecordName2  @"hiScore01.mp3"
 //stage01
 #define kSoundFeatherClickName @"tap.mp3"
 

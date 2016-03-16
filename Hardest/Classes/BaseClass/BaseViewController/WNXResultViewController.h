@@ -10,4 +10,6 @@
 
 @interface WNXResultViewController : UIViewController
 
+- (void)setCountScoreWithNewScroe:(double)scroe unit:(NSString *)unit stage:(WNXStage *)stage isAddScore:(BOOL)isAddScroe;
+
 @end

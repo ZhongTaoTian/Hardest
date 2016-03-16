@@ -10,6 +10,8 @@
 #import "WNXLaunchAnimationViewController.h"
 #import "WNXBaseNavigationController.h"
 #import "WNXResultViewController.h"
+#import "WNXStageInfoManager.h"
+#import "WNXStageInfo.h"
 
 @interface AppDelegate ()
 
@@ -30,7 +32,12 @@
 }
 
 - (void)setKeyWindow {
-
+    WNXStageInfo *info = [[WNXStageInfo alloc] init];
+    info.num = 1;
+    info.rank = @"a";
+    info.score = 24;
+    info.unlock = YES;
+//    [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info];
     WNXLaunchAnimationViewController *launchAnimationVC = [[WNXLaunchAnimationViewController alloc] init];
     launchAnimationVC.animationFinish = ^{
 //        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
