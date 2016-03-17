@@ -9,16 +9,17 @@
 #import "WNXResultViewController.h"
 #import "WNXResultScoreView.h"
 #import "WNXStageInfo.h"
+#import "WNXHighScroeTextView.h"
 
 @interface WNXResultViewController () <WNXResultScoreViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *animationIV;
-@property (weak, nonatomic) IBOutlet WNXFullBackgroundView *blurBackView;
 @property (weak, nonatomic) IBOutlet UIButton *againBtn;
 @property (weak, nonatomic) IBOutlet UIButton *homeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *againBtn2;
 @property (weak, nonatomic) IBOutlet UIImageView *scroeImageView;
 @property (weak, nonatomic) IBOutlet WNXResultScoreView *scroeView;
-
+@property (weak, nonatomic) IBOutlet UIImageView *blurBackIV;
+@property (nonatomic, strong) WNXHighScroeTextView *highScroeView;
 
 @end
 
@@ -28,9 +29,10 @@
     [super viewDidLoad];
 
     [self.view setBackgroundImageWihtImageName:@"rank_bg"];
-    [self.blurBackView setBackgroundImageWihtImageName:@"scene_bg"];
-    
     self.scroeView.delegate = self;
+    
+    self.highScroeView = [[WNXHighScroeTextView alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(self.scroeImageView.frame) - 100, ScreenWidth, 200)];
+    [self.view insertSubview:self.highScroeView belowSubview:self.scroeImageView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -58,7 +60,7 @@
     sss.userInfo.num = 1;
     sss.userInfo.unlock = NO;
     sss.userInfo.rank = nil;
-    [self.scroeView startCountScoreWithNewScroe:85 unit:@"PTS" stage:sss isAddScore:YES];
+    [self.scroeView startCountScoreWithNewScroe:55 unit:@"PTS" stage:sss isAddScore:YES];
 }
 
 - (void)shakeAnimation {
@@ -84,6 +86,8 @@
 
 - (void)resultScoreViewShowNewCount {
     NSLog(@"显示新纪录");
+    [self.highScroeView showHighScroeTextView];
+    
     self.animationIV.animationImages = @[[UIImage imageNamed:@"scene_light01"],
                                          [UIImage imageNamed:@"scene_light02"],
                                          [UIImage imageNamed:@"scene_light03"]];
@@ -100,16 +104,42 @@
     recordBlurIV.hidden = YES;
     [self.scroeView insertSubview:recordBlurIV belowSubview:recordIV];
     
+    UIImageView *bordeIV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 15, 390, 130)];
+    bordeIV.image = [UIImage imageNamed:@"Result_Scene_light01-iphone4"];
+    bordeIV.hidden = YES;
+    [self.scroeView insertSubview:bordeIV belowSubview:recordBlurIV];
+    
+    UIImageView *bordeIV2 = [[UIImageView alloc] initWithFrame:CGRectMake(10, 15, 390, 130)];;
+    bordeIV2.image = bordeIV.image;
+    bordeIV2.hidden = YES;
+    [self.scroeView insertSubview:bordeIV2 belowSubview:bordeIV];
+    
     [UIView animateWithDuration:0.3 animations:^{
         recordIV.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         [self shakeAnimation];
         [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundNewRecordName1];
         [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundNewRecordName2];
-        self.blurBackView.hidden = NO;
+        self.blurBackIV.hidden = NO;
         recordBlurIV.hidden = NO;
         self.animationIV.hidden = NO;
         [self.animationIV startAnimating];
+        
+        bordeIV.hidden = NO;
+        bordeIV2.hidden = NO;
+
+        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+            bordeIV.transform = CGAffineTransformMakeScale(1.4, 1.4);
+        } completion:^(BOOL finished) {
+            [bordeIV removeFromSuperview];
+        }];
+
+        
+        [UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveLinear animations:^{
+            bordeIV2.transform = CGAffineTransformMakeScale(1.4, 1.4);
+        } completion:^(BOOL finished) {
+            [bordeIV2 removeFromSuperview];
+        }];
     }];
 }
 

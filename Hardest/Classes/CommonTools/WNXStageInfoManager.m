@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *allStageInfos;
 
+@property (nonatomic, strong) NSArray *aaa;
+
 @end
 
 @implementation WNXStageInfoManager

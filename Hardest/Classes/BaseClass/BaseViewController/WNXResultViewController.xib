@@ -16,7 +16,7 @@
                 <outlet property="againBtn" destination="qTa-jc-SzZ" id="e0G-vx-RcW"/>
                 <outlet property="againBtn2" destination="t4h-Aa-QB2" id="7pd-Ds-S2m"/>
                 <outlet property="animationIV" destination="fZy-7z-tY6" id="eje-u7-L4X"/>
-                <outlet property="blurBackView" destination="9T3-X2-E2V" id="QSb-MH-Qa8"/>
+                <outlet property="blurBackIV" destination="lUA-js-ccD" id="rYc-1P-wV1"/>
                 <outlet property="homeBtn" destination="yfg-JK-UCz" id="1rm-P1-0d3"/>
                 <outlet property="scroeImageView" destination="Xaq-Bh-HiG" id="qzQ-w6-UtB"/>
                 <outlet property="scroeView" destination="9kE-va-GTZ" id="Pm0-XC-tAt"/>
@@ -28,10 +28,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9T3-X2-E2V" customClass="WNXFullBackgroundView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1111" translatesAutoresizingMaskIntoConstraints="NO" id="lUA-js-ccD">
+                    <rect key="frame" x="-20" y="0.0" width="360" height="568"/>
+                </imageView>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fZy-7z-tY6">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
@@ -103,7 +102,7 @@
                         <constraint firstAttribute="height" constant="50" id="KbP-a2-OCk"/>
                         <constraint firstAttribute="width" constant="50" id="khx-PT-sj6"/>
                     </constraints>
-                    <state key="normal" backgroundImage="rank_retry"/>
+                    <state key="normal" backgroundImage="FBrank_button03-iphone4"/>
                     <connections>
                         <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="Bnq-95-iQr"/>
                     </connections>
@@ -122,21 +121,21 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="lUA-js-ccD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-20" id="09A-JU-fjD"/>
+                <constraint firstAttribute="trailing" secondItem="lUA-js-ccD" secondAttribute="trailing" constant="-20" id="47C-6E-EjJ"/>
+                <constraint firstAttribute="bottom" secondItem="lUA-js-ccD" secondAttribute="bottom" id="4si-v1-1sc"/>
                 <constraint firstItem="qTa-jc-SzZ" firstAttribute="centerY" secondItem="yfg-JK-UCz" secondAttribute="centerY" id="5OH-lI-d1r"/>
                 <constraint firstAttribute="bottom" secondItem="fZy-7z-tY6" secondAttribute="bottom" id="9HK-nN-T1u"/>
                 <constraint firstItem="9kE-va-GTZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BCF-VB-MDX"/>
-                <constraint firstItem="9T3-X2-E2V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Dl4-bz-uFV"/>
                 <constraint firstItem="fZy-7z-tY6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ETd-w0-7S5"/>
                 <constraint firstItem="fZy-7z-tY6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Fv9-xb-Nvk"/>
                 <constraint firstAttribute="bottom" secondItem="yfg-JK-UCz" secondAttribute="bottom" constant="20" id="G1D-Pl-X5a"/>
                 <constraint firstItem="qTa-jc-SzZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="IxR-8D-iMV"/>
                 <constraint firstItem="yfg-JK-UCz" firstAttribute="leading" secondItem="qTa-jc-SzZ" secondAttribute="trailing" constant="30" id="Kfi-Su-48b"/>
                 <constraint firstItem="Xaq-Bh-HiG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QQQ-Bz-my0"/>
-                <constraint firstAttribute="trailing" secondItem="9T3-X2-E2V" secondAttribute="trailing" id="UWj-WH-pbW"/>
                 <constraint firstAttribute="trailing" secondItem="fZy-7z-tY6" secondAttribute="trailing" id="Wqg-Ro-ZbP"/>
-                <constraint firstAttribute="bottom" secondItem="9T3-X2-E2V" secondAttribute="bottom" id="bNd-UT-qYq"/>
-                <constraint firstItem="9T3-X2-E2V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iOh-us-yjp"/>
                 <constraint firstItem="t4h-Aa-QB2" firstAttribute="leading" secondItem="yfg-JK-UCz" secondAttribute="trailing" constant="30" id="j2i-3H-rT9"/>
+                <constraint firstItem="lUA-js-ccD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jO1-n3-o21"/>
                 <constraint firstAttribute="trailing" secondItem="9kE-va-GTZ" secondAttribute="trailing" id="mt1-2K-Kxu"/>
                 <constraint firstItem="t4h-Aa-QB2" firstAttribute="centerY" secondItem="yfg-JK-UCz" secondAttribute="centerY" id="omw-De-vEL"/>
                 <constraint firstItem="yfg-JK-UCz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="q9p-um-Ygk"/>
@@ -154,6 +153,8 @@
         </view>
     </objects>
     <resources>
+        <image name="1111" width="720" height="1136"/>
+        <image name="FBrank_button03-iphone4" width="130" height="128"/>
         <image name="rank_home" width="259" height="128"/>
         <image name="rank_retry" width="130" height="128"/>
         <image name="ready_score_arrow" width="78" height="221"/>
