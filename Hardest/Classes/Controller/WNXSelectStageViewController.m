@@ -17,7 +17,6 @@
 @property (nonatomic, strong) WNXStageListView *listView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
-
 @end
 
 @implementation WNXSelectStageViewController

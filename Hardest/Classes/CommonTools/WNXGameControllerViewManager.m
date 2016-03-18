@@ -18,6 +18,7 @@
     switch (stage.num) {
         case 1:
             gameVC = [[WNXStage01ViewController alloc] init];
+            gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeOneFingerClick;
             gameVC.scoreboardType = WNXScoreboardTypeCountPTS;
             break;
@@ -25,9 +26,7 @@
         default:
             break;
     }
-    
-    gameVC.stage = stage;
-    
+        
     return gameVC;
 }
 

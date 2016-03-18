@@ -7,7 +7,6 @@
 //
 
 #import "WNXScoreboardCountView.h"
-#import "WNXStrokeLabel.h"
 
 @interface WNXScoreboardCountView ()
 {
@@ -15,7 +14,6 @@
     int _count;
 }
 
-@property (weak, nonatomic) IBOutlet WNXStrokeLabel *countLabel;
 @property (weak, nonatomic) IBOutlet WNXStrokeLabel *ptsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 

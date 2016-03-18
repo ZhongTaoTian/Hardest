@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WNXStrokeLabel.h"
 @interface WNXScoreboardCountView : UIView
+
+@property (weak, nonatomic) IBOutlet WNXStrokeLabel *countLabel;
 
 - (void)startAnimationWithCompletion:(void (^)(BOOL finished))completion;
 

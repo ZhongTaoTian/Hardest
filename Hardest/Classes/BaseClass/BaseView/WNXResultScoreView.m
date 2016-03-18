@@ -102,16 +102,16 @@
     [[CADisplayLink displayLinkWithTarget:self selector:@selector(upData:)] addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     self.unitLabel.text = unit;
     
-    if ([NSString stringWithFormat:stage.unit, scroe].length == 3) {
-        self.scroeLabel.font = [UIFont systemFontOfSize:95];
-    } else if ([NSString stringWithFormat:stage.unit, scroe].length == 4) {
-        self.scroeLabel.font = [UIFont systemFontOfSize:80];
+    if ([NSString stringWithFormat:stage.format, scroe].length == 3) {
+        self.scroeLabel.font = [UIFont fontWithName:@"TransformersMovie" size:95];
+    } else if ([NSString stringWithFormat:stage.format, scroe].length == 4) {
+        self.scroeLabel.font = [UIFont fontWithName:@"TransformersMovie" size:80];
     }
-    
+        
     if (isAddScroe) {
         self.scroeLabel.text = @"0";
     } else {
-        self.scroeLabel.text = [NSString stringWithFormat:stage.unit, scroe];
+        self.scroeLabel.text = [NSString stringWithFormat:stage.format, scroe];
     }
     
     _scroeUnit = scroe / _moveX > 0 ? scroe / _moveX : -(scroe / _moveX);
@@ -135,7 +135,7 @@
         _currentScroe = _newScroe;
     }
     
-    self.scroeLabel.text = [NSString stringWithFormat:_stage.unit, _currentScroe];
+    self.scroeLabel.text = [NSString stringWithFormat:_stage.format, _currentScroe];
     
     if (_hintIVTransfrom.tx < 0 && !_isChange && _hintIVTransfrom.tx >= -45) {
         _isChange = YES;
@@ -268,13 +268,19 @@
     }
     
     [self.hintImageView removeFromSuperview];
-    
+
     [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:_stageInfo];
 }
 
 - (void)showFail {
+    NSString *passStr;
+    if (_stage.max - _stage.min > 0) {
+        passStr = [NSString stringWithFormat:@" > %@", [NSString stringWithFormat:_stage.format, _stage.min]];
+    } else {
+        passStr = [NSString stringWithFormat:@" < %@", [NSString stringWithFormat:_stage.format, _stage.min]];
+    }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.delegate resultScoreViewShowFailView];
+        [self.delegate resultScoreViewShowFailViewPassScroeStr:passStr userScroeStr:[NSString stringWithFormat:_stage.format, _newScroe]];
     });
 }
 

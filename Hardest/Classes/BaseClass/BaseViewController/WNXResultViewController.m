@@ -12,6 +12,14 @@
 #import "WNXHighScroeTextView.h"
 
 @interface WNXResultViewController () <WNXResultScoreViewDelegate>
+{
+    BOOL _notFrist;
+    double _scroeNew;
+    NSString *_unit;
+    WNXStage *_stage;
+    BOOL _isAddScroe;
+}
+
 @property (weak, nonatomic) IBOutlet UIImageView *animationIV;
 @property (weak, nonatomic) IBOutlet UIImageView *scroeImageView;
 @property (weak, nonatomic) IBOutlet WNXResultScoreView *scroeView;
@@ -20,6 +28,11 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *fialViewTopConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *failShadowView;
+@property (weak, nonatomic) IBOutlet UILabel *userScroeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *passLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *cageImageView;
+@property (weak, nonatomic) IBOutlet UIView *failBackgrounView;
+@property (weak, nonatomic) IBOutlet UILabel *countScroeLabel;
 
 
 @end
@@ -28,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self.view setBackgroundImageWihtImageName:@"rank_bg"];
     self.scroeView.delegate = self;
     
@@ -36,12 +49,26 @@
     [self.view insertSubview:self.highScroeView belowSubview:self.scroeImageView];
     
     self.scroeImageView.layer.anchorPoint = CGPointMake(0.5, 1);
+    
+    self.cageImageView.transform = CGAffineTransformMakeTranslation(0, -ScreenHeight);
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self setCountScoreWithNewScroe:0 unit:nil stage:nil isAddScore:NO];
+    if (!_notFrist) {
+        _notFrist = YES;
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.countScroeLabel.hidden = YES;
+            [self.countScroeLabel removeFromSuperview];
+            self.scroeView.hidden = NO;
+            self.scroeImageView.hidden = NO;
+            [self.scroeView startCountScoreWithNewScroe:_scroeNew unit:_unit stage:_stage isAddScore:_isAddScroe];
+        });
+    }
 }
 
 - (IBAction)btnClick:(UIButton *)sender {
@@ -49,23 +76,15 @@
     if (sender.tag == 20) {
         //在来一次
     } else if (sender.tag == 21) {
-        // home
-    } else if (sender.tag == 22) {
         // 回到选择关卡
-    }
+    } 
 }
 
 - (void)setCountScoreWithNewScroe:(double)scroe unit:(NSString *)unit stage:(WNXStage *)stage isAddScore:(BOOL)isAddScroe {
-    WNXStage *sss = [[WNXStage alloc] init];
-    sss.max = 25;
-    sss.min = 20;
-    sss.num = 1;
-    sss.unit = @"%.f";
-    
-    sss.userInfo.num = 1;
-    sss.userInfo.unlock = NO;
-    sss.userInfo.rank = nil;
-    [self.scroeView startCountScoreWithNewScroe:19 unit:@"PTS" stage:sss isAddScore:YES];
+    _scroeNew = scroe;
+    _unit = unit;
+    _stage = stage;
+    _isAddScroe = isAddScroe;
 }
 
 - (void)shakeAnimation {
@@ -129,13 +148,13 @@
         
         bordeIV.hidden = NO;
         bordeIV2.hidden = NO;
-
+        
         [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             bordeIV.transform = CGAffineTransformMakeScale(1.4, 1.4);
         } completion:^(BOOL finished) {
             [bordeIV removeFromSuperview];
         }];
-
+        
         
         [UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveLinear animations:^{
             bordeIV2.transform = CGAffineTransformMakeScale(1.4, 1.4);
@@ -156,14 +175,19 @@
     }];
 }
 
-- (void)resultScoreViewShowFailView {
+- (void)resultScoreViewShowFailViewPassScroeStr:(NSString *)passScroe userScroeStr:(NSString *)userScroe {
     [self.view setBackgroundImageWihtImageName:@"fail_bg"];
     self.failShadowView.hidden = NO;
+    self.userScroeLabel.text = [NSString stringWithFormat:@"你的分数: %@", userScroe];
+    self.passLabel.text = [NSString stringWithFormat:@"闯关分数: %@", passScroe];
     
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFailDropName];
+    
+    [UIView animateWithDuration:0.2 delay:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
         self.fialViewTopConstraint.constant = ScreenHeight - 90 - 150 - self.scroeImageView.frame.size.height + 10;
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFailScreamName];
         [self pressScroeImageView];
     }];
 }
@@ -175,10 +199,21 @@
         
         self.scroeImageView.transform = CGAffineTransformMakeScale(2, 0.01);
     } completion:^(BOOL finished) {
-        self.scroeImageView.hidden = YES;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            UIView *grayBG = [[UIView alloc] initWithFrame:ScreenBounds];
+            grayBG.backgroundColor = [UIColor blackColor];
+            grayBG.alpha = 0.3;
+            [self.view insertSubview:grayBG belowSubview:self.failBackgrounView];
+            
+            self.scroeImageView.hidden = YES;
             [self.scroeView removeFromSuperview];
-
+            [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+                self.cageImageView.transform = CGAffineTransformIdentity;
+            } completion:^(BOOL finished) {
+                self.failBackgrounView.hidden = NO;
+                [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundcageDropName];
+            }];
         });
     }];
 }

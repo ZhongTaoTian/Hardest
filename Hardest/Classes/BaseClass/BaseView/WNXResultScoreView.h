@@ -12,7 +12,7 @@
 @protocol WNXResultScoreViewDelegate <NSObject>
 
 - (void)resultScoreViewChangeWithRank:(NSString *)rank;
-- (void)resultScoreViewShowFailView;
+- (void)resultScoreViewShowFailViewPassScroeStr:(NSString *)passScroe userScroeStr:(NSString *)userScroe;
 - (void)resultScoreViewShowNewCount;
 - (void)resultScoreViewDidRemove;
 
@@ -22,11 +22,11 @@
 
 @interface WNXResultScoreView : UIView
 
-@property (nonatomic, weak) IBOutlet UIImageView *hintImageView;
-@property (nonatomic, weak) IBOutlet UIImageView *boardImageView;
-@property (nonatomic, weak) IBOutlet WNXStrokeLabel     *scroeLabel;
-@property (nonatomic, weak) IBOutlet WNXStrokeLabel     *unitLabel;
-@property (nonatomic, weak) IBOutlet UIView      *labelView;
+@property (nonatomic, weak) IBOutlet UIImageView    *hintImageView;
+@property (nonatomic, weak) IBOutlet UIImageView    *boardImageView;
+@property (nonatomic, weak) IBOutlet WNXStrokeLabel *scroeLabel;
+@property (nonatomic, weak) IBOutlet WNXStrokeLabel *unitLabel;
+@property (nonatomic, weak) IBOutlet UIView         *labelView;
 
 @property (nonatomic, weak) id <WNXResultScoreViewDelegate> delegate;
 

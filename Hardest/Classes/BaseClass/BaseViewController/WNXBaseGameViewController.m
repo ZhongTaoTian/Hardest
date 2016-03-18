@@ -89,8 +89,8 @@
 }
 
 - (void)showGuideImageView {
-    if (!(([self.stage.userInfo.rank isEqualToString:@"f"] || self.stage.userInfo.rank == nil || self.stage.userInfo == nil) && self.guideType != WNXGameGuideTypeNone)) {
-        [self.guideImageView removeFromSuperview];
+    if (self.stage.userInfo && self.stage.userInfo.rank && ![self.stage.userInfo isEqual:@"f"]) {
+        [self guideImageViewClick];
         return;
     }
     
@@ -146,10 +146,15 @@
 }
 
 - (void)beginRedayGoView {
-
     [WNXReadyGoView showReadyGoViewWithSuperView:self.view completion:^{
         [self readyGoAnimationFinish];
     }];
+}
+
+- (void)showResultControllerWithNewScroe:(double)scroe unit:(NSString *)unil stage:(WNXStage *)stage isAddScore:(BOOL)isAddScroe {
+    WNXResultViewController *resultVC = [[WNXResultViewController alloc] init];
+    [resultVC setCountScoreWithNewScroe:scroe unit:unil stage:stage isAddScore:isAddScroe];
+    [self.navigationController pushViewController:resultVC animated:NO];
 }
 
 @end

@@ -32,19 +32,13 @@
 }
 
 - (void)setKeyWindow {
-    WNXStageInfo *info = [[WNXStageInfo alloc] init];
-    info.num = 1;
-    info.rank = @"a";
-    info.score = 24;
-    info.unlock = YES;
-//    [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info];
     WNXLaunchAnimationViewController *launchAnimationVC = [[WNXLaunchAnimationViewController alloc] init];
     launchAnimationVC.animationFinish = ^{
-//        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        WNXBaseNavigationController *rootNav = (WNXBaseNavigationController *)[sb instantiateViewControllerWithIdentifier:@"RootNavigationController"];
-//        self.window.rootViewController = rootNav;
-        WNXResultViewController *res = [[WNXResultViewController alloc] init];
-        self.window.rootViewController = res;
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        WNXBaseNavigationController *rootNav = (WNXBaseNavigationController *)[sb instantiateViewControllerWithIdentifier:@"RootNavigationController"];
+        self.window.rootViewController = rootNav;
+//        WNXResultViewController *res = [[WNXResultViewController alloc] init];
+//        self.window.rootViewController = res;
     };
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

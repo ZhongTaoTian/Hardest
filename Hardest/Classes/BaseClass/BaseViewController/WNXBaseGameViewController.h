@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WNXScoreboardCountView.h"
+#import "WNXResultViewController.h"
 
 typedef NS_ENUM(NSInteger, WNXGameGuideType) {
     WNXGameGuideTypeNone = 0,
@@ -41,5 +42,7 @@ typedef NS_ENUM(NSInteger, WNXScoreboardType) {
 - (void)continueGame;
 
 - (void)playAgainGame;
+
+- (void)showResultControllerWithNewScroe:(double)scroe unit:(NSString *)unil stage:(WNXStage *)stage isAddScore:(BOOL)isAddScroe;
 
 @end

@@ -10,6 +10,8 @@
 #import "WNXCountDownLabel.h"
 #import "WNXFootView.h"
 #import "WNXFeatherView.h"
+#import "WNXScoreboardCountView.h"
+#import "WNXStageInfoManager.h"
 
 #define kStage01Duration 7.0
 
@@ -24,6 +26,9 @@
 @implementation WNXStage01ViewController
 
 - (void)viewDidLoad {
+//    self.stage.userInfo = [[WNXStageInfoManager sharedStageInfoManager] stageInfoWithNumber:self.stage.num];
+    NSLog(@"%@", self.stage);
+    
     [super viewDidLoad];
     
     [self setStageInfo];
@@ -34,7 +39,6 @@
     
     [self initFeaterView];
 }
-
 - (void)setStageInfo {
     self.buttonImageNames = @[@"01-btfeather", @"01-btfeather", @"01-btfeather"];
     [self.view bringSubviewToFront:self.guideImageView];
@@ -74,11 +78,14 @@
 }
 
 - (void)endGame {
+    [super endGame];
     self.view.userInteractionEnabled = NO;
     [self.footView stopFootView];
     [self.featherView removeFromSuperview];
     
     // 算分
+    [self showResultControllerWithNewScroe:[((WNXScoreboardCountView *)self.countScore).countLabel.text intValue] unit:@"PTS" stage:self.stage isAddScore:YES];
+
 }
 
 - (void)beginGame {
