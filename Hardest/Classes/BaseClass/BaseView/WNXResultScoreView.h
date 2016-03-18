@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WNXStrokeLabel.h"
 
 @protocol WNXResultScoreViewDelegate <NSObject>
 
@@ -23,8 +24,8 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *hintImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *boardImageView;
-@property (nonatomic, weak) IBOutlet UILabel     *scroeLabel;
-@property (nonatomic, weak) IBOutlet UILabel     *unitLabel;
+@property (nonatomic, weak) IBOutlet WNXStrokeLabel     *scroeLabel;
+@property (nonatomic, weak) IBOutlet WNXStrokeLabel     *unitLabel;
 @property (nonatomic, weak) IBOutlet UIView      *labelView;
 
 @property (nonatomic, weak) id <WNXResultScoreViewDelegate> delegate;

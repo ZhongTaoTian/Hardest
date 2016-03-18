@@ -56,7 +56,6 @@
     
     [super viewDidAppear:animated];
     
-    self.handImageView.hidden = NO;
     self.blackIconImageView.hidden = YES;
     self.bombButtonImageView.hidden = YES;
     self.eyeMaskView.hidden = YES;
@@ -70,7 +69,7 @@
 }
 
 - (void)handButtonImageViewClickAnimation {
-    
+    self.handImageView.hidden = NO;
     _clickCount++;
     
     [UIView animateWithDuration:kClickAnimationDuration * 0.5 animations:^{

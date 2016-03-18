@@ -13,13 +13,14 @@
 
 @interface WNXResultViewController () <WNXResultScoreViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *animationIV;
-@property (weak, nonatomic) IBOutlet UIButton *againBtn;
-@property (weak, nonatomic) IBOutlet UIButton *homeBtn;
-@property (weak, nonatomic) IBOutlet UIButton *againBtn2;
 @property (weak, nonatomic) IBOutlet UIImageView *scroeImageView;
 @property (weak, nonatomic) IBOutlet WNXResultScoreView *scroeView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurBackIV;
 @property (nonatomic, strong) WNXHighScroeTextView *highScroeView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *fialViewTopConstraint;
+@property (weak, nonatomic) IBOutlet UIImageView *failShadowView;
+
 
 @end
 
@@ -33,6 +34,8 @@
     
     self.highScroeView = [[WNXHighScroeTextView alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(self.scroeImageView.frame) - 100, ScreenWidth, 200)];
     [self.view insertSubview:self.highScroeView belowSubview:self.scroeImageView];
+    
+    self.scroeImageView.layer.anchorPoint = CGPointMake(0.5, 1);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -47,6 +50,8 @@
         //在来一次
     } else if (sender.tag == 21) {
         // home
+    } else if (sender.tag == 22) {
+        // 回到选择关卡
     }
 }
 
@@ -60,12 +65,10 @@
     sss.userInfo.num = 1;
     sss.userInfo.unlock = NO;
     sss.userInfo.rank = nil;
-    [self.scroeView startCountScoreWithNewScroe:55 unit:@"PTS" stage:sss isAddScore:YES];
+    [self.scroeView startCountScoreWithNewScroe:19 unit:@"PTS" stage:sss isAddScore:YES];
 }
 
 - (void)shakeAnimation {
-
-    
     [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:0.08 initialSpringVelocity:8 options:UIViewAnimationOptionCurveLinear animations:^{
         self.scroeView.transform = CGAffineTransformTranslate(self.scroeView.transform, 0, -10);
         self.scroeImageView.transform = CGAffineTransformMakeTranslation(0, -10);
@@ -81,11 +84,10 @@
 }
 
 - (void)resultScoreViewDidRemove {
-    NSLog(@"没有失败.没有新纪录");
+    [self showBottomView];
 }
 
 - (void)resultScoreViewShowNewCount {
-    NSLog(@"显示新纪录");
     [self.highScroeView showHighScroeTextView];
     
     self.animationIV.animationImages = @[[UIImage imageNamed:@"scene_light01"],
@@ -141,10 +143,44 @@
             [bordeIV2 removeFromSuperview];
         }];
     }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self showBottomView];
+    });
+}
+
+- (void)showBottomView {
+    [UIView animateWithDuration:0.4 animations:^{
+        self.bottomViewConstraint.constant = 0;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (void)resultScoreViewShowFailView {
-    NSLog(@"游戏失败");
+    [self.view setBackgroundImageWihtImageName:@"fail_bg"];
+    self.failShadowView.hidden = NO;
+    
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.fialViewTopConstraint.constant = ScreenHeight - 90 - 150 - self.scroeImageView.frame.size.height + 10;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self pressScroeImageView];
+    }];
+}
+
+- (void)pressScroeImageView {
+    [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.fialViewTopConstraint.constant = ScreenHeight - 90 - 150;
+        [self.view layoutIfNeeded];
+        
+        self.scroeImageView.transform = CGAffineTransformMakeScale(2, 0.01);
+    } completion:^(BOOL finished) {
+        self.scroeImageView.hidden = YES;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.scroeView removeFromSuperview];
+
+        });
+    }];
 }
 
 @end

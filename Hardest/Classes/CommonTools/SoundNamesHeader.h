@@ -16,6 +16,8 @@
 
 #define kSoundNewRecordName1  @"hiScore02.mp3"
 #define kSoundNewRecordName2  @"hiScore01.mp3"
+#define kSoundSName           @"getGradeS.mp3"
+#define kSoundScroeNormalName @"normalScore.mp3"
 //stage01
 #define kSoundFeatherClickName @"tap.mp3"
 

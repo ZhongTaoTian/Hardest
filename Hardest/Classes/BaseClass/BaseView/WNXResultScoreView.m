@@ -23,6 +23,9 @@
     double _newScroe;
     WNXStage *_stage;
     WNXStageInfo *_stageInfo;
+    double _scroeUnit;
+    double _currentScroe;
+    BOOL _isAddScroe;
 }
 
 @end
@@ -53,6 +56,8 @@
     
     self.transform = CGAffineTransformMakeRotation(M_PI_4/6);
     
+    [self.scroeLabel setTextStorkeWidth:5];
+    [self.unitLabel setTextStorkeWidth:3];
 }
 
 - (void)startCountScoreWithNewScroe:(double)scroe unit:(NSString *)unit stage:(WNXStage *)stage isAddScore:(BOOL)isAddScroe {
@@ -64,6 +69,7 @@
     _stageInfo.num = stage.num;
     _stageInfo.unlock = YES;
     _stageInfo.score = scroe;
+    _isAddScroe = isAddScroe;
     
     if (delta > 0) {
         delta = -delta;
@@ -95,13 +101,41 @@
     
     [[CADisplayLink displayLinkWithTarget:self selector:@selector(upData:)] addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     self.unitLabel.text = unit;
-    self.scroeLabel.text = [NSString stringWithFormat:stage.unit, scroe];
+    
+    if ([NSString stringWithFormat:stage.unit, scroe].length == 3) {
+        self.scroeLabel.font = [UIFont systemFontOfSize:95];
+    } else if ([NSString stringWithFormat:stage.unit, scroe].length == 4) {
+        self.scroeLabel.font = [UIFont systemFontOfSize:80];
+    }
+    
+    if (isAddScroe) {
+        self.scroeLabel.text = @"0";
+    } else {
+        self.scroeLabel.text = [NSString stringWithFormat:stage.unit, scroe];
+    }
+    
+    _scroeUnit = scroe / _moveX > 0 ? scroe / _moveX : -(scroe / _moveX);
 }
 
 - (void)upData:(CADisplayLink *)timer {
     _index++;
     _hintIVTransfrom = CGAffineTransformTranslate(_hintIVTransfrom, -1.5, 0);
     self.hintImageView.transform = _hintIVTransfrom;
+    _currentScroe += _scroeUnit * 1.5;
+    
+    
+    self.scroeLabel.transform = CGAffineTransformMakeTranslation(_hintIVTransfrom.tx * 0.2, 0);
+    self.unitLabel.transform = CGAffineTransformMakeTranslation(_hintIVTransfrom.tx * 0.2, 0);
+    
+    if (_isAddScroe && _currentScroe >= _newScroe) {
+        _currentScroe = _newScroe;
+    }
+    
+    if (!_isAddScroe && _currentScroe <= _newScroe) {
+        _currentScroe = _newScroe;
+    }
+    
+    self.scroeLabel.text = [NSString stringWithFormat:_stage.unit, _currentScroe];
     
     if (_hintIVTransfrom.tx < 0 && !_isChange && _hintIVTransfrom.tx >= -45) {
         _isChange = YES;
@@ -182,7 +216,16 @@
     }
     
     [self saveStageUserInfo];
-    [self.delegate resultScoreViewDidRemove];
+    
+    if ([_stageInfo.rank isEqual:@"s"]) {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundSName];
+    }
+    
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundScroeNormalName];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.delegate resultScoreViewDidRemove];
+    });
 }
 
 - (BOOL)isNewCount {
@@ -207,11 +250,11 @@
     }
     
     if (_stage.max - _stage.min > 0) {
-        if (_newScroe > _stage.userInfo.score) {
+        if (_newScroe > lastStageInfo.score) {
             [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:_stageInfo];
         }
     } else {
-        if (_newScroe < _stage.userInfo.score) {
+        if (_newScroe < lastStageInfo.score) {
             [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:_stageInfo];
         }
     }
@@ -230,7 +273,9 @@
 }
 
 - (void)showFail {
-    [self.delegate resultScoreViewShowFailView];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.delegate resultScoreViewShowFailView];
+    });
 }
 
 @end
