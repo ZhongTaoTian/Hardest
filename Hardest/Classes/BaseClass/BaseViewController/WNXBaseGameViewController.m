@@ -10,6 +10,7 @@
 #import "WNXStageInfo.h"
 #import "WNXReadyGoView.h"
 #import "WNXPauseViewController.h"
+#import "WNXCountTimeView.h"
 
 @interface WNXBaseGameViewController ()
 {
@@ -137,6 +138,10 @@
         [(WNXScoreboardCountView *)self.countScore startAnimationWithCompletion:^(BOOL finished) {
             [weakSelf beginRedayGoView];
         }];
+    } else if (self.scoreboardType == WNXScoreboardTypeTimeMS) {
+        [((WNXCountTimeView *)self.countScore) startAnimationWithCompletion:^(BOOL finished) {
+            [weakSelf beginRedayGoView];
+        }];
     }
 }
 
@@ -155,6 +160,15 @@
             [self.view addSubview:self.countScore];
         }
         return;
+    } else if (scoreboardType == WNXScoreboardTypeTimeMS) {
+        self.countScore = [WNXCountTimeView viewFromNib];
+        self.countScore.hidden = YES;
+        self.countScore.frame = CGRectMake(-60, -140, self.countScore.frame.size.width, self.countScore.frame.size.height);
+        if (self.guideImageView) {
+            [self.view insertSubview:self.countScore belowSubview:self.guideImageView];
+        } else {
+            [self.view addSubview:self.countScore];
+        }
     }
 }
 

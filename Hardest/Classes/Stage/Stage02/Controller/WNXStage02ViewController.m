@@ -7,8 +7,12 @@
 //
 
 #import "WNXStage02ViewController.h"
+#import "WNXCountTimeView.h"
+#import "WNXGuessFingerView.h"
 
 @interface WNXStage02ViewController ()
+
+@property (nonatomic, strong) WNXGuessFingerView *guessView;
 
 @end
 
@@ -16,22 +20,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [self setStageInfo];
+    
+    [self buildGuessImageView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Build UI
+- (void)setStageInfo {
+    self.buttonImageNames = @[@"09_red-iphone4", @"09_draw-iphone4", @"09_blue-iphone4"];
+    [self.view bringSubviewToFront:self.guideImageView];
+    
+    [self.redButton addTarget:self action:@selector(featherClick:) forControlEvents:UIControlEventTouchDown];
+    [self.yellowButton addTarget:self action:@selector(featherClick:) forControlEvents:UIControlEventTouchDown];
+    [self.blueButton addTarget:self action:@selector(featherClick:) forControlEvents:UIControlEventTouchDown];
+    
+    [self setButtonsIsActivate:NO];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)buildGuessImageView {
+    self.guessView = [[WNXGuessFingerView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.countScore.frame) + 50, ScreenWidth, 150)];
+    [self.view insertSubview:self.guessView belowSubview:self.guideImageView];
 }
-*/
+
+#pragma mark - Override Method
+- (void)readyGoAnimationFinish {
+    [super readyGoAnimationFinish];
+    
+    [self beginGame];
+}
+
+- (void)beginGame {
+    
+    
+}
+
+#pragma mark - Action
+- (void)featherClick:(UIButton *)sender {
+    
+}
 
 @end

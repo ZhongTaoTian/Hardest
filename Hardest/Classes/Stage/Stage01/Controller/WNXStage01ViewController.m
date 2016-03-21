@@ -36,6 +36,8 @@
     
     [self initFeaterView];
 }
+
+#pragma mark - Build UI
 - (void)setStageInfo {
     self.buttonImageNames = @[@"01-btfeather", @"01-btfeather", @"01-btfeather"];
     [self.view bringSubviewToFront:self.guideImageView];
@@ -51,6 +53,17 @@
     [self.view insertSubview:self.timeLabel aboveSubview:self.redButton];
 }
 
+- (void)initFootView {
+    self.footView = [[WNXFootView alloc] initWithFrame:CGRectMake(0, ScreenHeight - self.redButton.frame.size.height - 200 - 45, ScreenWidth / 3, 200)];
+    [self.view insertSubview:self.footView aboveSubview:self.redButton];
+}
+
+- (void)initFeaterView {
+    self.featherView = [[WNXFeatherView alloc] initWithFrame:CGRectMake((ScreenWidth / 3 - 100) * 0.5, ScreenHeight - self.redButton.frame.size.height - 160, 100, 73)];
+    [self.view insertSubview:self.featherView aboveSubview:self.footView];
+}
+
+#pragma mark - Override Method
 - (void)readyGoAnimationFinish {
     [super readyGoAnimationFinish];
     
@@ -60,16 +73,6 @@
     [self.timeLabel startCountDownWithCompletion:^{
         [weakSelf endGame];
     }];
-}
-
-- (void)initFootView {
-    self.footView = [[WNXFootView alloc] initWithFrame:CGRectMake(0, ScreenHeight - self.redButton.frame.size.height - 200 - 45, ScreenWidth / 3, 200)];
-    [self.view insertSubview:self.footView aboveSubview:self.redButton];
-}
-
-- (void)initFeaterView {
-    self.featherView = [[WNXFeatherView alloc] initWithFrame:CGRectMake((ScreenWidth / 3 - 100) * 0.5, ScreenHeight - self.redButton.frame.size.height - 160, 100, 73)];
-    [self.view insertSubview:self.featherView aboveSubview:self.footView];
 }
 
 - (void)endGame {
