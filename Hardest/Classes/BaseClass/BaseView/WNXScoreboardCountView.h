@@ -16,4 +16,6 @@
 
 - (void)hit;
 
+- (void)clean;
+
 @end

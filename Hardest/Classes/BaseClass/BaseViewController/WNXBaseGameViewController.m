@@ -38,11 +38,18 @@
 
 #pragma mark - Pubilc Method
 - (void)playAgainGame {
-    NSLog(@"重新游戏");
+    self.pauseButton.userInteractionEnabled = NO;
+    self.playAgainButton.userInteractionEnabled = NO;
+    
+    [self guideImageViewClick];
 }
 
 - (void)pauseGame {
+    __weak __typeof(self) weakSelf = self;
     WNXPauseViewController *pauseVC = [[WNXPauseViewController alloc] init];
+    pauseVC.ContinueGameButtonClick = ^ {
+        [weakSelf continueGame];
+    };
     [self.navigationController pushViewController:pauseVC animated:NO];
 }
 
@@ -50,7 +57,10 @@
     NSLog(@"继续游戏");
 }
 
-- (void)readyGoAnimationFinish {}
+- (void)readyGoAnimationFinish {
+    self.playAgainButton.userInteractionEnabled = YES;
+    self.pauseButton.userInteractionEnabled = YES;
+}
 
 - (void)beginGame {
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"kMusicType"] == SoundPlayTypeMute) {
@@ -62,12 +72,16 @@
     if (_volume) {
         [[WNXSoundToolManager sharedSoundToolManager] setBackgroundMusicVolume:1.0];
     }
+    
+    self.pauseButton.userInteractionEnabled = NO;
+    self.playAgainButton.userInteractionEnabled = NO;
 }
 
 #pragma mark - Private Method
 - (void)buildPlayAgainButton {
     self.playAgainButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 55, 75, 110, 52)];
     self.playAgainButton.adjustsImageWhenHighlighted = NO;
+    self.playAgainButton.userInteractionEnabled = NO;
     [self.playAgainButton setBackgroundImage:[UIImage imageNamed:@"ing_retry"] forState:UIControlStateNormal];
     [self.playAgainButton addTarget:self action:@selector(playAgainGame) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.playAgainButton];
@@ -77,6 +91,7 @@
     self.pauseButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 55, CGRectGetMaxY(self.playAgainButton.frame) + 13, 110, 52)];
     [self.pauseButton setBackgroundImage:[UIImage imageNamed:@"ing_pause"] forState:UIControlStateNormal];
     self.pauseButton.adjustsImageWhenHighlighted = NO;
+    self.pauseButton.userInteractionEnabled = NO;
     [self.pauseButton addTarget:self action:@selector(pauseGame) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.pauseButton];
 }

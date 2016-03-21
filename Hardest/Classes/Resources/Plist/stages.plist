@@ -20,19 +20,19 @@
 	</dict>
 	<dict>
 		<key>format</key>
-		<string>%.2f</string>
+		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image02.png</string>
+		<string>select_image05.png</string>
 		<key>intro</key>
-		<string>尽您最快的速度向左或右滑动手指将女士或男士分配到他们各自的洗手间！</string>
+		<string>根据[石头剪刀布]规则，\n以最快速度选择[左边赢]或[右边赢]或[平局]！</string>
 		<key>max</key>
-		<string>10.00</string>
+		<string>30.00</string>
 		<key>min</key>
 		<string>15.00</string>
 		<key>title</key>
-		<string>紧急，\n紧急，\n紧急！</string>
+		<string>石头\n剪刀\n布</string>
 		<key>unit</key>
-		<string>秒</string>
+		<string>分</string>
 	</dict>
 	<dict>
 		<key>format</key>

@@ -68,6 +68,9 @@
             break;
         case 22:
             [self.navigationController popViewControllerAnimated:NO];
+            if (self.ContinueGameButtonClick) {
+                self.ContinueGameButtonClick();
+            }
             break;
         case 30:
             [self showAD];

@@ -13,6 +13,10 @@
 #define kPrepareIdentifier @"prepare"
 
 @interface WNXSelectStageViewController ()
+{
+    BOOL _hasNewData;
+    int _newNum;
+}
 
 @property (nonatomic, strong) WNXStageListView *listView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -25,6 +29,8 @@
     [super viewDidLoad];
     
     [self.view setBackgroundImageWihtImageName:@"select_bg"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newStageDidUnLock:) name:@"NewStageDidUnLock" object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -43,6 +49,11 @@
         
         [self.view insertSubview:self.listView atIndex:0];
     }
+    
+    if (_hasNewData) {
+        [self.listView reloadStageForNumber:_newNum];
+        _hasNewData = NO;
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -51,6 +62,11 @@
         WNXPrepareViewController *prepaerVC = segue.destinationViewController;
         prepaerVC.stage = (WNXStage *)sender;
     }
+}
+
+- (void)newStageDidUnLock:(NSNotification *)noti {
+    _hasNewData = YES;
+    _newNum = [noti.object intValue];
 }
 
 @end

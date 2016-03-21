@@ -13,5 +13,8 @@
 - (instancetype)initWithFrame:(CGRect)frame startTime:(double)time textSize:(CGFloat)size;
 
 - (void)startCountDownWithCompletion:(void (^)(void))completion;
+- (void)pause;
+- (void)continueWork;
+- (void)clean;
 
 @end

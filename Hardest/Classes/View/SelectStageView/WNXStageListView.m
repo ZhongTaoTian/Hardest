@@ -34,6 +34,13 @@
     return self;
 }
 
+- (void)reloadStageForNumber:(int)num {
+    WNXStageView *stageView = (WNXStageView *)[self viewWithTag:100 + num - 1];
+    WNXStage *newStage = stageView.stage;
+    stageView.stage.userInfo = [[WNXStageInfoManager sharedStageInfoManager] stageInfoWithNumber:num];
+    stageView.stage = newStage;
+}
+
 - (void)loadStageInfo {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"stages.plist" ofType:nil];
     NSArray *stageArr = [NSArray arrayWithContentsOfFile:path];
@@ -48,7 +55,7 @@
         WNXStage *stage = [WNXStage stageWithDict:stageArr[i]];
         stage.num = i + 1;
         stage.userInfo = [manager stageInfoWithNumber:i + 1];
-        
+
         CGFloat scrollX = ((int)(i / 6)) * ScreenWidth;
         CGFloat startX = 25 + ((i % 6) / 3) * (stageViewW + viewMaxgin) + scrollX;
         CGFloat startY = topMagin + (i % 3) * (stageViewH + 30);

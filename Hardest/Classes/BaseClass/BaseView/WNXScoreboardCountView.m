@@ -39,6 +39,11 @@
     }
 }
 
+- (void)clean {
+    self.countLabel.text = @"000";
+    _count = 0;
+}
+
 - (void)startAnimationWithCompletion:(void (^)(BOOL))completion{
 
     [UIView animateWithDuration:0.4 animations:^{

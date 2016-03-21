@@ -13,6 +13,7 @@ typedef void(^Completion)(void);
 @interface WNXCountDownLabel ()
 {
     int _index;
+    double _newTime;
 }
 
 @property (nonatomic, assign) double time;
@@ -26,6 +27,7 @@ typedef void(^Completion)(void);
 - (instancetype)initWithFrame:(CGRect)frame startTime:(double)time textSize:(CGFloat)size {
     if (self = [super initWithFrame:frame]) {
         _time = time;
+        _newTime = time;
         self.text = [NSString stringWithFormat:@"%.1f", time];
         
         UIFont *font = [UIFont fontWithName:@"TransformersMovie" size:size];
@@ -40,10 +42,25 @@ typedef void(^Completion)(void);
     return self;
 }
 
+- (void)clean {
+    [self.timer invalidate];
+    self.timer = nil;
+    self.time = _newTime;
+    self.text = [NSString stringWithFormat:@"%.1f", _newTime];
+}
+
 - (void)startCountDownWithCompletion:(void (^)(void))completion {
     self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(countDown:)];
     [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     self.completion = completion;
+}
+
+- (void)pause {
+    self.timer.paused = YES;
+}
+
+- (void)continueWork {
+    self.timer.paused = NO;
 }
 
 - (void)countDown:(CADisplayLink *)timer {

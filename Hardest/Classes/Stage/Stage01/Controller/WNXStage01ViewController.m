@@ -49,8 +49,6 @@
     self.timeLabel = [[WNXCountDownLabel alloc] initWithFrame:CGRectMake(ScreenWidth - 55, ScreenHeight - self.redButton.frame.size.height - 50, 60, 50)
                                                     startTime:kStage01Duration textSize:30];
     [self.view insertSubview:self.timeLabel aboveSubview:self.redButton];
-    
-    
 }
 
 - (void)readyGoAnimationFinish {
@@ -82,13 +80,33 @@
     
     // 算分
     [self showResultControllerWithNewScroe:[((WNXScoreboardCountView *)self.countScore).countLabel.text intValue] unit:@"PTS" stage:self.stage isAddScore:YES];
+}
 
+- (void)playAgainGame {
+    [super playAgainGame];
+    [self.footView clean];
+    [self.timeLabel clean];
+    [self setButtonsIsActivate:NO];
+    [((WNXScoreboardCountView *)self.countScore) clean];
 }
 
 - (void)beginGame {
     [super beginGame];
     
     [self.footView startAnimation];
+}
+
+- (void)pauseGame {
+    [super pauseGame];
+    
+    [self.footView pause];
+    [self.timeLabel pause];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    [self.footView continueFootView];
+    [self.timeLabel continueWork];
 }
 
 #pragma mark - action

@@ -14,4 +14,6 @@
 @property (nonatomic, copy) void (^didChangeScrollPage)(int page);
 @property (nonatomic, copy) void (^didSelectedStageView)(WNXStage *stage);
 
+- (void)reloadStageForNumber:(int)num;
+
 @end

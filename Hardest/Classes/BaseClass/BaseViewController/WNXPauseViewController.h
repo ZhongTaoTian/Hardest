@@ -10,4 +10,6 @@
 
 @interface WNXPauseViewController : UIViewController
 
+@property (nonatomic, copy) void(^ContinueGameButtonClick)();
+
 @end

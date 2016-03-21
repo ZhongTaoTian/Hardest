@@ -16,4 +16,8 @@
 
 - (BOOL)attackFootViewAtIndex:(int)index;
 
+- (void)pause;
+- (void)continueFootView;
+- (void)clean;
+
 @end

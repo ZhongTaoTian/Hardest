@@ -62,6 +62,22 @@
     [self removeFromSuperview];
 }
 
+- (void)pause {
+    self.timer.paused = YES;
+}
+
+- (void)continueFootView {
+    self.timer.paused = NO;
+}
+
+- (void)clean {
+    _count = 0;
+    _flag = 0;
+    self.hidden = YES;
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
 - (void)refreshTime:(CADisplayLink *)timer {
     _flag++;
     

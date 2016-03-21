@@ -54,6 +54,13 @@ static WNXStageInfoManager *instance = nil;
     if (stageInfo.num <= 0) return NO;
     
     [self.allStageInfos setObject:stageInfo forKey:@(stageInfo.num)];
+    
+    if (stageInfo.rank && (![stageInfo.rank isEqualToString:@"f"]) && (![self stageInfoWithNumber:stageInfo.num + 1] || ![self stageInfoWithNumber:stageInfo.num + 1].unlock)) {
+        WNXStageInfo *nextStageInfo = [[WNXStageInfo alloc] init];
+        nextStageInfo.num = stageInfo.num + 1;
+        [self saveStageInfo:nextStageInfo];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NewStageDidUnLock" object:@(nextStageInfo.num)];
+    }
 
     return [NSKeyedArchiver archiveRootObject:self.allStageInfos toFile:path];
 }
