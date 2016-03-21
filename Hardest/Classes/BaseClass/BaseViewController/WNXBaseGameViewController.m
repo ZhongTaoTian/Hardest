@@ -25,11 +25,11 @@
     
     [self initGuideImageView];
     
-    [self showGuideImageView];
-    
     [self buildPlayAgainButton];
     
     [self buildPauseButton];
+    
+    [self showGuideImageView];
 }
 
 - (void)dealloc {
@@ -72,8 +72,6 @@
     [self.playAgainButton addTarget:self action:@selector(playAgainGame) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.playAgainButton];
 }
-
-
 
 - (void)buildPauseButton {
     self.pauseButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 55, CGRectGetMaxY(self.playAgainButton.frame) + 13, 110, 52)];

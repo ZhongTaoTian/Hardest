@@ -10,6 +10,9 @@
 #import "WNXResultScoreView.h"
 #import "WNXStageInfo.h"
 #import "WNXHighScroeTextView.h"
+#import "WNXPrepareViewController.h"
+#import "WNXStageInfoManager.h"
+#import "WNXSelectStageViewController.h"
 
 @interface WNXResultViewController () <WNXResultScoreViewDelegate>
 {
@@ -51,8 +54,6 @@
     self.scroeImageView.layer.anchorPoint = CGPointMake(0.5, 1);
     
     self.cageImageView.transform = CGAffineTransformMakeTranslation(0, -ScreenHeight);
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -60,7 +61,7 @@
     
     if (!_notFrist) {
         _notFrist = YES;
-
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.countScroeLabel.hidden = YES;
             [self.countScroeLabel removeFromSuperview];
@@ -74,10 +75,22 @@
 - (IBAction)btnClick:(UIButton *)sender {
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundCliclName];
     if (sender.tag == 20) {
-        //在来一次
+        for (UIViewController *vc in self.navigationController.viewControllers) {
+            if ([vc isKindOfClass:[WNXPrepareViewController class]]) {
+                _stage.userInfo = [[WNXStageInfoManager sharedStageInfoManager] stageInfoWithNumber:_stage.num];
+                ((WNXPrepareViewController *)vc).stage = _stage;
+                [self.navigationController popToViewController:vc animated:NO];
+                return;
+            }
+        }
     } else if (sender.tag == 21) {
-        // 回到选择关卡
-    } 
+        for (UIViewController *vc in self.navigationController.viewControllers) {
+            if ([vc isKindOfClass:[WNXSelectStageViewController class]]) {
+                [self.navigationController popToViewController:vc animated:NO];
+                return;
+            }
+        }
+    }
 }
 
 - (void)setCountScoreWithNewScroe:(double)scroe unit:(NSString *)unit stage:(WNXStage *)stage isAddScore:(BOOL)isAddScroe {

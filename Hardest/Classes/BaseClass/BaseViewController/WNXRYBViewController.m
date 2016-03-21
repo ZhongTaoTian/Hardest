@@ -53,7 +53,7 @@
     imageView.tag = tag;
     imageView.image = [UIImage imageNamed:kNormalImageNames[tag]];
     imageView.highlightedImage = [UIImage imageNamed:kHighImageNames[tag]];
-    [self.view addSubview:imageView];
+    [self.view insertSubview:imageView belowSubview:self.playAgainButton];
 }
 
 - (void)setButton:(UIButton *)btn tag:(int)tag {

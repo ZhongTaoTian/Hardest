@@ -197,7 +197,7 @@
         <!--Prepare View Controller-->
         <scene sceneID="Yjv-H9-ivH">
             <objects>
-                <viewController id="b2f-vH-2hp" customClass="WNXPrepareViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WNXPrepareViewController" id="b2f-vH-2hp" customClass="WNXPrepareViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tcj-jJ-Uf0"/>
                         <viewControllerLayoutGuide type="bottom" id="zHf-XG-pZS"/>

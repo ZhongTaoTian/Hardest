@@ -25,10 +25,7 @@
 
 @implementation WNXStage01ViewController
 
-- (void)viewDidLoad {
-//    self.stage.userInfo = [[WNXStageInfoManager sharedStageInfoManager] stageInfoWithNumber:self.stage.num];
-    NSLog(@"%@", self.stage);
-    
+- (void)viewDidLoad {    
     [super viewDidLoad];
     
     [self setStageInfo];
