@@ -78,11 +78,11 @@
 - (void)stopCalculateByTimeWithTimeBlock:(void (^)(int, int))timeBlock {
     [self.timer invalidate];
     self.timer = nil;
+    timeBlock(_ms, _index);
     
     [UIView animateWithDuration:0.2 animations:^{
         self.countLabel.transform = CGAffineTransformMakeScale(1.2, 1.2);
     } completion:^(BOOL finished) {
-        timeBlock(_ms, _index);
         [UIView animateWithDuration:0.1 animations:^{
             self.countLabel.transform = CGAffineTransformIdentity;
         }];
@@ -90,6 +90,10 @@
 }
 
 - (void)cleanData {
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
     _index = 0;
     _ms = 0;
     self.countLabel.text = [NSString stringWithFormat:@"%d%02d", _ms, _index];

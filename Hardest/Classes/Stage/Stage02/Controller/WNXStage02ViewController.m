@@ -17,6 +17,7 @@
 {
     int _count;
     BOOL _stop;
+    int _scroe;
 }
 
 @property (nonatomic, strong) WNXGuessFingerView *guessView;
@@ -60,22 +61,22 @@
 }
 
 - (void)buildGuessImageView {
-    self.guessView = [[WNXGuessFingerView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.countScore.frame) + 50, ScreenWidth, 150)];
+    self.guessView = [[WNXGuessFingerView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.countScore.frame) + 40, ScreenWidth, 150)];
     [self.view insertSubview:self.guessView aboveSubview:self.winImageView];
 }
 
 - (void)buildRusultView {
-    self.resultImageView = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth - 130) * 0.5 - 50, CGRectGetMaxY(self.guessView.frame), 130, 66)];
+    self.resultImageView = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth - 200) * 0.5 - 50, CGRectGetMaxY(self.guessView.frame), 200, 100)];
     self.resultImageView.hidden = YES;
     self.resultImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:self.resultImageView];
     
-    self.resultLabel = [[WNXStrokeLabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.resultImageView.frame), 0, 100, 60)];
+    self.resultLabel = [[WNXStrokeLabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.resultImageView.frame) - 30, 0, 100, 60)];
     self.resultLabel.center = CGPointMake(self.resultLabel.center.x, self.resultImageView.center.y);
     self.resultLabel.textAlignment = NSTextAlignmentCenter;
-    self.resultLabel.font = [UIFont fontWithName:@"TransformersMovie" size:60];
+    self.resultLabel.font = [UIFont boldSystemFontOfSize:50];
     self.resultLabel.textColor = [UIColor colorWithRed:228 / 255.0 green:120 / 255.0 blue:11 / 255.0 alpha:1];
-    [self.resultLabel setTextStorkeWidth:3];
+    [self.resultLabel setTextStorkeWidth:5];
     self.resultLabel.hidden = YES;
     [self.view addSubview:self.resultLabel];
 }
@@ -88,9 +89,26 @@
 }
 
 - (void)beginGame {
+    [super beginGame];
     _count = 20;
+    _scroe = 0;
+    [((WNXCountTimeView *)self.countScore) cleanData];
     
     [self startGuess];
+}
+
+- (void)endGame {
+    [super endGame];
+    
+    [self showResultControllerWithNewScroe:_scroe unit:@"PTS" stage:self.stage isAddScore:YES];
+}
+
+- (void)playAgainGame {
+    [self.guessView cleanData];
+    [((WNXCountTimeView *)self.countScore) cleanData];
+    [self setButtonsIsActivate:NO];
+    
+    [super playAgainGame];
 }
 
 #pragma mark - Private Method
@@ -102,6 +120,8 @@
     }
     
     [((WNXCountTimeView *)self.countScore) cleanData];
+    self.resultLabel.hidden = YES;
+    self.resultImageView.hidden = YES;
     
     CGFloat time = _count * 0.05;
     if (time < 0.2) {
@@ -111,6 +131,7 @@
     _count--;
     __weak __typeof(self) weakSelf = self;
     [self.guessView startAnimationWithDuration:time completion:^(int winIndex) {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundAppearSoundName];
         weakSelf.winIndex = winIndex;
         [weakSelf setButtonsIsActivate:YES];
         [((WNXCountTimeView *)weakSelf.countScore) startCalculateByTimeWithTimeOut:^{
@@ -146,30 +167,45 @@
 }
 
 - (void)calculateScroeWithSecond:(int)second ms:(int)ms isRight:(BOOL)right {
+    __weak __typeof(self) weakSelf = self;
     self.resultLabel.hidden = NO;
     self.resultImageView.hidden = NO;
-    if (right) { // 正确
+    if (right) {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundRightSoundName];
         if (second == 0) {
-            if (ms < 30) {
+            if (ms < 20) {
                 self.resultImageView.image = [UIImage imageNamed:@"09_fraction01-iphone4"];
                 self.resultLabel.text = @"+6";
-            } else {
+                _scroe += 6;
+            } else if (ms < 30) {
                 self.resultImageView.image = [UIImage imageNamed:@"09_fraction02-iphone4"];
                 self.resultLabel.text = @"+3";
+                _scroe += 3;
+            } else {
+                self.resultImageView.image = [UIImage imageNamed:@"09_fraction03-iphone4"];
+                self.resultLabel.text = @"+1";
+                _scroe += 1;
             }
         } else {
             self.resultImageView.image = [UIImage imageNamed:@"09_fraction03-iphone4"];
             self.resultLabel.text = @"+1";
+            _scroe += 1;
         }
         
-    } else { // 失败
+    } else {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundWrongSoundName];
         self.resultImageView.image = [UIImage imageNamed:@"09_fraction04-iphone4"];
         self.resultLabel.text = @"-3";
+        _scroe -= 3;
     }
     
-    if (!_stop) {
-        [self startGuess];
-    }
+    [self.guessView showResultAnimationCompletion:^{
+        if (!_stop) {
+            [weakSelf startGuess];
+        } else {
+            [self endGame];
+        }
+    }];
 }
 
 @end

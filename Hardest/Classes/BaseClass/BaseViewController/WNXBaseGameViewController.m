@@ -78,6 +78,10 @@
     self.playAgainButton.userInteractionEnabled = NO;
 }
 
+- (void)showGameFail {
+//    UIImageView *failBgIV = [[UIImageView alloc] initWithFrame:<#(CGRect)#>];
+}
+
 #pragma mark - Private Method
 - (void)buildPlayAgainButton {
     self.playAgainButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 55, 75, 110, 52)];

@@ -15,6 +15,8 @@
 		B308860A1C8939D700AE83B2 /* Transformers Movie 变形金刚字体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B30886091C8939D700AE83B2 /* Transformers Movie 变形金刚字体.ttf */; };
 		B30886141C895B2000AE83B2 /* WNXStage01ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B30886121C895B2000AE83B2 /* WNXStage01ViewController.m */; };
 		B30886171C895B6500AE83B2 /* WNXFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B30886161C895B6500AE83B2 /* WNXFootView.m */; };
+		B31F64011CA1652000997243 /* WNXFailView.m in Sources */ = {isa = PBXBuildFile; fileRef = B31F64001CA1652000997243 /* WNXFailView.m */; settings = {ASSET_TAGS = (); }; };
+		B31F64031CA1653200997243 /* WNXFailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31F64021CA1653200997243 /* WNXFailView.xib */; settings = {ASSET_TAGS = (); }; };
 		B32C1E521C7C4DF600B2C577 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B32C1E511C7C4DF600B2C577 /* main.m */; };
 		B32C1E551C7C4DF600B2C577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B32C1E541C7C4DF600B2C577 /* AppDelegate.m */; };
 		B32C1E5B1C7C4DF600B2C577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B32C1E591C7C4DF600B2C577 /* Main.storyboard */; };
@@ -95,6 +97,9 @@
 		B30886121C895B2000AE83B2 /* WNXStage01ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage01ViewController.m; sourceTree = "<group>"; };
 		B30886151C895B6500AE83B2 /* WNXFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXFootView.h; sourceTree = "<group>"; };
 		B30886161C895B6500AE83B2 /* WNXFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXFootView.m; sourceTree = "<group>"; };
+		B31F63FF1CA1652000997243 /* WNXFailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXFailView.h; sourceTree = "<group>"; };
+		B31F64001CA1652000997243 /* WNXFailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXFailView.m; sourceTree = "<group>"; };
+		B31F64021CA1653200997243 /* WNXFailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXFailView.xib; sourceTree = "<group>"; };
 		B32C1E4D1C7C4DF600B2C577 /* Hardest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hardest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32C1E511C7C4DF600B2C577 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B32C1E531C7C4DF600B2C577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -487,6 +492,9 @@
 				B3B411991C97AFA800D4073D /* WNXResultScoreView.m */,
 				B3082A351C9A4F42002BB718 /* WNXHighScroeTextView.h */,
 				B3082A361C9A4F42002BB718 /* WNXHighScroeTextView.m */,
+				B31F63FF1CA1652000997243 /* WNXFailView.h */,
+				B31F64001CA1652000997243 /* WNXFailView.m */,
+				B31F64021CA1653200997243 /* WNXFailView.xib */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -674,6 +682,7 @@
 				B39472AD1C7DC73200CAAB6D /* Default@2x.png in Resources */,
 				B308860A1C8939D700AE83B2 /* Transformers Movie 变形金刚字体.ttf in Resources */,
 				B384CD371C7F133A008AFA9E /* home.plist in Resources */,
+				B31F64031CA1653200997243 /* WNXFailView.xib in Resources */,
 				B3B0D7391C83DFF20048C380 /* stages.plist in Resources */,
 				B32C1E5B1C7C4DF600B2C577 /* Main.storyboard in Resources */,
 				B39472AA1C7DC4BD00CAAB6D /* Default-568h@2x.png in Resources */,
@@ -731,6 +740,7 @@
 				B30885FC1C882EBB00AE83B2 /* WNXStrokeLabel.m in Sources */,
 				B3B0D7371C83DD6A0048C380 /* WNXStage.m in Sources */,
 				B384CD341C7F0E49008AFA9E /* WNXFullBackgroundView.m in Sources */,
+				B31F64011CA1652000997243 /* WNXFailView.m in Sources */,
 				B384CD421C7FF97C008AFA9E /* WNXBackViewController.m in Sources */,
 				B3EEACF41C7C61EB00992B34 /* WNXRootViewController.m in Sources */,
 				B32C1E521C7C4DF600B2C577 /* main.m in Sources */,

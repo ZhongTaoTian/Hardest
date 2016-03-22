@@ -25,8 +25,10 @@
 //stage01
 #define kSoundFeatherClickName @"tap.mp3"
 
-
-
+//stage02
+#define kSoundAppearSoundName @"09_throw.mp3"
+#define kSoundRightSoundName @"09_right.mp3"
+#define kSoundWrongSoundName @"09_wrong.mp3"
 
 
 

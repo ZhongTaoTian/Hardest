@@ -12,4 +12,8 @@
 
 - (void)startAnimationWithDuration:(NSTimeInterval)duration completion:(void (^)(int winIndex))completion;
 
+- (void)showResultAnimationCompletion:(void (^)())completion;
+
+- (void)cleanData;
+
 @end

@@ -113,6 +113,33 @@
     }];
 }
 
+- (void)showResultAnimationCompletion:(void (^)())completion {
+    CGFloat moveX1;
+    CGFloat moveX2;
+    if (_winIndex == 0) {
+        moveX1 = 40;
+        moveX2 = 15;
+    } else if (_winIndex == 1) {
+        moveX1 = 20;
+        moveX2 = -20;
+    } else if (_winIndex == 2) {
+        moveX1 = -15;
+        moveX2 = -40;
+    }
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.leftImageView.transform = CGAffineTransformMakeTranslation(moveX1, 0);
+        self.rightImageView.transform = CGAffineTransformMakeTranslation(moveX2, 0);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.1 animations:^{
+            self.leftImageView.transform = CGAffineTransformIdentity;
+            self.rightImageView.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            completion();
+        }];
+    }];
+}
+
 - (void)setWinIndexWithNumOne:(int)num1 numTwo:(int)num2 {
     if (num1 == num2) {
         _winIndex = 1;
@@ -132,6 +159,13 @@
     } else if (num1 == 3 && num2 == 2) {
         _winIndex = 0;
     }
+}
+
+- (void)cleanData {
+    self.leftImageView.transform = CGAffineTransformIdentity;
+    self.rightImageView.transform = CGAffineTransformIdentity;
+    self.rightImageView.image = [UIImage imageNamed:@"09_hand02-iphone4"];
+    self.leftImageView.image = [UIImage imageNamed:@"09_hand02-iphone4right"];
 }
 
 @end

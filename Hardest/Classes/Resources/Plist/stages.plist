@@ -26,9 +26,9 @@
 		<key>intro</key>
 		<string>根据[石头剪刀布]规则，\n以最快速度选择[左边赢]或[右边赢]或[平局]！</string>
 		<key>max</key>
-		<string>30.00</string>
+		<string>40</string>
 		<key>min</key>
-		<string>15.00</string>
+		<string>20</string>
 		<key>title</key>
 		<string>石头\n剪刀\n布</string>
 		<key>unit</key>
