@@ -10,6 +10,6 @@
 
 @interface WNXGuessFingerView : UIView
 
-
+- (void)startAnimationWithDuration:(NSTimeInterval)duration completion:(void (^)(int winIndex))completion;
 
 @end

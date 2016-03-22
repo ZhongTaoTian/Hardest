@@ -16,4 +16,8 @@
 
 - (void)startCalculateByTimeWithTimeOut:(void(^)())timeOutBlock;
 
+- (void)stopCalculateByTimeWithTimeBlock:(void(^)(int second, int ms))timeBlock;
+
+- (void)cleanData;
+
 @end

@@ -28,13 +28,13 @@
 
 - (void)setBackgroundImages {
     self.redImageView = [[UIImageView alloc] init];
-    [self setImageView:self.redImageView tag:0];
+    [self setImageView:self.redImageView tag:100];
     
     self.yellowImageView = [[UIImageView alloc] init];
-    [self setImageView:self.yellowImageView tag:1];
+    [self setImageView:self.yellowImageView tag:101];
     
     self.blueImageView = [[UIImageView alloc] init];
-    [self setImageView:self.blueImageView tag:2];
+    [self setImageView:self.blueImageView tag:102];
 }
 
 - (void)setBottomButtons {
@@ -49,10 +49,10 @@
 }
 
 - (void)setImageView:(UIImageView *)imageView tag:(int)tag {
-    imageView.frame = CGRectMake(tag * ScreenWidth / 3, 0, ScreenWidth / 3, ScreenHeight);
+    imageView.frame = CGRectMake((tag - 100) * ScreenWidth / 3, 0, ScreenWidth / 3, ScreenHeight);
     imageView.tag = tag;
-    imageView.image = [UIImage imageNamed:kNormalImageNames[tag]];
-    imageView.highlightedImage = [UIImage imageNamed:kHighImageNames[tag]];
+    imageView.image = [UIImage imageNamed:kNormalImageNames[tag - 100]];
+    imageView.highlightedImage = [UIImage imageNamed:kHighImageNames[tag - 100]];
     [self.view insertSubview:imageView belowSubview:self.playAgainButton];
 }
 

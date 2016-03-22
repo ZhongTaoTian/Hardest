@@ -9,6 +9,11 @@
 #import "WNXGuessFingerView.h"
 
 @interface WNXGuessFingerView ()
+{
+    CGAffineTransform _leftTransform;
+    CGAffineTransform _rightTransform;
+    int _winIndex;
+}
 
 @property (nonatomic, strong) UIImageView *rightImageView;
 @property (nonatomic, strong) UIImageView *leftImageView;
@@ -32,8 +37,101 @@
         self.rightImageView.layer.anchorPoint = CGPointMake(1, 0.5);
         [self addSubview:self.rightImageView];
     }
-    
+
     return self;
+}
+
+- (void)startAnimationWithDuration:(NSTimeInterval)duration completion:(void (^)(int winIndex))completion {
+    self.leftImageView.image = [UIImage imageNamed:@"09_hand02-iphone4right"];
+    self.rightImageView.image = [UIImage imageNamed:@"09_hand02-iphone4"];
+    
+    NSTimeInterval timer1 = duration / 14;
+    NSTimeInterval timer2 = duration / 7;
+    
+    int random1 = arc4random_uniform(3) + 1;
+    int random2 = arc4random_uniform(3) + 1;
+    
+    [self setWinIndexWithNumOne:random1 numTwo:random2];
+    
+    [UIView animateWithDuration:timer1 animations:^{
+        self.leftImageView.transform = CGAffineTransformMakeRotation(-M_PI_4 / 2);
+        _leftTransform = self.leftImageView.transform;
+        self.rightImageView.transform = CGAffineTransformMakeRotation(M_PI_4 / 2);
+        _rightTransform = self.rightImageView.transform;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:timer2 animations:^{
+            self.leftImageView.transform = CGAffineTransformRotate(_leftTransform, M_PI_4);
+            _leftTransform = self.leftImageView.transform;
+            self.rightImageView.transform = CGAffineTransformRotate(_rightTransform, -M_PI_4);
+            _rightTransform = self.rightImageView.transform;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:timer2 animations:^{
+                self.leftImageView.transform = CGAffineTransformRotate(_leftTransform, -M_PI_4);
+                _leftTransform = self.leftImageView.transform;
+                self.rightImageView.transform = CGAffineTransformRotate(_rightTransform, M_PI_4);
+                _rightTransform = self.rightImageView.transform;
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:timer2 animations:^{
+                    self.leftImageView.transform = CGAffineTransformRotate(_leftTransform, M_PI_4);
+                    _leftTransform = self.leftImageView.transform;
+                    self.rightImageView.transform = CGAffineTransformRotate(_rightTransform, -M_PI_4);
+                    _rightTransform = self.rightImageView.transform;
+                } completion:^(BOOL finished) {
+                    [UIView animateWithDuration:timer2 animations:^{
+                        self.leftImageView.transform = CGAffineTransformRotate(_leftTransform, -M_PI_4);
+                        _leftTransform = self.leftImageView.transform;
+                        self.rightImageView.transform = CGAffineTransformRotate(_rightTransform, M_PI_4);
+                        _rightTransform = self.rightImageView.transform;
+                    } completion:^(BOOL finished) {
+                        [UIView animateWithDuration:timer2 animations:^{
+                            self.leftImageView.transform = CGAffineTransformRotate(_leftTransform, M_PI_4);
+                            _leftTransform = self.leftImageView.transform;
+                            self.rightImageView.transform = CGAffineTransformRotate(_rightTransform, -M_PI_4);
+                            _rightTransform = self.rightImageView.transform;
+                        } completion:^(BOOL finished) {
+                            [UIView animateWithDuration:timer2 animations:^{
+                                self.leftImageView.transform = CGAffineTransformRotate(_leftTransform, -M_PI_4);
+                                _leftTransform = self.leftImageView.transform;
+                                self.rightImageView.transform = CGAffineTransformRotate(_rightTransform, M_PI_4);
+                                _rightTransform = self.rightImageView.transform;
+                            } completion:^(BOOL finished) {
+                                [UIView animateWithDuration:timer1 animations:^{
+                                    self.leftImageView.transform = CGAffineTransformIdentity;
+                                    self.rightImageView.transform = CGAffineTransformIdentity;
+                                    self.leftImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"09_hand0%d-iphone4right", random1]];
+                                    self.rightImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"09_hand0%d-iphone4", random2]];
+                                } completion:^(BOOL finished) {
+                                    completion(_winIndex);
+                                }];
+                            }];
+                        }];
+                    }];
+                }];
+                
+            }];
+        }];
+    }];
+}
+
+- (void)setWinIndexWithNumOne:(int)num1 numTwo:(int)num2 {
+    if (num1 == num2) {
+        _winIndex = 1;
+        return;
+    }
+    
+    if (num1 == 1 && num2 == 2) {
+        _winIndex = 2;
+    } else if (num1 == 1 && num2 == 3) {
+        _winIndex = 0;
+    } else if (num1 == 2 && num2 == 1) {
+        _winIndex = 0;
+    } else if (num1 == 2 && num2 == 3) {
+        _winIndex = 2;
+    } else if (num1 == 3 && num2 == 1) {
+        _winIndex = 2;
+    } else if (num1 == 3 && num2 == 2) {
+        _winIndex = 0;
+    }
 }
 
 @end
