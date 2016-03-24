@@ -11,6 +11,8 @@
 #import "WNXReadyGoView.h"
 #import "WNXPauseViewController.h"
 #import "WNXCountTimeView.h"
+#import "WNXFailView.h"
+#import "WNXFailViewController.h"
 
 @interface WNXBaseGameViewController ()
 {
@@ -79,7 +81,21 @@
 }
 
 - (void)showGameFail {
-//    UIImageView *failBgIV = [[UIImageView alloc] initWithFrame:<#(CGRect)#>];
+    self.view.userInteractionEnabled = NO;
+     __weak __typeof(self) weakSelf = self;
+    WNXFailView *failView = [WNXFailView viewFromNib];
+    failView.frame = CGRectMake(0, ScreenHeight - failView.frame.size.width - 140, failView.frame.size.width, failView.frame.size.height);
+    [self.view addSubview:failView];
+    [failView showFailViewWithAnimatonFinishBlock:^{
+        [weakSelf showFailViewController];
+    }];
+}
+
+- (void)showFailViewController {
+    WNXFailViewController *failVC = [WNXFailViewController initWithStage:self.stage retryButtonClickBlock:^{
+        NSLog(@"重新开始");
+    }];
+    [self.navigationController pushViewController:failVC animated:NO];
 }
 
 #pragma mark - Private Method

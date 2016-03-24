@@ -19,7 +19,7 @@
     stage.title = dict[@"title"];
     stage.intro = dict[@"intro"];
     stage.unit = dict[@"unit"];
-    
+    stage.fail = dict[@"fail"];
     return stage;
 }
 

@@ -111,6 +111,10 @@
     [super playAgainGame];
 }
 
+- (void)dealloc {
+    NSLog(@"销毁");
+}
+
 #pragma mark - Private Method
 - (void)startGuess {
     self.winImageView.hidden = YES;
@@ -136,6 +140,7 @@
         [weakSelf setButtonsIsActivate:YES];
         [((WNXCountTimeView *)weakSelf.countScore) startCalculateByTimeWithTimeOut:^{
             NSLog(@"游戏失败,超时");
+            [self showGameFail];
         }];
     }];
     

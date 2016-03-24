@@ -42,6 +42,7 @@ typedef NS_ENUM(NSInteger, WNXScoreboardType) {
 - (void)continueGame;
 - (void)playAgainGame;
 - (void)showGameFail;
+- (void)fail;
 
 - (void)showResultControllerWithNewScroe:(double)scroe unit:(NSString *)unil stage:(WNXStage *)stage isAddScore:(BOOL)isAddScroe;
 

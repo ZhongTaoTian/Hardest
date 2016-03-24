@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WNXFailViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instant_bg-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="KCY-dK-dV0">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
+                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDM-0S-R9l">
+                    <rect key="frame" x="10" y="20" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="41p-xM-Y1s"/>
+                        <constraint firstAttribute="height" constant="50" id="bdb-Tp-QKW"/>
+                    </constraints>
+                    <state key="normal" image="fail_button01-iphone4"/>
+                    <connections>
+                        <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="Gad-Yt-02Y"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instant_word-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="oUU-x9-XmR">
+                    <rect key="frame" x="80" y="24" width="218" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="1us-rM-n5a"/>
+                        <constraint firstAttribute="width" constant="218" id="k0P-1O-qRn"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehf-bn-Uea">
+                    <rect key="frame" x="250" y="86" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="7sb-xq-ggH"/>
+                        <constraint firstAttribute="width" constant="50" id="ili-zp-whp"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="instantfail_big-iphone4"/>
+                    <connections>
+                        <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="wFR-md-2oh"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间到了!  你用的时间太他妈长了" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyB-y7-cuP">
+                    <rect key="frame" x="10" y="90" width="235" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03D-JQ-vvK">
+                    <rect key="frame" x="0.0" y="156" width="320" height="291"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad02" translatesAutoresizingMaskIntoConstraints="NO" id="Et9-Ua-stG">
+                            <rect key="frame" x="10" y="15" width="300" height="261"/>
+                        </imageView>
+                        <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGW-bR-hb8">
+                            <rect key="frame" x="96" y="230" width="129" height="51"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.41000000000000003" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="129" id="AES-qp-A3Z"/>
+                                <constraint firstAttribute="height" constant="51" id="zDD-BX-thQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <state key="normal" title="小熊Github"/>
+                            <connections>
+                                <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="8Yh-Ye-0vi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.34201388888888884" green="0.050202107204355952" blue="0.060518122514929586" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Et9-Ua-stG" firstAttribute="leading" secondItem="03D-JQ-vvK" secondAttribute="leading" constant="10" id="88t-WE-m7c"/>
+                        <constraint firstAttribute="trailing" secondItem="Et9-Ua-stG" secondAttribute="trailing" constant="10" id="O0E-BI-SYj"/>
+                        <constraint firstItem="eGW-bR-hb8" firstAttribute="centerX" secondItem="03D-JQ-vvK" secondAttribute="centerX" id="Ux2-yr-fJN"/>
+                        <constraint firstAttribute="bottom" secondItem="Et9-Ua-stG" secondAttribute="bottom" constant="15" id="bxX-xB-X66"/>
+                        <constraint firstAttribute="bottom" secondItem="eGW-bR-hb8" secondAttribute="bottom" constant="10" id="eng-kb-qBc"/>
+                        <constraint firstItem="Et9-Ua-stG" firstAttribute="top" secondItem="03D-JQ-vvK" secondAttribute="top" constant="15" id="wUQ-yB-6nm"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tt-VH-K6E">
+                    <rect key="frame" x="76" y="467" width="168" height="86"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="168" id="HmH-k4-frq"/>
+                        <constraint firstAttribute="height" constant="86" id="Hu8-dX-sFX"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="fail_retry"/>
+                    <connections>
+                        <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="CoY-qH-LP6"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.74025410353535348" green="0.10832095212871344" blue="0.1380968478636572" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="9tt-VH-K6E" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="37B-mx-Uux"/>
+                <constraint firstItem="oUU-x9-XmR" firstAttribute="leading" secondItem="gDM-0S-R9l" secondAttribute="trailing" constant="20" id="47j-vK-sX4"/>
+                <constraint firstItem="KCY-dK-dV0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4FT-pg-DUg"/>
+                <constraint firstItem="gDM-0S-R9l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="67b-wb-diE"/>
+                <constraint firstItem="9tt-VH-K6E" firstAttribute="top" secondItem="03D-JQ-vvK" secondAttribute="bottom" constant="20" id="Fnj-0f-FfX"/>
+                <constraint firstItem="DyB-y7-cuP" firstAttribute="top" secondItem="gDM-0S-R9l" secondAttribute="bottom" constant="20" id="J8f-TC-UIz"/>
+                <constraint firstAttribute="bottom" secondItem="9tt-VH-K6E" secondAttribute="bottom" constant="15" id="Oxy-af-R45"/>
+                <constraint firstItem="Ehf-bn-Uea" firstAttribute="leading" secondItem="DyB-y7-cuP" secondAttribute="trailing" constant="5" id="Pj7-c4-Fjq"/>
+                <constraint firstItem="03D-JQ-vvK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qpy-A3-r6u"/>
+                <constraint firstItem="03D-JQ-vvK" firstAttribute="top" secondItem="Ehf-bn-Uea" secondAttribute="bottom" constant="20" id="RfA-QK-TJ9"/>
+                <constraint firstItem="oUU-x9-XmR" firstAttribute="centerY" secondItem="gDM-0S-R9l" secondAttribute="centerY" id="Tiz-qa-1Rl"/>
+                <constraint firstAttribute="trailing" secondItem="KCY-dK-dV0" secondAttribute="trailing" id="Wym-Dn-iAM"/>
+                <constraint firstItem="KCY-dK-dV0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Z7k-uN-5Re"/>
+                <constraint firstAttribute="trailing" secondItem="03D-JQ-vvK" secondAttribute="trailing" id="b0f-dT-JON"/>
+                <constraint firstItem="gDM-0S-R9l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="bzQ-BN-8Bn"/>
+                <constraint firstItem="Ehf-bn-Uea" firstAttribute="top" secondItem="oUU-x9-XmR" secondAttribute="bottom" constant="20" id="hUO-b7-myL"/>
+                <constraint firstAttribute="bottom" secondItem="KCY-dK-dV0" secondAttribute="bottom" id="kLv-nO-dpb"/>
+                <constraint firstAttribute="trailing" secondItem="Ehf-bn-Uea" secondAttribute="trailing" constant="20" id="nIS-DO-Sl8"/>
+                <constraint firstItem="DyB-y7-cuP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="obA-g2-ozC"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Instant_bg-iphone4" width="720" height="1136"/>
+        <image name="Instant_word-iphone4" width="468" height="70"/>
+        <image name="ad02" width="400" height="353"/>
+        <image name="fail_button01-iphone4" width="130" height="128"/>
+        <image name="fail_retry" width="344" height="201"/>
+        <image name="instantfail_big-iphone4" width="90" height="89"/>
+    </resources>
+</document>

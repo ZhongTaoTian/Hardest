@@ -20,6 +20,7 @@
 @property (nonatomic, assign) double min;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *unit;
+@property (nonatomic, copy) NSString *fail;
 
 @property (nonatomic, strong) WNXStageInfo *userInfo;
 

@@ -10,4 +10,6 @@
 
 @interface WNXFailView : UIView
 
+- (void)showFailViewWithAnimatonFinishBlock:(void (^)())completion;
+
 @end

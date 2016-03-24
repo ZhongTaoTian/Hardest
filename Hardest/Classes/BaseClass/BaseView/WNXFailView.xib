@@ -7,10 +7,39 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WNXFailView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="390"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Instant_red-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="8TG-o3-y3H">
+                    <rect key="frame" x="0.0" y="33" width="320" height="270"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Instant_referee02-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="HIj-3k-A86">
+                    <rect key="frame" x="111" y="7" width="231" height="377"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Instant_referee01-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="fED-oO-qQ8">
+                    <rect key="frame" x="106" y="10" width="228" height="375"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Instant_out-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="Fe5-QU-lTW">
+                    <rect key="frame" x="12" y="7" width="184" height="140"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="outView" destination="Fe5-QU-lTW" id="XVH-t3-bjc"/>
+                <outlet property="peopleView" destination="fED-oO-qQ8" id="Oju-h4-gTk"/>
+                <outlet property="redBgView" destination="8TG-o3-y3H" id="91x-K9-Dj7"/>
+                <outlet property="shadowView" destination="HIj-3k-A86" id="PP0-hU-5pT"/>
+            </connections>
+            <point key="canvasLocation" x="847" y="526"/>
         </view>
     </objects>
+    <resources>
+        <image name="Instant_out-iphone4" width="366" height="303"/>
+        <image name="Instant_red-iphone4" width="720" height="608"/>
+        <image name="Instant_referee01-iphone4" width="486" height="800"/>
+        <image name="Instant_referee02-iphone4" width="486" height="800"/>
+    </resources>
 </document>

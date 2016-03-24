@@ -21,6 +21,8 @@
 #define kSoundFailScreamName  @"failShout.mp3"
 #define kSoundFailDropName    @"failDrop.mp3"
 #define kSoundcageDropName    @"cageDrop.mp3"
+#define kSoundOutName         @"instantFail01.mp3"
+#define kSoundOutSpoonName    @"whistle.mp3"
 
 //stage01
 #define kSoundFeatherClickName @"tap.mp3"
