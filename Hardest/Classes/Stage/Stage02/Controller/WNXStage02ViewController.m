@@ -111,8 +111,9 @@
     [super playAgainGame];
 }
 
-- (void)dealloc {
-    NSLog(@"销毁");
+#warning 暂停游戏
+- (void)pauseGame {
+    [super pauseGame];
 }
 
 #pragma mark - Private Method
@@ -139,8 +140,7 @@
         weakSelf.winIndex = winIndex;
         [weakSelf setButtonsIsActivate:YES];
         [((WNXCountTimeView *)weakSelf.countScore) startCalculateByTimeWithTimeOut:^{
-            NSLog(@"游戏失败,超时");
-            [self showGameFail];
+            [weakSelf showGameFail];
         }];
     }];
     
