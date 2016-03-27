@@ -20,6 +20,11 @@
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
+#define kAuthorGithubURLString @"https://github.com/ZhongTaoTian"
+#define kAuthorSineWeiBoUrlString @"http://weibo.com/tianzhongtao"
+#define kAuthorBlogURLString @"http://www.jianshu.com/users/5fe7513c7a57/latest_articles"
+
+
 #ifdef DEBUG
 #define NSLog(...) NSLog(__VA_ARGS__)
 #else

@@ -111,9 +111,16 @@
     [super playAgainGame];
 }
 
-#warning 暂停游戏
 - (void)pauseGame {
     [super pauseGame];
+    
+    [((WNXCountTimeView *)self.countScore) pause];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    
+    [((WNXCountTimeView *)self.countScore) continueGame];
 }
 
 #pragma mark - Private Method

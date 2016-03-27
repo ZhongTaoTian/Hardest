@@ -89,6 +89,14 @@
     }];
 }
 
+- (void)pause {
+    self.timer.paused = YES;
+}
+
+- (void)continueGame {
+    self.timer.paused = NO;
+}
+
 - (void)cleanData {
     if (self.timer) {
         [self.timer invalidate];

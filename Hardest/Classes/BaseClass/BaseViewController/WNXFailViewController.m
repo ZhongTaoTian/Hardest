@@ -29,34 +29,23 @@ typedef void(^RetryButtonClickBlock)();
     return failVC;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-}
-
 - (IBAction)buttonClick:(UIButton *)sender {
-    switch (sender.tag) {
-        case 10:
-            for (UIViewController *vc in self.navigationController.viewControllers) {
-                if ([vc isKindOfClass:[WNXSelectStageViewController class]]) {
-                    [self.navigationController popToViewController:vc animated:NO];
-                    return;
-                }
+    if (sender.tag == 10) {
+        for (UIViewController *vc in self.navigationController.viewControllers) {
+            if ([vc isKindOfClass:[WNXSelectStageViewController class]]) {
+                [self.navigationController popToViewController:vc animated:NO];
+                return;
             }
-            break;
-        case 11:
-            // 显示Alart
-            break;
-        case 12:
-            // 进入gitHub
-            break;
-        case 13:
-            if (self.retryButtonClickBlock) {
-                self.retryButtonClickBlock();
-            }
-            break;
-        default:
-            break;
+        }
+    } else if (sender.tag == 11) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"失败原因" message:self.stage.fail delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertView show];
+    } else if (sender.tag == 12) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kAuthorGithubURLString]];
+    } else if (sender.tag == 13) {
+        if (self.retryButtonClickBlock) {
+            self.retryButtonClickBlock();
+        }
     }
 }
 

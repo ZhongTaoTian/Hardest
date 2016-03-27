@@ -13,6 +13,7 @@
 #import "WNXCountTimeView.h"
 #import "WNXFailView.h"
 #import "WNXFailViewController.h"
+#import "WNXPrepareViewController.h"
 
 @interface WNXBaseGameViewController ()
 {
@@ -92,8 +93,16 @@
 }
 
 - (void)showFailViewController {
+    __weak __typeof(self) weakSelf = self;
     WNXFailViewController *failVC = [WNXFailViewController initWithStage:self.stage retryButtonClickBlock:^{
-        NSLog(@"重新开始");
+        for (UIViewController *vc in weakSelf.navigationController.viewControllers) {
+            if ([vc isKindOfClass:[WNXPrepareViewController class]]) {
+                ((WNXPrepareViewController *)vc).stage = self.stage;
+                [weakSelf.navigationController popToViewController:vc animated:NO];
+                return;
+            }
+        }
+        
     }];
     [self.navigationController pushViewController:failVC animated:NO];
 }

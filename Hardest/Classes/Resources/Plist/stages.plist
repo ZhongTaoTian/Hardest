@@ -42,19 +42,19 @@
 		<key>fail</key>
 		<string>时间已到!   你用了太多时间来回答这个问题.</string>
 		<key>format</key>
-		<string>%.f</string>
+		<string>%.1f</string>
 		<key>icon</key>
-		<string>select_image03.png</string>
+		<string>select_image23.png</string>
 		<key>intro</key>
-		<string>当任何蟑螂尝试逃跑时，尽早点击该栏！</string>
+		<string>尽可能点击左右箭头来平衡男孩的头时间越长越好！</string>
 		<key>max</key>
-		<string>0900.0</string>
+		<string>10.0</string>
 		<key>min</key>
-		<string>1400.0</string>
+		<string>5.0</string>
 		<key>title</key>
-		<string>蟑螂\n对\n拖鞋</string>
+		<string>傻乎乎的\n瞌睡\n男孩</string>
 		<key>unit</key>
-		<string>毫秒</string>
+		<string>秒</string>
 	</dict>
 	<dict>
 		<key>fail</key>

@@ -10,9 +10,6 @@
 #import "WNXSettingViewController.h"
 
 #define kPushDuration 2.5
-#define kAuthorGithubURLString @"https://github.com/ZhongTaoTian"
-#define kAuthorSineWeiBoUrlString @"http://weibo.com/tianzhongtao"
-#define kAuthorBlogURLString @"http://www.jianshu.com/users/5fe7513c7a57/latest_articles"
 
 @interface WNXPauseViewController ()
 {
@@ -24,8 +21,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *pageCentX;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *adImageTop;
 @property (weak, nonatomic) IBOutlet UIImageView *idImageView;
-
 @property (weak, nonatomic) IBOutlet UIButton *idButton;
+
 @end
 
 @implementation WNXPauseViewController

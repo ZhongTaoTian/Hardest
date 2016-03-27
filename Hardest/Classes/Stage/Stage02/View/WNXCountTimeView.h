@@ -20,4 +20,7 @@
 
 - (void)cleanData;
 
+- (void)pause;
+- (void)continueGame;
+
 @end
