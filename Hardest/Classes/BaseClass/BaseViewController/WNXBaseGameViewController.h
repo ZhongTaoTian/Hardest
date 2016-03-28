@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, WNXScoreboardType) {
     WNXScoreboardTypeNone = 0,
     WNXScoreboardTypeCountPTS,
     WNXScoreboardTypeTimeMS,
+    WNXScoreboardTypeSecondAndMS,
     WNXScoreboardTypeTimeS
 };
 

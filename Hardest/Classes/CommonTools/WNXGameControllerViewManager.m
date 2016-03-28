@@ -34,6 +34,7 @@
             gameVC = [[WNXStage03ViewController alloc] init];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeReplaceClick;
+            gameVC.scoreboardType = WNXScoreboardTypeSecondAndMS;
             break;
         default:
             break;

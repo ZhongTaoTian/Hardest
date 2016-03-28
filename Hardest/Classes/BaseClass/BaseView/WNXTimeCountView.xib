@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WNXTimeCountView">
+            <rect key="frame" x="0.0" y="0.0" width="205" height="52"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ing_word" translatesAutoresizingMaskIntoConstraints="NO" id="WFJ-Di-NHB">
+                    <rect key="frame" x="0.0" y="0.0" width="205" height="52"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VU1-DK-Yr7" customClass="WNXStrokeLabel">
+                    <rect key="frame" x="123" y="-36" width="79" height="89"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                    <color key="textColor" red="0.99215686274509807" green="0.48860157645138796" blue="0.19636249312390641" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmq-pg-bOf" customClass="WNXStrokeLabel">
+                    <rect key="frame" x="8" y="-28" width="129" height="107"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                    <color key="textColor" red="1" green="0.47847501528774095" blue="0.089381640345460811" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="WFJ-Di-NHB" id="X27-DZ-xpH"/>
+                <outlet property="label1" destination="pmq-pg-bOf" id="fJG-4o-LL0"/>
+                <outlet property="label2" destination="VU1-DK-Yr7" id="B6S-m9-dVj"/>
+            </connections>
+            <point key="canvasLocation" x="643.5" y="762"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ing_word" width="544" height="92"/>
+    </resources>
+</document>

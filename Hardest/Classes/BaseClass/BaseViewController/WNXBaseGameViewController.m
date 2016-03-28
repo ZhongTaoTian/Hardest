@@ -14,6 +14,7 @@
 #import "WNXFailView.h"
 #import "WNXFailViewController.h"
 #import "WNXPrepareViewController.h"
+#import "WNXTimeCountView.h"
 
 @interface WNXBaseGameViewController ()
 {
@@ -171,6 +172,10 @@
         [((WNXCountTimeView *)self.countScore) startAnimationWithCompletion:^(BOOL finished) {
             [weakSelf beginRedayGoView];
         }];
+    } else if (self.scoreboardType == WNXScoreboardTypeSecondAndMS) {
+        [((WNXTimeCountView *)self.countScore) startAnimationWithCompletion:^(BOOL finished) {
+            [weakSelf beginRedayGoView];
+        }];
     }
 }
 
@@ -181,23 +186,20 @@
         return;
     } else if (scoreboardType == WNXScoreboardTypeCountPTS) {
         self.countScore = [WNXScoreboardCountView viewFromNib];
-        self.countScore.hidden = YES;
         self.countScore.frame = CGRectMake(-40, -140, self.countScore.frame.size.width, self.countScore.frame.size.height);
-        if (self.guideImageView) {
-            [self.view insertSubview:self.countScore belowSubview:self.guideImageView];
-        } else {
-            [self.view addSubview:self.countScore];
-        }
-        return;
     } else if (scoreboardType == WNXScoreboardTypeTimeMS) {
         self.countScore = [WNXCountTimeView viewFromNib];
-        self.countScore.hidden = YES;
         self.countScore.frame = CGRectMake(-60, -140, self.countScore.frame.size.width, self.countScore.frame.size.height);
-        if (self.guideImageView) {
-            [self.view insertSubview:self.countScore belowSubview:self.guideImageView];
-        } else {
-            [self.view addSubview:self.countScore];
-        }
+    } else if (scoreboardType == WNXScoreboardTypeSecondAndMS) {
+        self.countScore = [WNXTimeCountView viewFromNib];
+        self.countScore.frame = CGRectMake(-40, -55, self.countScore.frame.size.width, self.countScore.frame.size.height);
+    }
+    
+    self.countScore.hidden = YES;
+    if (self.guideImageView) {
+        [self.view insertSubview:self.countScore belowSubview:self.guideImageView];
+    } else {
+        [self.view addSubview:self.countScore];
     }
 }
 
