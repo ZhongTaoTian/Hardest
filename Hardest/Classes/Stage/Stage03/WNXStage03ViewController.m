@@ -8,6 +8,7 @@
 
 #import "WNXStage03ViewController.h"
 #import "WNXStage03HeaderView.h"
+#import "WNXTimeCountView.h"
 
 @interface WNXStage03ViewController ()
 
@@ -43,7 +44,6 @@
     [self buildBottonImageViewWithFrame:CGRectMake(78, 0 , 66, 64) image:[UIImage imageNamed:@"23_bticon-iphone4"]];
     [self buildBottonImageViewWithFrame:CGRectMake(ScreenWidth * 0.5 + 13, 0, 66, 64) image:[UIImage imageNamed:@"23_bticon-iphone4"]];
     [self buildBottonImageViewWithFrame:CGRectMake(ScreenWidth * 0.5 + 79 + 10, 0, 55, 40) image:[UIImage imageNamed:@"23_Barrow-iphone4"]];
-    
 }
 
 - (void)buildBottonImageViewWithFrame:(CGRect)frame image:(UIImage *)image {
@@ -53,6 +53,12 @@
     [self.view addSubview:imageView];
 }
 #pragma mark - Override Method
+- (void)readyGoAnimationFinish {
+    [super readyGoAnimationFinish];
+    
+    [((WNXTimeCountView *)self.countScore) startCalculateTime];
+    [self.headerView start];
+}
 
 #pragma mark - Action
 - (void)buttonClick:(UIButton *)sender {

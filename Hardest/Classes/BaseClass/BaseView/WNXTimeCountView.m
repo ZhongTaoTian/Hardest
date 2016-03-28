@@ -12,11 +12,14 @@
 @interface WNXTimeCountView ()
 {
     CGAffineTransform _transform;
+    int _ms;
+    int _second;
 }
 
 @property (weak, nonatomic) IBOutlet WNXStrokeLabel *label1;
 @property (weak, nonatomic) IBOutlet WNXStrokeLabel *label2;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (nonatomic, strong) CADisplayLink *timer;
 
 @end
 
@@ -50,7 +53,34 @@
 }
 
 - (void)startCalculateTime {
+    self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime:)];
+    [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
 
+- (NSTimeInterval)stopCalculateTime {
+    [self.timer invalidate];
+    self.timer = nil;
+    return _second + _ms / 60;
+}
+
+#pragma mark - Action
+- (void)updateTime:(CADisplayLink *)timer {
+    _ms++;
+    
+    if (_ms == 60) {
+        _ms = 0;
+        _second++;
+        if (_second < 10) {
+            self.label1.text = [NSString stringWithFormat:@"%02d", _second];
+        } else {
+            self.label1.text = [NSString stringWithFormat:@"%d", _second];
+        }
+    }
+    if (_ms < 10) {
+        self.label2.text = [NSString stringWithFormat:@"%02d", _ms];
+    } else {
+        self.label2.text = [NSString stringWithFormat:@"%d", _ms];
+    }
 }
 
 @end

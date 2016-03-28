@@ -10,6 +10,8 @@
 
 @interface WNXStage03HeaderView : UIView
 
+- (void)start;
+
 - (void)test;
 
 - (void)test1;

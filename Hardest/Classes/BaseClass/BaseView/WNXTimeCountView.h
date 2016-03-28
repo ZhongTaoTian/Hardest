@@ -13,5 +13,8 @@
 - (void)startAnimationWithCompletion:(void (^)(BOOL finished))completion;
 
 - (void)startCalculateTime;
+- (NSTimeInterval)stopCalculateTime;
+
+
 
 @end

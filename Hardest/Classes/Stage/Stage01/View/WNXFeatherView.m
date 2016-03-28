@@ -26,20 +26,16 @@
     return self;
 }
 
-- (void)attack:(int)index
-{
-    // 0.显示
+- (void)attack:(int)index {
     self.alpha = 1;
     
     [UIView animateWithDuration:0.1 animations:^{
-        // 1.修改x值
         CGRect frame = self.frame;
         frame.origin.x = (index + 0.3) * [UIScreen mainScreen].bounds.size.width/3;
         self.frame = frame;
     }];
     
     [UIView animateWithDuration:0.3 animations:^{
-        // 2.执行挠的动画
         CAKeyframeAnimation *anim = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation"];
         CGMutablePathRef path = CGPathCreateMutable();
         CGFloat width = 100;
@@ -51,13 +47,11 @@
         CGPathRelease(path);
     }];
     
-    // 2.过一段时间让羽毛消失
-    [_timer invalidate]; // 让上次的计时器失效
+    [_timer invalidate];
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.7 target:self selector:@selector(hide) userInfo:nil repeats:NO];
 }
 
-- (void)hide
-{
+- (void)hide {
     [UIView animateWithDuration:0.3 animations:^{
         self.alpha = 0;
     }];

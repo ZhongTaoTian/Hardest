@@ -204,8 +204,9 @@
 }
 
 - (void)beginRedayGoView {
+    __weak __typeof(self) weakSelf = self;
     [WNXReadyGoView showReadyGoViewWithSuperView:self.view completion:^{
-        [self readyGoAnimationFinish];
+        [weakSelf readyGoAnimationFinish];
     }];
 }
 
