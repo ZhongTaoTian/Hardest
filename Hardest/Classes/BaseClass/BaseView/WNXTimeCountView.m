@@ -39,6 +39,8 @@
         self.label1.font = font1;
         self.label2.font = font2;
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
 }
 
 - (void)startAnimationWithCompletion:(void (^)(BOOL))completion {
@@ -81,6 +83,11 @@
     } else {
         self.label2.text = [NSString stringWithFormat:@"%d", _ms];
     }
+}
+
+- (void)removeTimer {
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 @end

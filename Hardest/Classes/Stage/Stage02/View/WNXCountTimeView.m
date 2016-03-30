@@ -38,6 +38,8 @@
         self.countLabel.font = font1;
         self.unitLabel.font = font2;
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
 }
 
 - (void)startAnimationWithCompletion:(void (^)(BOOL))completion {
@@ -73,6 +75,7 @@
         }
     }
     self.countLabel.text = [NSString stringWithFormat:@"%d%02d", _ms, _index];
+    NSLog(@"aaa");
 }
 
 - (void)stopCalculateByTimeWithTimeBlock:(void (^)(int, int))timeBlock {
@@ -105,6 +108,11 @@
     _index = 0;
     _ms = 0;
     self.countLabel.text = [NSString stringWithFormat:@"%d%02d", _ms, _index];
+}
+
+- (void)removeTimer {
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 @end

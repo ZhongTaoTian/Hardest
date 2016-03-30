@@ -37,9 +37,15 @@ typedef void(^Completion)(void);
         } else {
             self.font = [UIFont systemFontOfSize:size];
         }
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
     }
     
     return self;
+}
+
+- (void)removeTimer {
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (void)clean {
@@ -80,10 +86,7 @@ typedef void(^Completion)(void);
         if (self.completion) {
             self.completion();
         }
-        
     }
 }
-
-
 
 @end

@@ -241,8 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				B308860C1C895ABC00AE83B2 /* Stage01 */,
-				FA9F11671CA81B61002D2064 /* Stage03 */,
 				B3D147FB1C9FF94700ABCBE4 /* Stage02 */,
+				FA9F11671CA81B61002D2064 /* Stage03 */,
 			);
 			path = Stage;
 			sourceTree = "<group>";

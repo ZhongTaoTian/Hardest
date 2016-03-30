@@ -39,6 +39,7 @@
 
 - (void)dealloc {
     NSLog(@"%s", __func__);
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationNameGameViewControllerDelloc object:nil];
 }
 
 #pragma mark - Pubilc Method
@@ -58,9 +59,7 @@
     [self.navigationController pushViewController:pauseVC animated:NO];
 }
 
-- (void)continueGame {
-    NSLog(@"继续游戏");
-}
+- (void)continueGame {}
 
 - (void)readyGoAnimationFinish {
     self.playAgainButton.userInteractionEnabled = YES;

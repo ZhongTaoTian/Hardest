@@ -10,10 +10,10 @@
 
 @interface WNXStage03HeaderView : UIView
 
-- (void)start;
+- (void)startWithFailBlock:(void (^)(void))failBlock;
 
-- (void)test;
+- (void)leftBtnClick;
 
-- (void)test1;
+- (void)rightBtnClick;
 
 @end

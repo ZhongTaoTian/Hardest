@@ -115,11 +115,11 @@
 #pragma mark - action
 - (void)featherClick:(UIButton *)sender {
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFeatherClickName];
-    [self.featherView attack:sender.tag];
+    [self.featherView attack:(int)sender.tag];
     if ([self.footView attackFootViewAtIndex:(int)sender.tag]) {
         [(WNXScoreboardCountView *)self.countScore hit];
     } else {
-        [self showMissImageViewAtIndex:sender.tag];
+        [self showMissImageViewAtIndex:(int)sender.tag];
     }
 }
 

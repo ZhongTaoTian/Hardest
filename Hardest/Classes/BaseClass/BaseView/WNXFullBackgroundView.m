@@ -32,7 +32,7 @@
         CGRect cutRect = CGRectMake((bgImage.size.width - width)*0.5, (bgImage.size.height - height)*0.5, width, height);
         CGImageRef imageRef = CGImageCreateWithImageInRect(bgImage.CGImage, cutRect);
         bgImage = [UIImage imageWithCGImage:imageRef];
-        
+        CGImageRelease(imageRef);
         // 3.绘图
         [bgImage drawInRect:rect];
     }

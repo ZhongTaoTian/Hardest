@@ -114,8 +114,8 @@
 }
 
 - (void)showResultAnimationCompletion:(void (^)())completion {
-    CGFloat moveX1;
-    CGFloat moveX2;
+    CGFloat moveX1 = 0;
+    CGFloat moveX2 = 0;
     if (_winIndex == 0) {
         moveX1 = 40;
         moveX2 = 15;

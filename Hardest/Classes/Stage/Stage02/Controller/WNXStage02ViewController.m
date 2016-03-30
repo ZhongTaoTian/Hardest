@@ -220,4 +220,8 @@
     }];
 }
 
+- (void)dealloc {
+    NSLog(@"控制器被销毁了");
+}
+
 @end

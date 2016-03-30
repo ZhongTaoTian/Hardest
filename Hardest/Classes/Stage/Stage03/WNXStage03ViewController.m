@@ -56,16 +56,36 @@
 - (void)readyGoAnimationFinish {
     [super readyGoAnimationFinish];
     
-    [((WNXTimeCountView *)self.countScore) startCalculateTime];
-    [self.headerView start];
+    [self beginGame];
 }
+
+- (void)beginGame {
+    [super beginGame];
+    
+    __weak __typeof(self) weakSelf = self;
+    [((WNXTimeCountView *)self.countScore) startCalculateTime];
+    [self.headerView startWithFailBlock:^{
+        [weakSelf endGame];
+    }];
+}
+
+- (void)endGame {
+    [super endGame];
+    
+    NSTimeInterval score = [((WNXTimeCountView *)self.countScore) stopCalculateTime];
+    // 算分
+    [self showResultControllerWithNewScroe:score unit:@"秒" stage:self.stage isAddScore:YES];
+
+}
+
+#pragma mark - Method
 
 #pragma mark - Action
 - (void)buttonClick:(UIButton *)sender {
     if (sender.tag == 1) {
-        [self.headerView test];
+        [self.headerView leftBtnClick];
     } else if(sender.tag == 2) {
-        [self.headerView test1];
+        [self.headerView rightBtnClick];
     }
 }
 
