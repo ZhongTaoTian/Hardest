@@ -75,6 +75,7 @@
         _volume = 0.3;
     }
 }
+
 - (void)endGame {
     if (_volume) {
         [[WNXSoundToolManager sharedSoundToolManager] setBackgroundMusicVolume:1.0];

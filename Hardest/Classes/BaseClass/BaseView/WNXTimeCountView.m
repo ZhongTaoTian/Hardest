@@ -73,6 +73,16 @@
     self.timer.paused = NO;
 }
 
+- (void)cleadData {
+    [self.timer invalidate];
+    self.timer = nil;
+    
+    _ms = 0;
+    _second = 0;
+    self.label1.text = @"00";
+    self.label2.text = @"00";
+}
+
 #pragma mark - Action
 - (void)updateTime:(CADisplayLink *)timer {
     _ms++;

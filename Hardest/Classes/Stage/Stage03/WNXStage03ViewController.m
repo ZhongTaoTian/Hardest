@@ -94,6 +94,13 @@
     [((WNXTimeCountView *)self.countScore) resumed];
 }
 
+- (void)playAgainGame {
+    [super playAgainGame];
+    
+    [self.headerView again];
+    [((WNXTimeCountView *)self.countScore) cleadData];
+}
+
 #pragma mark - Method
 
 #pragma mark - Action

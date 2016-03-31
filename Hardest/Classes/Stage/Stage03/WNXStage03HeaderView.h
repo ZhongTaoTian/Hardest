@@ -19,4 +19,6 @@
 - (void)pause;
 - (void)resumed;
 
+- (void)again;
+
 @end

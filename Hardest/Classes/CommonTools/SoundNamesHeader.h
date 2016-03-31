@@ -32,7 +32,9 @@
 #define kSoundRightSoundName @"09_right.mp3"
 #define kSoundWrongSoundName @"09_wrong.mp3"
 
-
+//stage03
+#define kSoundWheezeSoundName @"23_drip.mp3"
+#define kSOundNoitSoundName   @"23_snore.mp3"
 
 
 

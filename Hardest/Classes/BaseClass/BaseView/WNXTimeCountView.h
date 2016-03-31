@@ -18,4 +18,6 @@
 - (void)pause;
 - (void)resumed;
 
+- (void)cleadData;
+
 @end
