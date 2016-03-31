@@ -58,21 +58,21 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>啊呦!你爬了太多楼梯! 请按照屏幕上提示的阶梯数量点击</string>
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image04.png</string>
+		<string>select_image09.png</string>
 		<key>intro</key>
-		<string>在红色按钮内将球拍向左或右滑动。尽可能抓住更多的球！您有3次生命。</string>
+		<string>交替点击左右脚，\n以最快速度冲到马桶座上！</string>
 		<key>max</key>
-		<string>200.0</string>
+		<string>1500</string>
 		<key>min</key>
-		<string>100.0</string>
+		<string>2500</string>
 		<key>title</key>
-		<string>令人\n发狂的\n乒乓球！</string>
+		<string>早晨\n冲向\n厕所</string>
 		<key>unit</key>
-		<string>分</string>
+		<string>毫秒</string>
 	</dict>
 	<dict>
 		<key>fail</key>

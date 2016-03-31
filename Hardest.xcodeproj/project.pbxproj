@@ -65,6 +65,7 @@
 		B3E561971C7C6F650081C720 /* WNXLaunchAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E561951C7C6F650081C720 /* WNXLaunchAnimationViewController.xib */; };
 		B3EEACF41C7C61EB00992B34 /* WNXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EEACF31C7C61EB00992B34 /* WNXRootViewController.m */; };
 		B3EF93CE1C90345E006C3E42 /* WNXFeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF93CD1C90345E006C3E42 /* WNXFeatherView.m */; };
+		B3FBDC7B1CAD158C009840C5 /* WNXStage04ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FBDC7A1CAD158C009840C5 /* WNXStage04ViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FA9F11631CA814A7002D2064 /* WNXTwoButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F11621CA814A7002D2064 /* WNXTwoButtonViewController.m */; };
 		FA9F116A1CA81B7A002D2064 /* WNXStage03ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F11691CA81B7A002D2064 /* WNXStage03ViewController.m */; };
 		FA9F116F1CA81F74002D2064 /* WNXStage03HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F116E1CA81F74002D2064 /* WNXStage03HeaderView.m */; };
@@ -192,6 +193,8 @@
 		B3EEACF31C7C61EB00992B34 /* WNXRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXRootViewController.m; sourceTree = "<group>"; };
 		B3EF93CC1C90345E006C3E42 /* WNXFeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXFeatherView.h; sourceTree = "<group>"; };
 		B3EF93CD1C90345E006C3E42 /* WNXFeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXFeatherView.m; sourceTree = "<group>"; };
+		B3FBDC791CAD158C009840C5 /* WNXStage04ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage04ViewController.h; sourceTree = "<group>"; };
+		B3FBDC7A1CAD158C009840C5 /* WNXStage04ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage04ViewController.m; sourceTree = "<group>"; };
 		FA9F11611CA814A7002D2064 /* WNXTwoButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXTwoButtonViewController.h; sourceTree = "<group>"; };
 		FA9F11621CA814A7002D2064 /* WNXTwoButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXTwoButtonViewController.m; sourceTree = "<group>"; };
 		FA9F11681CA81B7A002D2064 /* WNXStage03ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage03ViewController.h; sourceTree = "<group>"; };
@@ -243,6 +246,27 @@
 				B308860C1C895ABC00AE83B2 /* Stage01 */,
 				B3D147FB1C9FF94700ABCBE4 /* Stage02 */,
 				FA9F11671CA81B61002D2064 /* Stage03 */,
+				B3FBDC641CAD1421009840C5 /* Stage04 */,
+				B3FBDC651CAD1421009840C5 /* Stage05 */,
+				B3FBDC661CAD1421009840C5 /* Stage06 */,
+				B3FBDC671CAD1421009840C5 /* Stage07 */,
+				B3FBDC681CAD1421009840C5 /* Stage08 */,
+				B3FBDC691CAD1421009840C5 /* Stage09 */,
+				B3FBDC6A1CAD1421009840C5 /* Stage10 */,
+				B3FBDC6B1CAD1421009840C5 /* Stage11 */,
+				B3FBDC6C1CAD1421009840C5 /* Stage12 */,
+				B3FBDC6D1CAD1421009840C5 /* Stage13 */,
+				B3FBDC6E1CAD1421009840C5 /* Stage14 */,
+				B3FBDC6F1CAD1421009840C5 /* Stage15 */,
+				B3FBDC701CAD1421009840C5 /* Stage16 */,
+				B3FBDC711CAD1421009840C5 /* Stage17 */,
+				B3FBDC721CAD1421009840C5 /* Stage18 */,
+				B3FBDC731CAD1421009840C5 /* Stage19 */,
+				B3FBDC741CAD1421009840C5 /* Stage20 */,
+				B3FBDC751CAD1421009840C5 /* Stage21 */,
+				B3FBDC761CAD1421009840C5 /* Stage22 */,
+				B3FBDC771CAD1421009840C5 /* Stage23 */,
+				B3FBDC781CAD1421009840C5 /* Stage24 */,
 			);
 			path = Stage;
 			sourceTree = "<group>";
@@ -599,6 +623,155 @@
 			path = ../RootViewController;
 			sourceTree = "<group>";
 		};
+		B3FBDC641CAD1421009840C5 /* Stage04 */ = {
+			isa = PBXGroup;
+			children = (
+				B3FBDC791CAD158C009840C5 /* WNXStage04ViewController.h */,
+				B3FBDC7A1CAD158C009840C5 /* WNXStage04ViewController.m */,
+			);
+			path = Stage04;
+			sourceTree = "<group>";
+		};
+		B3FBDC651CAD1421009840C5 /* Stage05 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage05;
+			sourceTree = "<group>";
+		};
+		B3FBDC661CAD1421009840C5 /* Stage06 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage06;
+			sourceTree = "<group>";
+		};
+		B3FBDC671CAD1421009840C5 /* Stage07 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage07;
+			sourceTree = "<group>";
+		};
+		B3FBDC681CAD1421009840C5 /* Stage08 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage08;
+			sourceTree = "<group>";
+		};
+		B3FBDC691CAD1421009840C5 /* Stage09 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage09;
+			sourceTree = "<group>";
+		};
+		B3FBDC6A1CAD1421009840C5 /* Stage10 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage10;
+			sourceTree = "<group>";
+		};
+		B3FBDC6B1CAD1421009840C5 /* Stage11 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage11;
+			sourceTree = "<group>";
+		};
+		B3FBDC6C1CAD1421009840C5 /* Stage12 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage12;
+			sourceTree = "<group>";
+		};
+		B3FBDC6D1CAD1421009840C5 /* Stage13 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage13;
+			sourceTree = "<group>";
+		};
+		B3FBDC6E1CAD1421009840C5 /* Stage14 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage14;
+			sourceTree = "<group>";
+		};
+		B3FBDC6F1CAD1421009840C5 /* Stage15 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage15;
+			sourceTree = "<group>";
+		};
+		B3FBDC701CAD1421009840C5 /* Stage16 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage16;
+			sourceTree = "<group>";
+		};
+		B3FBDC711CAD1421009840C5 /* Stage17 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage17;
+			sourceTree = "<group>";
+		};
+		B3FBDC721CAD1421009840C5 /* Stage18 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage18;
+			sourceTree = "<group>";
+		};
+		B3FBDC731CAD1421009840C5 /* Stage19 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage19;
+			sourceTree = "<group>";
+		};
+		B3FBDC741CAD1421009840C5 /* Stage20 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage20;
+			sourceTree = "<group>";
+		};
+		B3FBDC751CAD1421009840C5 /* Stage21 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage21;
+			sourceTree = "<group>";
+		};
+		B3FBDC761CAD1421009840C5 /* Stage22 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage22;
+			sourceTree = "<group>";
+		};
+		B3FBDC771CAD1421009840C5 /* Stage23 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage23;
+			sourceTree = "<group>";
+		};
+		B3FBDC781CAD1421009840C5 /* Stage24 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stage24;
+			sourceTree = "<group>";
+		};
 		FA9F11671CA81B61002D2064 /* Stage03 */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +969,7 @@
 				FAEE91901C95437A0093FBC0 /* WNXPauseViewController.m in Sources */,
 				B384CD3E1C7FF8D7008AFA9E /* WNXSettingViewController.m in Sources */,
 				B3D148001C9FF9DD00ABCBE4 /* WNXStage02ViewController.m in Sources */,
+				B3FBDC7B1CAD158C009840C5 /* WNXStage04ViewController.m in Sources */,
 				B34333AC1C8535340086EF87 /* WNXPrepareViewController.m in Sources */,
 				B30886051C892A8C00AE83B2 /* WNXCountDownLabel.m in Sources */,
 				B343339F1C842D1A0086EF87 /* WNXStageInfoManager.m in Sources */,
