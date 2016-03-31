@@ -24,7 +24,7 @@
 
 - (void)buildBackgroundImageView {
     self.backgroundIV = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.backgroundIV];
+    [self.view insertSubview:self.backgroundIV belowSubview:self.playAgainButton];
 }
 
 - (void)buildButtons {

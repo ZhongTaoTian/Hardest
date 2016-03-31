@@ -13,6 +13,7 @@
 @interface WNXStage03ViewController ()
 
 @property (nonatomic, strong) WNXStage03HeaderView *headerView;
+@property (nonatomic, assign) CGFloat scroe;
 
 @end
 
@@ -66,16 +67,31 @@
     [((WNXTimeCountView *)self.countScore) startCalculateTime];
     [self.headerView startWithFailBlock:^{
         [weakSelf endGame];
+    } stopCalculateTime:^{
+        weakSelf.scroe = [((WNXTimeCountView *)weakSelf.countScore) stopCalculateTime];
     }];
 }
 
 - (void)endGame {
     [super endGame];
     
-    NSTimeInterval score = [((WNXTimeCountView *)self.countScore) stopCalculateTime];
     // 算分
-    [self showResultControllerWithNewScroe:score unit:@"秒" stage:self.stage isAddScore:YES];
+    [self showResultControllerWithNewScroe:self.scroe unit:@"秒" stage:self.stage isAddScore:YES];
 
+}
+
+- (void)pauseGame {
+    [super pauseGame];
+
+    [self.headerView pause];
+    [((WNXTimeCountView *)self.countScore) pause];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    
+    [self.headerView resumed];
+    [((WNXTimeCountView *)self.countScore) resumed];
 }
 
 #pragma mark - Method

@@ -75,7 +75,6 @@
         }
     }
     self.countLabel.text = [NSString stringWithFormat:@"%d%02d", _ms, _index];
-    NSLog(@"aaa");
 }
 
 - (void)stopCalculateByTimeWithTimeBlock:(void (^)(int, int))timeBlock {

@@ -65,6 +65,14 @@
     return _second + _ms / 60;
 }
 
+- (void)pause {
+    self.timer.paused = YES;
+}
+
+- (void)resumed {
+    self.timer.paused = NO;
+}
+
 #pragma mark - Action
 - (void)updateTime:(CADisplayLink *)timer {
     _ms++;

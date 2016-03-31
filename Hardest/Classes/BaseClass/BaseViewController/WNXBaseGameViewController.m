@@ -52,6 +52,7 @@
 
 - (void)pauseGame {
     __weak __typeof(self) weakSelf = self;
+    self.view.userInteractionEnabled = NO;
     WNXPauseViewController *pauseVC = [[WNXPauseViewController alloc] init];
     pauseVC.ContinueGameButtonClick = ^ {
         [weakSelf continueGame];
@@ -59,7 +60,9 @@
     [self.navigationController pushViewController:pauseVC animated:NO];
 }
 
-- (void)continueGame {}
+- (void)continueGame {
+    self.view.userInteractionEnabled = YES;
+}
 
 - (void)readyGoAnimationFinish {
     self.playAgainButton.userInteractionEnabled = YES;

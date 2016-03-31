@@ -15,6 +15,7 @@
 - (void)startCalculateTime;
 - (NSTimeInterval)stopCalculateTime;
 
-
+- (void)pause;
+- (void)resumed;
 
 @end
