@@ -150,7 +150,15 @@
         animationImages = @[[UIImage imageNamed:@"02-1-iphone4"], [UIImage imageNamed:@"02-2-iphone4"], [UIImage imageNamed:@"02-4-iphone4"], [UIImage imageNamed:@"02-5-iphone4"]];
     }
     
-    self.guideImageView.animationDuration = animationImages.count * 0.15;
+    CGFloat duration;
+    if (self.guideType == WNXGameGuideTypeOneFingerClick) {
+        duration = 0.3;
+    } else if (self.guideType == WNXGameGuideTypeReplaceClick) {
+        duration = 0.5;
+    } else {
+        duration = 0.8;
+    }
+    self.guideImageView.animationDuration = duration;
     self.guideImageView.animationImages = animationImages;
     self.guideImageView.animationRepeatCount = -1;
     [self.guideImageView startAnimating];

@@ -10,6 +10,9 @@
 
 @interface WNXTwoButtonViewController ()
 
+@property (nonatomic, strong) UIImageView *floorIV;
+
+
 @end
 
 @implementation WNXTwoButtonViewController
@@ -20,6 +23,8 @@
     [self buildBackgroundImageView];
     
     [self buildButtons];
+    
+    [self buildImageView];
 }
 
 - (void)buildBackgroundImageView {
@@ -39,6 +44,16 @@
     self.rightButton.adjustsImageWhenHighlighted = NO;
     [self.rightButton setBackgroundImage:[UIImage imageNamed:@"stage35_btn02-iphone4"] forState:UIControlStateNormal];
     [self.view addSubview:self.rightButton];
+    
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 96, ScreenHeight, self.rightButton.frame.size.height)];
+    bottomView.backgroundColor = [UIColor blackColor];
+    [self.view insertSubview:bottomView belowSubview:self.leftButton];
+}
+
+- (void)buildImageView {
+    self.floorIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 96 - 20, ScreenWidth, 20)];
+    self.floorIV.image = [UIImage imageNamed:@"05_floor-iphone4"];
+    [self.view addSubview:self.floorIV];
 }
 
 @end
