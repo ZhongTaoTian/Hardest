@@ -12,4 +12,7 @@
 
 - (void)start;
 
+- (void)runLeft;
+- (void)runRight;
+
 @end

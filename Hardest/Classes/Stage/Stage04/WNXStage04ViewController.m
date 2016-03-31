@@ -36,8 +36,11 @@
     [self.leftButton setImage:[UIImage imageNamed:@"05_Rfoot-iphone4"] forState:UIControlStateNormal];
     self.leftButton.imageEdgeInsets = UIEdgeInsetsMake(15, 40, 15, 40);
     self.leftButton.adjustsImageWhenDisabled = NO;
+    self.leftButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
     [self.rightButton setImage:[UIImage imageNamed:@"05_Yfoot-iphone4"] forState:UIControlStateNormal];
     self.rightButton.imageEdgeInsets = UIEdgeInsetsMake(15, 40, 15, 40);
+    self.rightButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.rightButton.adjustsImageWhenDisabled = NO;
     [self.view bringSubviewToFront:self.guideImageView];
     
@@ -52,9 +55,11 @@
     if (sender.tag == 1) {
         self.rightButton.enabled = YES;
         self.rightButton.alpha = 1;
+        [self.imageView runLeft];
     } else {
         self.leftButton.enabled = YES;
         self.leftButton.alpha = 1;
+        [self.imageView runRight];
     }
 }
 
