@@ -8,6 +8,7 @@
 
 #import "WNXStage04ViewController.h"
 #import "WNXStage04View.h"
+#import "WNXCountTimeView.h"
 
 @interface WNXStage04ViewController ()
 
@@ -21,10 +22,8 @@
     [super viewDidLoad];
 
     [self setStageInfo];
-    
-    [self buildImageView];
-    
-    NSLog(@"b");
+
+    [self buildStageImageView];
 }
 
 - (void)setStageInfo {
@@ -63,14 +62,44 @@
     }
 }
 
-- (void)buildImageView {
+- (void)buildStageImageView {
+    __weak typeof(self) weakSelf = self;
     self.imageView = [[WNXStage04View alloc] initWithFrame:CGRectMake(0, ScreenHeight - 96 - 300, ScreenWidth, 300)];
     if (self.guideImageView) {
         [self.view insertSubview:self.imageView belowSubview:self.guideImageView];
     } else {
         [self.view addSubview:self.guideImageView];
     }
+
+    self.imageView.stopTime = ^(int count) {
+        [((WNXCountTimeView *)weakSelf.countScore) stopCalculateByTimeWithTimeBlock:^(int second, int ms) {
+            
+        }];
+    };
+    
+    self.imageView.passStage = ^() {
+//        [weakSelf showResultControllerWithNewScroe:<#(double)#> unit:<#(NSString *)#> stage:<#(WNXStage *)#> isAddScore:<#(BOOL)#>]
+    };
+    
+    self.imageView.showResult = ^() {
+    
+    };
+    
+    self.imageView.stopAnimationDidFinish = ^() {
+    
+    };
+    
+    [(WNXCountTimeView *)self.countScore setNotHasTimeOut:YES];
     [self.imageView start];
+    [self setButtonActivate:NO];
+}
+
+#pragma mark - 
+- (void)readyGoAnimationFinish {
+    [super readyGoAnimationFinish];
+    
+    [self setButtonActivate:YES];
+    [(WNXCountTimeView *)self.countScore startCalculateByTimeWithTimeOut:nil];
 }
 
 @end

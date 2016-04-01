@@ -10,6 +10,11 @@
 
 @interface WNXStage04View : UIView
 
+@property (nonatomic, copy) void(^stopTime)(int count);
+@property (nonatomic, copy) void(^showResult)();
+@property (nonatomic, copy) void(^stopAnimationDidFinish)();
+@property (nonatomic, copy) void(^passStage)();
+
 - (void)start;
 
 - (void)runLeft;

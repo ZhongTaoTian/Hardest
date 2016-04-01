@@ -16,6 +16,8 @@
     int _randomIndex;
     int _runCount;
     BOOL _isMove;
+    BOOL _isSucceed;
+    int _startCount;
 }
 
 @property (nonatomic, strong) UIImageView *peopleIV;
@@ -50,6 +52,7 @@
 }
 
 - (void)start {
+    _startCount++;
     if (_isMove) {
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y - kStepsHeight, self.frame.size.width, self.frame.size.height);
     }
@@ -61,6 +64,9 @@
             [subView removeFromSuperview];
         }
     }
+    
+    self.peopleIV.transform = CGAffineTransformIdentity;
+    self.peopleIV.image = [UIImage imageNamed:@"05_hold-iphone4"];
     
     _randomIndex = arc4random_uniform(15) + 1;
     for (int i = 0; i < _randomIndex; i++) {
@@ -90,6 +96,11 @@
 
 - (void)runWithIsLeft:(BOOL)isLeft {
     _runCount++;
+    _isSucceed = NO;
+    if (_runCount > _randomIndex) {
+        [self failAnimation];
+    }
+    
     if (_runCount < 3) {
         [UIView animateWithDuration:0.2 animations:^{
             self.peopleIV.frame = CGRectMake(self.peopleIV.frame.origin.x + kStepsWidth, self.peopleIV.frame.origin.y - kStepsHeight, self.peopleIV.frame.size.width, self.peopleIV.frame.size.height);
@@ -121,6 +132,41 @@
     }
     
     [self.peopleIV startAnimating];
+    
+    if (_runCount == _randomIndex) {
+        _isSucceed = YES;
+        if (self.stopTime) {
+            self.stopTime(_randomIndex);
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self succeedAnimation];
+        });
+    }
+}
+- (void)succeedAnimation {
+    // 成功回调
+    if (_isSucceed) {
+        
+        if (self.showResult) {
+            self.showResult();
+        }
+        
+        self.peopleIV.image = [UIImage imageNamed:@"05_success01-iphone4"];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.peopleIV.transform = CGAffineTransformMakeTranslation(25, 0);
+        }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.peopleIV.image = [UIImage imageNamed:@"05_success02-iphone4"];
+            
+            if (_startCount == 8) {
+                self.passStage();
+            }
+        });
+    }
+}
+
+- (void)failAnimation {
+    NSLog(@"失败");
 }
 
 - (void)dealloc {

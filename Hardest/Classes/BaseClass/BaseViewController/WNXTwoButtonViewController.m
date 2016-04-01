@@ -23,8 +23,6 @@
     [self buildBackgroundImageView];
     
     [self buildButtons];
-    
-    [self buildImageView];
 }
 
 - (void)buildBackgroundImageView {
@@ -50,10 +48,9 @@
     [self.view insertSubview:bottomView belowSubview:self.leftButton];
 }
 
-- (void)buildImageView {
-    self.floorIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 96 - 20, ScreenWidth, 20)];
-    self.floorIV.image = [UIImage imageNamed:@"05_floor-iphone4"];
-    [self.view addSubview:self.floorIV];
+- (void)setButtonActivate:(BOOL)isActivate {
+    self.leftButton.userInteractionEnabled = isActivate;
+    self.rightButton.userInteractionEnabled = isActivate;
 }
 
 @end

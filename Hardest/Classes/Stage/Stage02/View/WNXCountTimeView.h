@@ -12,6 +12,8 @@
 
 @property (nonatomic, copy) void(^TimeOutBlock)(void);
 
+@property (nonatomic, assign) BOOL notHasTimeOut;
+
 - (void)startAnimationWithCompletion:(void (^)(BOOL))completion;
 
 - (void)startCalculateByTimeWithTimeOut:(void(^)())timeOutBlock;

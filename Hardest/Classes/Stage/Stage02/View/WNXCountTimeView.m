@@ -67,7 +67,7 @@
     if (_index == 60) {
         _index = 0;
         _ms++;
-        if (_ms == 10) {
+        if (_ms == 10 && !self.notHasTimeOut) {
             [timer invalidate];
             if (self.TimeOutBlock) {
                 self.TimeOutBlock();
