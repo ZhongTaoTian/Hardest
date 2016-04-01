@@ -12,7 +12,6 @@
 
 @property (nonatomic, strong) UIImageView *floorIV;
 
-
 @end
 
 @implementation WNXTwoButtonViewController

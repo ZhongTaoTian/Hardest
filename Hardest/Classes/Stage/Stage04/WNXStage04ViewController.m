@@ -9,10 +9,17 @@
 #import "WNXStage04ViewController.h"
 #import "WNXStage04View.h"
 #import "WNXCountTimeView.h"
+#import "WNXStateView.h"
 
 @interface WNXStage04ViewController ()
+{
+    float _allAverage;
+}
 
 @property (nonatomic, strong) WNXStage04View *imageView;
+@property (nonatomic, assign) int stepsCount;
+@property (nonatomic, assign) WNXResultStateType stateType;
+@property (nonatomic, strong) WNXStateView *stateView;
 
 @end
 
@@ -24,6 +31,8 @@
     [self setStageInfo];
 
     [self buildStageImageView];
+    
+    [self buildStateView];
 }
 
 - (void)setStageInfo {
@@ -73,7 +82,7 @@
 
     self.imageView.stopTime = ^(int count) {
         [((WNXCountTimeView *)weakSelf.countScore) stopCalculateByTimeWithTimeBlock:^(int second, int ms) {
-            
+            [weakSelf calculateStateWithCount:count second:second msec:ms];
         }];
     };
     
@@ -82,7 +91,7 @@
     };
     
     self.imageView.showResult = ^() {
-    
+        [weakSelf showStageResult];
     };
     
     self.imageView.stopAnimationDidFinish = ^() {
@@ -94,12 +103,41 @@
     [self setButtonActivate:NO];
 }
 
+- (void)buildStateView {
+    self.stateView = [WNXStateView viewFromNib];
+    self.stateView.frame = CGRectMake((ScreenWidth - self.stateView.frame.size.width) * 0.5, ScreenHeight - self.stateView.frame.size.height - self.leftButton.frame.size.height - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
+    [self.view addSubview:self.stateView];
+}
+
 #pragma mark - 
 - (void)readyGoAnimationFinish {
     [super readyGoAnimationFinish];
     
     [self setButtonActivate:YES];
     [(WNXCountTimeView *)self.countScore startCalculateByTimeWithTimeOut:nil];
+}
+
+#pragma mark
+- (void)showStageResult {
+    [self.stateView showStateViewWithType:self.stateType];
+    [self setButtonActivate:NO];
+    self.leftButton.alpha = 1;
+    self.rightButton.alpha = 1;
+}
+
+- (void)calculateStateWithCount:(int)count second:(int)second msec:(int)ms {
+    float time = second + ms / 60.0;
+    float average = time / count;
+
+    if (average < 0.1) {
+        self.stateType = WNXResultStateTypePerfect;
+    } else if (average < 0.15) {
+        self.stateType = WNXResultStateTypeGreat;
+    } else {
+        self.stateType = WNXResultStateTypeOK;
+    }
+    
+    _allAverage += average;
 }
 
 @end
