@@ -44,6 +44,22 @@
 - (void)showStateViewWithType:(WNXResultStateType)type {
     self.type = type;
     self.hidden = NO;
+    switch (type) {
+        case WNXResultStateTypeOK:
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundOKName];
+            break;
+        case WNXResultStateTypeGood:
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundGoodName];
+            break;
+        case WNXResultStateTypeGreat:
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundGreatName];
+            break;
+        case WNXResultStateTypePerfect:
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundPerfectName];
+            break;
+        default:
+            break;
+    }
     [self insertSubview:self.circleImageView belowSubview:self.stateImageView];
     [self.superview bringSubviewToFront:self];
     

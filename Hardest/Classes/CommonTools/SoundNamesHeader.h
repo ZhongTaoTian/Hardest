@@ -24,6 +24,12 @@
 #define kSoundOutName         @"instantFail01.mp3"
 #define kSoundOutSpoonName    @"whistle.mp3"
 
+//state
+#define kSoundOKName      @"okay.mp3"
+#define kSoundGoodName   @"good.mp3"
+#define kSoundGreatName  @"great.mp3"
+#define kSoundPerfectName    @"perfect.mp3"
+
 //stage01
 #define kSoundFeatherClickName @"tap.mp3"
 
@@ -36,6 +42,9 @@
 #define kSoundWheezeSoundName @"23_drip.mp3"
 #define kSOundNoitSoundName   @"23_snore.mp3"
 
+//stage04
+#define kSoundStage04Name     @"05_toiletflush.mp3"
+#define kSoundGoUpstairs      @"03_fall.mp3"
 
 
 

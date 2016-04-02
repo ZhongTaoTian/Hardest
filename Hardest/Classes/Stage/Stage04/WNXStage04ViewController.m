@@ -21,6 +21,7 @@
 @property (nonatomic, assign) WNXResultStateType stateType;
 @property (nonatomic, strong) WNXStateView *stateView;
 
+
 @end
 
 @implementation WNXStage04ViewController
@@ -37,6 +38,7 @@
 
 - (void)setStageInfo {
     self.backgroundIV.image = [UIImage imageNamed:@"05_bg-iphone4"];
+    self.view.backgroundColor = [UIColor blackColor];
     
     [self.leftButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
     [self.rightButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
@@ -79,7 +81,7 @@
     } else {
         [self.view addSubview:self.guideImageView];
     }
-
+    self.imageView.bgIV = self.backgroundIV;
     self.imageView.stopTime = ^(int count) {
         [((WNXCountTimeView *)weakSelf.countScore) stopCalculateByTimeWithTimeBlock:^(int second, int ms) {
             [weakSelf calculateStateWithCount:count second:second msec:ms];
@@ -94,8 +96,24 @@
         [weakSelf showStageResult];
     };
     
-    self.imageView.stopAnimationDidFinish = ^() {
+    self.imageView.btnToFront = ^() {
+        [weakSelf.view bringSubviewToFront:weakSelf.leftButton];
+        [weakSelf.view bringSubviewToFront:weakSelf.rightButton];
+        if (weakSelf.guideImageView) {
+            [weakSelf.view bringSubviewToFront:weakSelf.guideImageView];
+        }
+    };
     
+    self.imageView.stopAnimationDidFinish = ^() {
+        [weakSelf.imageView start];
+        [weakSelf setButtonActivate:YES];
+        [((WNXCountTimeView *)weakSelf.countScore) cleanData];
+        [((WNXCountTimeView *)weakSelf.countScore) startCalculateByTimeWithTimeOut:nil];
+    };
+    
+    self.imageView.failBlock = ^() {
+        [weakSelf setButtonActivate:NO];
+        [weakSelf showGameFail];
     };
     
     [(WNXCountTimeView *)self.countScore setNotHasTimeOut:YES];
@@ -105,7 +123,7 @@
 
 - (void)buildStateView {
     self.stateView = [WNXStateView viewFromNib];
-    self.stateView.frame = CGRectMake((ScreenWidth - self.stateView.frame.size.width) * 0.5, ScreenHeight - self.stateView.frame.size.height - self.leftButton.frame.size.height - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
+    self.stateView.frame = CGRectMake(0, ScreenHeight - self.stateView.frame.size.height - self.leftButton.frame.size.height - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
     [self.view addSubview:self.stateView];
 }
 

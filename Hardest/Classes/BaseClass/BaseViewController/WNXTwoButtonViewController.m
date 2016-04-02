@@ -50,6 +50,10 @@
 - (void)setButtonActivate:(BOOL)isActivate {
     self.leftButton.userInteractionEnabled = isActivate;
     self.rightButton.userInteractionEnabled = isActivate;
+    self.rightButton.enabled = isActivate;
+    self.leftButton.enabled = isActivate;
+    self.leftButton.alpha = 1;
+    self.rightButton.alpha = 1;
 }
 
 @end

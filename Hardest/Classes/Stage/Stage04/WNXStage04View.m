@@ -18,12 +18,14 @@
     BOOL _isMove;
     BOOL _isSucceed;
     int _startCount;
+    CGAffineTransform _bgTransform;
 }
 
 @property (nonatomic, strong) UIImageView *peopleIV;
 @property (nonatomic, strong) UIImageView *toiletIV;
 @property (nonatomic, strong) NSMutableArray *stepsArr;
 @property (nonatomic, strong) UIImageView *bottomView;
+@property (nonatomic, strong) UIImageView *failIV;
 
 @end
 
@@ -46,6 +48,12 @@
         
         self.peopleIV.animationRepeatCount = 1;
         self.peopleIV.animationDuration = 0.3;
+        
+        self.failIV = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth - 100, frame.size.height - 50 - kStepsHeight, 100, 160)];
+        self.failIV.transform = CGAffineTransformMakeScale(1, 0);
+        self.failIV.layer.anchorPoint = CGPointMake(0.5, 1);
+        self.failIV.image = [UIImage imageNamed:@"05_water-iphone4"];
+        [self addSubview:self.failIV];
     }
     
     return self;
@@ -53,6 +61,17 @@
 
 - (void)start {
     _startCount++;
+    _runCount = 0;
+    _bgTransform = CGAffineTransformMakeTranslation(0, 0);
+    self.peopleIV.transform = CGAffineTransformIdentity;
+    self.peopleIV.frame = CGRectMake(50, self.frame.size.height - 148 - kStepsHeight, 100, 154);
+    if ([self.peopleIV isAnimating]) {
+        [self.peopleIV stopAnimating];
+    }
+    self.peopleIV.animationImages = nil;
+    self.peopleIV.image = [UIImage imageNamed:@"05_hold-iphone4"];
+    self.bgIV.transform = CGAffineTransformIdentity;
+    self.peopleIV.transform = CGAffineTransformIdentity;
     if (_isMove) {
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y - kStepsHeight, self.frame.size.width, self.frame.size.height);
     }
@@ -65,9 +84,6 @@
         }
     }
     
-    self.peopleIV.transform = CGAffineTransformIdentity;
-    self.peopleIV.image = [UIImage imageNamed:@"05_hold-iphone4"];
-    
     _randomIndex = arc4random_uniform(15) + 1;
     for (int i = 0; i < _randomIndex; i++) {
         UIImageView *stepsIV = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.peopleIV.frame) - 23 + i * kStepsWidth, self.frame.size.height - kStepsHeight - i * kStepsHeight - kStepsHeight, kStepsWidth, kStepsHeight)];
@@ -79,11 +95,11 @@
         if (i == _randomIndex - 1) {
             stepsIV.frame = CGRectMake(CGRectGetMaxX(self.peopleIV.frame) - 23 + i * kStepsWidth, self.frame.size.height - kStepsHeight - i * kStepsHeight - kStepsHeight, 70, kStepsHeight);
             self.toiletIV.frame = CGRectMake(CGRectGetMaxX(self.peopleIV.frame) - 23 + 11 + i * kStepsWidth, self.frame.size.height - kStepsHeight - i * kStepsHeight - kStepsHeight - 74, 50, 78);
-            [self.stepsArr addObject:self.toiletIV];
         }
     }
     
     [self bringSubviewToFront:self.peopleIV];
+    self.btnToFront();
 }
 
 - (void)runLeft {
@@ -95,10 +111,12 @@
 }
 
 - (void)runWithIsLeft:(BOOL)isLeft {
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundGoUpstairs];
     _runCount++;
     _isSucceed = NO;
     if (_runCount > _randomIndex) {
         [self failAnimation];
+        return;
     }
     
     if (_runCount < 3) {
@@ -110,12 +128,19 @@
             self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y + kStepsHeight, self.frame.size.width, self.frame.size.height);
             _isMove = YES;
             self.bottomView.hidden = YES;
+        } else {
+            self.bgIV.transform = CGAffineTransformTranslate(_bgTransform, 0, 2);
+            _bgTransform = self.bgIV.transform;
         }
         for (UIView *view in self.stepsArr) {
             [UIView animateWithDuration:0.2 animations:^{
                 view.frame = CGRectMake(view.frame.origin.x - kStepsWidth, view.frame.origin.y + kStepsHeight, view.frame.size.width, view.frame.size.height);
             }];
         }
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            self.toiletIV.frame = CGRectMake(self.toiletIV.frame.origin.x - kStepsWidth, self.toiletIV.frame.origin.y + kStepsHeight, self.toiletIV.frame.size.width, self.toiletIV.frame.size.height);
+        }];
         
         UIView *view = [self viewWithTag:_runCount - 3 + 100];
         view.hidden = YES;
@@ -146,27 +171,53 @@
 - (void)succeedAnimation {
     // 成功回调
     if (_isSucceed) {
-        
-        if (self.showResult) {
-            self.showResult();
-        }
-        
         self.peopleIV.image = [UIImage imageNamed:@"05_success01-iphone4"];
         [UIView animateWithDuration:0.2 animations:^{
             self.peopleIV.transform = CGAffineTransformMakeTranslation(25, 0);
-        }];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        } completion:^(BOOL finished) {
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundStage04Name];
             self.peopleIV.image = [UIImage imageNamed:@"05_success02-iphone4"];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.showResult();
+            });
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.stopAnimationDidFinish();
+            });
             
             if (_startCount == 8) {
                 self.passStage();
             }
-        });
+        }];
     }
 }
 
 - (void)failAnimation {
-    NSLog(@"失败");
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFailScreamName];
+    CGAffineTransform failTransform = CGAffineTransformRotate(self.peopleIV.transform, M_PI_4);
+    failTransform = CGAffineTransformTranslate(failTransform, 100, -80);
+    [UIView animateWithDuration:0.2 animations:^{
+        self.peopleIV.transform = failTransform;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.peopleIV.frame = CGRectMake(self.peopleIV.frame.origin.x, self.peopleIV.frame.origin.y + 300, 100, 154);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.failIV.transform = CGAffineTransformIdentity;
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.1 animations:^{
+                    self.failIV.transform = CGAffineTransformMakeScale(1, 0.9);
+                } completion:^(BOOL finished) {
+                    self.failBlock();
+                }];
+            }];
+        }];
+    }];
+}
+
+- (void)playAgain {
+    _startCount = 0;
+    [self start];
 }
 
 - (void)dealloc {
