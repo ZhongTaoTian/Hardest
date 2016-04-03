@@ -75,6 +75,7 @@
 - (void)readyGoAnimationFinish {
     [super readyGoAnimationFinish];
     [self setButtonsIsActivate:YES];
+    self.view.userInteractionEnabled = YES;
 }
 
 - (void)setButtonsIsActivate:(BOOL)isActivate {

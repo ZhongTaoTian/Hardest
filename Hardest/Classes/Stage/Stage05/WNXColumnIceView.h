@@ -10,4 +10,6 @@
 
 @interface WNXColumnIceView : UIView
 
+- (void)showColumnDottedLineWithNum:(int)num;
+
 @end

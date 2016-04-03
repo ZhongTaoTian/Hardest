@@ -7,8 +7,11 @@
 //
 
 #import "WNXStage05ViewController.h"
+#import "WNXIceView.h"
 
 @interface WNXStage05ViewController ()
+
+@property (nonatomic, strong) WNXIceView *iceView;
 
 @end
 
@@ -30,6 +33,7 @@
     
     [self buildEggRoll];
     
+    [self buildIceView];
 }
 
 - (void)setButtonsInfo {
@@ -51,6 +55,26 @@
     
     [self.view bringSubviewToFront:self.playAgainButton];
     [self.view bringSubviewToFront:self.pauseButton];
+}
+
+- (void)buildIceView {
+    self.iceView = [[WNXIceView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 412, ScreenWidth, 229)];
+    [self.view addSubview:self.iceView];
+    [self.iceView showDottedLineView];
+    
+    if (self.guideImageView) {
+        [self.view bringSubviewToFront:self.guideImageView];
+    }
+}
+
+#pragma mark Super Method
+- (void)readyGoAnimationFinish {
+    [super readyGoAnimationFinish];
+    [self.view bringSubviewToFront:self.iceView];
+}
+
+- (void)beginRedayGoView {
+    [super beginRedayGoView];
     
     if (self.guideImageView) {
         [self.view bringSubviewToFront:self.guideImageView];

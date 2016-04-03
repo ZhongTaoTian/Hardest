@@ -73,6 +73,7 @@
 		FABAC88B1CB127B00061D257 /* WNXStage05ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FABAC88A1CB127B00061D257 /* WNXStage05ViewController.m */; };
 		FABAC88E1CB130160061D257 /* WNXIceView.m in Sources */ = {isa = PBXBuildFile; fileRef = FABAC88D1CB130160061D257 /* WNXIceView.m */; };
 		FABAC8911CB131EE0061D257 /* WNXColumnIceView.m in Sources */ = {isa = PBXBuildFile; fileRef = FABAC8901CB131EE0061D257 /* WNXColumnIceView.m */; };
+		FABAC8931CB140C70061D257 /* WNXColumnIceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABAC8921CB140C70061D257 /* WNXColumnIceView.xib */; };
 		FAC8C1C21CAEC38E00FD8D0E /* WNXStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC8C1C11CAEC38E00FD8D0E /* WNXStateView.m */; };
 		FAC8C1C41CAEC3F200FD8D0E /* WNXStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC8C1C31CAEC3F200FD8D0E /* WNXStateView.xib */; };
 		FAEE91901C95437A0093FBC0 /* WNXPauseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE918E1C95437A0093FBC0 /* WNXPauseViewController.m */; };
@@ -215,6 +216,7 @@
 		FABAC88D1CB130160061D257 /* WNXIceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXIceView.m; sourceTree = "<group>"; };
 		FABAC88F1CB131EE0061D257 /* WNXColumnIceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXColumnIceView.h; sourceTree = "<group>"; };
 		FABAC8901CB131EE0061D257 /* WNXColumnIceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXColumnIceView.m; sourceTree = "<group>"; };
+		FABAC8921CB140C70061D257 /* WNXColumnIceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXColumnIceView.xib; sourceTree = "<group>"; };
 		FAC8C1C01CAEC38E00FD8D0E /* WNXStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStateView.h; sourceTree = "<group>"; };
 		FAC8C1C11CAEC38E00FD8D0E /* WNXStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStateView.m; sourceTree = "<group>"; };
 		FAC8C1C31CAEC3F200FD8D0E /* WNXStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXStateView.xib; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 				FABAC88D1CB130160061D257 /* WNXIceView.m */,
 				FABAC88F1CB131EE0061D257 /* WNXColumnIceView.h */,
 				FABAC8901CB131EE0061D257 /* WNXColumnIceView.m */,
+				FABAC8921CB140C70061D257 /* WNXColumnIceView.xib */,
 			);
 			path = Stage05;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				B39472AA1C7DC4BD00CAAB6D /* Default-568h@2x.png in Resources */,
 				B38DE9311CA9448400583BF8 /* WNXTimeCountView.xib in Resources */,
 				B34E00D81C903F2500454720 /* WNXResultViewController.xib in Resources */,
+				FABAC8931CB140C70061D257 /* WNXColumnIceView.xib in Resources */,
 				B384CD281C7EE616008AFA9E /* sound.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

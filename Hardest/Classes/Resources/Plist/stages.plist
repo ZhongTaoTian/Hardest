@@ -76,21 +76,21 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>你走了太多步! 摔死了!!.</string>
+		<string>你掉落的冰淇淋太多了! 按着虚线填满冰淇淋.</string>
 		<key>format</key>
-		<string>%.1f</string>
+		<string>%.2f</string>
 		<key>icon</key>
-		<string>select_image05.png</string>
+		<string>select_image03-iphone4</string>
 		<key>intro</key>
-		<string>根据[石头剪刀布]规则，\n以最快速度选择[左边赢]或[右边赢]或[平局]！</string>
+		<string>以最快速度且正确填满冰淇淋! \n[提示]使用多个手指.</string>
 		<key>max</key>
-		<string>0.2</string>
+		<string>12.00</string>
 		<key>min</key>
-		<string>0.4</string>
+		<string>20.00</string>
 		<key>title</key>
-		<string>石头\n剪刀\n布</string>
+		<string>狂热\n冰淇淋\n!</string>
 		<key>unit</key>
-		<string>分</string>
+		<string>S</string>
 	</dict>
 	<dict>
 		<key>fail</key>

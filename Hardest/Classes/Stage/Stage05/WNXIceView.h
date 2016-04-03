@@ -10,4 +10,6 @@
 
 @interface WNXIceView : UIView
 
+- (void)showDottedLineView;
+
 @end
