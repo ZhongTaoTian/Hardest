@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UIButton    *redButton;
 @property (strong, nonatomic) UIButton    *yellowButton;
 @property (strong, nonatomic) UIButton    *blueButton;
+@property (nonatomic, strong) NSMutableArray *buttons;
 
 @property (nonatomic, strong) NSArray *buttonImageNames;
 

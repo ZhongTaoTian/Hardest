@@ -24,6 +24,9 @@
     [self setBackgroundImages];
     
     [self setBottomButtons];
+    
+    self.buttons = [NSMutableArray array];
+    [self.buttons addObjectsFromArray:@[self.redButton, self.blueButton, self.yellowButton]];
 }
 
 - (void)setBackgroundImages {
@@ -35,6 +38,7 @@
     
     self.blueImageView = [[UIImageView alloc] init];
     [self setImageView:self.blueImageView tag:102];
+    
 }
 
 - (void)setBottomButtons {
