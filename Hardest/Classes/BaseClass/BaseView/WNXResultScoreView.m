@@ -111,7 +111,7 @@
     if (isAddScroe) {
         self.scroeLabel.text = @"0";
     } else {
-        self.scroeLabel.text = [NSString stringWithFormat:stage.format, scroe];
+        self.scroeLabel.text = @"0";
     }
     
     _scroeUnit = scroe / _moveX > 0 ? scroe / _moveX : -(scroe / _moveX);

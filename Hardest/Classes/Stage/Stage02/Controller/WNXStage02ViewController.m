@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setStageInfo];
+    [self buildStageInfo];
     
     [self buildWinImageView];
     
@@ -43,7 +43,7 @@
 }
 
 #pragma mark - Build UI
-- (void)setStageInfo {
+- (void)buildStageInfo {
     self.buttonImageNames = @[@"09_red-iphone4", @"09_draw-iphone4", @"09_blue-iphone4"];
     [self.view bringSubviewToFront:self.guideImageView];
     

@@ -75,7 +75,7 @@
     if (_isMove) {
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y - kStepsHeight, self.frame.size.width, self.frame.size.height);
     }
-    
+    self.bgIV.superview.userInteractionEnabled = YES;
     _isMove = NO;
     self.bottomView.hidden = NO;
     if (self.stepsArr.count > 0) {
@@ -115,6 +115,7 @@
     _runCount++;
     _isSucceed = NO;
     if (_runCount > _randomIndex) {
+        self.bgIV.superview.userInteractionEnabled = NO;
         [self failAnimation];
         return;
     }
@@ -169,6 +170,7 @@
     }
 }
 - (void)succeedAnimation {
+    [self.bgIV.superview setUserInteractionEnabled:NO];
     // 成功回调
     if (_isSucceed) {
         self.peopleIV.image = [UIImage imageNamed:@"05_success01-iphone4"];
@@ -183,17 +185,16 @@
             });
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.stopAnimationDidFinish();
+                if (_startCount == 9) {
+                    self.passStage();
+                }
             });
-            
-            if (_startCount == 8) {
-                self.passStage();
-            }
         }];
     }
 }
 
 - (void)failAnimation {
-    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFailScreamName];
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFailToJumpName];
     CGAffineTransform failTransform = CGAffineTransformRotate(self.peopleIV.transform, M_PI_4);
     failTransform = CGAffineTransformTranslate(failTransform, 100, -80);
     [UIView animateWithDuration:0.2 animations:^{
@@ -202,6 +203,7 @@
         [UIView animateWithDuration:0.2 animations:^{
             self.peopleIV.frame = CGRectMake(self.peopleIV.frame.origin.x, self.peopleIV.frame.origin.y + 300, 100, 154);
         } completion:^(BOOL finished) {
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundWaterName];
             [UIView animateWithDuration:0.2 animations:^{
                 self.failIV.transform = CGAffineTransformIdentity;
             } completion:^(BOOL finished) {

@@ -28,7 +28,7 @@
 - (void)viewDidLoad {    
     [super viewDidLoad];
     
-    [self setStageInfo];
+    [self buildStageInfo];
     
     [self initTimeLabel];
     
@@ -38,7 +38,7 @@
 }
 
 #pragma mark - Build UI
-- (void)setStageInfo {
+- (void)buildStageInfo {
     self.buttonImageNames = @[@"01-btfeather", @"01-btfeather", @"01-btfeather"];
     [self.view bringSubviewToFront:self.guideImageView];
     

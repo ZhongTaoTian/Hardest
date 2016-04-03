@@ -12,15 +12,12 @@
 #import "WNXStateView.h"
 
 @interface WNXStage04ViewController ()
-{
-    float _allAverage;
-}
 
 @property (nonatomic, strong) WNXStage04View *imageView;
 @property (nonatomic, assign) int stepsCount;
 @property (nonatomic, assign) WNXResultStateType stateType;
 @property (nonatomic, strong) WNXStateView *stateView;
-
+@property (nonatomic, assign) float allAverage;
 
 @end
 
@@ -29,14 +26,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setStageInfo];
+    [self buildStageInfo];
 
     [self buildStageImageView];
     
     [self buildStateView];
 }
 
-- (void)setStageInfo {
+- (void)buildStageInfo {
     self.backgroundIV.image = [UIImage imageNamed:@"05_bg-iphone4"];
     self.view.backgroundColor = [UIColor blackColor];
     
@@ -89,7 +86,9 @@
     };
     
     self.imageView.passStage = ^() {
-//        [weakSelf showResultControllerWithNewScroe:<#(double)#> unit:<#(NSString *)#> stage:<#(WNXStage *)#> isAddScore:<#(BOOL)#>]
+        weakSelf.view.userInteractionEnabled = NO;
+
+        [weakSelf showResultControllerWithNewScroe:weakSelf.allAverage * 1000 unit:@"MS" stage:weakSelf.stage isAddScore:YES];
     };
     
     self.imageView.showResult = ^() {
@@ -127,6 +126,25 @@
     [self.view addSubview:self.stateView];
 }
 
+- (void)pauseGame {
+    [super pauseGame];
+    
+    [(WNXCountTimeView *)self.countScore pause];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    
+    [(WNXCountTimeView *)self.countScore continueGame];
+}
+
+- (void)playAgainGame {
+    [super playAgainGame];
+    
+    [(WNXCountTimeView *)self.countScore cleanData];
+    [self.imageView playAgain];
+    [self setButtonActivate:NO];
+}
 #pragma mark - 
 - (void)readyGoAnimationFinish {
     [super readyGoAnimationFinish];
@@ -147,9 +165,9 @@
     float time = second + ms / 60.0;
     float average = time / count;
 
-    if (average < 0.1) {
+    if (average < 0.15) {
         self.stateType = WNXResultStateTypePerfect;
-    } else if (average < 0.15) {
+    } else if (average < 0.20) {
         self.stateType = WNXResultStateTypeGreat;
     } else {
         self.stateType = WNXResultStateTypeOK;

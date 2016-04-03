@@ -16,6 +16,7 @@ typedef void(^RetryButtonClickBlock)();
 @interface WNXFailViewController ()
 
 @property (nonatomic, copy) RetryButtonClickBlock retryButtonClickBlock;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -25,6 +26,7 @@ typedef void(^RetryButtonClickBlock)();
     WNXFailViewController *failVC = [[WNXFailViewController alloc] init];
     failVC.stage = stage;
     failVC.retryButtonClickBlock = retryButtonClickBlock;
+    failVC.titleLabel.text = stage.fail;
     
     return failVC;
 }

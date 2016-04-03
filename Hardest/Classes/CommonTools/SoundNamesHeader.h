@@ -45,7 +45,8 @@
 //stage04
 #define kSoundStage04Name     @"05_toiletflush.mp3"
 #define kSoundGoUpstairs      @"03_fall.mp3"
-
+#define kSoundWaterName       @"18_water.mp3"
+#define kSoundFailToJumpName  @"22_failToJump.mp3"
 
 
 

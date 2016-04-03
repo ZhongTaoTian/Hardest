@@ -22,10 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self stageInfo];
+    [self buildStageInfo];
 }
 
-- (void)stageInfo {
+- (void)buildStageInfo {
     self.backgroundIV.image = [UIImage imageNamed:@"23_bg-iphone4"];
     
     [self.leftButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];

@@ -50,6 +50,8 @@
     [self guideImageViewClick];
 }
 
+- (void)buildStageInfo {}
+
 - (void)pauseGame {
     __weak __typeof(self) weakSelf = self;
     self.view.userInteractionEnabled = NO;

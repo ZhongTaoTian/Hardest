@@ -72,21 +72,21 @@
 		<key>title</key>
 		<string>早晨\n冲向\n厕所</string>
 		<key>unit</key>
-		<string>毫秒</string>
+		<string>秒</string>
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>你走了太多步! 摔死了!!.</string>
 		<key>format</key>
-		<string>%.f</string>
+		<string>%.1f</string>
 		<key>icon</key>
 		<string>select_image05.png</string>
 		<key>intro</key>
 		<string>根据[石头剪刀布]规则，\n以最快速度选择[左边赢]或[右边赢]或[平局]！</string>
 		<key>max</key>
-		<string>30.0</string>
+		<string>0.2</string>
 		<key>min</key>
-		<string>15.0</string>
+		<string>0.4</string>
 		<key>title</key>
 		<string>石头\n剪刀\n布</string>
 		<key>unit</key>

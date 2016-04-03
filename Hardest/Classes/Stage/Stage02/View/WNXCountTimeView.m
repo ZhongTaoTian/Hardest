@@ -114,4 +114,8 @@
     self.timer = nil;
 }
 
+- (void)dealloc {
+    NSLog(@"计分器被销毁");
+}
+
 @end
