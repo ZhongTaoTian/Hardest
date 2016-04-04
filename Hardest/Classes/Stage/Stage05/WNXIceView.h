@@ -12,4 +12,6 @@
 
 - (void)showDottedLineView;
 
+- (void)addIceWithRed:(BOOL)hasRed yellow:(BOOL)hasYellow blue:(BOOL)hasBlue;
+
 @end

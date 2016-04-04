@@ -34,6 +34,10 @@
     [self buildEggRoll];
     
     [self buildIceView];
+    
+    for (UIButton *btn in self.buttons) {
+        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
+    }
 }
 
 - (void)setButtonsInfo {
@@ -78,6 +82,23 @@
     
     if (self.guideImageView) {
         [self.view bringSubviewToFront:self.guideImageView];
+    }
+}
+
+#pragma mark Action
+- (void)btnClick:(UIButton *)sender {
+    switch (sender.tag) {
+        case 0:
+            [self.iceView addIceWithRed:YES yellow:NO blue:NO];
+            break;
+        case 1:
+            [self.iceView addIceWithRed:NO yellow:YES blue:NO];
+            break;
+        case 2:
+            [self.iceView addIceWithRed:NO yellow:NO blue:YES];
+            break;
+        default:
+            break;
     }
 }
 
