@@ -17,6 +17,7 @@
     CGRect _lastRedFrame;
     CGRect _lastYellowFrame;
     CGRect _lastBlueFrame;
+    int _count;
 }
 
 @property (nonatomic, strong) NSMutableArray *colViews;
@@ -30,6 +31,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        self.userInteractionEnabled = NO;
         self.colViews = [NSMutableArray array];
         
         for (int i = 0; i < 3; i++) {
@@ -45,8 +47,9 @@
 }
 
 - (void)showDottedLineView {
-    _random1 = arc4random_uniform(5) + 1;
-    _random2 = arc4random_uniform(5) + 1;
+    _count++;
+    _random1 = arc4random_uniform(4) + 1;
+    _random2 = arc4random_uniform(4) + 1;
     _random3 = arc4random_uniform(4) + 1;
     for (UIView *tmpView in self.redIces) {
         [tmpView removeFromSuperview];
@@ -214,7 +217,10 @@
     
     if (self.redIces.count == _random1 && self.yellowIces.count == _random2 && self.blueIces.count == _random3) {
         self.superview.userInteractionEnabled = NO;
-        
+        if (_count == 9) {
+            self.isPass = YES;
+            self.passBlock();
+        }
         self.successBlock(_random1 + _random2 + _random3);
     }
 }

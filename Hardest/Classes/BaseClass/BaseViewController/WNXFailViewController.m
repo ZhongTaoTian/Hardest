@@ -27,8 +27,13 @@ typedef void(^RetryButtonClickBlock)();
     failVC.stage = stage;
     failVC.retryButtonClickBlock = retryButtonClickBlock;
     failVC.titleLabel.text = stage.fail;
-    
     return failVC;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.titleLabel.text = self.stage.fail;
 }
 
 - (IBAction)buttonClick:(UIButton *)sender {

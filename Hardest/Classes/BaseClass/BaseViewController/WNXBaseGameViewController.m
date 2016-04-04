@@ -44,8 +44,7 @@
 
 #pragma mark - Pubilc Method
 - (void)playAgainGame {
-    self.pauseButton.userInteractionEnabled = NO;
-    self.playAgainButton.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = NO;
     
     [self guideImageViewClick];
 }
@@ -67,8 +66,7 @@
 }
 
 - (void)readyGoAnimationFinish {
-    self.playAgainButton.userInteractionEnabled = YES;
-    self.pauseButton.userInteractionEnabled = YES;
+    self.view.userInteractionEnabled = YES;
 }
 
 - (void)beginGame {
@@ -83,8 +81,7 @@
         [[WNXSoundToolManager sharedSoundToolManager] setBackgroundMusicVolume:1.0];
     }
     
-    self.pauseButton.userInteractionEnabled = NO;
-    self.playAgainButton.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = NO;
 }
 
 - (void)showGameFail {
@@ -117,7 +114,7 @@
 - (void)buildPlayAgainButton {
     self.playAgainButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 55, 75, 110, 52)];
     self.playAgainButton.adjustsImageWhenHighlighted = NO;
-    self.playAgainButton.userInteractionEnabled = NO;
+    self.playAgainButton.userInteractionEnabled = YES;
     [self.playAgainButton setBackgroundImage:[UIImage imageNamed:@"ing_retry"] forState:UIControlStateNormal];
     [self.playAgainButton addTarget:self action:@selector(playAgainGame) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.playAgainButton];
@@ -127,7 +124,7 @@
     self.pauseButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 55, CGRectGetMaxY(self.playAgainButton.frame) + 13, 110, 52)];
     [self.pauseButton setBackgroundImage:[UIImage imageNamed:@"ing_pause"] forState:UIControlStateNormal];
     self.pauseButton.adjustsImageWhenHighlighted = NO;
-    self.pauseButton.userInteractionEnabled = NO;
+    self.pauseButton.userInteractionEnabled = YES;
     [self.pauseButton addTarget:self action:@selector(pauseGame) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.pauseButton];
 }

@@ -76,7 +76,7 @@
     self.iceView = [[WNXIceView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 412, ScreenWidth, 229)];
     [self.view addSubview:self.iceView];
     [self.iceView showDottedLineView];
-
+    
     __weak typeof(self) weakSelf = self;
     
     if (self.guideImageView) {
@@ -84,7 +84,13 @@
     }
     
     self.iceView.failBlock = ^{
-        NSLog(@"失败");
+        [weakSelf showGameFail];
+    };
+    
+    self.iceView.passBlock = ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf showResultControllerWithNewScroe:[(WNXTimeCountView *)weakSelf.countScore stopCalculateTime] unit:@"秒" stage:weakSelf.stage isAddScore:YES];
+        });
     };
     
     self.iceView.successBlock = ^(int iceCount){
@@ -108,10 +114,26 @@
     }
 }
 
+- (void)pauseGame {
+    [(WNXTimeCountView *)self.countScore pause];
+    [super pauseGame];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    [(WNXTimeCountView *)self.countScore resumed];
+}
+
+- (void)playAgainGame {
+    [(WNXTimeCountView *)self.countScore cleadData];
+    [self.iceView showDottedLineView];
+    [super playAgainGame];
+    
+}
+
 #pragma mark - Private Method
 - (void)showResultStateWithCount:(int)count {
     NSTimeInterval time = [(WNXTimeCountView *)self.countScore pasueTime];
-    NSLog(@"%f", time / count);
     WNXResultStateType stageType;
     if (time < 0.05) {
         stageType = WNXResultStateTypePerfect;
@@ -125,10 +147,12 @@
     
     [self.stateView showStateViewWithType:stageType];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.iceView showDottedLineView];
-        [(WNXTimeCountView *)self.countScore resumed];
-    });
+    if (!self.iceView.isPass) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.iceView showDottedLineView];
+            [(WNXTimeCountView *)self.countScore resumed];
+        });
+    }
 }
 
 #pragma mark Action
