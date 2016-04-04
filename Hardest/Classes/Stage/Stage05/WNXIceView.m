@@ -64,6 +64,8 @@
                 break;
         }
     }
+    
+    self.superview.userInteractionEnabled = YES;
 }
 
 - (NSMutableArray *)redIces {
@@ -103,10 +105,10 @@
             _lastRedFrame = CGRectMake((ScreenWidth / 3 - 106) * 0.5, CGRectGetMaxY(((UIView *)self.colViews[0]).frame) - 70, 106, 89);
         }
         
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:0.15 animations:^{
             iceView.frame = _lastRedFrame;
         } completion:^(BOOL finished) {
-            
+            [self examineState];
         }];
     }
     
@@ -119,13 +121,13 @@
         if (self.yellowIces.count > 1) {
             _lastYellowFrame = CGRectMake(_lastYellowFrame.origin.x, _lastYellowFrame.origin.y - iceView.frame.size.height * 0.56, 106, 89);
         } else {
-            _lastRedFrame = CGRectMake((ScreenWidth / 3 - 106) * 0.5, CGRectGetMaxY(((UIView *)self.colViews[1]).frame) - 70, 106, 89);
+            _lastYellowFrame = CGRectMake((ScreenWidth / 3 - 106) * 0.5 + ScreenWidth / 3, CGRectGetMaxY(((UIView *)self.colViews[1]).frame) - 70, 106, 89);
         }
         
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:0.15 animations:^{
             iceView.frame = _lastYellowFrame;
         } completion:^(BOOL finished) {
-            
+            [self examineState];
         }];
     }
     
@@ -135,16 +137,69 @@
         [self addSubview:iceView];
         [self.blueIces addObject:iceView];
         
-        [UIView animateWithDuration:0.2 animations:^{
-            if (self.blueIces.count > 1) {
-                CGRect lastFrame = ((UIView *)[self.blueIces lastObject]).frame;
-                iceView.frame = CGRectMake(lastFrame.origin.x, lastFrame.origin.y - iceView.frame.size.height * 0.56, 106, 89);
-            } else {
-                iceView.frame = CGRectMake((ScreenWidth / 3 - 106) * 0.5 + ScreenWidth / 3 * 2, CGRectGetMaxY(((UIView *)self.colViews[2]).frame) - 70, 106, 89);
+        if (self.blueIces.count > 1) {
+            _lastBlueFrame = CGRectMake(_lastBlueFrame.origin.x, _lastBlueFrame.origin.y - iceView.frame.size.height * 0.56, 106, 89);
+        } else {
+            _lastBlueFrame = CGRectMake((ScreenWidth / 3 - 106) * 0.5 + ScreenWidth / 3 * 2, CGRectGetMaxY(((UIView *)self.colViews[2]).frame) - 70, 106, 89);
+        }
+        
+        [UIView animateWithDuration:0.15 animations:^{
+            iceView.frame = _lastBlueFrame;
+        } completion:^(BOOL finished) {
+            [self examineState];
+        }];
+    }
+}
+
+- (void)examineState {
+    if (self.redIces.count > _random1 || self.yellowIces.count > _random2 || self.blueIces.count > _random3) {
+        self.superview.userInteractionEnabled = NO;
+        NSMutableArray *failViewArr = [NSMutableArray array];
+        if (self.redIces.count > _random1) {
+            for (int i = _random1; i < self.redIces.count; i++) {
+                UIView *tmpView = self.redIces[i];
+                [failViewArr addObject:tmpView];
+            }
+        }
+        
+        if (self.yellowIces.count > _random2) {
+            for (int i = _random2; i < self.yellowIces.count; i++) {
+                UIView *tmpView = self.yellowIces[i];
+                [failViewArr addObject:tmpView];
+            }
+        }
+        
+        if (self.blueIces.count > _random3) {
+            for (int i = _random3; i < self.blueIces.count; i++) {
+                UIView *tmpView = self.blueIces[i];
+                [failViewArr addObject:tmpView];
+            }
+        }
+        
+        [UIView animateWithDuration:0.1 animations:^{
+            for (UIView *tmpView in failViewArr) {
+                tmpView.alpha = 0;
             }
         } completion:^(BOOL finished) {
-            
+            [UIView animateWithDuration:0.1 animations:^{
+                for (UIView *tmpView in failViewArr) {
+                    tmpView.alpha = 1;
+                }
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.1 animations:^{
+                    for (UIView *tmpView in failViewArr) {
+                        tmpView.alpha = 0;
+                    }
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }];
         }];
+        
+    }
+    
+    if (self.redIces.count == _random1 && self.yellowIces.count == _random2 && self.blueIces.count == _random3) {
+        self.superview.userInteractionEnabled = NO;
     }
 }
 

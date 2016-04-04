@@ -10,6 +10,8 @@
 
 @interface WNXIceView : UIView
 
+@property (nonatomic, copy) void(^failBlock)();
+
 - (void)showDottedLineView;
 
 - (void)addIceWithRed:(BOOL)hasRed yellow:(BOOL)hasYellow blue:(BOOL)hasBlue;
