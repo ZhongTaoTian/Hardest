@@ -45,9 +45,23 @@
 }
 
 - (void)showDottedLineView {
-    _random1 = arc4random_uniform(4) + 1;
-    _random2 = arc4random_uniform(4) + 1;
+    _random1 = arc4random_uniform(5) + 1;
+    _random2 = arc4random_uniform(5) + 1;
     _random3 = arc4random_uniform(4) + 1;
+    for (UIView *tmpView in self.redIces) {
+        [tmpView removeFromSuperview];
+    }
+    for (UIView *tmpView in self.yellowIces) {
+        [tmpView removeFromSuperview];
+    }
+    
+    for (UIView *tmpView in self.blueIces) {
+        [tmpView removeFromSuperview];
+    }
+    
+    [self.redIces removeAllObjects];
+    [self.yellowIces removeAllObjects];
+    [self.blueIces removeAllObjects];
     
     for (int i = 0; i < 3; i++) {
         switch (i) {
@@ -191,7 +205,7 @@
                         tmpView.alpha = 0;
                     }
                 } completion:^(BOOL finished) {
-                    
+                    self.failBlock();
                 }];
             }];
         }];
@@ -200,6 +214,8 @@
     
     if (self.redIces.count == _random1 && self.yellowIces.count == _random2 && self.blueIces.count == _random3) {
         self.superview.userInteractionEnabled = NO;
+        
+        self.successBlock(_random1 + _random2 + _random3);
     }
 }
 

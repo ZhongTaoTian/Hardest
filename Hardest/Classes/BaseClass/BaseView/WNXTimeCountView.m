@@ -14,6 +14,8 @@
     CGAffineTransform _transform;
     int _ms;
     int _second;
+    int _onceMS;
+    int _onceSecond;
 }
 
 @property (weak, nonatomic) IBOutlet WNXStrokeLabel *label1;
@@ -69,8 +71,16 @@
     self.timer.paused = YES;
 }
 
+- (NSTimeInterval)pasueTime {
+    self.timer.paused = YES;
+    return _onceSecond + _onceMS / 60;
+}
+
 - (void)resumed {
+    _onceMS = 0;
+    _onceSecond = 0;
     self.timer.paused = NO;
+    
 }
 
 - (void)cleadData {
@@ -86,9 +96,11 @@
 #pragma mark - Action
 - (void)updateTime:(CADisplayLink *)timer {
     _ms++;
-    
+    _onceMS++;
     if (_ms == 60) {
         _ms = 0;
+        _onceMS = 0;
+        _onceSecond++;
         _second++;
         if (_second < 10) {
             self.label1.text = [NSString stringWithFormat:@"%02d", _second];

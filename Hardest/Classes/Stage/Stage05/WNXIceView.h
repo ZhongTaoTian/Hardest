@@ -11,6 +11,7 @@
 @interface WNXIceView : UIView
 
 @property (nonatomic, copy) void(^failBlock)();
+@property (nonatomic, copy) void(^successBlock)(int iceCount);
 
 - (void)showDottedLineView;
 
