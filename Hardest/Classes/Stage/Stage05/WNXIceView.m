@@ -125,6 +125,7 @@
         [UIView animateWithDuration:0.15 animations:^{
             iceView.frame = _lastRedFrame;
         } completion:^(BOOL finished) {
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundArrivalName];
             [self examineState];
         }];
     }
@@ -144,6 +145,7 @@
         [UIView animateWithDuration:0.15 animations:^{
             iceView.frame = _lastYellowFrame;
         } completion:^(BOOL finished) {
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundArrivalName];
             [self examineState];
         }];
     }
@@ -163,6 +165,7 @@
         [UIView animateWithDuration:0.15 animations:^{
             iceView.frame = _lastBlueFrame;
         } completion:^(BOOL finished) {
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundArrivalName];
             [self examineState];
         }];
     }

@@ -48,6 +48,9 @@
 #define kSoundWaterName       @"18_water.mp3"
 #define kSoundFailToJumpName  @"22_failToJump.mp3"
 
+// stage05
+#define kSoundArrivalName     @"03_arrival.mp3"
+
 
 
 

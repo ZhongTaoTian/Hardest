@@ -78,7 +78,7 @@
 		<key>fail</key>
 		<string>你掉落的冰淇淋太多了! 按着虚线填满冰淇淋.</string>
 		<key>format</key>
-		<string>%.2f</string>
+		<string>%.1f</string>
 		<key>icon</key>
 		<string>select_image03-iphone4</string>
 		<key>intro</key>
@@ -94,21 +94,21 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>大嘴巴子扇的不够! 请抽丫的37次,然后点击完成按钮!</string>
 		<key>format</key>
-		<string>%.f</string>
+		<string>%.1f</string>
 		<key>icon</key>
-		<string>select_image06.png</string>
+		<string>select_image19</string>
 		<key>intro</key>
-		<string>当任何钓竿晃动时\n以最快速度点击按钮并向上翻转您的设备！</string>
+		<string>以最快速度抽这个人,恰好[37]次! 记住在完成后点击[完成].</string>
 		<key>max</key>
-		<string>400</string>
+		<string>5.00</string>
 		<key>min</key>
-		<string>800</string>
+		<string>10.00</string>
 		<key>title</key>
-		<string>让\n我们\n去钓鱼</string>
+		<string>多次\n大嘴巴子\n!</string>
 		<key>unit</key>
-		<string>毫秒</string>
+		<string>秒</string>
 	</dict>
 	<dict>
 		<key>fail</key>
