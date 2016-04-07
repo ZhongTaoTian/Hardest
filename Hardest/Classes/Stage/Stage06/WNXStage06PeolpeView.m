@@ -37,6 +37,7 @@
 
 - (void)punchTheFace {
     _count++;
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundSlapName];
     self.countLabel.text = [NSString stringWithFormat:@"%d", _count];
     UIImage *image = _count % 2 ? [UIImage imageNamed:@"19_man_left-iphone4"] : [UIImage imageNamed:@"19_man_right-iphone4"];
     UIImage *handImage = _count % 2 ? [UIImage imageNamed:@"19_hand-iphone4-1"] : [UIImage imageNamed:@"19_hand-iphone4"];

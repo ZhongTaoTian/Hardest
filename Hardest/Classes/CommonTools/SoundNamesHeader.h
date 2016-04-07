@@ -51,8 +51,9 @@
 // stage05
 #define kSoundArrivalName     @"03_arrival.mp3"
 
-
-
+// stage06
+#define kSoundScreamName  @"19_scream.mp3"
+#define kSoundSlapName @"19_slap.mp3"
 
 
 
