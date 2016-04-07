@@ -215,6 +215,7 @@
 
 - (void)beginRedayGoView {
     __weak __typeof(self) weakSelf = self;
+    self.view.userInteractionEnabled = NO;
     [WNXReadyGoView showReadyGoViewWithSuperView:self.view completion:^{
         [weakSelf readyGoAnimationFinish];
     }];
