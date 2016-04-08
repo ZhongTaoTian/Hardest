@@ -130,19 +130,19 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>射击次数太多了! 超过了玻璃杯的数量. 按照屏幕上的玻璃杯数量射击!</string>
 		<key>format</key>
 		<string>%.2f</string>
 		<key>icon</key>
-		<string>select_image08.png</string>
+		<string>select_image04-iphone4aa.png</string>
 		<key>intro</key>
 		<string>按照轮盘上的说明以最快速度点击！\n[提示] 仅使用1手指。</string>
 		<key>max</key>
-		<string>8.00</string>
+		<string>15.00</string>
 		<key>min</key>
-		<string>10.00</string>
+		<string>20.00</string>
 		<key>title</key>
-		<string>疯狂\n摇奖\n!</string>
+		<string>牛仔\n酒吧\n射击</string>
 		<key>unit</key>
 		<string>秒</string>
 	</dict>

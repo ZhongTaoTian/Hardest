@@ -55,7 +55,9 @@
 #define kSoundScreamName  @"19_scream.mp3"
 #define kSoundSlapName @"19_slap.mp3"
 
-
+// stage07
+#define kSoundGunName @"04_gun.mp3"
+#define kSoundReloadName @"04_reload.mp3"
 
 
 
