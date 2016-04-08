@@ -12,6 +12,9 @@
 #import "WNXStateView.h"
 
 @interface WNXStage06ViewController ()
+{
+    BOOL _notFrist;
+}
 
 @property (nonatomic, strong) WNXStage06PeolpeView *peopleView;
 @property (nonatomic, strong) WNXStateView *stateView;
@@ -58,6 +61,7 @@
 - (void)playAgainGame {
     [(WNXTimeCountView *)self.countScore cleadData];
     [self.peopleView cleanData];
+    _notFrist = NO;
     [super playAgainGame];
 }
 
@@ -82,12 +86,16 @@
 
 - (void)startPlayGame {
     self.view.userInteractionEnabled = YES;
-    [(WNXTimeCountView *)self.countScore startCalculateTime];
 }
 
 - (void)pauseGame {
     [super pauseGame];
     [(WNXTimeCountView *)self.countScore pause];
+}
+
+- (void)beginRedayGoView {
+    [self.view setUserInteractionEnabled:NO];
+    [super beginRedayGoView];
 }
 
 - (void)continueGame {
@@ -98,6 +106,10 @@
 #pragma mark - Action
 - (void)leftButtonClick {
     [self.peopleView punchTheFace];
+    if (!_notFrist) {
+        [(WNXTimeCountView *)self.countScore startCalculateTime];
+        _notFrist = YES;
+    }
 }
 
 - (void)doneButtonClick {
@@ -128,7 +140,9 @@
         });
         
     } else {
-        [self showGameFail];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self showGameFail];
+        });
     }
 }
 

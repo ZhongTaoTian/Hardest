@@ -112,21 +112,21 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>射击次数太多了! 超过了玻璃杯的数量. 按照屏幕上的玻璃杯数量射击!</string>
 		<key>format</key>
-		<string>%.f</string>
+		<string>%.2f</string>
 		<key>icon</key>
-		<string>select_image07.png</string>
+		<string>select_image04-iphone4aa.png</string>
 		<key>intro</key>
-		<string>尽可能多拍展场女郎的照片！\n[提示] 使用多个手指。</string>
+		<string>以最快速度射击全部玻璃杯! \n可以通过同时点击3个按钮一次射击3个玻璃杯!</string>
 		<key>max</key>
-		<string>150</string>
+		<string>15.00</string>
 		<key>min</key>
-		<string>120</string>
+		<string>20.00</string>
 		<key>title</key>
-		<string>拍摄\n展场\n女郎</string>
+		<string>牛仔\n酒吧\n射击</string>
 		<key>unit</key>
-		<string>分</string>
+		<string>秒</string>
 	</dict>
 	<dict>
 		<key>fail</key>

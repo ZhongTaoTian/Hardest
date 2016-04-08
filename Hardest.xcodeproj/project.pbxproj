@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30496B31CB7C12500EB8AC4 /* WNXStage07ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B30496B21CB7C12500EB8AC4 /* WNXStage07ViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B3082A371C9A4F42002BB718 /* WNXHighScroeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3082A361C9A4F42002BB718 /* WNXHighScroeTextView.m */; };
 		B30885FC1C882EBB00AE83B2 /* WNXStrokeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B30885FB1C882EBB00AE83B2 /* WNXStrokeLabel.m */; };
 		B30885FF1C884D3600AE83B2 /* WNXReadyGoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B30885FE1C884D3600AE83B2 /* WNXReadyGoView.m */; };
@@ -102,6 +103,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B30496B11CB7C12500EB8AC4 /* WNXStage07ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage07ViewController.h; sourceTree = "<group>"; };
+		B30496B21CB7C12500EB8AC4 /* WNXStage07ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage07ViewController.m; sourceTree = "<group>"; };
 		B3082A351C9A4F42002BB718 /* WNXHighScroeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXHighScroeTextView.h; sourceTree = "<group>"; };
 		B3082A361C9A4F42002BB718 /* WNXHighScroeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXHighScroeTextView.m; sourceTree = "<group>"; };
 		B30885FA1C882EBB00AE83B2 /* WNXStrokeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStrokeLabel.h; sourceTree = "<group>"; };
@@ -698,6 +701,8 @@
 		B3FBDC671CAD1421009840C5 /* Stage07 */ = {
 			isa = PBXGroup;
 			children = (
+				B30496B11CB7C12500EB8AC4 /* WNXStage07ViewController.h */,
+				B30496B21CB7C12500EB8AC4 /* WNXStage07ViewController.m */,
 			);
 			path = Stage07;
 			sourceTree = "<group>";
@@ -1016,6 +1021,7 @@
 				B30A2E6C1CB3CF5E00A3DA68 /* WNXStage06ViewController.m in Sources */,
 				B3EF93CE1C90345E006C3E42 /* WNXFeatherView.m in Sources */,
 				B30886171C895B6500AE83B2 /* WNXFootView.m in Sources */,
+				B30496B31CB7C12500EB8AC4 /* WNXStage07ViewController.m in Sources */,
 				B3650EE11C856AC600FC2D4E /* WNXStageListView.m in Sources */,
 				B3650EE91C856BBE00FC2D4E /* WNXPrepareScoreView.m in Sources */,
 				B384CD251C7E9F42008AFA9E /* WXNSoundToolManager.m in Sources */,
