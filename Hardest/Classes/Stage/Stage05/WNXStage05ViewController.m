@@ -9,12 +9,10 @@
 #import "WNXStage05ViewController.h"
 #import "WNXIceView.h"
 #import "WNXTimeCountView.h"
-#import "WNXStateView.h"
 
 @interface WNXStage05ViewController ()
 
 @property (nonatomic, strong) WNXIceView *iceView;
-@property (nonatomic, strong) WNXStateView *stateView;
 
 @end
 

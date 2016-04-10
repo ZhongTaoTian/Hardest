@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WNXScoreboardCountView.h"
 #import "WNXResultViewController.h"
+#import "WNXStateView.h"
 
 typedef NS_ENUM(NSInteger, WNXGameGuideType) {
     WNXGameGuideTypeNone = 0,
@@ -34,6 +35,8 @@ typedef NS_ENUM(NSInteger, WNXScoreboardType) {
 @property (nonatomic, strong) UIView *countScore;
 @property (nonatomic, strong) UIButton *playAgainButton;
 @property (nonatomic, strong) UIButton *pauseButton;
+
+@property (nonatomic, strong) WNXStateView *stateView;
 
 - (void)beginGame;
 - (void)endGame;

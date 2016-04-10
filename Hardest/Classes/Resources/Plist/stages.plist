@@ -114,7 +114,7 @@
 		<key>fail</key>
 		<string>射击次数太多了! 超过了玻璃杯的数量. 按照屏幕上的玻璃杯数量射击!</string>
 		<key>format</key>
-		<string>%.2f</string>
+		<string>%.1f</string>
 		<key>icon</key>
 		<string>select_image04-iphone4aa.png</string>
 		<key>intro</key>

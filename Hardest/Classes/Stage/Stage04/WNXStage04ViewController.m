@@ -9,14 +9,12 @@
 #import "WNXStage04ViewController.h"
 #import "WNXStage04View.h"
 #import "WNXCountTimeView.h"
-#import "WNXStateView.h"
 
 @interface WNXStage04ViewController ()
 
 @property (nonatomic, strong) WNXStage04View *imageView;
 @property (nonatomic, assign) int stepsCount;
 @property (nonatomic, assign) WNXResultStateType stateType;
-@property (nonatomic, strong) WNXStateView *stateView;
 @property (nonatomic, assign) float allAverage;
 
 @end

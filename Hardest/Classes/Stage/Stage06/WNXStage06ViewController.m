@@ -9,7 +9,6 @@
 #import "WNXStage06ViewController.h"
 #import "WNXStage06PeolpeView.h"
 #import "WNXTimeCountView.h"
-#import "WNXStateView.h"
 
 @interface WNXStage06ViewController ()
 {
@@ -17,7 +16,6 @@
 }
 
 @property (nonatomic, strong) WNXStage06PeolpeView *peopleView;
-@property (nonatomic, strong) WNXStateView *stateView;
 
 @end
 

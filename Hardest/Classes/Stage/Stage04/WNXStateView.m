@@ -60,11 +60,43 @@
         default:
             break;
     }
+
     [self insertSubview:self.circleImageView belowSubview:self.stateImageView];
     [self.superview bringSubviewToFront:self];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.hidden = YES;
+    });
+}
+
+- (void)showStateViewWithType:(WNXResultStateType)type stageViewHiddenFinishBlock:(void (^)(void))stageViewHiddenFinishBlock {
+    self.type = type;
+    self.hidden = NO;
+    switch (type) {
+        case WNXResultStateTypeOK:
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundOKName];
+            break;
+        case WNXResultStateTypeGood:
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundGoodName];
+            break;
+        case WNXResultStateTypeGreat:
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundGreatName];
+            break;
+        case WNXResultStateTypePerfect:
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundPerfectName];
+            break;
+        default:
+            break;
+    }
+    
+    [self insertSubview:self.circleImageView belowSubview:self.stateImageView];
+    [self.superview bringSubviewToFront:self];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.hidden = YES;
+        if (stageViewHiddenFinishBlock) {
+            stageViewHiddenFinishBlock();
+        }
     });
 }
 
