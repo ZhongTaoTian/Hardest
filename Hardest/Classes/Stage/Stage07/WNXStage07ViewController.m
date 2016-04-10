@@ -83,6 +83,7 @@
 - (void)playAgainGame {
     [(WNXTimeCountView *)self.countScore cleadData];
     [self.glassView cleadData];
+    _isStartTime = NO;
     [super playAgainGame];
 }
 
