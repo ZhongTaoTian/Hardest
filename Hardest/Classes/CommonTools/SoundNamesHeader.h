@@ -59,5 +59,8 @@
 #define kSoundGunName @"04_gun.mp3"
 #define kSoundReloadName @"04_reload.mp3"
 
+// stage08
+#define kSoundSayOKName @"02_ok.mp3"
+#define kSoundTakePhotoName @"02_takePhoto.mp3"
 
 

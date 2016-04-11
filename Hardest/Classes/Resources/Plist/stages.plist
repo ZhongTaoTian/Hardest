@@ -132,19 +132,19 @@
 		<key>fail</key>
 		<string>射击次数太多了! 超过了玻璃杯的数量. 按照屏幕上的玻璃杯数量射击!</string>
 		<key>format</key>
-		<string>%.2f</string>
+		<string>%d</string>
 		<key>icon</key>
-		<string>select_image04-iphone4aa.png</string>
+		<string>select_image07.png</string>
 		<key>intro</key>
-		<string>按照轮盘上的说明以最快速度点击！\n[提示] 仅使用1手指。</string>
+		<string>尽可能多拍展场女郎的照片！\n[提示] 使用多个手指。</string>
 		<key>max</key>
-		<string>15.00</string>
+		<string>150</string>
 		<key>min</key>
-		<string>20.00</string>
+		<string>120</string>
 		<key>title</key>
-		<string>牛仔\n酒吧\n射击</string>
+		<string>拍摄\n展场\n女郎</string>
 		<key>unit</key>
-		<string>秒</string>
+		<string>分</string>
 	</dict>
 	<dict>
 		<key>fail</key>
