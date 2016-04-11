@@ -13,6 +13,7 @@
 @interface WNXStage05ViewController ()
 
 @property (nonatomic, strong) WNXIceView *iceView;
+@property (nonatomic, assign) BOOL isFail;
 
 @end
 
@@ -82,7 +83,10 @@
     }
     
     self.iceView.failBlock = ^{
-        [weakSelf showGameFail];
+        if (!weakSelf.isFail) {
+            [weakSelf showGameFail];
+        }
+        weakSelf.isFail = YES;
     };
     
     self.iceView.passBlock = ^{
@@ -123,6 +127,7 @@
 }
 
 - (void)playAgainGame {
+    self.isFail = NO;
     [(WNXTimeCountView *)self.countScore cleadData];
     [self.iceView showDottedLineView];
     [super playAgainGame];

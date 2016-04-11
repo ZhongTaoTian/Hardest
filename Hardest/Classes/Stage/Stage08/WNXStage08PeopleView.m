@@ -15,6 +15,8 @@
     BOOL _isModel3;
     int _ms;
     int _count;
+    BOOL _isPlayAgain;
+    BOOL _isPasue;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *peopleIV1;
 @property (weak, nonatomic) IBOutlet UIImageView *peopleIV2;
@@ -29,15 +31,32 @@
 @implementation WNXStage08PeopleView
 
 - (void)awakeFromNib {
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
+}
+
+- (void)removeTimer {
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+    [self removeFromSuperview];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    NSLog(@"照相人物被销毁");
 }
 
 - (void)showModel {
+    _isPlayAgain = NO;
     _count++;
+    _isModel1 = NO;
+    _isModel2 = NO;
+    _isModel3 = NO;
     while (_isModel1 == NO && _isModel2 == NO && _isModel3 == NO) {
         _isModel1 = (int)arc4random_uniform(2);
         _isModel2 = (int)arc4random_uniform(2);
-        _isModel2 = (int)arc4random_uniform(2);
+        _isModel3 = (int)arc4random_uniform(2);
     }
     
     if (_count == 12) {
@@ -72,11 +91,21 @@
         self.curtainLeft.transform = CGAffineTransformMakeTranslation(-self.curtainLeft.frame.size.width, 0);
         self.curtainRight.transform = CGAffineTransformMakeTranslation(self.curtainRight.frame.size.width, 0);
     } completion:^(BOOL finished) {
-        if (self.startTakePhoto) {
+        if (self.startTakePhoto && !_isPlayAgain && !_isPasue) {
             self.startTakePhoto();
+            [self startTime];
         }
-        [self startTime];
     }];
+}
+
+- (void)cleanDate {
+    _isPlayAgain = YES;
+    [self.timer invalidate];
+    self.timer = nil;
+    self.curtainLeft.transform = CGAffineTransformIdentity;
+    self.curtainRight.transform = CGAffineTransformIdentity;
+    _count = 0;
+    _ms = 0;
 }
 
 - (void)showCurtain {
@@ -85,10 +114,15 @@
         self.curtainLeft.transform = CGAffineTransformIdentity;
         self.curtainRight.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        if (self.nextTakePhoto) {
+        if (self.nextTakePhoto && !_isPlayAgain && !_isPasue) {
             self.nextTakePhoto(_count == 12);
         }
     }];
+}
+
+- (void)stopTime {
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (void)startTime {
@@ -101,9 +135,19 @@
     [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
 
+- (void)pause {
+    _isPasue = YES;
+    self.timer.paused = YES;
+}
+
+- (void)resume {
+    _isPasue = NO;
+    self.timer.paused = NO;
+}
+
 - (void)updateTime {
     _ms++;
-    if (_ms == 120) {
+    if (_ms == 100) {
         _ms = 0;
         [self.timer invalidate];
         self.timer = nil;
@@ -144,19 +188,43 @@
 }
 
 - (void)showShadowWithIndex:(int)index {
-//    switch (index) {
-//        case 0:
-//            UIImage *
-//            if (_isModel1) {
-//
-//            break;
-//        case 1:
-//            break;
-//        case 2:
-//            break;
-//        default:
-//            break;
-//    }
+    if (index == 0) {
+        UIImage *image;
+        UIImage *currentImage = self.peopleIV1.image;
+        if (_isModel1) {
+            image = [UIImage imageNamed:[NSString stringWithFormat:@"02_girl010%d-iphone4", arc4random_uniform(2) + 1]];
+        } else {
+            image = [UIImage imageNamed:[NSString stringWithFormat:@"02_robot010%d-iphone4", arc4random_uniform(2) + 1]];
+        }
+        self.peopleIV1.image = image;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.peopleIV1.image = currentImage;
+        });
+    } else if (index == 1) {
+        UIImage *image;
+        UIImage *currentImage = self.peopleIV2.image;
+        if (_isModel2) {
+            image = [UIImage imageNamed:[NSString stringWithFormat:@"02_girl020%d-iphone4", arc4random_uniform(2) + 1]];
+        } else {
+            image = [UIImage imageNamed:[NSString stringWithFormat:@"02_robot010%d-iphone4", arc4random_uniform(2) + 1]];
+        }
+        self.peopleIV2.image = image;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.peopleIV2.image = currentImage;
+        });
+    } else {
+        UIImage *image;
+        UIImage *currentImage = self.people3.image;
+        if (_isModel3) {
+            image = [UIImage imageNamed:[NSString stringWithFormat:@"02_girl030%d-iphone4", arc4random_uniform(2) + 1]];
+        } else {
+            image = [UIImage imageNamed:[NSString stringWithFormat:@"02_robot010%d-iphone4", arc4random_uniform(2) + 1]];
+        }
+        self.people3.image = image;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.people3.image = currentImage;
+        });
+    }
 }
 
 @end

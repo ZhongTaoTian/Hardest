@@ -45,9 +45,10 @@
 }
 
 - (void)cameraClick:(UIButton *)sender {
-    if ([self.photoView takePhotoWithIndex:((int)sender.tag - 100)]) {
+    if ([self.photoView takePhotoWithIndex:(int)sender.tag]) {
         [((WNXScoreboardCountView *)self.countScore) hit];
     } else {
+        [self.photoView stopTime];
         [self setButtonsIsActivate:NO];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self showGameFail];
@@ -83,6 +84,20 @@
     [self.photoView showModel];
 }
 
+- (void)playAgainGame {
+    [self.photoView cleanDate];
+    [(WNXScoreboardCountView *)self.countScore clean];
+    [super playAgainGame];
+}
 
+- (void)pauseGame {
+    [self.photoView pause];
+    [super pauseGame];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    [self.photoView resume];
+}
 
 @end

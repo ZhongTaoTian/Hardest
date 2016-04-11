@@ -233,6 +233,7 @@
 
 - (void)showResultControllerWithNewScroe:(double)scroe unit:(NSString *)unil stage:(WNXStage *)stage isAddScore:(BOOL)isAddScroe {
     WNXResultViewController *resultVC = [[WNXResultViewController alloc] init];
+    NSLog(@"%f", scroe);
     [resultVC setCountScoreWithNewScroe:scroe unit:unil stage:stage isAddScore:isAddScroe];
     [self.navigationController pushViewController:resultVC animated:NO];
 }

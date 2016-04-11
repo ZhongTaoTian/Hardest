@@ -132,7 +132,7 @@
 		<key>fail</key>
 		<string>射击次数太多了! 超过了玻璃杯的数量. 按照屏幕上的玻璃杯数量射击!</string>
 		<key>format</key>
-		<string>%d</string>
+		<string>%.f</string>
 		<key>icon</key>
 		<string>select_image07.png</string>
 		<key>intro</key>
@@ -156,9 +156,9 @@
 		<key>intro</key>
 		<string>交替点击左右脚，\n以最快速度冲到马桶座上！</string>
 		<key>max</key>
-		<string>1500</string>
+		<string>150</string>
 		<key>min</key>
-		<string>2500</string>
+		<string>250</string>
 		<key>title</key>
 		<string>早晨\n冲向\n厕所</string>
 		<key>unit</key>

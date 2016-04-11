@@ -18,4 +18,11 @@
 
 - (void)showModel;
 
+- (void)stopTime;
+
+- (void)cleanDate;
+
+- (void)pause;
+- (void)resume;
+
 @end
