@@ -43,6 +43,10 @@ typedef void(^Completion)(void);
     return self;
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)removeTimer {
     [self.timer invalidate];
     self.timer = nil;

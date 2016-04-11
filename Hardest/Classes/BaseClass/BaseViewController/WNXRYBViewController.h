@@ -22,4 +22,6 @@
 
 - (void)setButtonsIsActivate:(BOOL)isActivate;
 
+- (void)setButtonImage:(UIImage *)image contenEdgeInsets:(UIEdgeInsets)insets;
+
 @end

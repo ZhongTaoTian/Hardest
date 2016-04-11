@@ -42,6 +42,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)startAnimationWithCompletion:(void (^)(BOOL))completion {
     [UIView animateWithDuration:0.4 animations:^{
         self.transform = CGAffineTransformMakeRotation(M_PI_4 / 8);
@@ -112,10 +116,6 @@
 - (void)removeTimer {
     [self.timer invalidate];
     self.timer = nil;
-}
-
-- (void)dealloc {
-    NSLog(@"计分器被销毁");
 }
 
 @end

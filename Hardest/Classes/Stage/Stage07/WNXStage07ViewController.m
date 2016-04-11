@@ -37,10 +37,10 @@
     [self.view insertSubview:bgImageView belowSubview:self.playAgainButton];
     
     for (UIButton *btn in self.buttons) {
-        [btn setImage:[UIImage imageNamed:@"004_gun-iphone4"] forState:UIControlStateNormal];
-        btn.contentEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20);
         [btn addTarget:self action:@selector(gunClick) forControlEvents:UIControlEventTouchUpInside];
     }
+    
+    [self setButtonImage:[UIImage imageNamed:@"004_gun-iphone4"] contenEdgeInsets:UIEdgeInsetsMake(20, 20, 20, 20)];
     
     self.glassView = [[WNXStage07View alloc] initWithFrame:CGRectMake(0, ScreenHeight - 300 - self.redButton.frame.size.height, ScreenWidth, 300)];
     [self.view addSubview:self.glassView];

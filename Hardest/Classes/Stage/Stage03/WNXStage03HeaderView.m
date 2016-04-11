@@ -71,6 +71,10 @@ typedef void (^FailBlock)();
     return self;
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)startWithFailBlock:(void (^)(void))failBlock stopCalculateTime:(void (^)(void))stopCalculateTime {
     self.failBlock = failBlock;
     self.stopCalculateTime = stopCalculateTime;

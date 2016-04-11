@@ -37,6 +37,16 @@
     [self showGuideImageView];
 }
 
+- (void)buildStageInfo {}
+
+- (void)bringPauseAndPlayAgainToFront {
+    [self.view bringSubviewToFront:self.pauseButton];
+    [self.view bringSubviewToFront:self.playAgainButton];
+    if (self.guideImageView) {
+        [self.view bringSubviewToFront:self.guideImageView];
+    }
+}
+
 - (void)dealloc {
     NSLog(@"%s", __func__);
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationNameGameViewControllerDelloc object:nil];
@@ -49,7 +59,7 @@
     [self guideImageViewClick];
 }
 
-- (void)buildStageInfo {}
+//- (void)buildStageInfo {}
 
 - (void)pauseGame {
     __weak __typeof(self) weakSelf = self;

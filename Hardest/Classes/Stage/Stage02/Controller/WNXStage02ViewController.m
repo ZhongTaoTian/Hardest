@@ -185,11 +185,11 @@
     if (right) {
         [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundRightSoundName];
         if (second == 0) {
-            if (ms < 20) {
+            if (ms < 30) {
                 self.resultImageView.image = [UIImage imageNamed:@"09_fraction01-iphone4"];
                 self.resultLabel.text = @"+6";
                 _scroe += 6;
-            } else if (ms < 30) {
+            } else if (ms < 40) {
                 self.resultImageView.image = [UIImage imageNamed:@"09_fraction02-iphone4"];
                 self.resultLabel.text = @"+3";
                 _scroe += 3;

@@ -81,7 +81,6 @@
     [self.footView stopFootView];
     [self.featherView removeFromSuperview];
     
-    // 算分
     [self showResultControllerWithNewScroe:[((WNXScoreboardCountView *)self.countScore).countLabel.text intValue] unit:@"PTS" stage:self.stage isAddScore:YES];
 }
 

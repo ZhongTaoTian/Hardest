@@ -84,6 +84,13 @@
     self.blueButton.userInteractionEnabled = isActivate;
 }
 
+- (void)setButtonImage:(UIImage *)image contenEdgeInsets:(UIEdgeInsets)insets {
+    for (UIButton *btn in self.buttons) {
+        [btn setImage:image forState:UIControlStateNormal];
+        btn.contentEdgeInsets = insets;
+    }
+}
+
 - (void)setButtonImageNames:(NSArray *)buttonImageNames {
     if (buttonImageNames.count != 3 ) return;
     
