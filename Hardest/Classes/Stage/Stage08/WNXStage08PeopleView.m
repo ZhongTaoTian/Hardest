@@ -108,6 +108,8 @@
     _ms = 0;
 }
 
+#warning 重写动画 暂停
+
 - (void)showCurtain {
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundSayOKName];
     [UIView animateWithDuration:0.5 animations:^{
