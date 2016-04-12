@@ -63,4 +63,8 @@
 #define kSoundSayOKName @"02_ok.mp3"
 #define kSoundTakePhotoName @"02_takePhoto.mp3"
 
+// stage09
+#define kSoundCountDownName @"WeaponBlink.mp3"
+#define kSoundKaChaName @"14_clickTheBomb.mp3"
+
 
