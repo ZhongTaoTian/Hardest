@@ -145,11 +145,11 @@
 }
 
 - (void)showGuideImageView {
-    if (self.stage.userInfo && self.stage.userInfo.rank && ![self.stage.userInfo isEqual:@"f"]) {
+    if ((self.stage.userInfo && self.stage.userInfo.rank && ![self.stage.userInfo isEqual:@"f"]) || self.guideType == WNXGameGuideTypeNone) {
         [self guideImageViewClick];
         return;
     }
-    
+        
     NSArray *animationImages;
     if (self.guideType == WNXGameGuideTypeOneFingerClick) {
         animationImages = @[[UIImage imageNamed:@"03-1-iphone4"], [UIImage imageNamed:@"03-2-iphone4"]];
@@ -196,6 +196,8 @@
         [((WNXTimeCountView *)self.countScore) startAnimationWithCompletion:^(BOOL finished) {
             [weakSelf beginRedayGoView];
         }];
+    } else if (self.scoreboardType == WNXScoreboardTypeNone) {
+        [self beginRedayGoView];
     }
 }
 
