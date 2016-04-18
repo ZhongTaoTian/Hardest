@@ -11,6 +11,11 @@
 
 /* NSNotificationNames */
 #define LaunchAnimationDidFinish @"LaunchAnimationDidFinish"
+#define kNotificationNameGameViewControllerDelloc @"kNotificationNameGameViewControllerDelloc"
+
+#define kAuthorGithubURLString @"https://github.com/ZhongTaoTian"
+#define kAuthorSineWeiBoUrlString @"http://weibo.com/tianzhongtao"
+#define kAuthorBlogURLString @"http://www.jianshu.com/users/5fe7513c7a57/latest_articles"
 
 
 /* common */
@@ -20,12 +25,8 @@
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
-/* NotificationName */
-#define kNotificationNameGameViewControllerDelloc @"kNotificationNameGameViewControllerDelloc"
-
-#define kAuthorGithubURLString @"https://github.com/ZhongTaoTian"
-#define kAuthorSineWeiBoUrlString @"http://weibo.com/tianzhongtao"
-#define kAuthorBlogURLString @"http://www.jianshu.com/users/5fe7513c7a57/latest_articles"
+/* OTHER */
+#define kCountStartX(WIDTH) (ScreenWidth - WIDTH) * 0.5
 
 
 #ifdef DEBUG

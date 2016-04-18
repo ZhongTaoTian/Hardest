@@ -10,6 +10,14 @@
 
 @interface WNXStage09BobmView : UIView
 
+@property (nonatomic, copy) void (^nextBlock)();
+@property (nonatomic, copy) void (^passBlock)();
+@property (nonatomic, copy) void (^failBlock)();
+
 - (void)showBobm;
+
+- (void)stopCountWithIndex:(int)index;
+
+
 
 @end

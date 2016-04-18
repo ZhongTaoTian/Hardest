@@ -10,6 +10,8 @@
 
 @interface WNXBobmView : UIView
 
+@property (nonatomic, copy) void (^timeOver)();
+
 - (void)randomCountDownTime;
 
 - (void)startCountDown;
