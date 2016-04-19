@@ -66,5 +66,7 @@
 // stage09
 #define kSoundCountDownName @"WeaponBlink.mp3"
 #define kSoundKaChaName @"14_clickTheBomb.mp3"
+#define kSountAlertName @"14_beforeExplod.mp3"
+#define kSoundPaName @"18_jumpMix.mp3"
 
 

@@ -30,18 +30,19 @@
     self.timer = nil;
 }
 
+- (void)clean {
+    [self.timer invalidate];
+    self.timer = nil;
+    self.countDownLabel.text = @"0:00";
+    self.countDownLabel.textColor = [UIColor greenColor];
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)randomCountDownTime {
-    _s = arc4random_uniform(3) + 2;
-    _ms = arc4random_uniform(60);
-    if (_ms >= 10) {
-        self.countDownLabel.text = [NSString stringWithFormat:@"%d:%d", _s, _ms];
-    } else {
-        self.countDownLabel.text = [NSString stringWithFormat:@"%d:%02d", _s, _ms];
-    }
+- (void)cleanLabelStage {
+    self.countDownLabel.text = @"";
 }
 
 - (void)startCountDown {
@@ -51,7 +52,7 @@
     }
     self.countDownLabel.alpha = 1;
     self.countDownLabel.textColor = [UIColor greenColor];
-    _s = arc4random_uniform(4) + 4;
+    _s = arc4random_uniform(5) + 4;
     _ms = arc4random_uniform(60);
     
     self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime)];
@@ -91,27 +92,38 @@
     [UIView animateWithDuration:0.1 animations:^{
         self.countDownLabel.alpha = 0;
     } completion:^(BOOL finished) {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSountAlertName];
         [UIView animateWithDuration:0.1 animations:^{
             self.countDownLabel.alpha = 1;
         } completion:^(BOOL finished) {
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSountAlertName];
             [UIView animateWithDuration:0.1 animations:^{
                 self.countDownLabel.alpha = 0;
             } completion:^(BOOL finished) {
+                [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSountAlertName];
                 [UIView animateWithDuration:0.1 animations:^{
                     self.countDownLabel.alpha = 1;
+                } completion:^(BOOL finished) {
+                    self.hidden = YES;
+                    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSountAlertName];
                 }];
             }];
         }];
     }];
 }
 
-- (void)stopCountDown {
+- (NSTimeInterval)stopCountDown {
     [self.timer invalidate];
     self.timer = nil;
+    return (_s + _ms / 100.0);
 }
 
-- (void)pasueCountDown {}
+- (void)pasueCountDown {
+    self.timer.paused = YES;
+}
 
-- (void)resumeCountDown {}
+- (void)resumeCountDown {
+    self.timer.paused = NO;
+}
 
 @end

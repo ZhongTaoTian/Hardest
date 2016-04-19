@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {    
     [super viewDidLoad];
-    
+
     [self buildStageInfo];
     
     [self initTimeLabel];

@@ -37,10 +37,24 @@
         [btn addTarget:self action:@selector(stopBtnClick:) forControlEvents:UIControlEventTouchDown];
     }
     
-    self.bobmView = [[WNXStage09BobmView alloc] initWithFrame:CGRectMake(0, 0, 16, ScreenHeight - 16 * 2 - self.redButton.frame.size.height)];
+    __weak typeof(self) weakSelf = self;
+    
+    self.bobmView = [[WNXStage09BobmView alloc] initWithFrame:CGRectMake(0, 0, 16, ScreenHeight - 16 - self.redButton.frame.size.height)];
     [self.view insertSubview:self.bobmView belowSubview:self.playAgainButton];
     self.bobmView.nextBlock = ^{
-        NSLog(@"在来一次");
+        weakSelf.redImageView.highlighted = NO;
+        weakSelf.yellowImageView.highlighted = NO;
+        weakSelf.blueImageView.highlighted = NO;
+        [weakSelf.bobmView showBobm];
+        [weakSelf setButtonsIsActivate:YES];
+    };
+    
+    self.bobmView.passBlock = ^(NSTimeInterval score){
+        [weakSelf showResultControllerWithNewScroe:score unit:@"秒" stage:weakSelf.stage isAddScore:YES];
+    };
+    
+    self.bobmView.failBlock = ^{
+        [weakSelf showGameFail];
     };
 }
 
@@ -48,6 +62,19 @@
 - (void)stopBtnClick:(UIButton *)sender {
     [self.bobmView stopCountWithIndex:(int)sender.tag];
     sender.userInteractionEnabled = NO;
+    switch (sender.tag) {
+        case 0:
+            self.redImageView.highlighted = YES;
+            break;
+        case 1:
+            self.yellowImageView.highlighted = YES;
+            break;
+        case 2:
+            self.blueImageView.highlighted = YES;
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - Super Method 
@@ -56,6 +83,24 @@
     
     [self.bobmView showBobm];
     [self setButtonsIsActivate:YES];
+}
+
+- (void)playAgainGame {
+    [super playAgainGame];
+    [self.bobmView cleanData];
+    self.redImageView.highlighted = NO;
+    self.yellowImageView.highlighted = NO;
+    self.blueImageView.highlighted = NO;
+}
+
+- (void)pauseGame {
+    [super pauseGame];
+    [self.bobmView pause];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    [self.bobmView resume];
 }
 
 @end

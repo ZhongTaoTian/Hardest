@@ -12,14 +12,16 @@
 
 @property (nonatomic, copy) void (^timeOver)();
 
-- (void)randomCountDownTime;
-
 - (void)startCountDown;
 
-- (void)stopCountDown;
+- (NSTimeInterval)stopCountDown;
 
 - (void)pasueCountDown;
 
 - (void)resumeCountDown;
+
+- (void)clean;
+
+- (void)cleanLabelStage;
 
 @end
