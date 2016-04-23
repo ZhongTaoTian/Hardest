@@ -97,6 +97,7 @@
 		FAC8C1C41CAEC3F200FD8D0E /* WNXStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC8C1C31CAEC3F200FD8D0E /* WNXStateView.xib */; };
 		FAEE91901C95437A0093FBC0 /* WNXPauseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE918E1C95437A0093FBC0 /* WNXPauseViewController.m */; };
 		FAEE91911C95437A0093FBC0 /* WNXPauseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE918F1C95437A0093FBC0 /* WNXPauseViewController.xib */; };
+		FAF936DC1CCB473F0026E06F /* WNXStage10ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF936DB1CCB473F0026E06F /* WNXStage10ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,6 +275,8 @@
 		FAEE918D1C95437A0093FBC0 /* WNXPauseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXPauseViewController.h; sourceTree = "<group>"; };
 		FAEE918E1C95437A0093FBC0 /* WNXPauseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXPauseViewController.m; sourceTree = "<group>"; };
 		FAEE918F1C95437A0093FBC0 /* WNXPauseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXPauseViewController.xib; sourceTree = "<group>"; };
+		FAF936DA1CCB473F0026E06F /* WNXStage10ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage10ViewController.h; sourceTree = "<group>"; };
+		FAF936DB1CCB473F0026E06F /* WNXStage10ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage10ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -784,6 +787,8 @@
 		B3FBDC6A1CAD1421009840C5 /* Stage10 */ = {
 			isa = PBXGroup;
 			children = (
+				FAF936DA1CCB473F0026E06F /* WNXStage10ViewController.h */,
+				FAF936DB1CCB473F0026E06F /* WNXStage10ViewController.m */,
 			);
 			path = Stage10;
 			sourceTree = "<group>";
@@ -1075,6 +1080,7 @@
 				B30886141C895B2000AE83B2 /* WNXStage01ViewController.m in Sources */,
 				FA9F116F1CA81F74002D2064 /* WNXStage03HeaderView.m in Sources */,
 				B34D8B371CBD1D890076A97D /* WNXStage09BobmView.m in Sources */,
+				FAF936DC1CCB473F0026E06F /* WNXStage10ViewController.m in Sources */,
 				B30060A51CBB8E8D0040BF99 /* WNXStage08PeopleView.m in Sources */,
 				B39AE18C1CB905C4007F7554 /* WNXStage07View.m in Sources */,
 				B384CD461C804BA8008AFA9E /* WNXSelectStageViewController.m in Sources */,

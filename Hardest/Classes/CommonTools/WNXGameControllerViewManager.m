@@ -17,6 +17,7 @@
 #import "WNXStage07ViewController.h"
 #import "WNXStage08ViewController.h"
 #import "WNXStage09ViewController.h"
+#import "WNXStage10ViewController.h"
 
 @implementation WNXGameControllerViewManager
 
@@ -77,6 +78,12 @@
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeNone;
             gameVC.scoreboardType = WNXScoreboardTypeNone;
+            break;
+        case 10:
+            gameVC = [[WNXStage10ViewController alloc] init];
+            gameVC.stage = stage;
+            gameVC.guideType = WNXGameGuideTypeOneFingerClick;
+            gameVC.scoreboardType = WNXScoreboardTypeSecondAndMS;
             break;
         default:
             break;

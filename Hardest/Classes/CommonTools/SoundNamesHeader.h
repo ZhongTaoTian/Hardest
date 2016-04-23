@@ -69,4 +69,9 @@
 #define kSountAlertName @"14_beforeExplod.mp3"
 #define kSoundPaName @"18_jumpMix.mp3"
 
+// stage10
+#define kSoundCorrectName @"08_ansCorrect.mp3"
+#define kSoundJackpotStop @"08_jackpotStop.mp3"
+#define kSoundRollingName @"08_rolling.mp3"
+#define kSoundRollingName2 @"08_rolling2.mp3"
 
