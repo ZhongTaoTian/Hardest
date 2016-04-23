@@ -166,19 +166,19 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>太慢了! 在炸弹刚要达到0.00秒是停止他们!</string>
+		<string>错误的答案!  按照轮盘上的颜色和数字点击!  仅点击一个按钮.</string>
 		<key>format</key>
 		<string>%.2f</string>
 		<key>icon</key>
-		<string>select_image14</string>
+		<string>select_image08</string>
 		<key>intro</key>
-		<string>尽可能在接近0.00秒时停止炸弹!  分数取决于每颗炸弹停止剩余的总时间.</string>
+		<string>按照轮盘上的说明以最快速度点击! [提示]仅使用一跟手指.</string>
 		<key>max</key>
-		<string>0.20</string>
+		<string>8.00</string>
 		<key>min</key>
-		<string>0.50</string>
+		<string>10.00</string>
 		<key>title</key>
-		<string>炸弹\n恐慌\n!</string>
+		<string>疯狂\n摇奖\n!</string>
 		<key>unit</key>
 		<string>秒</string>
 	</dict>
