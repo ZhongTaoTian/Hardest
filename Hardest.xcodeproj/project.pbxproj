@@ -98,6 +98,8 @@
 		FAEE91901C95437A0093FBC0 /* WNXPauseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE918E1C95437A0093FBC0 /* WNXPauseViewController.m */; };
 		FAEE91911C95437A0093FBC0 /* WNXPauseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE918F1C95437A0093FBC0 /* WNXPauseViewController.xib */; };
 		FAF936DC1CCB473F0026E06F /* WNXStage10ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF936DB1CCB473F0026E06F /* WNXStage10ViewController.m */; };
+		FAF936E41CCB51E50026E06F /* WNXStage10View.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF936E31CCB51E40026E06F /* WNXStage10View.m */; };
+		FAF936EF1CCB55B30026E06F /* WNXStage10BottomNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF936EE1CCB55B30026E06F /* WNXStage10BottomNumView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,6 +279,10 @@
 		FAEE918F1C95437A0093FBC0 /* WNXPauseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXPauseViewController.xib; sourceTree = "<group>"; };
 		FAF936DA1CCB473F0026E06F /* WNXStage10ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage10ViewController.h; sourceTree = "<group>"; };
 		FAF936DB1CCB473F0026E06F /* WNXStage10ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage10ViewController.m; sourceTree = "<group>"; };
+		FAF936E21CCB51E40026E06F /* WNXStage10View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage10View.h; sourceTree = "<group>"; };
+		FAF936E31CCB51E40026E06F /* WNXStage10View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage10View.m; sourceTree = "<group>"; };
+		FAF936ED1CCB55B30026E06F /* WNXStage10BottomNumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage10BottomNumView.h; sourceTree = "<group>"; };
+		FAF936EE1CCB55B30026E06F /* WNXStage10BottomNumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage10BottomNumView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -789,6 +795,10 @@
 			children = (
 				FAF936DA1CCB473F0026E06F /* WNXStage10ViewController.h */,
 				FAF936DB1CCB473F0026E06F /* WNXStage10ViewController.m */,
+				FAF936E21CCB51E40026E06F /* WNXStage10View.h */,
+				FAF936E31CCB51E40026E06F /* WNXStage10View.m */,
+				FAF936ED1CCB55B30026E06F /* WNXStage10BottomNumView.h */,
+				FAF936EE1CCB55B30026E06F /* WNXStage10BottomNumView.m */,
 			);
 			path = Stage10;
 			sourceTree = "<group>";
@@ -1103,6 +1113,8 @@
 				B384CD251C7E9F42008AFA9E /* WXNSoundToolManager.m in Sources */,
 				B30885FF1C884D3600AE83B2 /* WNXReadyGoView.m in Sources */,
 				FA9F116A1CA81B7A002D2064 /* WNXStage03ViewController.m in Sources */,
+				FAF936E41CCB51E50026E06F /* WNXStage10View.m in Sources */,
+				FAF936EF1CCB55B30026E06F /* WNXStage10BottomNumView.m in Sources */,
 				FA6321221CB69B8C006F8714 /* UIColor+WNXColor.m in Sources */,
 				FAEE91901C95437A0093FBC0 /* WNXPauseViewController.m in Sources */,
 				B384CD3E1C7FF8D7008AFA9E /* WNXSettingViewController.m in Sources */,

@@ -174,9 +174,9 @@
 		<key>intro</key>
 		<string>按照轮盘上的说明以最快速度点击! [提示]仅使用一跟手指.</string>
 		<key>max</key>
-		<string>8.00</string>
-		<key>min</key>
 		<string>10.00</string>
+		<key>min</key>
+		<string>12.00</string>
 		<key>title</key>
 		<string>疯狂\n摇奖\n!</string>
 		<key>unit</key>

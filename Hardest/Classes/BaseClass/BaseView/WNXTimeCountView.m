@@ -61,6 +61,9 @@
 }
 
 - (void)startCalculateTime {
+    if (self.timer) {
+        [self.timer invalidate];
+    }
     self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime:)];
     [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
@@ -68,7 +71,7 @@
 - (NSTimeInterval)stopCalculateTime {
     [self.timer invalidate];
     self.timer = nil;
-    return _second + _ms / 60;
+    return _second + _ms / 60.0;
 }
 
 - (void)pause {
