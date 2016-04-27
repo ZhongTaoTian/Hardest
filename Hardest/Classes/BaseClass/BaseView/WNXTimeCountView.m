@@ -79,13 +79,14 @@
 }
 
 - (NSTimeInterval)pasueTime {
+    NSTimeInterval oneTime = _onceSecond + _onceMS / 60.0;
+    _onceSecond = 0;
+    _onceMS = 0;
     self.timer.paused = YES;
-    return _onceSecond + _onceMS / 60;
+    return oneTime;
 }
 
 - (void)resumed {
-    _onceMS = 0;
-    _onceSecond = 0;
     self.timer.paused = NO;
     
 }
@@ -106,8 +107,6 @@
     _onceMS++;
     if (_ms == 60) {
         _ms = 0;
-        _onceMS = 0;
-        _onceSecond++;
         _second++;
         if (_second < 10) {
             self.label1.text = [NSString stringWithFormat:@"%02d", _second];
@@ -115,6 +114,12 @@
             self.label1.text = [NSString stringWithFormat:@"%d", _second];
         }
     }
+    
+    if (_onceMS == 60) {
+        _onceSecond++;
+        _onceMS = 0;
+    }
+    
     if (_ms < 10) {
         self.label2.text = [NSString stringWithFormat:@"%02d", _ms];
     } else {

@@ -77,9 +77,29 @@ typedef NS_ENUM(NSInteger, RigthType) {
         
         _lastClickIndex = -1;
         _isFrist = YES;
+        self.isAnimation = NO;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
     }
     
     return self;
+}
+
+- (void)removeTimer {
+    [self killTime];
+}
+
+- (void)dealloc {
+    [self killTime];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)killTime {
+    [self.timer1 invalidate];
+    self.timer1 = nil;
+    
+    [self.timer2 invalidate];
+    self.timer2 = nil;
 }
 
 - (void)cleanSawtoothGreat {
@@ -95,7 +115,6 @@ typedef NS_ENUM(NSInteger, RigthType) {
     _clickCount = 0;
     _isPass = NO;
     _count++;
-    
     self.animFinishCount = 0;
     
     _leftTranform = CGAffineTransformMakeScale(1, 1);
@@ -113,6 +132,7 @@ typedef NS_ENUM(NSInteger, RigthType) {
     _rotationIndex = self.leftType * 10;
     _rotationIndex2 = self.rightType * 10;
     
+    self.isAnimation = YES;
     self.timer1 = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime)];
     [self.timer1 addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     
@@ -127,6 +147,7 @@ typedef NS_ENUM(NSInteger, RigthType) {
     if (_animFinishCount == 2) {
         // 动画完成
         self.AnimationFinishBlock(_isFrist);
+        self.isAnimation = NO;
         _isFrist = NO;
     }
 }
@@ -178,7 +199,9 @@ typedef NS_ENUM(NSInteger, RigthType) {
     }
     _isPass = NO;
     _clickCount++;
-    
+    if (!result) {
+        return result;
+    }
     if (_clickCount == self.rightType + 1) {
         self.StopCountTimeBlock();
         _isPass = YES;
@@ -194,6 +217,37 @@ typedef NS_ENUM(NSInteger, RigthType) {
     }
     
     return result;
+}
+
+- (void)pause {
+    self.timer1.paused = YES;
+    self.timer2.paused = YES;
+}
+
+- (void)resume {
+    self.timer2.paused = NO;
+    self.timer1.paused = NO;
+}
+
+- (void)cleanData {
+    [self killTime];
+    _lastClickIndex = -1;
+    _clickCount = 0;
+    _isPass = NO;
+    _count = 0;
+    self.animFinishCount = 0;
+    self.isAnimation = NO;
+    _index = 0;
+    _index2 = 0;
+    _isFrist = YES;
+    
+    _leftTranform = CGAffineTransformMakeScale(1, 1);
+    self.leftPlateView.transform = _leftTranform;
+    
+    _rightTranform = CGAffineTransformRotate(CGAffineTransformMakeScale(1, 1), M_PI + M_PI / 3);
+    self.rightPlateView.transform = _rightTranform;
+    
+    [self cleanSawtoothGreat];
 }
 
 @end

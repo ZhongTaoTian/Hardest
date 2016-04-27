@@ -16,7 +16,14 @@
 @property (nonatomic, copy) void (^FailBlock)();
 @property (nonatomic, copy) void (^PassStageBlock)();
 
+@property (nonatomic, assign) BOOL isAnimation;
+
 - (void)startRotation;
 - (BOOL)clickWithIndex:(int)index;
+
+- (void)pause;
+- (void)resume;
+
+- (void)cleanData;
 
 @end
