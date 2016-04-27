@@ -184,21 +184,21 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>错误的答案! 点击正确答案来完成这个方程式.</string>
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image11.png</string>
+		<string>select_image13.png</string>
 		<key>intro</key>
-		<string>以最快速度猜测手后面的人！\n[提示] 使用多个手指。</string>
+		<string>首页, 记住小手掩盖的数字. 以最快速度解决这些简单的数学问题!</string>
 		<key>max</key>
 		<string>1000</string>
 		<key>min</key>
-		<string>1200</string>
+		<string>1500</string>
 		<key>title</key>
-		<string>猜猜\n我是\n谁？</string>
+		<string>哦\n我喜欢\n数学</string>
 		<key>unit</key>
-		<string>毫秒</string>
+		<string>MS</string>
 	</dict>
 	<dict>
 		<key>fail</key>

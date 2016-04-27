@@ -75,3 +75,5 @@
 #define kSoundRollingName @"08_rolling.mp3"
 #define kSoundRollingName2 @"08_rolling2.mp3"
 
+// stage11
+#define kSoundWriteName @"13_chalkboard.mp3"
