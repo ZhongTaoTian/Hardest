@@ -101,6 +101,7 @@
 
 #pragma mark - Action
 - (void)buttonClick:(UIButton *)sender {
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFeatherClickName];
     [self.numView addNumWithIndex:(int)sender.tag];
     if (![self.plateView clickWithIndex:(int)sender.tag]) {
         [(WNXTimeCountView *)self.countScore stopCalculateTime];

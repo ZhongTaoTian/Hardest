@@ -133,6 +133,7 @@ typedef NS_ENUM(NSInteger, RigthType) {
     _rotationIndex2 = self.rightType * 10;
     
     self.isAnimation = YES;
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundRollingName2];
     self.timer1 = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime)];
     [self.timer1 addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     
@@ -146,6 +147,7 @@ typedef NS_ENUM(NSInteger, RigthType) {
     _animFinishCount = animFinishCount;
     if (_animFinishCount == 2) {
         // 动画完成
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundJackpotStop];
         self.AnimationFinishBlock(_isFrist);
         self.isAnimation = NO;
         _isFrist = NO;
