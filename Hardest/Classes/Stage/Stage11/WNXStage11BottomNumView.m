@@ -1,19 +1,19 @@
 //
-//  WNXStage10BottomNumView.m
+//  WNXStage11BottomNumView.m
 //  Hardest
 //
-//  Created by MacBook on 16/4/23.
+//  Created by sfbest on 16/4/28.
 //  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 
-#import "WNXStage10BottomNumView.h"
+#import "WNXStage11BottomNumView.h"
 #import "WNXStrokeLabel.h"
 
-@interface WNXStage10BottomNumView ()
+@interface WNXStage11BottomNumView ()
 {
-    int _count1;
-    int _count2;
-    int _count3;
+    int _result1;
+    int _result2;
+    int _result3;
 }
 
 @property (nonatomic, strong) WNXStrokeLabel *label1;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation WNXStage10BottomNumView
+@implementation WNXStage11BottomNumView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -35,6 +35,9 @@
         
         self.label3 = [[WNXStrokeLabel alloc] initWithFrame:CGRectMake(labelH * 2, 0, labelH, labelH)];
         [self buildLabelWithLabel:self.label3];
+        
+        self.hidden = YES;
+        self.userInteractionEnabled = NO;
     }
     
     return self;
@@ -49,32 +52,24 @@
     [self addSubview:label];
 }
 
-- (void)addNumWithIndex:(int)index {
-    switch (index) {
-        case 0:
-            _count1++;
-            self.label1.text = [NSString stringWithFormat:@"%d", _count1];
-            break;
-        case 1:
-            _count2++;
-            self.label2.text = [NSString stringWithFormat:@"%d", _count2];
-            break;
-        case 2:
-            _count3++;
-            self.label3.text = [NSString stringWithFormat:@"%d", _count3];
-            break;
-        default:
-            break;
-    }
+- (void)setLabelTextWithNum1:(int)num1 num2:(int)num2 num3:(int)num3 {
+    self.hidden = NO;
+    _result1 = num1;
+    _result2 = num2;
+    _result3 = num3;
+    self.label1.text = [NSString stringWithFormat:@"%d", num1];
+    self.label2.text = [NSString stringWithFormat:@"%d", num2];
+    self.label3.text = [NSString stringWithFormat:@"%d", num3];
 }
 
-- (void)cleanData {
-    _count1 = 0;
-    _count2 = 0;
-    _count3 = 0;
-    self.label1.text = @"0";
-    self.label2.text = @"0";
-    self.label3.text = @"0";
+- (int)resultWithIndex:(int)index {
+    if (index == 0) {
+        return _result1;
+    } else if (index == 1) {
+        return _result2;
+    } else {
+        return _result3;
+    }
 }
 
 @end
