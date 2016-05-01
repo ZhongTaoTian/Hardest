@@ -25,13 +25,36 @@
     [self buildStageInfo];
 }
 
+- (void)showResultStatusViewWithAnimation:(void (^)(void))finish {
+
+}
+
 - (void)buildStageInfo {
+    __weak typeof(self) weakSelf = self;
     UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:ScreenBounds];
     bgImageView.image = [UIImage imageNamed:@"13_bg-iphone4"];
     [self.view insertSubview:bgImageView belowSubview:self.redButton];
     
     self.blackboardView = [[WNXStage11View alloc] initWithFrame:ScreenBounds];
     [self.view insertSubview:self.blackboardView belowSubview:self.redButton];
+    
+    self.blackboardView.handViewShowAnimation = ^(BOOL isRight) {
+        if (isRight) {
+            [weakSelf showResultStatusViewWithAnimation:^{
+                [weakSelf.blackboardView showHandViewAnimationFinish:^{
+                    [weakSelf.blackboardView showSubjectViewWithNums:^(int index1, int index2, int index3) {
+                        [weakSelf.bottomNumView setLabelTextWithNum1:index1 num2:index2 num3:index3];
+                    }];
+                }];
+            }];
+        } else {
+            [weakSelf showResultStatusViewWithAnimation:^{                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [weakSelf showGameFail];
+                });
+            }];
+        }
+    };
     
     self.bottomNumView = [[WNXStage11BottomNumView alloc] initWithFrame:CGRectMake(0, self.redButton.frame.origin.y + 4, ScreenWidth, self.redButton.frame.size.height)];
     [self.view addSubview:self.bottomNumView];
@@ -55,12 +78,7 @@
 
 #pragma mark - Action
 - (void)btnClick:(UIButton *)sender {
-    
-    if ([self.blackboardView guessResult:[self.bottomNumView resultWithIndex:(int)sender.tag]]) {
-        NSLog(@"答对");
-    } else {
-        NSLog(@"错误");
-    }
+    [self.blackboardView guessResult:[self.bottomNumView resultWithIndex:(int)sender.tag]];
 }
 
 @end

@@ -51,9 +51,10 @@
     };
     
     self.plateView.StopCountTimeBlock = ^{
+        [weakSelf setButtonsIsActivate:NO];
         weakSelf.oneTime = [(WNXTimeCountView *)weakSelf.countScore pasueTime];
     };
-    
+
     self.plateView.PassStageBlock = ^{
         WNXResultStateType resultType;
         if (weakSelf.oneTime < 0.8) {

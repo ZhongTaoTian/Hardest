@@ -10,8 +10,12 @@
 
 @interface WNXStage11View : UIView
 
+@property (nonatomic, copy) void (^handViewShowAnimation) (BOOL isRight);
+
 - (void)showSubjectViewWithNums:(void (^)(int index1, int index2, int index3))nums;
 
-- (BOOL)guessResult:(int)result;
+- (void)guessResult:(int)result;
+
+- (void)showHandViewAnimationFinish:(void (^) (void))finish;
 
 @end

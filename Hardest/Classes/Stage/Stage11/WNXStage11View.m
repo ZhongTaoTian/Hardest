@@ -14,7 +14,7 @@
     BOOL _isFrist;
 }
 
-@property (strong, nonatomic) UIImageView *handIV;
+
 @property (strong, nonatomic) WNXSubjectView *subjectView;
 @property (assign, nonatomic) int result;
 
@@ -24,11 +24,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        
-        self.handIV = [[UIImageView alloc] initWithFrame:CGRectMake(25, 338, 65, 87)];
-        self.handIV.image = [UIImage imageNamed:@"13_hand-iphone4"];
-        self.handIV.alpha = 0;
-        [self addSubview:self.handIV];
         
         self.subjectView = [[WNXSubjectView alloc] initWithFrame:CGRectMake(0, 200, ScreenWidth, 70)];
         [self addSubview:self.subjectView];
@@ -48,13 +43,24 @@
         }];
         _isFrist = NO;
     } else {
-        
+        [self.subjectView showNextSubjectViewNums:^(int index1, int index2, int index3, int result) {
+            nums(index1, index2, index3);
+            weakSelf.result = result;
+        }];
     }
 }
 
-- (BOOL)guessResult:(int)result {
-    [self.subjectView showResultWithResult:result];
-    return result == self.result;
+- (void)showHandViewAnimationFinish:(void (^)(void))finish {
+    [self.subjectView showHandViewWithAnimationFinish:^{
+        finish();
+    }];
+}
+
+- (void)guessResult:(int)result {
+    __weak typeof(self) weakSelf = self;
+    [self.subjectView showResultWithResult:result finish:^{
+        weakSelf.handViewShowAnimation(weakSelf.result == result);
+    }];
 }
 
 @end

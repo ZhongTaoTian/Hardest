@@ -16,8 +16,12 @@ typedef NS_ENUM(NSInteger, WNXSubjectGuessType) {
 
 @interface WNXSubjectView : UIView
 
+- (void)showHandViewWithAnimationFinish:(void (^) (void))finish;
+
 - (void)showSubjectViewNums:(void (^)(int index1, int index2, int index3, int result))nums;
 
-- (void)showResultWithResult:(int)result;
+- (void)showNextSubjectViewNums:(void (^)(int index1, int index2, int index3, int result))nums;
+
+- (void)showResultWithResult:(int)result finish:(void (^) (void))finish;
 
 @end
