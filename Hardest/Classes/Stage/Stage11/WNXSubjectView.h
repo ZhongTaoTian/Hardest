@@ -16,6 +16,8 @@ typedef NS_ENUM(NSInteger, WNXSubjectGuessType) {
 
 @interface WNXSubjectView : UIView
 
+@property (nonatomic, assign) BOOL isPlayAgain;
+
 - (void)showHandViewWithAnimationFinish:(void (^) (void))finish;
 
 - (void)showSubjectViewNums:(void (^)(int index1, int index2, int index3, int result))nums;
@@ -23,5 +25,7 @@ typedef NS_ENUM(NSInteger, WNXSubjectGuessType) {
 - (void)showNextSubjectViewNums:(void (^)(int index1, int index2, int index3, int result))nums;
 
 - (void)showResultWithResult:(int)result finish:(void (^) (void))finish;
+
+- (void)cleanData;
 
 @end

@@ -90,7 +90,7 @@
             gameVC = [[WNXStage11ViewController alloc] init];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeOneFingerClick;
-            gameVC.scoreboardType = WNXScoreboardTypeSecondAndMS;
+            gameVC.scoreboardType = WNXScoreboardTypeTimeMS;
             break;
         default:
             break;

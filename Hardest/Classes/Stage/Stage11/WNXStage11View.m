@@ -12,6 +12,7 @@
 @interface WNXStage11View ()
 {
     BOOL _isFrist;
+    int _count;
 }
 
 
@@ -36,6 +37,11 @@
 
 - (void)showSubjectViewWithNums:(void (^)(int, int, int))nums {
     __weak typeof(self) weakSelf = self;
+    _count++;
+    if (_count == 17) {
+        self.passState();
+        return;
+    }
     if (_isFrist ) {
         [self.subjectView showSubjectViewNums:^(int index1, int index2, int index3, int result) {
             nums(index1, index2, index3);
@@ -50,6 +56,10 @@
     }
 }
 
+- (void)setSubjectPlayAgain {
+    self.subjectView.isPlayAgain = NO;
+}
+
 - (void)showHandViewAnimationFinish:(void (^)(void))finish {
     [self.subjectView showHandViewWithAnimationFinish:^{
         finish();
@@ -61,6 +71,12 @@
     [self.subjectView showResultWithResult:result finish:^{
         weakSelf.handViewShowAnimation(weakSelf.result == result);
     }];
+}
+
+- (void)cleanData {
+    _isFrist = YES;
+    _count = 0;
+    [self.subjectView cleanData];
 }
 
 @end

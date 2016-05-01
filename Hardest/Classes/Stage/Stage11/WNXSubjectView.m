@@ -32,6 +32,7 @@
 @property (nonatomic, assign) WNXSubjectGuessType guessType;
 @property (nonatomic, assign) WNXSubjectGuessType coverType;
 
+
 @end
 
 @implementation WNXSubjectView
@@ -59,7 +60,7 @@
         self.rightIV = [[UIImageView alloc] initWithFrame:CGRectMake(230, 0, 47, 55)];
         [self addSubview:self.rightIV];
         
-        self.handIV = [[UIImageView alloc] initWithFrame:CGRectMake(25, 100, 65, 87)];
+        self.handIV = [[UIImageView alloc] initWithFrame:CGRectMake(25, 100, 72, 94)];
         self.handIV.image = [UIImage imageNamed:@"13_hand-iphone4"];
         self.handIV.alpha = 0;
         [self addSubview:self.handIV];
@@ -78,7 +79,11 @@
     BOOL isMoveMiddle = !(self.coverType == WNXSubjectGuessTypeMiddle);
     BOOL isMoveRight = !(self.coverType == WNXSubjectGuessTypeRight);
     
-    [UIView animateWithDuration:0.15 animations:^{
+    NSTimeInterval duration = 0.2 - _count * 0.02;
+    if (duration < 0.05) {
+        duration = 0.05;
+    }
+    [UIView animateWithDuration:duration animations:^{
         CGAffineTransform transform = CGAffineTransformMakeTranslation(0, kToTopMargin);
         self.plusIV.transform = transform;
         self.plusIV.alpha = 0;
@@ -110,9 +115,12 @@
         }
         
     } completion:^(BOOL finished) {
+        if (self.isPlayAgain) {
+            [self cleanDataStopAnimation];
+            return;
+        }
         CGAffineTransform bottomT = CGAffineTransformMakeTranslation(0, kToBottomMargin);
         if (!isMoveLeft) {
-            NSLog(@"%d -- Left", _leftRandom);
             self.middleIV.transform = bottomT;
             self.rightIV.transform = bottomT;
             
@@ -133,7 +141,6 @@
             }
             
         } else if (!isMoveMiddle) {
-            NSLog(@"%d--Middle", _middleRandom);
             self.leftIV.transform = bottomT;
             self.rightIV.transform = bottomT;
             
@@ -158,7 +165,6 @@
             }
             
         } else if (!isMoveRight) {
-            NSLog(@"%d - RIGHT", _rightRandom);
             self.leftIV.transform = bottomT;
             self.middleIV.transform = bottomT;
             
@@ -224,7 +230,12 @@
             _rightRandom = result;
         }
         
-        [UIView animateWithDuration:0.25 animations:^{
+        NSTimeInterval duration = 0.25 - _count * 0.02;
+        if (duration < 0.1) {
+            duration = 0.1;
+        }
+        
+        [UIView animateWithDuration:duration animations:^{
             self.equalIV.transform = CGAffineTransformIdentity;
             self.equalIV.alpha = 1;
             self.plusIV.transform = CGAffineTransformIdentity;
@@ -250,6 +261,10 @@
             }
             
         } completion:^(BOOL finished) {
+            if (self.isPlayAgain) {
+                [self cleanDataStopAnimation];
+                return;
+            }
             [self randonResultWithNums:^(int num1, int num2, int num3) {
                 nums(num1, num2, num3, result);
             }];
@@ -316,11 +331,19 @@
     }
     
     self.transform = CGAffineTransformMakeTranslation(0, 200);
+    NSTimeInterval duration = 0.25 - _count * 0.02;
+    if (duration < 0.1) {
+        duration = 0.1;
+    }
     
-    [UIView animateWithDuration:0.25 animations:^{
+    [UIView animateWithDuration:duration animations:^{
         self.transform = CGAffineTransformIdentity;
         self.alpha = 1;
     } completion:^(BOOL finished) {
+        if (self.isPlayAgain) {
+            [self cleanDataStopAnimation];
+            return;
+        }
         [self randonResultWithNums:^(int num1, int num2, int num3) {
             nums(num1, num2, num3, result);
         }];
@@ -375,28 +398,36 @@
 }
 
 - (void)moveHandViewToBottomAnimationFinish:(void (^) (void))finish {
-    NSTimeInterval duration = 0.5 - _count * 0.1;
-    if (duration < 0.15) {
-        duration = 0.15;
+    NSTimeInterval duration = 0.3 - _count * 0.2;
+    if (duration < 0.05) {
+        duration = 0.05;
     }
     [UIView animateWithDuration:duration animations:^{
         self.handIV.frame = CGRectMake(self.handIV.frame.origin.x, self.handIV.frame.origin.y + 100, self.handIV.frame.size.width, self.handIV.frame.size.height);
     } completion:^(BOOL finished) {
+        if (self.isPlayAgain) {
+            [self cleanDataStopAnimation];
+            return;
+        }
         finish();
     }];
 }
 
 - (void)showHandViewWithAnimationFinish:(void (^)(void))finish {
     _count++;
-    self.handIV.alpha = 0.25 * _count;
+    self.handIV.alpha = 0.3 * _count;
     [self calculationHandImageViewToCenter];
     NSTimeInterval duration = 1 - _count * 0.2;
-    if (duration < 0.3) {
-        duration = 0.3;
+    if (duration < 0.05) {
+        duration = 0.05;
     }
     [UIView animateWithDuration:duration animations:^{
-        self.handIV.center = CGPointMake(_handToCenterX, _handToCenterY);
+        self.handIV.center = CGPointMake(_handToCenterX, _handToCenterY - 4);
     } completion:^(BOOL finished) {
+        if (self.isPlayAgain) {
+            [self cleanDataStopAnimation];
+            return;
+        }
         finish();
     }];
 }
@@ -413,6 +444,33 @@
         _handToCenterY = self.rightIV.center.y;
         _handToCenterX = self.rightIV.center.x;
     }
+}
+
+- (void)cleanData {
+    _count = 0;
+    self.isPlayAgain = YES;
+    _leftRandom = -1;
+    _middleRandom = -1;
+    _rightRandom = -1;
+    
+    self.leftIV.image = [UIImage imageNamed:[NSString stringWithFormat:@"stage13_%d", _leftRandom]];
+    self.rightIV.image = [UIImage imageNamed:[NSString stringWithFormat:@"stage13_%d", _rightRandom]];
+    self.middleIV.image = [UIImage imageNamed:[NSString stringWithFormat:@"stage13_%d", _middleRandom]];
+    self.handIV.alpha = 0;
+    self.transform = CGAffineTransformIdentity;
+    self.leftIV.transform = CGAffineTransformIdentity;
+    self.plusIV.transform = CGAffineTransformIdentity;
+    self.middleIV.transform = CGAffineTransformIdentity;
+    self.equalIV.transform = CGAffineTransformIdentity;
+    self.rightIV.transform = CGAffineTransformIdentity;
+    self.handIV.transform = CGAffineTransformIdentity;
+    self.lineIV.transform = CGAffineTransformIdentity;
+    self.alpha = 0;
+}
+
+- (void)cleanDataStopAnimation {
+    [self cleanData];
+    self.isPlayAgain = NO;
 }
 
 @end

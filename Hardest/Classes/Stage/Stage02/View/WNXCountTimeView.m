@@ -66,6 +66,17 @@
     self.TimeOutBlock = timeOutBlock;
 }
 
+- (void)startCalculateTime {
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+    _ms = 0;
+    _index = 0;
+    self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime1)];
+    [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
+
 - (void)updateTime:(CADisplayLink *)timer {
     _index++;
     if (_index == 60) {
@@ -77,6 +88,15 @@
                 self.TimeOutBlock();
             }
         }
+    }
+    self.countLabel.text = [NSString stringWithFormat:@"%d%02d", _ms, _index];
+}
+
+- (void)updateTime1 {
+    _index++;
+    if (_index == 60) {
+        _index = 0;
+        _ms++;
     }
     self.countLabel.text = [NSString stringWithFormat:@"%d%02d", _ms, _index];
 }
