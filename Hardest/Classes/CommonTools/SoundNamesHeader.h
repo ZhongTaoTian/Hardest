@@ -77,3 +77,7 @@
 
 // stage11
 #define kSoundWriteName @"13_chalkboard.mp3"
+
+// stage12
+#define kSoundEggHitName @"01_eggHit.mp3"
+#define kSoundEggYearName @"01_yeah.mp3"
