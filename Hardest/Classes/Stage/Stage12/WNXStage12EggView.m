@@ -17,6 +17,7 @@
 @property (nonatomic, strong) WNXDropEggView *egg1;
 @property (nonatomic, strong) WNXDropEggView *egg2;
 @property (nonatomic, strong) WNXDropEggView *egg3;
+@property (nonatomic, assign) int stopCount;
 
 @end
 
@@ -38,14 +39,39 @@
     return self;
 }
 
-- (void)showEgg {
-    [self.egg1 showDropEggWithSpeed:3];
-    [self.egg2 showDropEggWithSpeed:4];
-    [self.egg3 showDropEggWithSpeed:5];
+- (void)setButtonsEnabled:(BOOL)enabled {
+    self.redButton.userInteractionEnabled = enabled;
+    self.blueButton.userInteractionEnabled = enabled;
+    self.yellowButton.userInteractionEnabled = enabled;
 }
 
-- (void)stopEggDropWithIndex:(int)index {
-
+- (void)showEgg {
+    [self setButtonsEnabled:NO];
+    self.stopCount = 0;
+    _count++;
+    if (_count > 6) {
+        _count = 6;
+    }
+    
+    NSTimeInterval random1 = arc4random_uniform(2) + arc4random_uniform(10) / 10.0;
+    NSTimeInterval random2 = arc4random_uniform(2) + arc4random_uniform(10) / 10.0;
+    NSTimeInterval random3 = arc4random_uniform(2) + arc4random_uniform(10) / 10.0;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(random1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.redButton.userInteractionEnabled = YES;
+        [self.egg1 showDropEggWithSpeed:_count];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(random2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.yellowButton.userInteractionEnabled = YES;
+        [self.egg2 showDropEggWithSpeed:_count];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(random3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.blueButton.userInteractionEnabled = YES;
+        [self.egg3 showDropEggWithSpeed:_count];
+    });
+    
 }
 
 - (void)buildEggView:(WNXDropEggView *)eggView tag:(NSInteger)tag {
@@ -72,6 +98,7 @@
 }
 
 - (NSInteger)grabWithIndex:(NSInteger)index {
+    self.stopCount++;
     NSInteger scroe;
     if (index == 0) {
         scroe = [self.egg1 grabEgg];
@@ -82,6 +109,15 @@
     }
     
     return scroe;
+}
+
+- (void)setStopCount:(int)stopCount {
+    _stopCount = stopCount;
+    if (_stopCount == 3) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.nextDropEggBlock();
+        });
+    }
 }
 
 @end

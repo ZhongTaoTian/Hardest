@@ -8,6 +8,7 @@
 
 #import "WNXDropEggView.h"
 #import "WNXStateView.h"
+#import "WNXState12ResultView.h"
 
 @interface WNXDropEggView ()
 {
@@ -62,7 +63,10 @@
     if (self.eggIV.transform.ty > ScreenHeight - 190) {
         [self.timer invalidate];
         self.timer = nil;
+            
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundEggHitName];
         self.failBlock(self.tag);
+        
     }
 }
 
@@ -83,33 +87,36 @@
     NSInteger scroe;
     WNXResultStateType stateType;
     
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundEggYearName];
+    
     self.handIV.frame = CGRectMake(0, self.eggIV.transform.ty - 44, 80, 88);
     self.handIV.hidden = NO;
     
     CGFloat toBottomMargin = ScreenHeight - 190 - self.eggIV.transform.ty;
-    if (toBottomMargin < 5) {
+    NSLog(@"%f", toBottomMargin);
+    if (toBottomMargin < 10) {
         stateType = WNXResultStateTypePerfect;
-    } else if (toBottomMargin < 20) {
+    } else if (toBottomMargin < 30) {
         stateType = WNXResultStateTypeGreat;
-    } else if (toBottomMargin < 40) {
+    } else if (toBottomMargin < 50) {
         stateType = WNXResultStateTypeGood;
     } else {
         stateType = WNXResultStateTypeOK;
     }
     
-    if (toBottomMargin < 5) {
+    if (toBottomMargin < 10) {
         scroe = 10;
-    } else if (toBottomMargin < 10) {
-        scroe = 9;
     } else if (toBottomMargin < 15) {
-        scroe = 8;
+        scroe = 9;
     } else if (toBottomMargin < 20) {
-        scroe = 7;
+        scroe = 8;
     } else if (toBottomMargin < 25) {
-        scroe = 6;
+        scroe = 7;
     } else if (toBottomMargin < 30) {
-        scroe = 5;
+        scroe = 6;
     } else if (toBottomMargin < 35) {
+        scroe = 5;
+    } else if (toBottomMargin < 40) {
         scroe = 4;
     } else if (toBottomMargin < 50) {
         scroe = 2;
@@ -117,14 +124,35 @@
         scroe = 1;
     }
     
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - toBottomMargin, self.frame.size.width, toBottomMargin)];
+    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - toBottomMargin + 12, self.frame.size.width, toBottomMargin - 12)];
+    whiteView.transform = CGAffineTransformMakeScale(0, 0);
     whiteView.backgroundColor = [UIColor whiteColor];
-    whiteView.alpha = 0.4;
+    whiteView.alpha = 0.6;
     [self addSubview:whiteView];
     
-//    if (sta) {
-//        <#statements#>
-//    }
+    WNXState12ResultView *resultView = [[WNXState12ResultView alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(whiteView.frame) - 150, ScreenWidth / 3, 120)];
+    resultView.alpha = 0;
+    [self addSubview:resultView];
+    [UIView animateWithDuration:0.1 animations:^{
+        whiteView.transform = CGAffineTransformIdentity;
+        resultView.alpha = 1;
+    }];
+    
+    [resultView showStatusWithStateType:stateType score:scroe];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.handIV.hidden = YES;
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.2 animations:^{
+            whiteView.alpha = 0;
+            resultView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [whiteView removeFromSuperview];
+            [resultView removeFromSuperview];
+        }];
+    });
     
     return scroe;
 }
