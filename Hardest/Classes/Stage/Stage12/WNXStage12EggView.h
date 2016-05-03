@@ -10,4 +10,8 @@
 
 @interface WNXStage12EggView : UIView
 
+@property (nonatomic, copy) void (^failBlocl)(int index);
+
+- (void)showEggWithIndex:(int)index;
+
 @end

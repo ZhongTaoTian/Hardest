@@ -22,6 +22,7 @@
 #define kSoundFailDropName    @"failDrop.mp3"
 #define kSoundcageDropName    @"cageDrop.mp3"
 #define kSoundOutName         @"instantFail01.mp3"
+#define kSoundEnenName        @"instantFail02.mp3"
 #define kSoundOutSpoonName    @"whistle.mp3"
 
 //state

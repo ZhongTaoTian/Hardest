@@ -8,6 +8,13 @@
 
 #import "WNXStage12EggView.h"
 
+@interface WNXStage12EggView ()
+{
+    int _count;
+}
+
+@end
+
 @implementation WNXStage12EggView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -16,6 +23,10 @@
     }
     
     return self;
+}
+
+- (void)showEggWithIndex:(int)index {
+    
 }
 
 @end
