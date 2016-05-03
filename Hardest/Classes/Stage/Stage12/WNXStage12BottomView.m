@@ -41,4 +41,32 @@
     return self;
 }
 
+- (void)changeBottomWihtIndex:(NSInteger)index imageType:(WNXStage12BottomViewType)imageType {
+    if (index == 0) {
+        if (imageType == WNXStage12BottomViewTypeNormal) {
+            self.iv1.image = [UIImage imageNamed:@"01_normal-iphone4"];
+        } else if (imageType == WNXStage12BottomViewTypeFail) {
+            self.iv1.image = [UIImage imageNamed:@"01_fail-iphone4"];
+        } else {
+            self.iv1.image = [UIImage imageNamed:@"01_success-iphone4"];
+        }
+    } else if (index == 1) {
+        if (imageType == WNXStage12BottomViewTypeNormal) {
+            self.iv2.image = [UIImage imageNamed:@"01_normal-iphone4"];
+        } else if (imageType == WNXStage12BottomViewTypeFail) {
+            self.iv2.image = [UIImage imageNamed:@"01_fail-iphone4"];
+        } else {
+            self.iv2.image = [UIImage imageNamed:@"01_success-iphone4"];
+        }
+    } else {
+        if (imageType == WNXStage12BottomViewTypeNormal) {
+            self.iv3.image = [UIImage imageNamed:@"01_normal-iphone4"];
+        } else if (imageType == WNXStage12BottomViewTypeFail) {
+            self.iv3.image = [UIImage imageNamed:@"01_fail-iphone4"];
+        } else {
+            self.iv3.image = [UIImage imageNamed:@"01_success-iphone4"];
+        }
+    }
+}
+
 @end

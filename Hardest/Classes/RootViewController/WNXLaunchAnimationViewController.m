@@ -62,7 +62,7 @@
     self.bombButtonImageView.hidden = YES;
     self.eyeMaskView.hidden = YES;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.handImageView.hidden = NO;
         for (int i = 0; i < kMaxHandClickCount; i++) {
             NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:i * kClickAnimationDuration target:self selector:@selector(handButtonImageViewClickAnimation) userInfo:nil repeats:NO];
