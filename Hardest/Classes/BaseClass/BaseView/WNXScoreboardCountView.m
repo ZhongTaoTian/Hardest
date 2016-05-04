@@ -12,6 +12,7 @@
 {
     CGAffineTransform _transform;
     int _count;
+    int _allScore;
 }
 
 @property (weak, nonatomic) IBOutlet WNXStrokeLabel *ptsLabel;
@@ -42,6 +43,7 @@
 - (void)clean {
     self.countLabel.text = @"000";
     _count = 0;
+    _allScore = 0;
 }
 
 - (void)startAnimationWithCompletion:(void (^)(BOOL))completion{
@@ -64,6 +66,18 @@
         self.countLabel.text = [NSString stringWithFormat:@"0%d", _count];
     } else {
         self.countLabel.text = [NSString stringWithFormat:@"%d", _count];
+    }
+}
+
+- (void)setScore:(NSInteger)score {
+    _allScore += score;
+    [self startShakeAnimation];
+    if (_allScore <= 9) {
+        self.countLabel.text = [NSString stringWithFormat:@"00%d", _allScore];
+    } else if (_allScore >= 10 && _allScore < 100) {
+        self.countLabel.text = [NSString stringWithFormat:@"0%d", _allScore];
+    } else {
+        self.countLabel.text = [NSString stringWithFormat:@"%d", _allScore];
     }
 }
 

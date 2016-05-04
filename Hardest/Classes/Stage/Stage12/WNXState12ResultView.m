@@ -47,10 +47,11 @@
     }
     
     if (score == 10) {
-        self.scoreLabel.text = [NSString stringWithFormat:@"%2d", score];
+        self.scoreLabel.text = [NSString stringWithFormat:@"%2d", (int)score];
     } else {
-        self.scoreLabel.text = [NSString stringWithFormat:@"%d", score];
+        self.scoreLabel.text = [NSString stringWithFormat:@"%d", (int)score];
     }
 }
+
 
 @end

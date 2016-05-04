@@ -210,9 +210,9 @@
 		<key>intro</key>
 		<string>尽可能在接近蓝线时点击鸡蛋!</string>
 		<key>max</key>
-		<string>170</string>
+		<string>175</string>
 		<key>min</key>
-		<string>150</string>
+		<string>155</string>
 		<key>title</key>
 		<string>三个\n小\n厨师</string>
 		<key>unit</key>

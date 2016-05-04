@@ -108,7 +108,7 @@
     _ms = 0;
 }
 
-#warning 重写动画 暂停需要用CADisplayLink或者CoreAnimation
+//#warning 重写动画 暂停需要用CADisplayLink或者CoreAnimation
 
 - (void)showCurtain {
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundSayOKName];

@@ -15,6 +15,8 @@
 - (void)showDropEggWithSpeed:(int)speed;
 
 - (void)stopDropEgg;
+- (void)pause;
+- (void)resume;
 
 - (NSInteger)grabEgg;
 

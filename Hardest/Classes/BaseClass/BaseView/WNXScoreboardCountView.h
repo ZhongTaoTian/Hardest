@@ -18,4 +18,6 @@
 
 - (void)clean;
 
+- (void)setScore:(NSInteger)score;
+
 @end

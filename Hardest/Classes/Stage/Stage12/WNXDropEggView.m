@@ -36,9 +36,21 @@
         [self addSubview:self.handIV];
         
         _transform = CGAffineTransformMakeScale(1, 1);
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
     }
     
     return self;
+}
+
+- (void)removeTimer {
+    [self.timer invalidate];
+    self.timer = nil;
+    [self removeFromSuperview];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)showDropEggWithSpeed:(int)speed {
@@ -93,32 +105,32 @@
     self.handIV.hidden = NO;
     
     CGFloat toBottomMargin = ScreenHeight - 190 - self.eggIV.transform.ty;
-    NSLog(@"%f", toBottomMargin);
-    if (toBottomMargin < 10) {
+
+    if (toBottomMargin < 20) {
         stateType = WNXResultStateTypePerfect;
-    } else if (toBottomMargin < 30) {
-        stateType = WNXResultStateTypeGreat;
     } else if (toBottomMargin < 50) {
+        stateType = WNXResultStateTypeGreat;
+    } else if (toBottomMargin < 100) {
         stateType = WNXResultStateTypeGood;
     } else {
         stateType = WNXResultStateTypeOK;
     }
     
-    if (toBottomMargin < 10) {
+    if (toBottomMargin < 20) {
         scroe = 10;
-    } else if (toBottomMargin < 15) {
-        scroe = 9;
-    } else if (toBottomMargin < 20) {
-        scroe = 8;
-    } else if (toBottomMargin < 25) {
-        scroe = 7;
     } else if (toBottomMargin < 30) {
-        scroe = 6;
-    } else if (toBottomMargin < 35) {
-        scroe = 5;
+        scroe = 9;
     } else if (toBottomMargin < 40) {
-        scroe = 4;
+        scroe = 8;
     } else if (toBottomMargin < 50) {
+        scroe = 7;
+    } else if (toBottomMargin < 60) {
+        scroe = 6;
+    } else if (toBottomMargin < 70) {
+        scroe = 5;
+    } else if (toBottomMargin < 80) {
+        scroe = 4;
+    } else if (toBottomMargin < 100) {
         scroe = 2;
     } else {
         scroe = 1;
@@ -155,6 +167,14 @@
     });
     
     return scroe;
+}
+
+- (void)pause {
+    self.timer.paused = YES;
+}
+
+- (void)resume {
+    self.timer.paused = NO;
 }
 
 @end

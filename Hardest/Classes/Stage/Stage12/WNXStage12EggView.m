@@ -11,6 +11,7 @@
 
 @interface WNXStage12EggView ()
 {
+    int _speed;
     int _count;
 }
 
@@ -47,10 +48,23 @@
 
 - (void)showEgg {
     [self setButtonsEnabled:NO];
-    self.stopCount = 0;
+    
     _count++;
-    if (_count > 6) {
-        _count = 6;
+    if (_count == 7) {
+        self.passStageBlock();
+        return;
+    }
+    
+    self.stopCount = 0;
+    
+    if (_speed >= 2) {
+        _speed++;
+    } else {
+        _speed += 2;
+    }
+    
+    if (_speed > 6) {
+        _speed = 6;
     }
     
     NSTimeInterval random1 = arc4random_uniform(2) + arc4random_uniform(10) / 10.0;
@@ -58,28 +72,36 @@
     NSTimeInterval random3 = arc4random_uniform(2) + arc4random_uniform(10) / 10.0;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(random1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.redButton.userInteractionEnabled = YES;
-        [self.egg1 showDropEggWithSpeed:_count];
+        [self.egg1 showDropEggWithSpeed:_speed];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.redButton.userInteractionEnabled = YES;
+        });
     });
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(random2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.yellowButton.userInteractionEnabled = YES;
-        [self.egg2 showDropEggWithSpeed:_count];
+        [self.egg2 showDropEggWithSpeed:_speed];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.yellowButton.userInteractionEnabled = YES;
+        });
     });
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(random3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.blueButton.userInteractionEnabled = YES;
-        [self.egg3 showDropEggWithSpeed:_count];
+        [self.egg3 showDropEggWithSpeed:_speed];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.blueButton.userInteractionEnabled = YES;
+        });
     });
     
 }
 
 - (void)buildEggView:(WNXDropEggView *)eggView tag:(NSInteger)tag {
-     __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     eggView.tag = tag;
     [self addSubview:eggView];
     eggView.failBlock = ^(NSInteger index){
-        weakSelf.failBlock(index);
+        if (weakSelf.failBlock) {
+            weakSelf.failBlock(index);
+        }
     };
 }
 
@@ -118,6 +140,18 @@
             self.nextDropEggBlock();
         });
     }
+}
+
+- (void)pause {
+    [self.egg1 pause];
+    [self.egg2 pause];
+    [self.egg3 pause];
+}
+
+- (void)resume {
+    [self.egg1 resume];
+    [self.egg2 resume];
+    [self.egg3 resume];
 }
 
 @end
