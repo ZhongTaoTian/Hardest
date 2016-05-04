@@ -220,19 +220,19 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>错误的答案! 选择在手后面的人</string>
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image13.png</string>
+		<string>select_image11</string>
 		<key>intro</key>
-		<string>首先，请记住小手掩盖的数字。以最快速度解决这些简单的数学问题！</string>
+		<string>以最快速度猜测手后面的人! [提示]使用多个手指</string>
 		<key>max</key>
 		<string>1000</string>
 		<key>min</key>
-		<string>1500</string>
+		<string>1200</string>
 		<key>title</key>
-		<string>哦，\n我喜欢\n数学！</string>
+		<string>猜猜\n我\n是谁?</string>
 		<key>unit</key>
 		<string>毫秒</string>
 	</dict>
