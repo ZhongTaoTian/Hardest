@@ -36,6 +36,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *cageImageView;
 @property (weak, nonatomic) IBOutlet UIView *failBackgrounView;
 @property (weak, nonatomic) IBOutlet UILabel *countScroeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *reBtn;
 
 
 @end
@@ -52,7 +53,7 @@
     [self.view insertSubview:self.highScroeView belowSubview:self.scroeImageView];
     
     self.scroeImageView.layer.anchorPoint = CGPointMake(0.5, 1);
-    
+    self.reBtn.hidden = YES;
     self.cageImageView.transform = CGAffineTransformMakeTranslation(0, -ScreenHeight);
 }
 

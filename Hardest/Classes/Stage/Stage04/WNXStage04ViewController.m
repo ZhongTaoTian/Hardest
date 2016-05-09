@@ -105,7 +105,7 @@
         [weakSelf.imageView start];
         [weakSelf setButtonActivate:YES];
         [((WNXCountTimeView *)weakSelf.countScore) cleanData];
-        [((WNXCountTimeView *)weakSelf.countScore) startCalculateByTimeWithTimeOut:nil];
+        [((WNXCountTimeView *)weakSelf.countScore) startCalculateByTimeWithTimeOut:nil outTime:0];
     };
     
     self.imageView.failBlock = ^() {
@@ -148,7 +148,7 @@
     [super readyGoAnimationFinish];
     
     [self setButtonActivate:YES];
-    [(WNXCountTimeView *)self.countScore startCalculateByTimeWithTimeOut:nil];
+    [(WNXCountTimeView *)self.countScore startCalculateByTimeWithTimeOut:nil outTime:0];
 }
 
 #pragma mark

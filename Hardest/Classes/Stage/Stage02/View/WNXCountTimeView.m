@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet WNXStrokeLabel *unitLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic, strong) CADisplayLink *timer;
+@property (nonatomic, assign) NSTimeInterval outTime;
 
 @end
 
@@ -56,11 +57,12 @@
     }];
 }
 
-- (void)startCalculateByTimeWithTimeOut:(void (^)())timeOutBlock {
+- (void)startCalculateByTimeWithTimeOut:(void (^)())timeOutBlock outTime:(NSTimeInterval)outTime {
     if (self.timer) {
         [self.timer invalidate];
         self.timer = nil;
     }
+    self.outTime = outTime;
     self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime:)];
     [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     self.TimeOutBlock = timeOutBlock;
@@ -82,8 +84,15 @@
     if (_index == 60) {
         _index = 0;
         _ms++;
-        if (_ms == 10 && !self.notHasTimeOut) {
+        if (_ms == _outTime && !self.notHasTimeOut) {
             [timer invalidate];
+            [UIView animateWithDuration:0.2 animations:^{
+                self.countLabel.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.1 animations:^{
+                    self.countLabel.transform = CGAffineTransformIdentity;
+                }];
+            }];
             if (self.TimeOutBlock) {
                 self.TimeOutBlock();
             }
@@ -104,7 +113,9 @@
 - (void)stopCalculateByTimeWithTimeBlock:(void (^)(int, int))timeBlock {
     [self.timer invalidate];
     self.timer = nil;
-    timeBlock(_ms, _index);
+    if (timeBlock) {
+        timeBlock(_ms, _index);
+    }
     
     [UIView animateWithDuration:0.2 animations:^{
         self.countLabel.transform = CGAffineTransformMakeScale(1.2, 1.2);

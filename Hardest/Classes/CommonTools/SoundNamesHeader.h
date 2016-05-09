@@ -23,7 +23,10 @@
 #define kSoundcageDropName    @"cageDrop.mp3"
 #define kSoundOutName         @"instantFail01.mp3"
 #define kSoundEnenName        @"instantFail02.mp3"
+#define kSoundZhangNeiName    @"instantFail03.mp3"
+#define kSoundGrilMoanName    @"instantFail04.mp3"
 #define kSoundOutSpoonName    @"whistle.mp3"
+#define kSoundMoanName(n)     [NSString stringWithFormat:@"instantFail0%d.mp3", n]
 
 //state
 #define kSoundOKName      @"okay.mp3"

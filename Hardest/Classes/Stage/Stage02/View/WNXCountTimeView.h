@@ -16,7 +16,7 @@
 
 - (void)startAnimationWithCompletion:(void (^)(BOOL))completion;
 
-- (void)startCalculateByTimeWithTimeOut:(void(^)())timeOutBlock;
+- (void)startCalculateByTimeWithTimeOut:(void(^)())timeOutBlock outTime:(NSTimeInterval)outTime;
 - (void)startCalculateTime;
 
 - (void)stopCalculateByTimeWithTimeBlock:(void(^)(int second, int ms))timeBlock;

@@ -148,7 +148,7 @@
         [weakSelf setButtonsIsActivate:YES];
         [((WNXCountTimeView *)weakSelf.countScore) startCalculateByTimeWithTimeOut:^{
             [weakSelf showGameFail];
-        }];
+        } outTime:10];
     }];
     
     if (_count == 0) {
