@@ -37,6 +37,7 @@
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         WNXBaseNavigationController *rootNav = (WNXBaseNavigationController *)[sb instantiateViewControllerWithIdentifier:@"RootNavigationController"];
         self.window.rootViewController = rootNav;
+        
 //        WNXStageInfo *info1 = [[WNXStageInfo alloc] init];
 //        info1.rank = @"s";
 //        info1.num = 1;
@@ -108,6 +109,12 @@
 //        info12.num = 12;
 //        info12.unlock = YES;
 //        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info12];
+//        
+//        WNXStageInfo *info13 = [[WNXStageInfo alloc] init];
+//        info13.rank = @"b";
+//        info13.num = 13;
+//        info13.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info13];
         
     };
     

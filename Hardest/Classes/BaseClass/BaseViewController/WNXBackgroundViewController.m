@@ -10,8 +10,6 @@
 
 @interface WNXBackgroundViewController ()
 
-@property (nonatomic, strong) UIImageView *bgImageView;
-
 @end
 
 @implementation WNXBackgroundViewController

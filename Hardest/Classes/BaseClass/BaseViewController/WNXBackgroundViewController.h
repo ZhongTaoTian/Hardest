@@ -10,4 +10,6 @@
 
 @interface WNXBackgroundViewController : WNXBaseGameViewController
 
+@property (nonatomic, strong) UIImageView *bgImageView;
+
 @end

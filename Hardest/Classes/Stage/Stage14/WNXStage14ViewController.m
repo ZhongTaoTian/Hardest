@@ -7,8 +7,11 @@
 //
 
 #import "WNXStage14ViewController.h"
+#import "WNXStage14DogView.h"
 
 @interface WNXStage14ViewController ()
+
+@property (nonatomic, strong) WNXStage14DogView *dogView;
 
 @end
 
@@ -16,7 +19,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
+    [self buildStageInfo];
+}
+
+- (void)buildStageInfo {
+    self.bgImageView.image = [UIImage imageNamed:@"16_bg-iphone4"];
+ 
+    self.dogView = [WNXStage14DogView viewFromNib];
+    self.dogView.frame = ScreenBounds;
+    [self.view addSubview:self.dogView];
     
+    [self bringPauseAndPlayAgainToFront];
 }
 
 @end

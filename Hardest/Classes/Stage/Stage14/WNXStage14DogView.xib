@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WNXStage14DogView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="16_dog-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="ijh-sD-3BB">
+                    <rect key="frame" x="2" y="353" width="315" height="238"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="16_eye_right-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="Yk5-rQ-OV2">
+                    <rect key="frame" x="192" y="415" width="53" height="71"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="16_eye_left-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="pUD-VV-ZAd">
+                    <rect key="frame" x="67" y="415" width="53" height="71"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="16_eyeball-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="gIi-0d-2na">
+                    <rect key="frame" x="91" y="430" width="19" height="19"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="16_eyeball-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="hRn-pF-imy">
+                    <rect key="frame" x="204" y="430" width="19" height="19"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="628" y="397"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="16_dog-iphone4" width="633" height="480"/>
+        <image name="16_eye_left-iphone4" width="110" height="132"/>
+        <image name="16_eye_right-iphone4" width="108" height="133"/>
+        <image name="16_eyeball-iphone4" width="31" height="31"/>
+    </resources>
+</document>
