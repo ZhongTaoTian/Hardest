@@ -240,17 +240,17 @@
 		<key>fail</key>
 		<string>时间已到!   你用了太多时间来回答这个问题.</string>
 		<key>format</key>
-		<string>%.2f</string>
+		<string>%.1f</string>
 		<key>icon</key>
-		<string>select_image14.png</string>
+		<string>select_image16</string>
 		<key>intro</key>
-		<string>尽可能在接近0.00秒时停止炸弹！\n分数取决于每颗炸弹停止时剩余的总时间。</string>
+		<string>左右倾斜您的设备,\n尽可能长时间的使骨头保持平衡!</string>
 		<key>max</key>
-		<string>0.20</string>
+		<string>40.0</string>
 		<key>min</key>
-		<string>0.50</string>
+		<string>12.0</string>
 		<key>title</key>
-		<string>炸弹\n恐慌\n!</string>
+		<string>狗\n和\n骨头</string>
 		<key>unit</key>
 		<string>秒</string>
 	</dict>

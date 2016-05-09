@@ -85,3 +85,7 @@
 // stage12
 #define kSoundEggHitName @"01_eggHit.mp3"
 #define kSoundEggYearName @"01_yeah.mp3"
+
+// stage13
+#define kSoundDogbarkOnceName @"16_dogbark01.mp3"
+#define kSoundDogbarkTwoName @"16_dogbark02.mp3"
