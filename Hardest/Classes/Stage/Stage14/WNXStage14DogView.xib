@@ -40,6 +40,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="boneView" destination="guv-ZG-XAe" id="ZmJ-y8-4qm"/>
+                <outlet property="leftEye" destination="gIi-0d-2na" id="sUo-MA-fk8"/>
+                <outlet property="rightEye" destination="hRn-pF-imy" id="BiK-kW-IGi"/>
             </connections>
             <point key="canvasLocation" x="633" y="573.5"/>
         </view>

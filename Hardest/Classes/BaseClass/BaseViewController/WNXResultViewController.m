@@ -192,8 +192,8 @@
 - (void)resultScoreViewShowFailViewPassScroeStr:(NSString *)passScroe userScroeStr:(NSString *)userScroe {
     [self.view setBackgroundImageWihtImageName:@"fail_bg"];
     self.failShadowView.hidden = NO;
-    self.userScroeLabel.text = [NSString stringWithFormat:@"你的分数: %@", userScroe];
-    self.passLabel.text = [NSString stringWithFormat:@"闯关分数: %@", passScroe];
+    self.userScroeLabel.text = [NSString stringWithFormat:@"你的分数: %@ %@", userScroe, _stage.unit];
+    self.passLabel.text = [NSString stringWithFormat:@"闯关分数: %@ %@", passScroe, _stage.unit];
     
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundFailDropName];
     

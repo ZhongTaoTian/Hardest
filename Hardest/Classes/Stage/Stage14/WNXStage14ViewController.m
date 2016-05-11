@@ -10,6 +10,7 @@
 #import "WNXStage14DogView.h"
 #import "WNXStage14LineView.h"
 #import <CoreMotion/CoreMotion.h>
+#import "WNXTimeCountView.h"
 
 @interface WNXStage14ViewController ()
 {
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) WNXStage14LineView *lineView;
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (nonatomic, assign) float angle;
+@property (nonatomic, assign) NSTimeInterval scroe;
 
 @property (nonatomic, strong) CADisplayLink *timer;
 
@@ -77,6 +79,7 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weakSelf pushAccelerometer];
                 [weakSelf startRotation];
+                [(WNXTimeCountView *)weakSelf.countScore startCalculateTime];
             });
         }];
     });
@@ -143,19 +146,15 @@
     [self.lineView arrowPromptWithAngle:angle];
     
     if (angle > 0.8 || angle < -0.8) {
+        self.scroe = [(WNXTimeCountView *)self.countScore stopCalculateTime];
         [self.timer invalidate];
         self.timer = nil;
         [self.motionManager stopAccelerometerUpdates];
+        __weak typeof(self) weakSelf = self;
         [self.dogView startDropBoneDirectionIsRight:angle > 0.8 finish:^{
-            
+            [weakSelf showResultControllerWithNewScroe:weakSelf.scroe unit:@"秒" stage:weakSelf.stage isAddScore:YES];
         }];
     }
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.dogView startDropBoneDirectionIsRight:YES finish:^{
-        
-    }];
 }
 
 @end

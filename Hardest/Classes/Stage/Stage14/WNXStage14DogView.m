@@ -15,6 +15,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *boneView;
 //@property (nonatomic, strong) UIDynamicAnimator *animator;
+@property (weak, nonatomic) IBOutlet UIImageView *rightEye;
+@property (weak, nonatomic) IBOutlet UIImageView *leftEye;
+//@property (nonatomic, assign) 
 
 @end
 
@@ -61,18 +64,27 @@
 }
 
 - (void)showBoneViewWithAnimationFinish:(void (^)())finish {
-
+    [UIView animateWithDuration:0.3 animations:^{
+        self.boneView.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        if (finish) {
+            finish();
+        }
+    }];
 }
 
-//- (void)showBoneViewWithAnimationFinish:(void (^)())finish {
-//    [UIView animateWithDuration:0.3 animations:^{
-//        self.boneView.transform = CGAffineTransformIdentity;
-//    } completion:^(BOOL finished) {
-//        if (finish) {
-//            finish();
-//        }
-//    }];
-//}
+- (void)startDropBoneDirectionIsRight:(BOOL)isRight finish:(void (^)())finish {
+    [UIView animateWithDuration:1.5 animations:^{
+        if (isRight) {
+            self.boneView.transform = CGAffineTransformRotate(_boneTrans, -0.9);
+        } else {
+            self.boneView.transform = CGAffineTransformRotate(_boneTrans, 0.9);
+        }
+    } completion:^(BOOL finished) {
+        finish();
+    }];
+}
+
 //
 //- (void)startDropBoneDirectionIsRight:(BOOL)isRight finish:(void (^)())finish {
 //    if (isRight) {
@@ -91,12 +103,12 @@
 //    [collision addItem:self.boneView];
 //    collision.translatesReferenceBoundsIntoBoundary = YES;
 //    [collision setTranslatesReferenceBoundsIntoBoundaryWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-//    
+//
 //    [self.animator addBehavior:gravity];
 //    [self.animator addBehavior:collision];
-//    
+//
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
+//
 //        [self.animator removeBehavior:gravity];
 //        [self.animator removeBehavior:collision];
 //    });
