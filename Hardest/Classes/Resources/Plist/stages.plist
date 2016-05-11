@@ -244,7 +244,7 @@
 		<key>icon</key>
 		<string>select_image16</string>
 		<key>intro</key>
-		<string>左右倾斜您的设备,\n尽可能长时间的使骨头保持平衡!</string>
+		<string>左右倾斜您的设备,\n尽可能长时间的使骨头保持平衡! ***注意用真机调试***</string>
 		<key>max</key>
 		<string>40.0</string>
 		<key>min</key>
