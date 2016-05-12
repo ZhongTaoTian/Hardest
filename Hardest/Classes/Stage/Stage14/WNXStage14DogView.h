@@ -21,4 +21,6 @@
 
 - (void)startDropBoneDirectionIsRight:(BOOL)isRight finish:(void(^)())finish;
 
+- (void)resumeData;
+
 @end

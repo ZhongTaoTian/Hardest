@@ -37,7 +37,7 @@
 - (void)startShakePhoneAnimationWithFinish:(void (^)())finish {
     CAKeyframeAnimation *anim = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.z"];
     anim.values = @[@0, @(M_PI_4 / 3), @0, @(-M_PI_4 / 3), @0];
-    anim.repeatCount = 2;
+    anim.repeatCount = 3;
     anim.duration = 0.35;
     anim.delegate = self;
     [self.phoneIV.layer addAnimation:anim forKey:@"phoneAnimation"];
@@ -64,7 +64,13 @@
 }
 
 - (void)resumeData {
-
+    self.arrowIV.hidden = YES;
+    self.dangerIV.hidden = YES;
+    self.phoneIV.hidden = NO;
+    self.leftArrow.hidden = NO;
+    self.rightArrow.hidden = NO;
+    self.arrowIV.transform = CGAffineTransformIdentity;
+    self.dangerIV.transform = CGAffineTransformIdentity;
 }
 
 @end

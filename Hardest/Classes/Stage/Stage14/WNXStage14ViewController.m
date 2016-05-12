@@ -17,7 +17,6 @@
     int _index;
     int _count;
     BOOL _isToRight;
-    float _speed;
     int _randomTime;
 }
 
@@ -37,15 +36,6 @@
     [super viewDidLoad];
     
     [self buildStageInfo];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    if (self.timer) {
-        [self.timer invalidate];
-        self.timer = nil;
-    }
-    
-    [super viewWillDisappear:animated];
 }
 
 - (void)buildStageInfo {
@@ -85,6 +75,39 @@
     });
 }
 
+- (void)pauseGame {
+    self.timer.paused = YES;
+    [(WNXTimeCountView *)self.countScore pause];
+    [self.motionManager stopAccelerometerUpdates];
+    
+    [super pauseGame];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    
+    [(WNXTimeCountView *)self.countScore resumed];
+    [self pushAccelerometer];
+    self.timer.paused = NO;
+}
+
+- (void)playAgainGame {
+    [(WNXTimeCountView *)self.countScore cleadData];
+    
+    [self.timer invalidate];
+    self.timer = nil;
+    _index = 0;
+    _count = 0;
+    
+    [self.motionManager stopAccelerometerUpdates];
+    
+    [self.dogView resumeData];
+    [self.lineView resumeData];
+    
+    
+    [super playAgainGame];
+}
+
 #pragma mark - 加速计
 - (void)pushAccelerometer {
     self.motionManager.accelerometerUpdateInterval = 0.01;
@@ -113,24 +136,25 @@
 - (void)updateTime {
     _index++;
     
+    float speed;
     if (_index <= 4 * 60) {
-        _speed = 0.2;
+        speed = 0.2;
     } else if (_index <= 8 * 60) {
-        _speed = 0.3;
+        speed = 0.3;
     } else if (_index <= 12 * 60) {
-        _speed = 0.4;
+        speed = 0.4;
     } else if (_index <= 16 * 60) {
-        _speed = 0.5;
+        speed = 0.5;
     } else if (_index <= 20 * 60) {
-        _speed = 0.6;
+        speed = 0.6;
     } else {
-        _speed = 0.7;
+        speed = 0.7;
     }
     _count++;
     if (_isToRight) {
-        self.angle = [self.dogView rotationToRightWithSpeed:_speed];
+        self.angle = [self.dogView rotationToRightWithSpeed:speed];
     } else {
-        self.angle = [self.dogView rotationToLeftWithSpeed:_speed];
+        self.angle = [self.dogView rotationToLeftWithSpeed:speed];
     }
     
     if (_count == (int)_randomTime * 60) {
@@ -142,14 +166,18 @@
 
 - (void)setAngle:(float)angle {
     _angle = angle;
-
+    
     [self.lineView arrowPromptWithAngle:angle];
     
     if (angle > 0.8 || angle < -0.8) {
+        self.view.userInteractionEnabled = NO;
         self.scroe = [(WNXTimeCountView *)self.countScore stopCalculateTime];
+        [self.motionManager stopAccelerometerUpdates];
         [self.timer invalidate];
         self.timer = nil;
-        [self.motionManager stopAccelerometerUpdates];
+        
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundDogbarkTwoName];
+        
         __weak typeof(self) weakSelf = self;
         [self.dogView startDropBoneDirectionIsRight:angle > 0.8 finish:^{
             [weakSelf showResultControllerWithNewScroe:weakSelf.scroe unit:@"秒" stage:weakSelf.stage isAddScore:YES];
