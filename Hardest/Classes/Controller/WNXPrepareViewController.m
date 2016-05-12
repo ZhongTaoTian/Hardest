@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *describeLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMargin;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomMargin;
+@property (weak, nonatomic) IBOutlet UIImageView *loadingIV;
+@property (weak, nonatomic) IBOutlet UIImageView *readyIV;
 
 
 @end
@@ -36,7 +38,13 @@
     if (self.stage) {
         [self initStage];
     }
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.playButton.hidden = YES;
+    self.readyIV.hidden = YES;
+    self.loadingIV.hidden = NO;
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -111,6 +119,9 @@
 - (void)showPlayView {
     __weak __typeof(&*self)weakSelf = self;
     [self.scoreView showScroeViewWithCompletion:^{
+        weakSelf.playButton.hidden = NO;
+        weakSelf.loadingIV.hidden = YES;
+        weakSelf.readyIV.hidden = NO;
         weakSelf.playButton.userInteractionEnabled = YES;
     }];
 }

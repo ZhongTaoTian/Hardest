@@ -372,9 +372,11 @@
                         <outlet property="bottomMargin" destination="DyU-Ou-teN" id="3mm-8g-ZE8"/>
                         <outlet property="describeLabel" destination="6R8-C4-ydA" id="NDo-6H-iew"/>
                         <outlet property="iconImageView" destination="6wJ-Kq-4Ye" id="L10-b6-xgF"/>
+                        <outlet property="loadingIV" destination="Y6K-PR-vWW" id="SAz-tg-bBl"/>
                         <outlet property="number1Label" destination="SGd-Oz-l9P" id="R2p-R8-YBX"/>
                         <outlet property="numberLabel" destination="UUh-gB-T0j" id="UAP-Zl-eHY"/>
                         <outlet property="playButton" destination="Y5C-48-YvF" id="gPl-TL-uIc"/>
+                        <outlet property="readyIV" destination="heY-Ch-lLv" id="33C-EU-H6x"/>
                         <outlet property="scoreView" destination="P6d-qO-itK" id="jHW-3t-8qF"/>
                         <outlet property="topMargin" destination="eBd-wN-Xis" id="Ww5-w9-WOW"/>
                         <outletCollection property="labels" destination="699-yb-2Zw" id="2bv-zc-i9g"/>

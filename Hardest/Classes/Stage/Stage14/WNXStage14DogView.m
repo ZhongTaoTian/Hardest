@@ -84,7 +84,7 @@
 }
 
 - (void)startDropBoneDirectionIsRight:(BOOL)isRight finish:(void (^)())finish {
-    [UIView animateWithDuration:1.5 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         if (isRight) {
             self.boneView.transform = CGAffineTransformRotate(_boneTrans, -0.9);
         } else {
