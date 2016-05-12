@@ -61,6 +61,9 @@
 }
 
 - (void)startCalculateTime {
+    
+    self.transform = CGAffineTransformTranslate(self.transform, 20, 0);
+    
     if (self.timer) {
         [self.timer invalidate];
     }

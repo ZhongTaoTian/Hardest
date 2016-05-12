@@ -89,3 +89,7 @@
 // stage13
 #define kSoundDogbarkOnceName @"16_dogbark01.mp3"
 #define kSoundDogbarkTwoName @"16_dogbark02.mp3"
+
+// stage14
+#define kSoundDropWaterName @"18_water.mp3"
+#define kSoundJumpMixName @"18_jumpMix.mp3"
