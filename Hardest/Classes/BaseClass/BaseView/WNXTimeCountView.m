@@ -61,9 +61,7 @@
 }
 
 - (void)startCalculateTime {
-    
     self.transform = CGAffineTransformTranslate(self.transform, 20, 0);
-    
     if (self.timer) {
         [self.timer invalidate];
     }
@@ -72,6 +70,8 @@
 }
 
 - (NSTimeInterval)stopCalculateTime {
+    self.transform = CGAffineTransformTranslate(self.transform, 0, 0);
+    
     [self.timer invalidate];
     self.timer = nil;
     return _second + _ms / 60.0;

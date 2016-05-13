@@ -260,17 +260,17 @@
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image15.png</string>
+		<string>select_image18</string>
 		<key>intro</key>
-		<string>当力量达到红色区域时点击“拉”！\n分数取决于使用的总力量。</string>
+		<string>以最快速度跨越危险的河!</string>
 		<key>max</key>
-		<string>600.0</string>
+		<string>8.0</string>
 		<key>min</key>
-		<string>500.0</string>
+		<string>10.0</string>
 		<key>title</key>
-		<string>拔\n鼻毛\n!</string>
+		<string>蹦\n蹦\n跳</string>
 		<key>unit</key>
-		<string>分</string>
+		<string>s</string>
 	</dict>
 	<dict>
 		<key>fail</key>

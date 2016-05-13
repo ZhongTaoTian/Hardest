@@ -15,4 +15,8 @@
     return color;
 }
 
++ (instancetype)random {
+    return [UIColor colorWithR:arc4random_uniform(256) g:arc4random_uniform(256) b:arc4random_uniform(256)];
+}
+
 @end

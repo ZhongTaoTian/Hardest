@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WNXStage15RowView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_water01-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="vVt-Ka-7dB">
+                    <rect key="frame" x="29" y="16" width="205" height="68"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_Rwood-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="Mwz-b7-5KZ">
+                    <rect key="frame" x="-20" y="2" width="174" height="87"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_Bwood-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="a5Q-YN-c97">
+                    <rect key="frame" x="171" y="4" width="174" height="87"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_Ywood-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="yHX-17-fSJ">
+                    <rect key="frame" x="69" y="6" width="174" height="87"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_island01-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="LH2-0W-aMQ">
+                    <rect key="frame" x="-15" y="28" width="130" height="69"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_island02-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="XfP-FX-Ssa">
+                    <rect key="frame" x="195" y="4" width="125" height="98"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_stone-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="Sf9-Xj-X3n">
+                    <rect key="frame" x="46" y="34" width="56" height="22"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_stone-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="1W6-Ci-JGb">
+                    <rect key="frame" x="218" y="34" width="56" height="22"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_stone-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="R2h-sK-eED">
+                    <rect key="frame" x="128" y="41" width="56" height="22"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_duck01-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="jLe-Z2-iR7">
+                    <rect key="frame" x="41" y="19" width="43" height="39"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_duck01-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="7Uy-pM-lCZ">
+                    <rect key="frame" x="139" y="19" width="38" height="35"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_duck02-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="HB9-BJ-GzA">
+                    <rect key="frame" x="234" y="35" width="38" height="35"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_crocodile-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="BMC-tV-PQf">
+                    <rect key="frame" x="20" y="26" width="137" height="35"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_crocodile1-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="EYq-XM-8SC">
+                    <rect key="frame" x="169" y="34" width="142" height="36"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_flag-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="K2G-C3-OLZ">
+                    <rect key="frame" x="249" y="-30" width="44" height="73"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="18_caution-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="YAI-i4-22S">
+                    <rect key="frame" x="210" y="-70" width="70" height="73"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="arrowIV" destination="YAI-i4-22S" id="dhC-gc-Ujs"/>
+                <outlet property="flagIV" destination="K2G-C3-OLZ" id="XuN-w2-MgX"/>
+                <outlet property="leftCrocodileIV" destination="BMC-tV-PQf" id="2n7-vg-wok"/>
+                <outlet property="leftDuckIV" destination="jLe-Z2-iR7" id="S23-K1-2p6"/>
+                <outlet property="leftLandIV" destination="LH2-0W-aMQ" id="ZoO-jk-0UZ"/>
+                <outlet property="leftStoneIV" destination="Sf9-Xj-X3n" id="Db2-FF-gUG"/>
+                <outlet property="leftWoodIV" destination="Mwz-b7-5KZ" id="o5L-bB-CdV"/>
+                <outlet property="middleDuckIV" destination="7Uy-pM-lCZ" id="pOu-bO-rdp"/>
+                <outlet property="middleStoneIV" destination="R2h-sK-eED" id="ipN-tb-S3d"/>
+                <outlet property="middleWoodIV" destination="yHX-17-fSJ" id="u0S-hf-UMk"/>
+                <outlet property="rightCrocodileIV" destination="EYq-XM-8SC" id="Od6-yR-hi1"/>
+                <outlet property="rightDuckIV" destination="HB9-BJ-GzA" id="2de-E4-rnm"/>
+                <outlet property="rightLandIV" destination="XfP-FX-Ssa" id="Xts-3l-bxJ"/>
+                <outlet property="rightStoneIV" destination="1W6-Ci-JGb" id="NKw-ln-FNe"/>
+                <outlet property="rightWoodIV" destination="a5Q-YN-c97" id="OcJ-1m-hRI"/>
+                <outlet property="waveIV" destination="vVt-Ka-7dB" id="PYJ-u8-LEP"/>
+            </connections>
+            <point key="canvasLocation" x="675" y="601"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="18_Bwood-iphone4" width="288" height="146"/>
+        <image name="18_Rwood-iphone4" width="288" height="146"/>
+        <image name="18_Ywood-iphone4" width="288" height="146"/>
+        <image name="18_caution-iphone4" width="92" height="126"/>
+        <image name="18_crocodile-iphone4" width="310" height="75"/>
+        <image name="18_crocodile1-iphone4" width="310" height="75"/>
+        <image name="18_duck01-iphone4" width="76" height="74"/>
+        <image name="18_duck02-iphone4" width="85" height="90"/>
+        <image name="18_flag-iphone4" width="115" height="252"/>
+        <image name="18_island01-iphone4" width="277" height="138"/>
+        <image name="18_island02-iphone4" width="234" height="187"/>
+        <image name="18_stone-iphone4" width="109" height="36"/>
+        <image name="18_water01-iphone4" width="381" height="93"/>
+    </resources>
+</document>

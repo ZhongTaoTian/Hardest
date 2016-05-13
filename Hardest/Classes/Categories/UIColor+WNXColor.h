@@ -12,4 +12,6 @@
 
 + (instancetype)colorWithR:(int)red g:(int)green b:(int)blue;
 
++ (instancetype)random;
+
 @end
