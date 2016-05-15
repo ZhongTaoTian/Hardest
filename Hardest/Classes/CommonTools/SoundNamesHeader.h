@@ -86,10 +86,14 @@
 #define kSoundEggHitName @"01_eggHit.mp3"
 #define kSoundEggYearName @"01_yeah.mp3"
 
-// stage13
+// stage14
 #define kSoundDogbarkOnceName @"16_dogbark01.mp3"
 #define kSoundDogbarkTwoName @"16_dogbark02.mp3"
 
-// stage14
+// stage15
 #define kSoundDropWaterName @"18_water.mp3"
 #define kSoundJumpMixName @"18_jumpMix.mp3"
+
+// stage16
+#define kSoundManDownName @"21_down.mp3"
+#define kSoundManUpName @"21_up.mp3"

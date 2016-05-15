@@ -278,17 +278,17 @@
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image16.png</string>
+		<string>select_image21</string>
 		<key>intro</key>
-		<string>左右倾斜您的设备，\n尽可能长时间的使骨头保持平衡！</string>
+		<string>以最快速度交替点击左右.\n尽可能在6秒内完成多次的引体向上!</string>
 		<key>max</key>
-		<string>40.00</string>
+		<string>90</string>
 		<key>min</key>
-		<string>12.00</string>
+		<string>70</string>
 		<key>title</key>
-		<string>狗\n和\n骨头</string>
+		<string>引体向上\n超级\n英雄</string>
 		<key>unit</key>
-		<string>秒</string>
+		<string>PTS</string>
 	</dict>
 	<dict>
 		<key>fail</key>
