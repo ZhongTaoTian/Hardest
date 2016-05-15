@@ -106,6 +106,8 @@
         self.scroeLabel.font = [UIFont fontWithName:@"TransformersMovie" size:95];
     } else if ([NSString stringWithFormat:stage.format, scroe].length == 4) {
         self.scroeLabel.font = [UIFont fontWithName:@"TransformersMovie" size:80];
+    } else if ([NSString stringWithFormat:stage.format, scroe].length >= 5) {
+        self.scroeLabel.font = [UIFont fontWithName:@"TransformersMovie" size:75];
     }
         
     if (isAddScroe) {

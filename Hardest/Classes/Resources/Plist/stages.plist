@@ -258,7 +258,7 @@
 		<key>fail</key>
 		<string>时间已到!   你用了太多时间来回答这个问题.</string>
 		<key>format</key>
-		<string>%.f</string>
+		<string>%.2f</string>
 		<key>icon</key>
 		<string>select_image18</string>
 		<key>intro</key>
@@ -276,7 +276,7 @@
 		<key>fail</key>
 		<string>时间已到!   你用了太多时间来回答这个问题.</string>
 		<key>format</key>
-		<string>%.1f</string>
+		<string>%.f</string>
 		<key>icon</key>
 		<string>select_image16.png</string>
 		<key>intro</key>

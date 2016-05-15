@@ -8,7 +8,7 @@
 
 #import "WNXStage15ViewController.h"
 #import "WNXStage15View.h"
-
+#import "WNXTimeCountView.h"
 
 @interface WNXStage15ViewController ()
 
@@ -29,16 +29,66 @@
     bgView.image = [UIImage imageNamed:@"stage36_bg-iphone4"];
     [self.view insertSubview:bgView belowSubview:self.redButton];
     
-    self.jumpView = [WNXStage15View new];
-    [self.view insertSubview:self.jumpView belowSubview:self.redButton];
+    [self buildJumpView];
     
-    [self.redButton addTarget:self action:@selector(aaa) forControlEvents:UIControlEventTouchDown];
+    [self.redButton addTarget:self action:@selector(jump:) forControlEvents:UIControlEventTouchDown];
+    [self.yellowButton addTarget:self action:@selector(jump:) forControlEvents:UIControlEventTouchDown];
+    [self.blueButton addTarget:self action:@selector(jump:) forControlEvents:UIControlEventTouchDown];
     
     [self bringPauseAndPlayAgainToFront];
 }
 
-- (void)aaa {
-    [self.jumpView jumpToNextRowWithIndex:0];
+- (void)buildJumpView {
+    __weak typeof(self) weakSelf = self;
+    
+    self.jumpView = [WNXStage15View new];
+    [self.view insertSubview:self.jumpView belowSubview:self.redButton];
+    
+    self.jumpView.buttonActivate = ^{
+        [weakSelf setButtonsIsActivate:YES];
+    };
+    
+    self.jumpView.passStage = ^{
+        weakSelf.view.userInteractionEnabled = NO;
+        NSTimeInterval scroe = [(WNXTimeCountView *)weakSelf.countScore stopCalculateTime];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf showResultControllerWithNewScroe:scroe unit:@"s" stage:weakSelf.stage isAddScore:YES];
+        });
+    };
+}
+
+#pragma mark - Super Method
+- (void)readyGoAnimationFinish {
+    [super readyGoAnimationFinish];
+
+    [(WNXTimeCountView *)self.countScore startCalculateTime];
+}
+
+- (void)pauseGame {
+    [(WNXTimeCountView *)self.countScore pause];
+    
+    [super pauseGame];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    [(WNXTimeCountView *)self.countScore resumed];
+}
+
+- (void)playAgainGame {
+    [(WNXTimeCountView *)self.countScore cleadData];
+    [self.jumpView removeFromSuperview];
+    self.jumpView = nil;
+    
+    [self buildJumpView];
+    
+    [super playAgainGame];
+}
+
+#pragma mark - Action
+- (void)jump:(UIButton *)sender {
+    [self setButtonsIsActivate:NO];
+    [self.jumpView jumpToNextRowWithIndex:(int)sender.tag];
 }
 
 @end

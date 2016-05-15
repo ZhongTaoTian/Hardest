@@ -61,7 +61,9 @@
 }
 
 - (void)startCalculateTime {
-    self.transform = CGAffineTransformTranslate(self.transform, 20, 0);
+    [UIView animateWithDuration:0.1 animations:^{
+        self.transform = CGAffineTransformTranslate(self.transform, 20, 5);
+    }];
     if (self.timer) {
         [self.timer invalidate];
     }
@@ -70,7 +72,9 @@
 }
 
 - (NSTimeInterval)stopCalculateTime {
-    self.transform = CGAffineTransformTranslate(self.transform, 0, 0);
+    [UIView animateWithDuration:0.1 animations:^{
+        self.transform = CGAffineTransformTranslate(self.transform, -20, -5);
+    }];
     
     [self.timer invalidate];
     self.timer = nil;
@@ -78,10 +82,16 @@
 }
 
 - (void)pause {
+    [UIView animateWithDuration:0.1 animations:^{
+        self.transform = CGAffineTransformTranslate(self.transform, -20, -5);
+    }];
     self.timer.paused = YES;
 }
 
 - (NSTimeInterval)pasueTime {
+    [UIView animateWithDuration:0.1 animations:^{
+        self.transform = CGAffineTransformTranslate(self.transform, 20, 5);
+    }];
     NSTimeInterval oneTime = _onceSecond + _onceMS / 60.0;
     _onceSecond = 0;
     _onceMS = 0;
@@ -91,12 +101,13 @@
 
 - (void)resumed {
     self.timer.paused = NO;
-    
 }
 
 - (void)cleadData {
     [self.timer invalidate];
     self.timer = nil;
+    
+    self.transform = CGAffineTransformMakeRotation(-M_PI_2);;
     
     _ms = 0;
     _second = 0;

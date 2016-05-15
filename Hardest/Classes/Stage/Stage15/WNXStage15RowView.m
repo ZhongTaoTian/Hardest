@@ -35,9 +35,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *waveIV;
-@property (weak, nonatomic) IBOutlet UIImageView *leftWoodIV;
-@property (weak, nonatomic) IBOutlet UIImageView *rightWoodIV;
-@property (weak, nonatomic) IBOutlet UIImageView *middleWoodIV;
+
 @property (weak, nonatomic) IBOutlet UIImageView *leftLandIV;
 @property (weak, nonatomic) IBOutlet UIImageView *rightLandIV;
 @property (weak, nonatomic) IBOutlet UIImageView *leftStoneIV;
@@ -54,6 +52,18 @@
 @end
 
 @implementation WNXStage15RowView
+
+- (void)awakeFromNib {
+    self.leftWoodIV.animationImages = @[[UIImage imageNamed:@"18_Rwood_down-iphone4"]];
+    self.leftWoodIV.animationDuration = 0.2;
+    self.leftWoodIV.animationRepeatCount = 1;
+    self.middleWoodIV.animationImages = @[[UIImage imageNamed:@"18_Ywood_down-iphone4"]];
+    self.middleWoodIV.animationDuration = 0.2;
+    self.middleWoodIV.animationRepeatCount = 1;
+    self.rightWoodIV.animationImages = @[[UIImage imageNamed:@"18_Bwood_down-iphone4"]];
+    self.rightWoodIV.animationDuration = 0.2;
+    self.rightWoodIV.animationRepeatCount = 1;
+}
 
 - (void)setMiddleDuckAndStoneStatus {
     _middleHasDuck = arc4random_uniform(2);
@@ -160,7 +170,7 @@
                 [self setMiddleDuckAndStoneStatus];
             } else {
                 // 右边有木块 左边没有陆地
-                _rightHasCrocodile = kRandomBoolWithChance(kHasDuckChance);
+                _leftHasCrocodile = kRandomBoolWithChance(kHasDuckChance);
                 if (_leftHasCrocodile) {
                     self.leftCrocodileIV.hidden = NO;
                     
@@ -191,6 +201,16 @@
     }
     
     self.waveIV.hidden = !showWave;
+}
+
+- (void)startWoodAnimation {
+    if (!self.leftWoodIV.hidden) {
+        [self.leftWoodIV startAnimating];
+    } else if (!self.middleWoodIV.hidden) {
+        [self.middleWoodIV startAnimating];
+    } else {
+        [self.rightWoodIV startAnimating];
+    }
 }
 
 @end
