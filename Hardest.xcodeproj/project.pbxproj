@@ -118,6 +118,8 @@
 		FAC8C1C21CAEC38E00FD8D0E /* WNXStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC8C1C11CAEC38E00FD8D0E /* WNXStateView.m */; };
 		FAC8C1C41CAEC3F200FD8D0E /* WNXStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC8C1C31CAEC3F200FD8D0E /* WNXStateView.xib */; };
 		FAD0DAD31CE858EC002E0E09 /* WNXStage16ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0DAD21CE858EC002E0E09 /* WNXStage16ViewController.m */; };
+		FAD0DAD61CE8AAAA002E0E09 /* WNXStage16PeopleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0DAD51CE8AAAA002E0E09 /* WNXStage16PeopleView.m */; };
+		FAD0DAD81CE8AC1A002E0E09 /* WNXStage16PeopleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD0DAD71CE8AC1A002E0E09 /* WNXStage16PeopleView.xib */; };
 		FAEE91901C95437A0093FBC0 /* WNXPauseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE918E1C95437A0093FBC0 /* WNXPauseViewController.m */; };
 		FAEE91911C95437A0093FBC0 /* WNXPauseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE918F1C95437A0093FBC0 /* WNXPauseViewController.xib */; };
 		FAF936DC1CCB473F0026E06F /* WNXStage10ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF936DB1CCB473F0026E06F /* WNXStage10ViewController.m */; };
@@ -340,6 +342,9 @@
 		FAC8C1C31CAEC3F200FD8D0E /* WNXStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXStateView.xib; sourceTree = "<group>"; };
 		FAD0DAD11CE858EC002E0E09 /* WNXStage16ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage16ViewController.h; sourceTree = "<group>"; };
 		FAD0DAD21CE858EC002E0E09 /* WNXStage16ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage16ViewController.m; sourceTree = "<group>"; };
+		FAD0DAD41CE8AAAA002E0E09 /* WNXStage16PeopleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage16PeopleView.h; sourceTree = "<group>"; };
+		FAD0DAD51CE8AAAA002E0E09 /* WNXStage16PeopleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage16PeopleView.m; sourceTree = "<group>"; };
+		FAD0DAD71CE8AC1A002E0E09 /* WNXStage16PeopleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXStage16PeopleView.xib; sourceTree = "<group>"; };
 		FAEE918D1C95437A0093FBC0 /* WNXPauseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXPauseViewController.h; sourceTree = "<group>"; };
 		FAEE918E1C95437A0093FBC0 /* WNXPauseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXPauseViewController.m; sourceTree = "<group>"; };
 		FAEE918F1C95437A0093FBC0 /* WNXPauseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXPauseViewController.xib; sourceTree = "<group>"; };
@@ -950,6 +955,9 @@
 			children = (
 				FAD0DAD11CE858EC002E0E09 /* WNXStage16ViewController.h */,
 				FAD0DAD21CE858EC002E0E09 /* WNXStage16ViewController.m */,
+				FAD0DAD41CE8AAAA002E0E09 /* WNXStage16PeopleView.h */,
+				FAD0DAD51CE8AAAA002E0E09 /* WNXStage16PeopleView.m */,
+				FAD0DAD71CE8AC1A002E0E09 /* WNXStage16PeopleView.xib */,
 			);
 			path = Stage16;
 			sourceTree = "<group>";
@@ -1145,6 +1153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA63211F1CB697F4006F8714 /* WNXStage06PeolpeView.xib in Resources */,
+				FAD0DAD81CE8AC1A002E0E09 /* WNXStage16PeopleView.xib in Resources */,
 				B30886081C89386800AE83B2 /* arial.ttf in Resources */,
 				B34106D51C8826EB005969C8 /* WNXScoreboardCountView.xib in Resources */,
 				B3E561971C7C6F650081C720 /* WNXLaunchAnimationViewController.xib in Resources */,
@@ -1244,6 +1253,7 @@
 				B3FBDC7B1CAD158C009840C5 /* WNXStage04ViewController.m in Sources */,
 				B34333AC1C8535340086EF87 /* WNXPrepareViewController.m in Sources */,
 				B3A7875D1CD0CE4E005FC3EA /* WNXStage11View.m in Sources */,
+				FAD0DAD61CE8AAAA002E0E09 /* WNXStage16PeopleView.m in Sources */,
 				FA692DB01CB2A91F003D18F9 /* WNXIceView.m in Sources */,
 				B30886051C892A8C00AE83B2 /* WNXCountDownLabel.m in Sources */,
 				B343339F1C842D1A0086EF87 /* WNXStageInfoManager.m in Sources */,

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WNXStage16PeopleView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="462"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="21_downman-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="ltr-Bj-H5C">
+                    <rect key="frame" x="61" y="247" width="200" height="248"/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="21_upman-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="Vam-H2-DVr">
+                    <rect key="frame" x="60" y="173" width="200" height="331"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="21_hand-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="fOO-Yv-SM6">
+                    <rect key="frame" x="0.0" y="253" width="320" height="26"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="21_blog-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="1Yn-AP-Xgw">
+                    <rect key="frame" x="221" y="317" width="140" height="91"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="downIV" destination="Vam-H2-DVr" id="c8n-md-drg"/>
+                <outlet property="upIV" destination="ltr-Bj-H5C" id="u1S-yI-ZRd"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="21_blog-iphone4" width="263" height="206"/>
+        <image name="21_downman-iphone4" width="446" height="541"/>
+        <image name="21_hand-iphone4" width="720" height="50"/>
+        <image name="21_upman-iphone4" width="444" height="689"/>
+    </resources>
+</document>

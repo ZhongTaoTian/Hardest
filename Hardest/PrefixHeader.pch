@@ -17,6 +17,8 @@
 #define kAuthorSineWeiBoUrlString @"http://weibo.com/tianzhongtao"
 #define kAuthorBlogURLString @"http://www.jianshu.com/users/5fe7513c7a57/latest_articles"
 
+#define kPauseViewControllerClickBackToMainViewController @"kPauseViewControllerClickBackToMainViewController"
+
 /* Font */
 #define kFontSize 70
 

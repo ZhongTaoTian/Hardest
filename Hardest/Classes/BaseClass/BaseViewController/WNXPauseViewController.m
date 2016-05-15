@@ -54,6 +54,7 @@
             [self rightWithTag:1];
             break;
         case 20:
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPauseViewControllerClickBackToMainViewController object:nil];
             [self.navigationController popToRootViewControllerAnimated:NO];
             break;
         case 21:

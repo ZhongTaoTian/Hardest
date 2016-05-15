@@ -35,7 +35,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kPauseViewControllerClickBackToMainViewController object:nil];
+    
     [self buildStageInfo];
+}
+
+- (void)removeTimer {
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (void)buildStageInfo {
@@ -162,6 +169,10 @@
         _count = 0;
         _randomTime = arc4random_uniform(3) + 3 + arc4random_uniform(10) / 10.0;
     }
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setAngle:(float)angle {
