@@ -8,14 +8,19 @@
 
 #import "WNXPowerView.h"
 
+@interface WNXPowerView ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *arrowIV;
+@property (weak, nonatomic) IBOutlet UIImageView *redIV;
+@property (weak, nonatomic) IBOutlet UIImageView *blackIV;
+@property (weak, nonatomic) IBOutlet UIImageView *maxIV;
+@property (weak, nonatomic) IBOutlet UIView *lineView1;
+@property (weak, nonatomic) IBOutlet UIView *lineView2;
+
+@end
+
 @implementation WNXPowerView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+
 
 @end

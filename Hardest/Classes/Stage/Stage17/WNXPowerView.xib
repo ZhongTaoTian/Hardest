@@ -7,10 +7,53 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WNXPowerView">
+            <rect key="frame" x="0.0" y="0.0" width="93" height="327"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="15_strength01-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="Dhv-3h-WWz">
+                    <rect key="frame" x="0.0" y="0.0" width="93" height="327"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="15_strength06-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="tY0-7O-H9C">
+                    <rect key="frame" x="0.0" y="303" width="93" height="23"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="15_strength03-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="8iL-QR-vLr">
+                    <rect key="frame" x="0.0" y="56" width="93" height="42"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="15_strength02-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="7RE-MI-vqs">
+                    <rect key="frame" x="0.0" y="8" width="93" height="44"/>
+                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pn5-o6-mLW">
+                    <rect key="frame" x="7" y="52" width="79" height="5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6IU-JR-dpd">
+                    <rect key="frame" x="7" y="99" width="79" height="5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="15_strength05-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="hv5-KE-V7d">
+                    <rect key="frame" x="18" y="65" width="57" height="24"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="arrowIV" destination="tY0-7O-H9C" id="szk-zV-f9S"/>
+                <outlet property="blackIV" destination="7RE-MI-vqs" id="QU4-6y-bkV"/>
+                <outlet property="lineView1" destination="pn5-o6-mLW" id="dCs-U3-YxK"/>
+                <outlet property="lineView2" destination="6IU-JR-dpd" id="WKk-Qb-CEC"/>
+                <outlet property="maxIV" destination="hv5-KE-V7d" id="zHo-JQ-Dep"/>
+                <outlet property="redIV" destination="8iL-QR-vLr" id="Ufl-Ny-M2A"/>
+            </connections>
+            <point key="canvasLocation" x="456.5" y="415.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="15_strength01-iphone4" width="218" height="666"/>
+        <image name="15_strength02-iphone4" width="218" height="116"/>
+        <image name="15_strength03-iphone4" width="218" height="116"/>
+        <image name="15_strength05-iphone4" width="113" height="58"/>
+        <image name="15_strength06-iphone4" width="211" height="54"/>
+    </resources>
 </document>

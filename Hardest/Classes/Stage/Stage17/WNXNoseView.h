@@ -10,4 +10,6 @@
 
 @interface WNXNoseView : UIView
 
+- (void)showPullAnimationWithIsPullOut:(BOOL)pullOut score:(int)score finish:(void(^)())finish;
+
 @end
