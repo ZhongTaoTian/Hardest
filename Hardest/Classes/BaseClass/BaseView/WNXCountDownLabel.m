@@ -37,6 +37,7 @@ typedef void(^Completion)(void);
         } else {
             self.font = [UIFont systemFontOfSize:size];
         }
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
     }
     
@@ -50,6 +51,12 @@ typedef void(^Completion)(void);
 - (void)removeTimer {
     [self.timer invalidate];
     self.timer = nil;
+}
+
+- (void)setTextColor:(UIColor *)textColor borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth {
+    self.textColor = textColor;
+    [self setTextStorkeWidth:borderWidth];
+    [self setBorderDrawColor:borderColor];
 }
 
 - (void)clean {

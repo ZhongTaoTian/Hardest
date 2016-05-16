@@ -122,6 +122,12 @@
         info14.unlock = YES;
         [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info14];
         
+        WNXStageInfo *info15 = [[WNXStageInfo alloc] init];
+        info15.rank = @"a";
+        info15.num = 15;
+        info15.unlock = YES;
+        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info15];
+        
     };
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

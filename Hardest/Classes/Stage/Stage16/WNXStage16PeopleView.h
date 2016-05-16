@@ -12,4 +12,6 @@
 
 - (void)ullUpsWithIndex:(NSInteger)index;
 
+- (void)resumeData;
+
 @end

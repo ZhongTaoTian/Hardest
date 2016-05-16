@@ -77,7 +77,7 @@ typedef NS_ENUM(NSInteger, WNXStage15PeoplePositonType) {
     
     BOOL result = NO;
     
-    WNXStage15RowView *nextRow = [self viewWithTag:1000 + _rowCount];
+    WNXStage15RowView *nextRow = (WNXStage15RowView *)[self viewWithTag:1000 + _rowCount];
     _tmpNextRow = nextRow;
     if (index == 0 && !nextRow.leftWoodIV.hidden) {
         result = YES;

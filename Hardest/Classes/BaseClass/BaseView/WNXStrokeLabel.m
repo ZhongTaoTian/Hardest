@@ -11,6 +11,7 @@
 @interface WNXStrokeLabel ()
 
 @property (nonatomic, assign) CGFloat storwidth;
+@property (nonatomic, strong) UIColor *borderDrawColor;
 
 @end
 
@@ -19,6 +20,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.storwidth = 6;
+        self.borderDrawColor = [UIColor blackColor];
     }
     
     return self;
@@ -34,7 +36,7 @@
     CGContextSetLineJoin(c, kCGLineJoinRound);
     
     CGContextSetTextDrawingMode(c, kCGTextStroke);
-    self.textColor = [UIColor blackColor];
+    self.textColor = self.borderDrawColor;
     [super drawTextInRect:rect];
     
     CGContextSetTextDrawingMode(c, kCGTextFill);
@@ -46,7 +48,12 @@
 }
 
 - (void)setTextStorkeWidth:(CGFloat)width {
-    self.storwidth = width;
+    _storwidth = width;
+    [self setNeedsDisplay];
+}
+
+- (void)setBorderDrawColor:(UIColor *)borderColor {
+    _borderDrawColor = borderColor;
     [self setNeedsDisplay];
 }
 

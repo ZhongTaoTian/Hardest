@@ -20,12 +20,19 @@
 
 - (void)ullUpsWithIndex:(NSInteger)index {
     if (index == 1) {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundManDownName];
         self.upIV.hidden = YES;
         self.downIV.hidden = NO;
     } else {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundManUpName];
         self.upIV.hidden = NO;
         self.downIV.hidden = YES;
     }
+}
+
+- (void)resumeData {
+    self.upIV.hidden = NO;
+    self.downIV.hidden = YES;
 }
 
 @end
