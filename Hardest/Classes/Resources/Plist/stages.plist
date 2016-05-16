@@ -292,21 +292,21 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>时间已到!   你用了太多时间点击了 &quot;拉&quot; 按钮.</string>
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image17.png</string>
+		<string>select_image15</string>
 		<key>intro</key>
-		<string>按照哪边有最大分数，\n以最快速度点击左或右按钮！</string>
+		<string>当力量达到红色区域点击&quot;拉&quot;!\n分数取决于使用的总力量!</string>
 		<key>max</key>
-		<string>300.0</string>
+		<string>300</string>
 		<key>min</key>
-		<string>600.0</string>
+		<string>600</string>
 		<key>title</key>
-		<string>我\n讨厌\n分数！</string>
+		<string>拔\n鼻毛\n！</string>
 		<key>unit</key>
-		<string>毫秒</string>
+		<string>PTS</string>
 	</dict>
 	<dict>
 		<key>fail</key>

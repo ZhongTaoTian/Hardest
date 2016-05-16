@@ -24,6 +24,14 @@
 #import "WNXStage14ViewController.h"
 #import "WNXStage15ViewController.h"
 #import "WNXStage16ViewController.h"
+#import "WNXStage17ViewController.h"
+//#import "WNXStage18ViewController.h"
+//#import "WNXStage19ViewController.h"
+//#import "WNXStage20ViewController.h"
+//#import "WNXStage21ViewController.h"
+//#import "WNXStage22ViewController.h"
+//#import "WNXStage23ViewController.h"
+//#import "WNXStage24ViewController.h"
 
 @implementation WNXGameControllerViewManager
 
@@ -126,6 +134,12 @@
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeReplaceClick;
             gameVC.scoreboardType = WNXScoreboardTypeCountPTS;
+            break;
+        case 17:
+            gameVC = [WNXStage17ViewController new];
+            gameVC.stage = stage;
+            gameVC.guideType = WNXGameGuideTypeNone;
+            gameVC.scoreboardType = WNXScoreboardTypeNone;
             break;
         default:
             break;

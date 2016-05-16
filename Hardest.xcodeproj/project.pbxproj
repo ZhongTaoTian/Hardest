@@ -28,6 +28,11 @@
 		B32C1E5D1C7C4DF600B2C577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B32C1E5C1C7C4DF600B2C577 /* Assets.xcassets */; };
 		B32C1E6B1C7C4DF600B2C577 /* HardestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B32C1E6A1C7C4DF600B2C577 /* HardestTests.m */; };
 		B32C1E761C7C4DF600B2C577 /* HardestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B32C1E751C7C4DF600B2C577 /* HardestUITests.m */; };
+		B331F6181CE997FD008DE83A /* WNXStage17ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F6171CE997FD008DE83A /* WNXStage17ViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B331F61B1CE9A3F4008DE83A /* WNXNoseView.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F61A1CE9A3F4008DE83A /* WNXNoseView.m */; settings = {ASSET_TAGS = (); }; };
+		B331F61D1CE9BF8F008DE83A /* WNXNoseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331F61C1CE9BF8F008DE83A /* WNXNoseView.xib */; settings = {ASSET_TAGS = (); }; };
+		B331F6261CE9C8CF008DE83A /* WNXPowerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F6251CE9C8CF008DE83A /* WNXPowerView.m */; settings = {ASSET_TAGS = (); }; };
+		B331F6281CE9C8DD008DE83A /* WNXPowerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331F6271CE9C8DD008DE83A /* WNXPowerView.xib */; settings = {ASSET_TAGS = (); }; };
 		B34106D31C8826DD005969C8 /* WNXScoreboardCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34106D21C8826DD005969C8 /* WNXScoreboardCountView.m */; };
 		B34106D51C8826EB005969C8 /* WNXScoreboardCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34106D41C8826EB005969C8 /* WNXScoreboardCountView.xib */; };
 		B343339C1C8424560086EF87 /* WNXStageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B343339B1C8424560086EF87 /* WNXStageInfo.m */; };
@@ -184,6 +189,14 @@
 		B32C1E711C7C4DF600B2C577 /* HardestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HardestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32C1E751C7C4DF600B2C577 /* HardestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HardestUITests.m; sourceTree = "<group>"; };
 		B32C1E771C7C4DF600B2C577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B331F6161CE997FD008DE83A /* WNXStage17ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage17ViewController.h; sourceTree = "<group>"; };
+		B331F6171CE997FD008DE83A /* WNXStage17ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage17ViewController.m; sourceTree = "<group>"; };
+		B331F6191CE9A3F4008DE83A /* WNXNoseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXNoseView.h; sourceTree = "<group>"; };
+		B331F61A1CE9A3F4008DE83A /* WNXNoseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXNoseView.m; sourceTree = "<group>"; };
+		B331F61C1CE9BF8F008DE83A /* WNXNoseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXNoseView.xib; sourceTree = "<group>"; };
+		B331F6241CE9C8CF008DE83A /* WNXPowerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXPowerView.h; sourceTree = "<group>"; };
+		B331F6251CE9C8CF008DE83A /* WNXPowerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXPowerView.m; sourceTree = "<group>"; };
+		B331F6271CE9C8DD008DE83A /* WNXPowerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXPowerView.xib; sourceTree = "<group>"; };
 		B34106D11C8826DD005969C8 /* WNXScoreboardCountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXScoreboardCountView.h; sourceTree = "<group>"; };
 		B34106D21C8826DD005969C8 /* WNXScoreboardCountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXScoreboardCountView.m; sourceTree = "<group>"; };
 		B34106D41C8826EB005969C8 /* WNXScoreboardCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXScoreboardCountView.xib; sourceTree = "<group>"; };
@@ -965,6 +978,14 @@
 		B3FBDC711CAD1421009840C5 /* Stage17 */ = {
 			isa = PBXGroup;
 			children = (
+				B331F6161CE997FD008DE83A /* WNXStage17ViewController.h */,
+				B331F6171CE997FD008DE83A /* WNXStage17ViewController.m */,
+				B331F6191CE9A3F4008DE83A /* WNXNoseView.h */,
+				B331F61A1CE9A3F4008DE83A /* WNXNoseView.m */,
+				B331F61C1CE9BF8F008DE83A /* WNXNoseView.xib */,
+				B331F6241CE9C8CF008DE83A /* WNXPowerView.h */,
+				B331F6251CE9C8CF008DE83A /* WNXPowerView.m */,
+				B331F6271CE9C8DD008DE83A /* WNXPowerView.xib */,
 			);
 			path = Stage17;
 			sourceTree = "<group>";
@@ -1163,6 +1184,8 @@
 				FAEE91911C95437A0093FBC0 /* WNXPauseViewController.xib in Resources */,
 				B32C1E5D1C7C4DF600B2C577 /* Assets.xcassets in Resources */,
 				B35E97F71CD218F8003AF56E /* Default-568h@2x.png in Resources */,
+				B331F61D1CE9BF8F008DE83A /* WNXNoseView.xib in Resources */,
+				B331F6281CE9C8DD008DE83A /* WNXPowerView.xib in Resources */,
 				B35E97F81CD218F8003AF56E /* Default.png in Resources */,
 				B3D148051C9FFFA300ABCBE4 /* WNXCountTimeView.xib in Resources */,
 				B35E97F91CD218F8003AF56E /* Default@2x.png in Resources */,
@@ -1231,6 +1254,8 @@
 				B30A2E6C1CB3CF5E00A3DA68 /* WNXStage06ViewController.m in Sources */,
 				B3EF93CE1C90345E006C3E42 /* WNXFeatherView.m in Sources */,
 				B30886171C895B6500AE83B2 /* WNXFootView.m in Sources */,
+				B331F61B1CE9A3F4008DE83A /* WNXNoseView.m in Sources */,
+				B331F6261CE9C8CF008DE83A /* WNXPowerView.m in Sources */,
 				FAD0DAD31CE858EC002E0E09 /* WNXStage16ViewController.m in Sources */,
 				B3F29D801CE0A95D00049FA7 /* WNXStage14DogView.m in Sources */,
 				B3F29D7D1CE09BEB00049FA7 /* WNXStage14ViewController.m in Sources */,
@@ -1280,6 +1305,7 @@
 				B384CD421C7FF97C008AFA9E /* WNXBackViewController.m in Sources */,
 				B3EEACF41C7C61EB00992B34 /* WNXRootViewController.m in Sources */,
 				B3A7876A1CD1ACA1005FC3EA /* WNXSubjectView.m in Sources */,
+				B331F6181CE997FD008DE83A /* WNXStage17ViewController.m in Sources */,
 				B39AE1911CB9151A007F7554 /* WNXBreakGlassView.m in Sources */,
 				B32C1E521C7C4DF600B2C577 /* main.m in Sources */,
 				FA9F11631CA814A7002D2064 /* WNXTwoButtonViewController.m in Sources */,
