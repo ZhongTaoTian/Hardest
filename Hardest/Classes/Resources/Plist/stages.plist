@@ -300,9 +300,9 @@
 		<key>intro</key>
 		<string>当力量达到红色区域点击&quot;拉&quot;!\n分数取决于使用的总力量!</string>
 		<key>max</key>
-		<string>300</string>
-		<key>min</key>
 		<string>600</string>
+		<key>min</key>
+		<string>300</string>
 		<key>title</key>
 		<string>拔\n鼻毛\n！</string>
 		<key>unit</key>

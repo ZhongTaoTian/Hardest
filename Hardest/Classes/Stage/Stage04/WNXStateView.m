@@ -26,15 +26,23 @@
     switch (type) {
         case WNXResultStateTypeGood:
             self.stateImageView.image = [UIImage imageNamed:@"00_good-iphone4"];
+            self.circleImageView.image = [UIImage imageNamed:@"00_circle-iphone4"];
             break;
         case WNXResultStateTypeGreat:
             self.stateImageView.image = [UIImage imageNamed:@"00_great-iphone4"];
+            self.circleImageView.image = [UIImage imageNamed:@"00_circle-iphone4"];
             break;
         case WNXResultStateTypeOK:
             self.stateImageView.image = [UIImage imageNamed:@"00_okay-iphone4"];
+            self.circleImageView.image = [UIImage imageNamed:@"00_circle-iphone4"];
             break;
         case WNXResultStateTypePerfect:
             self.stateImageView.image = [UIImage imageNamed:@"00_perfect-iphone4"];
+            self.circleImageView.image = [UIImage imageNamed:@"00_circle-iphone4"];
+            break;
+        case WNXResultStateTypeBad:
+            self.stateImageView.image = [UIImage imageNamed:@"00_bad-iphone4"];
+            self.circleImageView.image = [UIImage imageNamed:@"00_cross-iphone4"];
             break;
         default:
             break;
@@ -56,6 +64,11 @@
             break;
         case WNXResultStateTypePerfect:
             [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundPerfectName];
+        case WNXResultStateTypeBad:
+        {
+            NSString *badName = [NSString stringWithFormat:@"instantFail0%d", arc4random_uniform(3) + 2];
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:badName];
+        }
             break;
         default:
             break;
@@ -84,6 +97,12 @@
             break;
         case WNXResultStateTypePerfect:
             [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundPerfectName];
+            break;
+        case WNXResultStateTypeBad:
+        {
+            NSString *badName = [NSString stringWithFormat:@"instantFail0%d.mp3", arc4random_uniform(3) + 2];
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:badName];
+        }
             break;
         default:
             break;

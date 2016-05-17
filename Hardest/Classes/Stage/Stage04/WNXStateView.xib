@@ -22,8 +22,8 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="circleImageView" destination="4E6-Ax-VN7" id="LAB-ru-M1D"/>
-                <outlet property="stateImageView" destination="4E6-Ax-VN7" id="Z1g-iu-jy2"/>
+                <outlet property="circleImageView" destination="hbD-TU-ipd" id="FPW-bm-ljY"/>
+                <outlet property="stateImageView" destination="4E6-Ax-VN7" id="0tn-wD-y3V"/>
             </connections>
             <point key="canvasLocation" x="907" y="272"/>
         </view>

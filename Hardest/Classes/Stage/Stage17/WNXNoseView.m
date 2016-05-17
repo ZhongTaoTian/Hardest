@@ -16,12 +16,14 @@
     BOOL _pullOut;
     int _offsetX;
     int _noseOffsetX;
+    CGRect _curvedFrame;
 }
 
 @property (nonatomic ,strong) IBOutlet UIImageView *noseIV;
 @property (weak, nonatomic) IBOutlet UIImageView *vibrissaIV;
 @property (weak, nonatomic) IBOutlet UIImageView *handIV;
 @property (weak, nonatomic) IBOutlet UIImageView *curvedViIV;
+@property (nonatomic, copy) void(^nextBlock)();
 
 @property (nonatomic, strong) CADisplayLink *timer;
 
@@ -30,12 +32,14 @@
 @implementation WNXNoseView
 
 - (void)awakeFromNib {
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
     _offsetX = 10;
     _noseOffsetX = 1;
     
     self.vibrissaIV.layer.anchorPoint = CGPointMake(0.5, 0);
     self.curvedViIV.layer.anchorPoint = CGPointMake(0.5, 0);
+    
+    _curvedFrame = self.curvedViIV.frame;
 }
 
 - (void)dealloc {
@@ -48,7 +52,7 @@
 }
 
 - (void)showPullAnimationWithIsPullOut:(BOOL)pullOut score:(int)score finish:(void (^)())finish {
-    
+    _count = 0;
     if (self.timer) {
         [self.timer invalidate];
         self.timer = nil;
@@ -66,12 +70,15 @@
     
     _pullOut = pullOut;
     
-     self.handIV.hidden = NO;
+    self.handIV.hidden = NO;
     
     self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime)];
     [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     
     self.noseIV.image = [UIImage imageNamed:@"15_nose02-iphone4"];
+    if (!pullOut) {
+        self.nextBlock = finish;
+    }
 }
 
 - (void)updateTime {
@@ -98,7 +105,7 @@
     }
     
     if (_count == _score) {
-         self.handIV.transform = CGAffineTransformMakeTranslation(0, _count * 1.5);
+        self.handIV.transform = CGAffineTransformMakeTranslation(0, _count * 1.5);
         [self.timer invalidate];
         self.timer = nil;
         self.noseIV.image = [UIImage imageNamed:@"15_nose01-iphone4"];
@@ -106,7 +113,7 @@
         if (!_pullOut) {
             self.vibrissaIV.hidden = YES;
             self.curvedViIV.hidden = NO;
-            [UIView animateWithDuration:0.35 animations:^{
+            [UIView animateWithDuration:0.4 animations:^{
                 
                 self.handIV.transform = CGAffineTransformMakeTranslation(0, _count * 1.5 + 200);
                 self.vibrissaIV.transform = CGAffineTransformIdentity;
@@ -117,12 +124,47 @@
                 self.handIV.transform = CGAffineTransformIdentity;
                 self.vibrissaIV.hidden = NO;
                 self.curvedViIV.hidden = YES;
+                if (self.nextBlock) {
+                    self.nextBlock();
+                }
             }];
         } else {
-        
+            self.vibrissaIV.hidden = YES;
+            self.curvedViIV.hidden = NO;
+            self.curvedViIV.transform = CGAffineTransformTranslate(CGAffineTransformMakeScale(1, 1 + (0.031 * _count)), 0, 10);
+            
+            [UIView animateWithDuration:0.35 animations:^{
+                self.handIV.transform = CGAffineTransformMakeTranslation(0, _count * 1.5 + 200);
+                self.vibrissaIV.transform = CGAffineTransformIdentity;
+                self.curvedViIV.frame = CGRectMake(self.curvedViIV.frame.origin.x, self.curvedViIV.frame.origin.y + 200, self.curvedViIV.frame.size.width, self.curvedViIV.frame.size.height);
+            } completion:^(BOOL finished) {
+                self.handIV.hidden = YES;
+                self.curvedViIV.hidden = YES;
+                self.passStageBlock();
+            }];
         }
     }
-    
+}
+
+- (void)resumeData {
+    self.curvedViIV.hidden = YES;
+    self.vibrissaIV.hidden = NO;
+    self.curvedViIV.transform = CGAffineTransformIdentity;
+    self.vibrissaIV.transform = CGAffineTransformIdentity;
+    self.handIV.transform = CGAffineTransformIdentity;
+    self.handIV.hidden = YES;
+    self.noseIV.image = [UIImage imageNamed:@"15_nose01-iphone4"];
+    self.curvedViIV.frame = _curvedFrame;
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void)pause {
+    self.timer.paused = YES;
+}
+
+- (void)resume {
+    self.timer.paused = NO;
 }
 
 @end

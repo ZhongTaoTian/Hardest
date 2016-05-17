@@ -12,7 +12,8 @@ typedef NS_ENUM(NSInteger,WNXResultStateType) {
     WNXResultStateTypeOK = 0,
     WNXResultStateTypeGood = 1,
     WNXResultStateTypeGreat = 2,
-    WNXResultStateTypePerfect
+    WNXResultStateTypePerfect = 3,
+    WNXResultStateTypeBad = 4
 };
 
 @interface WNXStateView : UIView
