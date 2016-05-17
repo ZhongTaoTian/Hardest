@@ -310,21 +310,21 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>错误的答案! 点击相同数字的牌.</string>
 		<key>format</key>
-		<string>%.2f</string>
+		<string>%f</string>
 		<key>icon</key>
-		<string>select_image18.png</string>
+		<string>select_image20</string>
 		<key>intro</key>
-		<string>以最快速度跨越危险的河！</string>
+		<string>选择相同数字的牌.\n[提示]使用多个手指.</string>
 		<key>max</key>
-		<string>8.00</string>
+		<string>400</string>
 		<key>min</key>
-		<string>10.00</string>
+		<string>800</string>
 		<key>title</key>
-		<string>蹦\n蹦\n跳</string>
+		<string>相同\n数字\n扑克</string>
 		<key>unit</key>
-		<string>秒</string>
+		<string>MS</string>
 	</dict>
 	<dict>
 		<key>fail</key>

@@ -33,6 +33,7 @@
 		B331F61D1CE9BF8F008DE83A /* WNXNoseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331F61C1CE9BF8F008DE83A /* WNXNoseView.xib */; settings = {ASSET_TAGS = (); }; };
 		B331F6261CE9C8CF008DE83A /* WNXPowerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F6251CE9C8CF008DE83A /* WNXPowerView.m */; settings = {ASSET_TAGS = (); }; };
 		B331F6281CE9C8DD008DE83A /* WNXPowerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331F6271CE9C8DD008DE83A /* WNXPowerView.xib */; settings = {ASSET_TAGS = (); }; };
+		B331F62B1CEB2D1F008DE83A /* WNXStage18ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F62A1CEB2D1F008DE83A /* WNXStage18ViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B34106D31C8826DD005969C8 /* WNXScoreboardCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34106D21C8826DD005969C8 /* WNXScoreboardCountView.m */; };
 		B34106D51C8826EB005969C8 /* WNXScoreboardCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34106D41C8826EB005969C8 /* WNXScoreboardCountView.xib */; };
 		B343339C1C8424560086EF87 /* WNXStageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B343339B1C8424560086EF87 /* WNXStageInfo.m */; };
@@ -197,6 +198,8 @@
 		B331F6241CE9C8CF008DE83A /* WNXPowerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXPowerView.h; sourceTree = "<group>"; };
 		B331F6251CE9C8CF008DE83A /* WNXPowerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXPowerView.m; sourceTree = "<group>"; };
 		B331F6271CE9C8DD008DE83A /* WNXPowerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXPowerView.xib; sourceTree = "<group>"; };
+		B331F6291CEB2D1F008DE83A /* WNXStage18ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage18ViewController.h; sourceTree = "<group>"; };
+		B331F62A1CEB2D1F008DE83A /* WNXStage18ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage18ViewController.m; sourceTree = "<group>"; };
 		B34106D11C8826DD005969C8 /* WNXScoreboardCountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXScoreboardCountView.h; sourceTree = "<group>"; };
 		B34106D21C8826DD005969C8 /* WNXScoreboardCountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXScoreboardCountView.m; sourceTree = "<group>"; };
 		B34106D41C8826EB005969C8 /* WNXScoreboardCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXScoreboardCountView.xib; sourceTree = "<group>"; };
@@ -993,6 +996,8 @@
 		B3FBDC721CAD1421009840C5 /* Stage18 */ = {
 			isa = PBXGroup;
 			children = (
+				B331F6291CEB2D1F008DE83A /* WNXStage18ViewController.h */,
+				B331F62A1CEB2D1F008DE83A /* WNXStage18ViewController.m */,
 			);
 			path = Stage18;
 			sourceTree = "<group>";
@@ -1309,6 +1314,7 @@
 				B39AE1911CB9151A007F7554 /* WNXBreakGlassView.m in Sources */,
 				B32C1E521C7C4DF600B2C577 /* main.m in Sources */,
 				FA9F11631CA814A7002D2064 /* WNXTwoButtonViewController.m in Sources */,
+				B331F62B1CEB2D1F008DE83A /* WNXStage18ViewController.m in Sources */,
 				B369690B1CE0900F002BB1AE /* WNXBackgroundViewController.m in Sources */,
 				FA70F24C1CC66BDC002348C6 /* WNXStage09ResultView.m in Sources */,
 				B38CCE351C86CFF300E750C2 /* WNXBaseGameViewController.m in Sources */,

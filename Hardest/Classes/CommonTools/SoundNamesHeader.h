@@ -97,3 +97,7 @@
 // stage16
 #define kSoundManDownName @"21_down.mp3"
 #define kSoundManUpName @"21_up.mp3"
+
+// stage18
+#define kSoundDealName @"20_deal.mp3"
+#define kSoundClickAnsName @"20_clickAns.mp3"
