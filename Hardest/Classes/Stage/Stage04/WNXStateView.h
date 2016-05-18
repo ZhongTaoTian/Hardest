@@ -25,4 +25,6 @@ typedef NS_ENUM(NSInteger,WNXResultStateType) {
 
 - (void)showStateViewWithType:(WNXResultStateType)type stageViewHiddenFinishBlock:(void (^)(void))stageViewHiddenFinishBlock;
 
+- (void)showBadStateWithFinish:(void(^)())finish;
+
 @end

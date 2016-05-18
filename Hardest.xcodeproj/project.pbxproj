@@ -34,6 +34,10 @@
 		B331F6261CE9C8CF008DE83A /* WNXPowerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F6251CE9C8CF008DE83A /* WNXPowerView.m */; settings = {ASSET_TAGS = (); }; };
 		B331F6281CE9C8DD008DE83A /* WNXPowerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331F6271CE9C8DD008DE83A /* WNXPowerView.xib */; settings = {ASSET_TAGS = (); }; };
 		B331F62B1CEB2D1F008DE83A /* WNXStage18ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F62A1CEB2D1F008DE83A /* WNXStage18ViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B331F62E1CEB3619008DE83A /* WNXPokerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F62D1CEB3619008DE83A /* WNXPokerView.m */; settings = {ASSET_TAGS = (); }; };
+		B331F6301CEB362F008DE83A /* WNXPokerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331F62F1CEB362F008DE83A /* WNXPokerView.xib */; settings = {ASSET_TAGS = (); }; };
+		B331F6331CEC0506008DE83A /* WNXStage18PokerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B331F6321CEC0506008DE83A /* WNXStage18PokerView.m */; settings = {ASSET_TAGS = (); }; };
+		B331F6351CEC052D008DE83A /* WNXStage18PokerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331F6341CEC052D008DE83A /* WNXStage18PokerView.xib */; settings = {ASSET_TAGS = (); }; };
 		B34106D31C8826DD005969C8 /* WNXScoreboardCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34106D21C8826DD005969C8 /* WNXScoreboardCountView.m */; };
 		B34106D51C8826EB005969C8 /* WNXScoreboardCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34106D41C8826EB005969C8 /* WNXScoreboardCountView.xib */; };
 		B343339C1C8424560086EF87 /* WNXStageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B343339B1C8424560086EF87 /* WNXStageInfo.m */; };
@@ -200,6 +204,12 @@
 		B331F6271CE9C8DD008DE83A /* WNXPowerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXPowerView.xib; sourceTree = "<group>"; };
 		B331F6291CEB2D1F008DE83A /* WNXStage18ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage18ViewController.h; sourceTree = "<group>"; };
 		B331F62A1CEB2D1F008DE83A /* WNXStage18ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage18ViewController.m; sourceTree = "<group>"; };
+		B331F62C1CEB3619008DE83A /* WNXPokerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXPokerView.h; sourceTree = "<group>"; };
+		B331F62D1CEB3619008DE83A /* WNXPokerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXPokerView.m; sourceTree = "<group>"; };
+		B331F62F1CEB362F008DE83A /* WNXPokerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXPokerView.xib; sourceTree = "<group>"; };
+		B331F6311CEC0506008DE83A /* WNXStage18PokerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage18PokerView.h; sourceTree = "<group>"; };
+		B331F6321CEC0506008DE83A /* WNXStage18PokerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage18PokerView.m; sourceTree = "<group>"; };
+		B331F6341CEC052D008DE83A /* WNXStage18PokerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXStage18PokerView.xib; sourceTree = "<group>"; };
 		B34106D11C8826DD005969C8 /* WNXScoreboardCountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXScoreboardCountView.h; sourceTree = "<group>"; };
 		B34106D21C8826DD005969C8 /* WNXScoreboardCountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXScoreboardCountView.m; sourceTree = "<group>"; };
 		B34106D41C8826EB005969C8 /* WNXScoreboardCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXScoreboardCountView.xib; sourceTree = "<group>"; };
@@ -998,6 +1008,12 @@
 			children = (
 				B331F6291CEB2D1F008DE83A /* WNXStage18ViewController.h */,
 				B331F62A1CEB2D1F008DE83A /* WNXStage18ViewController.m */,
+				B331F6311CEC0506008DE83A /* WNXStage18PokerView.h */,
+				B331F6321CEC0506008DE83A /* WNXStage18PokerView.m */,
+				B331F6341CEC052D008DE83A /* WNXStage18PokerView.xib */,
+				B331F62C1CEB3619008DE83A /* WNXPokerView.h */,
+				B331F62D1CEB3619008DE83A /* WNXPokerView.m */,
+				B331F62F1CEB362F008DE83A /* WNXPokerView.xib */,
 			);
 			path = Stage18;
 			sourceTree = "<group>";
@@ -1187,6 +1203,8 @@
 				B3650EE31C856AC600FC2D4E /* WNXStageView.xib in Resources */,
 				B39AE1931CB91536007F7554 /* WNXBreakGlassView.xib in Resources */,
 				FAEE91911C95437A0093FBC0 /* WNXPauseViewController.xib in Resources */,
+				B331F6301CEB362F008DE83A /* WNXPokerView.xib in Resources */,
+				B331F6351CEC052D008DE83A /* WNXStage18PokerView.xib in Resources */,
 				B32C1E5D1C7C4DF600B2C577 /* Assets.xcassets in Resources */,
 				B35E97F71CD218F8003AF56E /* Default-568h@2x.png in Resources */,
 				B331F61D1CE9BF8F008DE83A /* WNXNoseView.xib in Resources */,
@@ -1244,6 +1262,7 @@
 				FA6D6CC31CD7954B00C6AA47 /* WNXStage12EggView.m in Sources */,
 				B30060A51CBB8E8D0040BF99 /* WNXStage08PeopleView.m in Sources */,
 				B39AE18C1CB905C4007F7554 /* WNXStage07View.m in Sources */,
+				B331F6331CEC0506008DE83A /* WNXStage18PokerView.m in Sources */,
 				B384CD461C804BA8008AFA9E /* WNXSelectStageViewController.m in Sources */,
 				B3A7875A1CD0B07F005FC3EA /* WNXStage11ViewController.m in Sources */,
 				B38DE92F1CA9446700583BF8 /* WNXTimeCountView.m in Sources */,
@@ -1319,6 +1338,7 @@
 				FA70F24C1CC66BDC002348C6 /* WNXStage09ResultView.m in Sources */,
 				B38CCE351C86CFF300E750C2 /* WNXBaseGameViewController.m in Sources */,
 				B3E6A5EC1CE574E200698078 /* WNXStage15RowView.m in Sources */,
+				B331F62E1CEB3619008DE83A /* WNXPokerView.m in Sources */,
 				B3D148031C9FFF8D00ABCBE4 /* WNXCountTimeView.m in Sources */,
 				B3B4119A1C97AFA800D4073D /* WNXResultScoreView.m in Sources */,
 				FABAC8911CB131EE0061D257 /* WNXColumnIceView.m in Sources */,

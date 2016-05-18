@@ -73,7 +73,7 @@
         default:
             break;
     }
-
+    
     [self insertSubview:self.circleImageView belowSubview:self.stateImageView];
     [self.superview bringSubviewToFront:self];
     
@@ -117,6 +117,29 @@
             stageViewHiddenFinishBlock();
         }
     });
+}
+
+- (void)showBadStateWithFinish:(void (^)())finish {
+    self.hidden = NO;
+    self.stateImageView.layer.anchorPoint = CGPointMake(1, 0.5);
+    self.stateImageView.frame = CGRectMake(self.stateImageView.frame.origin.x + self.stateImageView.frame.size.width * 0.5, self.stateImageView.frame.origin.y, self.stateImageView.frame.size.width, self.stateImageView.frame.size.height);
+    
+    NSString *badName = [NSString stringWithFormat:@"instantFail0%d", arc4random_uniform(3) + 2];
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:badName];
+    
+    self.stateImageView.image = [UIImage imageNamed:@"00_bad-iphone4"];
+    self.circleImageView.image = [UIImage imageNamed:@"00_cross-iphone4"];
+    
+    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.stateImageView.transform = CGAffineTransformMakeRotation(-M_2_PI);
+    } completion:^(BOOL finished) {
+        
+        self.hidden = YES;
+        if (finish) {
+            finish();
+        }
+        
+    }];
 }
 
 - (void)hideStateView {
