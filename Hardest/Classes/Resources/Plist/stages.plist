@@ -332,9 +332,9 @@
 		<key>format</key>
 		<string>%.2f</string>
 		<key>icon</key>
-		<string>select_image19.png</string>
+		<string>select_image06</string>
 		<key>intro</key>
-		<string>以最快速度掌掴这个人恰好[ 37 ]次！\n记住在完成后点击[完成]。</string>
+		<string>当任何钩杆晃动时\n以最快速度点击按钮并向上翻转你的设备!</string>
 		<key>max</key>
 		<string>5.0</string>
 		<key>min</key>
