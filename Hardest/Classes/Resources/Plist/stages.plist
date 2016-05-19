@@ -312,7 +312,7 @@
 		<key>fail</key>
 		<string>错误的答案! 点击相同数字的牌.</string>
 		<key>format</key>
-		<string>%f</string>
+		<string>%.f</string>
 		<key>icon</key>
 		<string>select_image20</string>
 		<key>intro</key>

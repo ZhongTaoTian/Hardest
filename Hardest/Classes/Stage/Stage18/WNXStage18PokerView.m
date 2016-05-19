@@ -44,7 +44,7 @@
 }
 
 - (BOOL)showPokerView {
-        
+    
     self.isFail = NO;
     BOOL result = NO;
     
@@ -86,7 +86,7 @@
         }
         
         if (_pokerCount == 8) {
-            while (!(leftPokerNum == middlePokerNum || middlePokerNum == rightPokerNum)) {
+            while (!(leftPokerNum == middlePokerNum && middlePokerNum == rightPokerNum)) {
                 leftPokerNum = arc4random_uniform(10) + 1;
                 middlePokerNum = arc4random_uniform(10) + 1;
                 rightPokerNum = arc4random_uniform(10) + 1;
@@ -137,15 +137,16 @@
         _same1 = NO;
     }
     
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundDealName];
     [UIView animateWithDuration:0.3 animations:^{
         leftPokerView.transform = CGAffineTransformMakeRotation(M_PI_4 / pro);
         middlePokerView.transform = CGAffineTransformMakeRotation(M_PI_4 / middlePro);
         rightPokerView.transform = CGAffineTransformMakeRotation(-M_PI_4 / pro);
     } completion:^(BOOL finished) {
+        self.superview.userInteractionEnabled = YES;
         [self removePokerView];
         if (result) {
             _pokerCount++;
-            self.superview.userInteractionEnabled = YES;
             self.startCountTime();
         } else {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -191,10 +192,18 @@
     }
     
     if (_selectSame1 == _same1 && _selectSame2 == _same2 && _selectSame3 == _same3) {
-        self.selectSamePokerSucess();
+        self.selectSamePokerSucess(_pokerCount == 9);
     }
     
     return result;
+}
+
+- (void)resumeData {
+    for (UIView *subV in self.pokerArr) {
+        [subV removeFromSuperview];
+    }
+    [self.pokerArr removeAllObjects];
+    self.pokerArr = nil;
 }
 
 @end

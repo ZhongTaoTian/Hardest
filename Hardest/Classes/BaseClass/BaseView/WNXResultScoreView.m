@@ -64,6 +64,7 @@
     double scorePerBtn = (stage.max - stage.min) / 5;
     double widthPerScore = BtnWidth / scorePerBtn;
     double delta = (scroe - stage.min) * widthPerScore;
+    
     _newScroe = scroe;
     _stage = stage;
     _stageInfo.num = stage.num;

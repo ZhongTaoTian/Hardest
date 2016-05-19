@@ -27,14 +27,24 @@
 }
 
 - (void)buildStageInfo {
-    
-    self.pokerView = [WNXStage18PokerView viewFromNib];
-    [self.view insertSubview:self.pokerView belowSubview:self.redButton];
-
     self.stateView = [WNXStateView viewFromNib];
     self.stateView.frame = CGRectMake(0, ScreenHeight - self.stateView.frame.size.height - ScreenWidth / 3 - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
     [self.view addSubview:self.stateView];
     
+    [self buildPokerView];
+    
+    [self setButtonImage:[UIImage imageNamed:@"20_same-iphone4"] contenEdgeInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    
+    [self.redButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
+    [self.yellowButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
+    [self.blueButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
+
+    [self bringPauseAndPlayAgainToFront];
+}
+
+- (void)buildPokerView {
+    self.pokerView = [WNXStage18PokerView viewFromNib];
+    [self.view insertSubview:self.pokerView belowSubview:self.redButton];
     __weak typeof(self) weakSelf = self;
     self.pokerView.startCountTime = ^{
         [(WNXCountTimeView *)weakSelf.countScore startCalculateByTimeWithTimeOut:^{
@@ -48,7 +58,7 @@
         [weakSelf setButtonsIsActivate:YES];
     };
     
-    self.pokerView.selectSamePokerSucess = ^{
+    self.pokerView.selectSamePokerSucess = ^(BOOL isPass){
         weakSelf.view.userInteractionEnabled = NO;
         [(WNXCountTimeView *)weakSelf.countScore stopCalculateByTimeWithTimeBlock:^(int second, int ms) {
             int onceTime = (second + ms / 60.0) * 1000;
@@ -66,29 +76,33 @@
             weakSelf.allScore += onceTime;
             
             [weakSelf.stateView showStateViewWithType:type stageViewHiddenFinishBlock:^{
-                weakSelf.redImageView.highlighted = NO;
-                weakSelf.yellowImageView.highlighted = NO;
-                weakSelf.blueImageView.highlighted = NO;
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    weakSelf.btnCanEdit = [weakSelf.pokerView showPokerView];
-                    [(WNXCountTimeView *)weakSelf.countScore cleanData];
-                    [weakSelf setButtonsIsActivate:YES];
-                });
+                if (isPass) {
+                    weakSelf.view.userInteractionEnabled = NO;
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [weakSelf showResultControllerWithNewScroe:weakSelf.allScore / 9 unit:@"ms" stage:weakSelf.stage isAddScore:YES];
+                    });
+                    
+                } else {
+                    
+                    weakSelf.redImageView.highlighted = NO;
+                    weakSelf.yellowImageView.highlighted = NO;
+                    weakSelf.blueImageView.highlighted = NO;
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        weakSelf.btnCanEdit = [weakSelf.pokerView showPokerView];
+                        [(WNXCountTimeView *)weakSelf.countScore cleanData];
+                        [weakSelf setButtonsIsActivate:YES];
+                    });
+                }
+                
             }];
         }];
     };
-    
-    [self setButtonImage:[UIImage imageNamed:@"20_same-iphone4"] contenEdgeInsets:UIEdgeInsetsMake(20, 20, 20, 20)];
-    
-    [self.redButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
-    [self.yellowButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
-    [self.blueButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
-
-    [self bringPauseAndPlayAgainToFront];
 }
 
+#pragma mark - Action
 - (void)btnClick:(UIButton *)sender {
-    
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundClickAnsName];
     sender.userInteractionEnabled = NO;
     
     if (self.btnCanEdit) {
@@ -102,9 +116,7 @@
             }
         } else {
             self.view.userInteractionEnabled = NO;
-            [(WNXCountTimeView *)self.countScore stopCalculateByTimeWithTimeBlock:^(int second, int ms) {
-                
-            }];
+            [(WNXCountTimeView *)self.countScore stopCalculateByTimeWithTimeBlock:nil];
             self.pokerView.isFail = YES;
             __weak typeof(self) weakSelf = self;
             [self.stateView showBadStateWithFinish:^{
@@ -125,6 +137,32 @@
 - (void)readyGoAnimationFinish {
     [super readyGoAnimationFinish];
     self.btnCanEdit = [self.pokerView showPokerView];
+}
+
+- (void)pauseGame {
+    [(WNXCountTimeView *)self.countScore pause];
+    
+    [super pauseGame];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    
+    [(WNXCountTimeView *)self.countScore continueGame];
+}
+
+- (void)playAgainGame {
+    self.redImageView.highlighted = NO;
+    self.yellowImageView.highlighted = NO;
+    self.blueImageView.highlighted = NO;
+     self.pokerView.isFail = YES;
+    [self.pokerView resumeData];
+    [self.pokerView removeFromSuperview];
+    self.pokerView = nil;
+    [(WNXCountTimeView *)self.countScore cleanData];
+    [self buildPokerView];
+    
+    [super playAgainGame];
 }
 
 @end
