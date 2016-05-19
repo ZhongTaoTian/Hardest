@@ -44,7 +44,6 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    NSLog(@"照相人物被销毁");
 }
 
 - (void)showModel {

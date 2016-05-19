@@ -330,19 +330,19 @@
 		<key>fail</key>
 		<string>时间已到!   你用了太多时间来回答这个问题.</string>
 		<key>format</key>
-		<string>%.2f</string>
+		<string>%.f</string>
 		<key>icon</key>
 		<string>select_image06</string>
 		<key>intro</key>
 		<string>当任何钩杆晃动时\n以最快速度点击按钮并向上翻转你的设备!</string>
 		<key>max</key>
-		<string>5.0</string>
+		<string>400</string>
 		<key>min</key>
-		<string>10.0</string>
+		<string>800</string>
 		<key>title</key>
-		<string>多次\n掌掴\n！</string>
+		<string>让\n我们\n去钓鱼</string>
 		<key>unit</key>
-		<string>秒</string>
+		<string>ms</string>
 	</dict>
 	<dict>
 		<key>fail</key>

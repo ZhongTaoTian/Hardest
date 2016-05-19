@@ -232,8 +232,4 @@
     }];
 }
 
-- (void)dealloc {
-    NSLog(@"算分销毁");
-}
-
 @end

@@ -168,8 +168,4 @@
     self.leftImageView.image = [UIImage imageNamed:@"09_hand02-iphone4right"];
 }
 
-- (void)dealloc {
-    NSLog(@"猜拳被销毁");
-}
-
 @end

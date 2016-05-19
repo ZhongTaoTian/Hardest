@@ -222,8 +222,4 @@
     [self start];
 }
 
-- (void)dealloc {
-    NSLog(@"第四关View被销毁");
-}
-
 @end
