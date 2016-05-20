@@ -25,10 +25,6 @@
     [super viewDidLoad];
 
     [self buildStageInfo];
-
-    [self buildStageImageView];
-    
-    [self buildStateView];
 }
 
 - (void)buildStageInfo {
@@ -47,11 +43,16 @@
     self.rightButton.imageEdgeInsets = UIEdgeInsetsMake(15, 40, 15, 40);
     self.rightButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.rightButton.adjustsImageWhenDisabled = NO;
-    [self.view bringSubviewToFront:self.guideImageView];
     
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 96, ScreenHeight, self.rightButton.frame.size.height)];
     bottomView.backgroundColor = [UIColor blackColor];
     [self.view insertSubview:bottomView belowSubview:self.leftButton];
+    
+    [self buildStageImageView];
+    
+    [self buildStateView];
+    
+    [self bringPauseAndPlayAgainToFront];
 }
 
 - (void)buttonClick:(UIButton *)sender {

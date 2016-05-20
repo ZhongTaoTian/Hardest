@@ -23,8 +23,6 @@
     [super viewDidLoad];
     
     [self buildStageInfo];
-    
-    [self buildStateView];
 }
 
 #pragma mark - Build UI
@@ -33,23 +31,18 @@
     bgImageView.image = [UIImage imageNamed:@"03_background-iphone4"];
     [self.view insertSubview:bgImageView belowSubview:self.redButton];
     
-    [self setButtonsInfo];
+    [self setButtonImage:[UIImage imageNamed:@"03_button-iphone4"] contenEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+    [self addButtonsActionWithTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
     
     [self buildEggRoll];
     
     [self buildIceView];
     
-    for (UIButton *btn in self.buttons) {
-        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
-    }
+    [self buildStateView];
+    
+    [self bringPauseAndPlayAgainToFront];
 }
 
-- (void)setButtonsInfo {
-    for (UIButton *btn in self.buttons) {
-        [btn setImage:[UIImage imageNamed:@"03_button-iphone4"] forState:UIControlStateNormal];
-        btn.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-    }
-}
 
 - (void)buildStateView {
     self.stateView = [WNXStateView viewFromNib];
@@ -66,9 +59,6 @@
         eggIV.image = [UIImage imageNamed:@"03_cones-iphone4"];
         [self.view insertSubview:eggIV belowSubview:self.redButton];
     }
-    
-    [self.view bringSubviewToFront:self.playAgainButton];
-    [self.view bringSubviewToFront:self.pauseButton];
 }
 
 - (void)buildIceView {
@@ -77,13 +67,11 @@
     [self.iceView showDottedLineView];
     
     __weak typeof(self) weakSelf = self;
-    
-    if (self.guideImageView) {
-        [self.view bringSubviewToFront:self.guideImageView];
-    }
-    
+        
     self.iceView.failBlock = ^{
         if (!weakSelf.isFail) {
+            [weakSelf.view setUserInteractionEnabled:NO];
+            [(WNXTimeCountView *)weakSelf.countScore stopCalculateTime];
             [weakSelf showGameFail];
         }
         weakSelf.isFail = YES;
@@ -136,6 +124,8 @@
 
 #pragma mark - Private Method
 - (void)showResultStateWithCount:(int)count {
+    [self.view setUserInteractionEnabled:NO];
+    
     NSTimeInterval time = [(WNXTimeCountView *)self.countScore pasueTime];
     WNXResultStateType stageType;
     if (time < 0.05) {
@@ -154,6 +144,7 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.iceView showDottedLineView];
             [(WNXTimeCountView *)self.countScore resumed];
+            [self.view setUserInteractionEnabled:YES];
         });
     }
 }

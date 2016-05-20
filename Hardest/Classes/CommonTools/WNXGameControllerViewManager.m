@@ -26,7 +26,7 @@
 #import "WNXStage16ViewController.h"
 #import "WNXStage17ViewController.h"
 #import "WNXStage18ViewController.h"
-//#import "WNXStage19ViewController.h"
+#import "WNXStage19ViewController.h"
 //#import "WNXStage20ViewController.h"
 //#import "WNXStage21ViewController.h"
 //#import "WNXStage22ViewController.h"
@@ -40,85 +40,85 @@
     
     switch (stage.num) {
         case 1:
-            gameVC = [[WNXStage01ViewController alloc] init];
+            gameVC = [WNXStage01ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeOneFingerClick;
             gameVC.scoreboardType = WNXScoreboardTypeCountPTS;
             break;
         case 2:
-            gameVC = [[WNXStage02ViewController alloc] init];
+            gameVC = [WNXStage02ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeOneFingerClick;
             gameVC.scoreboardType = WNXScoreboardTypeTimeMS;
             break;
         case 3:
-            gameVC = [[WNXStage03ViewController alloc] init];
+            gameVC = [WNXStage03ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeReplaceClick;
             gameVC.scoreboardType = WNXScoreboardTypeSecondAndMS;
             break;
         case 4:
-            gameVC = [[WNXStage04ViewController alloc] init];
+            gameVC = [WNXStage04ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeReplaceClick;
             gameVC.scoreboardType = WNXScoreboardTypeTimeMS;
             break;
         case 5:
-            gameVC = [[WNXStage05ViewController alloc] init];
+            gameVC = [WNXStage05ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeMultiPointClick;
             gameVC.scoreboardType = WNXScoreboardTypeSecondAndMS;
             break;
         case 6:
-            gameVC = [[WNXStage06ViewController alloc] init];
+            gameVC = [WNXStage06ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeOneFingerClick;
             gameVC.scoreboardType = WNXScoreboardTypeSecondAndMS;
             break;
         case 7:
-            gameVC = [[WNXStage07ViewController alloc] init];
+            gameVC = [WNXStage07ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeMultiPointClick;
             gameVC.scoreboardType = WNXScoreboardTypeSecondAndMS;
             break;
         case 8:
-            gameVC = [[WNXStage08ViewController alloc] init];
+            gameVC = [WNXStage08ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeMultiPointClick;
             gameVC.scoreboardType = WNXScoreboardTypeCountPTS;
             break;
         case 9:
-            gameVC = [[WNXStage09ViewController alloc] init];
+            gameVC = [WNXStage09ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeNone;
             gameVC.scoreboardType = WNXScoreboardTypeNone;
             break;
         case 10:
-            gameVC = [[WNXStage10ViewController alloc] init];
+            gameVC = [WNXStage10ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeOneFingerClick;
             gameVC.scoreboardType = WNXScoreboardTypeSecondAndMS;
             break;
         case 11:
-            gameVC = [[WNXStage11ViewController alloc] init];
+            gameVC = [WNXStage11ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeOneFingerClick;
             gameVC.scoreboardType = WNXScoreboardTypeTimeMS;
             break;
         case 12:
-            gameVC = [[WNXStage12ViewController alloc] init];
+            gameVC = [WNXStage12ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeNone;
             gameVC.scoreboardType = WNXScoreboardTypeCountPTS;
             break;
         case 13:
-            gameVC = [[WNXStage13ViewController alloc] init];
+            gameVC = [WNXStage13ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeMultiPointClick;
             gameVC.scoreboardType = WNXScoreboardTypeTimeMS;
             break;
         case 14:
-            gameVC = [[WNXStage14ViewController alloc] init];
+            gameVC = [WNXStage14ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeNone;
             gameVC.scoreboardType = WNXScoreboardTypeSecondAndMS;
@@ -145,6 +145,12 @@
             gameVC = [WNXStage18ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeMultiPointClick;
+            gameVC.scoreboardType = WNXScoreboardTypeTimeMS;
+            break;
+        case 19:
+            gameVC = [WNXStage19ViewController new];
+            gameVC.stage = stage;
+            gameVC.guideType = WNXGameGuideTypeNone;
             gameVC.scoreboardType = WNXScoreboardTypeTimeMS;
             break;
         default:

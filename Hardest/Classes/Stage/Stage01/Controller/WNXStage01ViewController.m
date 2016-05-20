@@ -30,11 +30,7 @@
 
     [self buildStageInfo];
     
-    [self initTimeLabel];
-    
-    [self initFootView];
-    
-    [self initFeaterView];
+
 }
 
 #pragma mark - Build UI
@@ -42,9 +38,15 @@
     self.buttonImageNames = @[@"01-btfeather", @"01-btfeather", @"01-btfeather"];
     [self.view bringSubviewToFront:self.guideImageView];
     
-    [self.redButton addTarget:self action:@selector(featherClick:) forControlEvents:UIControlEventTouchDown];
-    [self.yellowButton addTarget:self action:@selector(featherClick:) forControlEvents:UIControlEventTouchDown];
-    [self.blueButton addTarget:self action:@selector(featherClick:) forControlEvents:UIControlEventTouchDown];
+    [self addButtonsActionWithTarget:self action:@selector(featherClick:) forControlEvents:UIControlEventTouchDown];
+    
+    [self initTimeLabel];
+    
+    [self initFootView];
+    
+    [self initFeaterView];
+    
+    [self bringPauseAndPlayAgainToFront];
 }
 
 - (void)initTimeLabel {

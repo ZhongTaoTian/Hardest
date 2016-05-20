@@ -79,6 +79,9 @@
 		B39AE1931CB91536007F7554 /* WNXBreakGlassView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B39AE1921CB91536007F7554 /* WNXBreakGlassView.xib */; };
 		B3A02D821CA01C5A00DB4342 /* WNXGuessFingerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A02D811CA01C5A00DB4342 /* WNXGuessFingerView.m */; };
 		B3A621381CEDA42900643415 /* WNXStage19ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A621371CEDA42900643415 /* WNXStage19ViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B3A6213E1CEDAC9400643415 /* WNXStage19FishView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A6213D1CEDAC9400643415 /* WNXStage19FishView.m */; settings = {ASSET_TAGS = (); }; };
+		B3A621411CEDACE500643415 /* WNXFishView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A621401CEDACE500643415 /* WNXFishView.m */; settings = {ASSET_TAGS = (); }; };
+		B3A621431CEDAD2E00643415 /* WNXFishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A621421CEDAD2E00643415 /* WNXFishView.xib */; settings = {ASSET_TAGS = (); }; };
 		B3A7875A1CD0B07F005FC3EA /* WNXStage11ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A787591CD0B07F005FC3EA /* WNXStage11ViewController.m */; };
 		B3A7875D1CD0CE4E005FC3EA /* WNXStage11View.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A7875C1CD0CE4E005FC3EA /* WNXStage11View.m */; };
 		B3A7876A1CD1ACA1005FC3EA /* WNXSubjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A787691CD1ACA1005FC3EA /* WNXSubjectView.m */; };
@@ -283,6 +286,11 @@
 		B3A02D811CA01C5A00DB4342 /* WNXGuessFingerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXGuessFingerView.m; sourceTree = "<group>"; };
 		B3A621361CEDA42900643415 /* WNXStage19ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage19ViewController.h; sourceTree = "<group>"; };
 		B3A621371CEDA42900643415 /* WNXStage19ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage19ViewController.m; sourceTree = "<group>"; };
+		B3A6213C1CEDAC9400643415 /* WNXStage19FishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage19FishView.h; sourceTree = "<group>"; };
+		B3A6213D1CEDAC9400643415 /* WNXStage19FishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage19FishView.m; sourceTree = "<group>"; };
+		B3A6213F1CEDACE500643415 /* WNXFishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXFishView.h; sourceTree = "<group>"; };
+		B3A621401CEDACE500643415 /* WNXFishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXFishView.m; sourceTree = "<group>"; };
+		B3A621421CEDAD2E00643415 /* WNXFishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXFishView.xib; sourceTree = "<group>"; };
 		B3A787581CD0B07F005FC3EA /* WNXStage11ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage11ViewController.h; sourceTree = "<group>"; };
 		B3A787591CD0B07F005FC3EA /* WNXStage11ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage11ViewController.m; sourceTree = "<group>"; };
 		B3A7875B1CD0CE4E005FC3EA /* WNXStage11View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage11View.h; sourceTree = "<group>"; };
@@ -1026,6 +1034,11 @@
 			children = (
 				B3A621361CEDA42900643415 /* WNXStage19ViewController.h */,
 				B3A621371CEDA42900643415 /* WNXStage19ViewController.m */,
+				B3A6213C1CEDAC9400643415 /* WNXStage19FishView.h */,
+				B3A6213D1CEDAC9400643415 /* WNXStage19FishView.m */,
+				B3A6213F1CEDACE500643415 /* WNXFishView.h */,
+				B3A621401CEDACE500643415 /* WNXFishView.m */,
+				B3A621421CEDAD2E00643415 /* WNXFishView.xib */,
 			);
 			path = Stage19;
 			sourceTree = "<group>";
@@ -1204,6 +1217,7 @@
 				B30886081C89386800AE83B2 /* arial.ttf in Resources */,
 				B34106D51C8826EB005969C8 /* WNXScoreboardCountView.xib in Resources */,
 				B3E561971C7C6F650081C720 /* WNXLaunchAnimationViewController.xib in Resources */,
+				B3A621431CEDAD2E00643415 /* WNXFishView.xib in Resources */,
 				B34D8B3C1CBD1E8E0076A97D /* WNXBobmView.xib in Resources */,
 				B3650EE31C856AC600FC2D4E /* WNXStageView.xib in Resources */,
 				B39AE1931CB91536007F7554 /* WNXBreakGlassView.xib in Resources */,
@@ -1294,6 +1308,7 @@
 				B3650EE11C856AC600FC2D4E /* WNXStageListView.m in Sources */,
 				B34D8B3A1CBD1E820076A97D /* WNXBobmView.m in Sources */,
 				B3650EE91C856BBE00FC2D4E /* WNXPrepareScoreView.m in Sources */,
+				B3A6213E1CEDAC9400643415 /* WNXStage19FishView.m in Sources */,
 				B3CB25141CD87C8E003B801A /* WNXDropEggView.m in Sources */,
 				B384CD251C7E9F42008AFA9E /* WXNSoundToolManager.m in Sources */,
 				B30885FF1C884D3600AE83B2 /* WNXReadyGoView.m in Sources */,
@@ -1318,6 +1333,7 @@
 				FA6D6CC01CD78D8700C6AA47 /* WNXStage12BottomView.m in Sources */,
 				B32C1E551C7C4DF600B2C577 /* AppDelegate.m in Sources */,
 				B3F29D851CE18ED900049FA7 /* WNXStage14LineView.m in Sources */,
+				B3A621411CEDACE500643415 /* WNXFishView.m in Sources */,
 				B39472A81C7DAE2A00CAAB6D /* WNXBaseNavigationController.m in Sources */,
 				FA63211D1CB697C0006F8714 /* WNXStage06PeolpeView.m in Sources */,
 				B343339C1C8424560086EF87 /* WNXStageInfo.m in Sources */,

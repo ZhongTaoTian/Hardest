@@ -99,4 +99,16 @@
     [self.blueButton setImage:[UIImage imageNamed:buttonImageNames[2]] forState:UIControlStateNormal];
 }
 
+- (void)removeAllImageView {
+    [self.redImageView removeFromSuperview];
+    [self.yellowImageView removeFromSuperview];
+    [self.blueImageView removeFromSuperview];
+}
+
+- (void)addButtonsActionWithTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)forControlEvents {
+    [self.redButton addTarget:target action:action forControlEvents:forControlEvents];
+    [self.yellowButton addTarget:target action:action forControlEvents:forControlEvents];
+    [self.blueButton addTarget:target action:action forControlEvents:forControlEvents];
+}
+
 @end

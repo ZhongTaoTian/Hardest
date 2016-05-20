@@ -33,6 +33,8 @@
     bgIV.image = [UIImage imageNamed:@"11_bg-iphone4"];
     [self.view insertSubview:bgIV belowSubview:self.redButton];
     
+    [self removeAllImageView];
+    
     self.stateView = [WNXStateView viewFromNib];
     self.stateView.frame = CGRectMake(0, ScreenHeight - self.stateView.frame.size.height - self.redButton.frame.size.height - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
     [self.view addSubview:self.stateView];
@@ -43,9 +45,7 @@
     self.bottom = [[WNXStage13BottomView alloc] initWithFrame:CGRectMake(0, self.redButton.frame.origin.y, ScreenWidth, self.redButton.frame.size.height)];
     [self.view addSubview:self.bottom];
     
-    [self.redButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
-    [self.yellowButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
-    [self.blueButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
+    [self addButtonsActionWithTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
     
     [self bringPauseAndPlayAgainToFront];
     

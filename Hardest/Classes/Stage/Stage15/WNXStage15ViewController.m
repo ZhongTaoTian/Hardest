@@ -25,16 +25,15 @@
 }
 
 - (void)buildStageInfo {
+    [self removeAllImageView];
+    
     UIImageView *bgView = [[UIImageView alloc] initWithFrame:ScreenBounds];
     bgView.image = [UIImage imageNamed:@"stage36_bg-iphone4"];
     [self.view insertSubview:bgView belowSubview:self.redButton];
     
     [self buildJumpView];
     
-    [self.redButton addTarget:self action:@selector(jump:) forControlEvents:UIControlEventTouchDown];
-    [self.yellowButton addTarget:self action:@selector(jump:) forControlEvents:UIControlEventTouchDown];
-    [self.blueButton addTarget:self action:@selector(jump:) forControlEvents:UIControlEventTouchDown];
-    
+    [self addButtonsActionWithTarget:self action:@selector(jump:) forControlEvents:UIControlEventTouchDown];
     [self bringPauseAndPlayAgainToFront];
 }
 

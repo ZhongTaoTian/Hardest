@@ -32,6 +32,8 @@
     self.stateView.frame = CGRectMake(0, ScreenHeight - self.stateView.frame.size.height - self.redButton.frame.size.height - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
     [self.view addSubview:self.stateView];
     
+    [self removeAllImageView];
+    
     UIImageView *bgIV = [[UIImageView alloc] initWithFrame:ScreenBounds];
     bgIV.image = [UIImage imageNamed:@"08_bg-iphone4"];
     [self.view insertSubview:bgIV belowSubview:self.redButton];
@@ -94,10 +96,8 @@
     [self.view insertSubview:self.numView aboveSubview:self.blueButton];
     
     [super bringPauseAndPlayAgainToFront];
-    
-    [self.redButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
-    [self.yellowButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
-    [self.blueButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
+
+    [self addButtonsActionWithTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
 }
 
 #pragma mark - Action

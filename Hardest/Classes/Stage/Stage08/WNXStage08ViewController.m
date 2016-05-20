@@ -25,6 +25,7 @@
 }
 
 - (void)buildStageInfo {
+    [self removeAllImageView];
     UIImageView *bgImageIV = [[UIImageView alloc] initWithFrame:CGRectMake(-20, 0, ScreenWidth + 40, ScreenHeight)];
     bgImageIV.image = [UIImage imageNamed:@"02_background01-iphone4"];
     [self.view insertSubview:bgImageIV belowSubview:self.redButton];
@@ -35,13 +36,11 @@
     
     [self setButtonImage:[UIImage imageNamed:@"02_camera-iphone4"] contenEdgeInsets:UIEdgeInsetsMake(20, 20, 20, 20)];
     
-    [self bringPauseAndPlayAgainToFront];
-    
     [self setPhotoViewBlock];
+        
+    [self addButtonsActionWithTarget:self action:@selector(cameraClick:) forControlEvents:UIControlEventTouchDown];
     
-    for (UIButton *btn in self.buttons) {
-        [btn addTarget:self action:@selector(cameraClick:) forControlEvents:UIControlEventTouchDown];
-    }
+    [self bringPauseAndPlayAgainToFront];
 }
 
 - (void)cameraClick:(UIButton *)sender {

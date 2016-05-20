@@ -103,5 +103,5 @@
 #define kSoundClickAnsName @"20_clickAns.mp3"
 
 // stage19
-#define kSoundCatchFinishName @"06_catchFish.mp3"
+#define kSoundCatchFishName @"06_catchFish.mp3"
 #define kSoundReekinName @"06_reelin.mp3"

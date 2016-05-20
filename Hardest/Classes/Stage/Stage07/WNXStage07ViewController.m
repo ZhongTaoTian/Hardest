@@ -31,14 +31,13 @@
 }
 
 - (void)buildStageInfo {
+    [self removeAllImageView];
     __weak typeof(self) weakSelf = self;
     UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 20)];
     bgImageView.image = [UIImage imageNamed:@"04_background-iphone4"];
     [self.view insertSubview:bgImageView belowSubview:self.playAgainButton];
-    
-    for (UIButton *btn in self.buttons) {
-        [btn addTarget:self action:@selector(gunClick) forControlEvents:UIControlEventTouchUpInside];
-    }
+        
+    [self addButtonsActionWithTarget:self action:@selector(gunClick) forControlEvents:UIControlEventTouchDown];
     
     [self setButtonImage:[UIImage imageNamed:@"004_gun-iphone4"] contenEdgeInsets:UIEdgeInsetsMake(20, 20, 20, 20)];
     
@@ -60,8 +59,8 @@
     self.glassView.stopTimeBlock = ^{
         weakSelf.oneTime = [(WNXTimeCountView *)weakSelf.countScore pasueTime];
     };
-    [self.view bringSubviewToFront:self.playAgainButton];
-    [self.view bringSubviewToFront:self.pauseButton];
+
+    [self bringPauseAndPlayAgainToFront];
 }
 
 - (void)readyGoAnimationFinish {

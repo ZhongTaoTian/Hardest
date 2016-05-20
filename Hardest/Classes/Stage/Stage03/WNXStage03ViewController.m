@@ -37,7 +37,7 @@
     
     [self buildBottomImageView];
     
-    [self.view bringSubviewToFront:self.guideImageView];
+    [self bringPauseAndPlayAgainToFront];
 }
 
 - (void)buildBottomImageView {

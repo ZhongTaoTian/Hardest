@@ -33,9 +33,8 @@
     [self.view addSubview:yellowLineIV2];
     
     [self setButtonImage:[UIImage imageNamed:@"14_stopsign-iphone4"] contenEdgeInsets:UIEdgeInsetsMake(20, 20, 20, 20)];
-    for (UIButton *btn in self.buttons) {
-        [btn addTarget:self action:@selector(stopBtnClick:) forControlEvents:UIControlEventTouchDown];
-    }
+    
+    [self addButtonsActionWithTarget:self action:@selector(stopBtnClick:) forControlEvents:UIControlEventTouchDown];
     
     __weak typeof(self) weakSelf = self;
     
@@ -56,6 +55,8 @@
     self.bobmView.failBlock = ^{
         [weakSelf showGameFail];
     };
+    
+    [self bringPauseAndPlayAgainToFront];
 }
 
 #pragma mark - Action 

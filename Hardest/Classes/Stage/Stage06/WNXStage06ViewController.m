@@ -47,6 +47,8 @@
     self.peopleView.failBlock = ^{
         [weakSelf fail];
     };
+    
+    [self bringPauseAndPlayAgainToFront];
 }
 
 #pragma mark Super Method

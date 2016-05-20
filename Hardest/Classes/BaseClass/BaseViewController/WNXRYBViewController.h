@@ -24,4 +24,8 @@
 
 - (void)setButtonImage:(UIImage *)image contenEdgeInsets:(UIEdgeInsets)insets;
 
+- (void)removeAllImageView;
+
+- (void)addButtonsActionWithTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)forControlEvents;
+
 @end

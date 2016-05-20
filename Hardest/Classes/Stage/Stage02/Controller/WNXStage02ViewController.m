@@ -34,12 +34,6 @@
     [super viewDidLoad];
     
     [self buildStageInfo];
-    
-    [self buildWinImageView];
-    
-    [self buildGuessImageView];
-    
-    [self buildRusultView];
 }
 
 #pragma mark - Build UI
@@ -47,11 +41,17 @@
     self.buttonImageNames = @[@"09_red-iphone4", @"09_draw-iphone4", @"09_blue-iphone4"];
     [self.view bringSubviewToFront:self.guideImageView];
     
-    [self.redButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
-    [self.yellowButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
-    [self.blueButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
+    [self addButtonsActionWithTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
     
     [self setButtonsIsActivate:NO];
+    
+    [self buildWinImageView];
+    
+    [self buildGuessImageView];
+    
+    [self buildRusultView];
+    
+    [self bringPauseAndPlayAgainToFront];
 }
 
 - (void)buildWinImageView {
