@@ -30,11 +30,19 @@
 - (void)buildStageInfo {
     [self setButtonImage:[UIImage imageNamed:@"01_catch-iphone4"] contenEdgeInsets:UIEdgeInsetsMake(14, 14, 14, 14)];
 
-    self.bottomView = [[WNXStage12BottomView alloc] initWithFrame:CGRectMake(0, ScreenHeight - self.redButton.frame.size.height - 138, ScreenHeight, 144)];
-    [self.view insertSubview:self.bottomView belowSubview:self.redButton];
-
     [self addButtonsActionWithTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
     
+    [self buildEggView];
+    
+    [self buildBottomView];
+}
+
+- (void)buildBottomView {
+    self.bottomView = [[WNXStage12BottomView alloc] initWithFrame:CGRectMake(0, ScreenHeight - self.redButton.frame.size.height - 138, ScreenHeight, 144)];
+    [self.view insertSubview:self.bottomView belowSubview:self.redButton];
+}
+
+- (void)buildEggView {
     self.eggView = [[WNXStage12EggView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 200)];
     [self.view addSubview:self.eggView];
     
@@ -86,6 +94,24 @@
 - (void)continueGame {
     [super continueGame];
     [self.eggView resume];
+}
+
+- (void)playAgainGame {
+    self.allScroe = 0;
+    
+    [(WNXScoreboardCountView *)self.countScore clean];
+    
+    [self.eggView cleanData];
+    [self.eggView removeFromSuperview];
+    self.eggView = nil;
+    
+    [self.bottomView removeFromSuperview];
+    self.bottomView = nil;
+    
+    [self buildEggView];
+    [self buildBottomView];
+    
+    [super playAgainGame];
 }
 
 #pragma mark - Action

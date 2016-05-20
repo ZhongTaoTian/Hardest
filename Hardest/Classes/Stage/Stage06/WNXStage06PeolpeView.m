@@ -59,6 +59,7 @@
     
     if (_count > 37) {
         if (self.failBlock) {
+            self.countLabel.alpha = 1;
             self.countLabel.hidden = NO;
             self.failBlock();
         }
@@ -71,11 +72,13 @@
     self.peopleImageView.image = [UIImage imageNamed:@"19_man-iphone4"];
     self.peopleImageView.hidden = NO;
     self.countLabel.hidden = NO;
+    self.countLabel.alpha = 1.0;
     self.handImageView.hidden = YES;
 }
 
 - (BOOL)doneBtnClick {
     if (_count != 37) {
+        self.countLabel.alpha = 1;
         self.countLabel.hidden = NO;
     }
     return _count == 37;

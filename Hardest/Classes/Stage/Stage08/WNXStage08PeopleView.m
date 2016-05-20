@@ -17,6 +17,8 @@
     int _count;
     BOOL _isPlayAgain;
     BOOL _isPasue;
+    
+    int _takeDuration;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *peopleIV1;
 @property (weak, nonatomic) IBOutlet UIImageView *peopleIV2;
@@ -52,7 +54,7 @@
     _isModel1 = NO;
     _isModel2 = NO;
     _isModel3 = NO;
-    while (_isModel1 == NO && _isModel2 == NO && _isModel3 == NO) {
+    while ((_isModel1 == NO && _isModel2 == NO && _isModel3 == NO) || (_isModel1 && _isModel2 && _isModel3)) {
         _isModel1 = (int)arc4random_uniform(2);
         _isModel2 = (int)arc4random_uniform(2);
         _isModel3 = (int)arc4random_uniform(2);
@@ -86,7 +88,16 @@
 }
 
 - (void)hiddenCurtain {
-    [UIView animateWithDuration:0.3 animations:^{
+    NSTimeInterval duration;
+    if (_count < 4) {
+        duration = 0.2;
+    } else if (_count < 8) {
+        duration = 0.15;
+    } else {
+        duration = 0.1;
+    }
+    
+    [UIView animateWithDuration:duration animations:^{
         self.curtainLeft.transform = CGAffineTransformMakeTranslation(-self.curtainLeft.frame.size.width, 0);
         self.curtainRight.transform = CGAffineTransformMakeTranslation(self.curtainRight.frame.size.width, 0);
     } completion:^(BOOL finished) {
@@ -111,7 +122,17 @@
 
 - (void)showCurtain {
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundSayOKName];
-    [UIView animateWithDuration:0.5 animations:^{
+    
+    NSTimeInterval duration;
+    if (_count < 4) {
+        duration = 0.2;
+    } else if (_count < 8) {
+        duration = 0.15;
+    } else {
+        duration = 0.1;
+    }
+    
+    [UIView animateWithDuration:duration animations:^{
         self.curtainLeft.transform = CGAffineTransformIdentity;
         self.curtainRight.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
@@ -132,6 +153,16 @@
         self.timer = nil;
     }
     
+    if (_count <= 3) {
+        _takeDuration = 100;
+    } else if (_count <= 6) {
+        _takeDuration = 95;
+    } else if (_count <= 9) {
+        _takeDuration = 90;
+    } else {
+        _takeDuration = 85;
+    }
+     
     self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime)];
     [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
@@ -148,7 +179,8 @@
 
 - (void)updateTime {
     _ms++;
-    if (_ms == 100) {
+
+    if (_ms == _takeDuration) {
         _ms = 0;
         [self.timer invalidate];
         self.timer = nil;
@@ -198,7 +230,7 @@
             image = [UIImage imageNamed:[NSString stringWithFormat:@"02_robot010%d-iphone4", arc4random_uniform(2) + 1]];
         }
         self.peopleIV1.image = image;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.peopleIV1.image = currentImage;
         });
     } else if (index == 1) {
@@ -210,7 +242,7 @@
             image = [UIImage imageNamed:[NSString stringWithFormat:@"02_robot010%d-iphone4", arc4random_uniform(2) + 1]];
         }
         self.peopleIV2.image = image;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.peopleIV2.image = currentImage;
         });
     } else {
@@ -222,7 +254,7 @@
             image = [UIImage imageNamed:[NSString stringWithFormat:@"02_robot010%d-iphone4", arc4random_uniform(2) + 1]];
         }
         self.people3.image = image;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.people3.image = currentImage;
         });
     }

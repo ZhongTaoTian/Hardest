@@ -28,9 +28,7 @@
 }
 
 - (void)buildStageInfo {
-    self.stateView = [WNXStateView viewFromNib];
-    self.stateView.frame = CGRectMake(0, ScreenHeight - self.stateView.frame.size.height - self.redButton.frame.size.height - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
-    [self.view addSubview:self.stateView];
+    [super buildStageView];
     
     [self removeAllImageView];
     
@@ -39,6 +37,17 @@
     [self.view insertSubview:bgIV belowSubview:self.redButton];
     
     [self setButtonsIsActivate:NO];
+  
+    [self buildPlateView];
+    
+    [self buildBottomNumberView];
+    
+    [super bringPauseAndPlayAgainToFront];
+
+    [self addButtonsActionWithTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
+}
+
+- (void)buildPlateView {
     __weak typeof(self) weakSelf = self;
     self.plateView = [[WNXStage10View alloc] initWithFrame:CGRectMake(0, ScreenHeight - self.redButton.frame.size.height + 55 - 480, ScreenWidth, 480)];
     [self.view insertSubview:self.plateView belowSubview:self.redButton];
@@ -56,7 +65,7 @@
         [weakSelf setButtonsIsActivate:NO];
         weakSelf.oneTime = [(WNXTimeCountView *)weakSelf.countScore pasueTime];
     };
-
+    
     self.plateView.PassStageBlock = ^{
         WNXResultStateType resultType;
         if (weakSelf.oneTime < 0.8) {
@@ -90,14 +99,12 @@
         [(WNXTimeCountView *)weakSelf.countScore stopCalculateTime];
         [weakSelf showGameFail];
     };
-    
+}
+
+- (void)buildBottomNumberView {
     self.numView = [[WNXStage10BottomNumView alloc] initWithFrame:CGRectMake(0, self.redButton.frame.origin.y + 4, ScreenWidth, self.redButton.frame.size.height)];
     self.numView.userInteractionEnabled = NO;
     [self.view insertSubview:self.numView aboveSubview:self.blueButton];
-    
-    [super bringPauseAndPlayAgainToFront];
-
-    [self addButtonsActionWithTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
 }
 
 #pragma mark - Action
@@ -136,6 +143,15 @@
     [(WNXTimeCountView *)self.countScore cleadData];
     [self.plateView cleanData];
     [self.numView cleanData];
+    [self.plateView removeFromSuperview];
+    self.plateView = nil;
+    
+    [self.numView removeFromSuperview];
+    self.numView = nil;
+    
+    [self buildPlateView];
+    [self buildBottomNumberView];
+    
     [super playAgainGame];
 }
 

@@ -180,8 +180,6 @@
 - (void)guideImageViewClick {
     [self.guideImageView removeFromSuperview];
     self.countScore.hidden = NO;
-    [self.view bringSubviewToFront:self.playAgainButton];
-    [self.view bringSubviewToFront:self.pauseButton];
     
     __weak __typeof(self) weakSelf = self;
     if (self.scoreboardType == WNXScoreboardTypeCountPTS) {
@@ -238,6 +236,12 @@
     NSLog(@"%f", scroe);
     [resultVC setCountScoreWithNewScroe:scroe unit:unil stage:stage isAddScore:isAddScroe];
     [self.navigationController pushViewController:resultVC animated:NO];
+}
+
+- (void)buildStageView {
+    self.stateView = [WNXStateView viewFromNib];
+    self.stateView.frame = CGRectMake(0, ScreenHeight - self.stateView.frame.size.height - ScreenWidth / 3 - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
+    [self.view addSubview:self.stateView];
 }
 
 @end

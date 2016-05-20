@@ -86,7 +86,7 @@
     
     [self killTimer];
     
-    self.sprayTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(startSprayAnimation) userInfo:nil repeats:YES];
+    self.sprayTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(startSprayAnimation) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.sprayTimer forMode:NSRunLoopCommonModes];
     
     self.rodTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(startRodAnimation) userInfo:nil repeats:YES];
@@ -137,11 +137,11 @@
 
 - (void)startSprayAnimation {
     
-    [UIView animateWithDuration:0.05 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.sprayIV.transform = CGAffineTransformMakeScale(0, 1);
     } completion:^(BOOL finished) {
         
-        [UIView animateWithDuration:0.05 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             self.sprayIV.transform = CGAffineTransformIdentity;
         } completion:nil];
         

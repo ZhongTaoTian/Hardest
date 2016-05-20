@@ -81,7 +81,11 @@
 
 - (void)fail {
     [(WNXTimeCountView *)self.countScore stopCalculateTime];
-    [self showGameFail];
+    [self.view setUserInteractionEnabled:NO];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self showGameFail];
+    });
 }
 
 - (void)startPlayGame {
@@ -113,15 +117,12 @@
 }
 
 - (void)doneButtonClick {
+    self.view.userInteractionEnabled = NO;
     NSTimeInterval time = [(WNXTimeCountView *)self.countScore stopCalculateTime];
     if ([self.peopleView doneBtnClick]) {
-        if (self.stateView) {
-            [self.stateView removeFromSuperview];
-            self.stateView = nil;
-        }
-        self.stateView = [WNXStateView viewFromNib];
-        self.stateView.frame = CGRectMake(0, ScreenHeight - self.stateView.frame.size.height - self.leftButton.frame.size.height - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
-        [self.view addSubview:self.stateView];
+        
+        [super buildStageView];
+        
         WNXResultStateType stageType;
         if (time <= 5) {
             stageType = WNXResultStateTypePerfect;

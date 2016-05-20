@@ -77,7 +77,9 @@
         self.timer = nil;
             
         [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundEggHitName];
-        self.failBlock(self.tag);
+        if (self.failBlock) {
+            self.failBlock(self.tag);
+        }
         
     }
 }
@@ -175,6 +177,14 @@
 
 - (void)resume {
     self.timer.paused = NO;
+}
+
+- (void)cleanData {
+    self.failBlock = nil;
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
 }
 
 @end

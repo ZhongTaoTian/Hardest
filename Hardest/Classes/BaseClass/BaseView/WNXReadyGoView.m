@@ -20,7 +20,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.readyView = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth - 250) * 0.5, 0, 250, 85)];
+        self.readyView = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth - 250) * 0.5, 0, 250, 95)];
         self.readyImage = [UIImage imageNamed:@"ready"];
         self.goImage = [UIImage imageNamed:@"go"];
         self.readyView.image = self.readyImage;
@@ -35,14 +35,14 @@
     if (!iPhone5) {
         startY = 150;
     }
-    WNXReadyGoView *readyGoView = [[WNXReadyGoView alloc] initWithFrame:CGRectMake(ScreenWidth, startY, ScreenWidth, 85)];
+    WNXReadyGoView *readyGoView = [[WNXReadyGoView alloc] initWithFrame:CGRectMake(ScreenWidth, startY, ScreenWidth, 95)];
     [superView addSubview:readyGoView];
     [superView bringSubviewToFront:readyGoView];
     
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundReadyGoName];
     
     [UIView animateWithDuration:0.3 animations:^{
-        readyGoView.frame = CGRectMake(0, startY, ScreenWidth, 85);
+        readyGoView.frame = CGRectMake(0, startY, ScreenWidth, 95);
         
     } completion:^(BOOL finished) {
         
@@ -52,7 +52,7 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
                 [UIView animateWithDuration:0.3 animations:^{
-                    readyGoView.frame = CGRectMake(-ScreenWidth, startY, ScreenWidth, 85);
+                    readyGoView.frame = CGRectMake(-ScreenWidth, startY, ScreenWidth, 95);
                 } completion:^(BOOL finished) {
                     
                     if (completion) {

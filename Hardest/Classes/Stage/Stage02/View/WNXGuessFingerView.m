@@ -41,7 +41,7 @@
     return self;
 }
 
-- (void)startAnimationWithDuration:(NSTimeInterval)duration completion:(void (^)(int winIndex))completion {
+- (void)startAnimationWithDuration:(NSTimeInterval)duration {
     self.leftImageView.image = [UIImage imageNamed:@"09_hand02-iphone4right"];
     self.rightImageView.image = [UIImage imageNamed:@"09_hand02-iphone4"];
     
@@ -101,7 +101,9 @@
                                     self.leftImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"09_hand0%d-iphone4right", random1]];
                                     self.rightImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"09_hand0%d-iphone4", random2]];
                                 } completion:^(BOOL finished) {
-                                    completion(_winIndex);
+                                    if (self.animationFinish) {
+                                        self.animationFinish(_winIndex);
+                                    }
                                 }];
                             }];
                         }];
@@ -166,6 +168,7 @@
     self.rightImageView.transform = CGAffineTransformIdentity;
     self.rightImageView.image = [UIImage imageNamed:@"09_hand02-iphone4"];
     self.leftImageView.image = [UIImage imageNamed:@"09_hand02-iphone4right"];
+    self.animationFinish = nil;
 }
 
 @end

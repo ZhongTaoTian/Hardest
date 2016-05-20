@@ -61,9 +61,8 @@
 }
 
 - (void)startCalculateTime {
-    [UIView animateWithDuration:0.1 animations:^{
-        self.transform = CGAffineTransformTranslate(self.transform, 20, 5);
-    }];
+    [self startCountWithOffsetX:15 offsetY:3];
+    
     if (self.timer) {
         [self.timer invalidate];
     }
@@ -72,9 +71,7 @@
 }
 
 - (NSTimeInterval)stopCalculateTime {
-    [UIView animateWithDuration:0.1 animations:^{
-        self.transform = CGAffineTransformTranslate(self.transform, -20, -5);
-    }];
+    [self startCountWithOffsetX:-15 offsetY:-3];
     
     [self.timer invalidate];
     self.timer = nil;
@@ -82,16 +79,13 @@
 }
 
 - (void)pause {
-    [UIView animateWithDuration:0.1 animations:^{
-        self.transform = CGAffineTransformTranslate(self.transform, -20, -5);
-    }];
+    [self startCountWithOffsetX:-15 offsetY:-3];
     self.timer.paused = YES;
 }
 
 - (NSTimeInterval)pasueTime {
-    [UIView animateWithDuration:0.1 animations:^{
-        self.transform = CGAffineTransformTranslate(self.transform, 20, 5);
-    }];
+    [self startCountWithOffsetX:-15 offsetY:-3];
+    
     NSTimeInterval oneTime = _onceSecond + _onceMS / 60.0;
     _onceSecond = 0;
     _onceMS = 0;
@@ -100,7 +94,14 @@
 }
 
 - (void)resumed {
+    [self startCountWithOffsetX:15 offsetY:3];
     self.timer.paused = NO;
+}
+
+- (void)startCountWithOffsetX:(CGFloat)offsetX offsetY:(CGFloat)offsetY {
+    [UIView animateWithDuration:0.05 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.transform = CGAffineTransformTranslate(self.transform, offsetX, offsetY);
+    } completion:nil];
 }
 
 - (void)cleadData {

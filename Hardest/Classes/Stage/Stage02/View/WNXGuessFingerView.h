@@ -10,7 +10,9 @@
 
 @interface WNXGuessFingerView : UIView
 
-- (void)startAnimationWithDuration:(NSTimeInterval)duration completion:(void (^)(int winIndex))completion;
+@property (nonatomic, copy) void (^animationFinish)(int winIndex);
+
+- (void)startAnimationWithDuration:(NSTimeInterval)duration;
 
 - (void)showResultAnimationCompletion:(void (^)())completion;
 

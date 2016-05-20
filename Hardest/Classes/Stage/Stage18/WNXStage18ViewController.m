@@ -27,9 +27,7 @@
 }
 
 - (void)buildStageInfo {
-    self.stateView = [WNXStateView viewFromNib];
-    self.stateView.frame = CGRectMake(0, ScreenHeight - self.stateView.frame.size.height - ScreenWidth / 3 - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
-    [self.view addSubview:self.stateView];
+    [super buildStageView];
     
     [self buildPokerView];
     

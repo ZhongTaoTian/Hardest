@@ -130,7 +130,7 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>射击次数太多了! 超过了玻璃杯的数量. 按照屏幕上的玻璃杯数量射击!</string>
+		<string>拍摄美女模特! 别拍摄机器人!!</string>
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
@@ -328,13 +328,13 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>拉杆太早! 还没有掉到鱼!</string>
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
 		<string>select_image06</string>
 		<key>intro</key>
-		<string>当任何钩杆晃动时\n以最快速度点击按钮并向上翻转你的设备!</string>
+		<string>当任何钩杆晃动时\n以最快速度点击按钮并向上翻转你的设备!\n***需要用真机***!</string>
 		<key>max</key>
 		<string>400</string>
 		<key>min</key>

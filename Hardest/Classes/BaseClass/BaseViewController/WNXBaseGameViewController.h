@@ -52,4 +52,6 @@ typedef NS_ENUM(NSInteger, WNXScoreboardType) {
 
 - (void)bringPauseAndPlayAgainToFront;
 
+- (void)buildStageView;
+
 @end

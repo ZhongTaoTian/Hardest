@@ -84,13 +84,13 @@
     }
     
     self.goodsIV.transform = CGAffineTransformMakeScale(0, 0);
-    
+    self.goodsIV.hidden = NO;
     self.goodsIV.image = [UIImage imageNamed:[NSString stringWithFormat:@"06_success0%d-iphone4", imageIndex]];
-
-    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    
+    [UIView animateWithDuration:0.2 animations:^{
         self.goodsIV.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.goodsIV.hidden = YES;
             
             if (finish) {
@@ -105,7 +105,9 @@
                 [self.fishView3 resumeData];
             }
         });
+
     }];
+
 }
 
 @end

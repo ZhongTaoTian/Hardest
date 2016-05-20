@@ -95,10 +95,10 @@
 }
 
 - (void)playAgainGame {
-    [super playAgainGame];
     
     [self.headerView again];
     [((WNXTimeCountView *)self.countScore) cleadData];
+    [super playAgainGame];
 }
 
 #pragma mark - Method

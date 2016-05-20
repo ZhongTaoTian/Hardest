@@ -20,4 +20,6 @@
 
 - (NSInteger)grabEgg;
 
+- (void)cleanData;
+
 @end

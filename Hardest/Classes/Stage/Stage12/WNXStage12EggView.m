@@ -154,4 +154,22 @@
     [self.egg3 resume];
 }
 
+- (void)cleanData {
+    self.failBlock = nil;
+    self.nextDropEggBlock = nil;
+    self.passStageBlock = nil;
+    
+    [self.egg1 removeFromSuperview];
+    [self.egg1 cleanData];
+    self.egg1 = nil;
+    
+    [self.egg2 removeFromSuperview];
+    [self.egg2 cleanData];
+    self.egg2 = nil;
+    
+    [self.egg3 removeFromSuperview];
+    [self.egg3 cleanData];
+    self.egg3 = nil;
+}
+
 @end

@@ -31,24 +31,18 @@
     bgImageView.image = [UIImage imageNamed:@"03_background-iphone4"];
     [self.view insertSubview:bgImageView belowSubview:self.redButton];
     
-    [self setButtonImage:[UIImage imageNamed:@"03_button-iphone4"] contenEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+    [self setButtonImage:[UIImage imageNamed:@"03_button-iphone4"] contenEdgeInsets:UIEdgeInsetsMake(25, 25, 25, 25)];
     [self addButtonsActionWithTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
     
     [self buildEggRoll];
     
     [self buildIceView];
     
-    [self buildStateView];
+    [super buildStageView];
     
     [self bringPauseAndPlayAgainToFront];
 }
 
-
-- (void)buildStateView {
-    self.stateView = [WNXStateView viewFromNib];
-    self.stateView.frame = CGRectMake(0, ScreenHeight - self.stateView.frame.size.height - self.redButton.frame.size.height - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
-    [self.view addSubview:self.stateView];
-}
 
 - (void)buildEggRoll {
     CGFloat eggIVW = 100;

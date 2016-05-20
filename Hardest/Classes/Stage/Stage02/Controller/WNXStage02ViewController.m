@@ -63,6 +63,16 @@
 - (void)buildGuessImageView {
     self.guessView = [[WNXGuessFingerView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.countScore.frame) + 40, ScreenWidth, 150)];
     [self.view insertSubview:self.guessView aboveSubview:self.winImageView];
+    
+    __weak typeof(self) weakSelf = self;
+    self.guessView.animationFinish = ^(int winIndex){
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundAppearSoundName];
+        weakSelf.winIndex = winIndex;
+        [weakSelf setButtonsIsActivate:YES];
+        [((WNXCountTimeView *)weakSelf.countScore) startCalculateByTimeWithTimeOut:^{
+            [weakSelf showGameFail];
+        } outTime:10];
+    };
 }
 
 - (void)buildRusultView {
@@ -104,9 +114,15 @@
 }
 
 - (void)playAgainGame {
+    _count = 20;
+    _scroe = 0;
     [self.guessView cleanData];
+    [self.guessView removeFromSuperview];
+    self.guessView = nil;
+    
     [((WNXCountTimeView *)self.countScore) cleanData];
-    [self setButtonsIsActivate:NO];
+    
+    [self buildGuessImageView];
     
     [super playAgainGame];
 }
@@ -141,15 +157,7 @@
     }
     
     _count--;
-    __weak __typeof(self) weakSelf = self;
-    [self.guessView startAnimationWithDuration:time completion:^(int winIndex) {
-        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundAppearSoundName];
-        weakSelf.winIndex = winIndex;
-        [weakSelf setButtonsIsActivate:YES];
-        [((WNXCountTimeView *)weakSelf.countScore) startCalculateByTimeWithTimeOut:^{
-            [weakSelf showGameFail];
-        } outTime:10];
-    }];
+    [self.guessView startAnimationWithDuration:time];
     
     if (_count == 0) {
         _stop = YES;

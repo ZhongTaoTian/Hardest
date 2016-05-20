@@ -27,4 +27,6 @@
 
 - (NSInteger)grabWithIndex:(NSInteger)index;
 
+- (void)cleanData;
+
 @end

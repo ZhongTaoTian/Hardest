@@ -50,7 +50,7 @@
     
     [self buildStageImageView];
     
-    [self buildStateView];
+    [super buildStageView];
     
     [self bringPauseAndPlayAgainToFront];
 }
@@ -117,12 +117,6 @@
     [(WNXCountTimeView *)self.countScore setNotHasTimeOut:YES];
     [self.imageView start];
     [self setButtonActivate:NO];
-}
-
-- (void)buildStateView {
-    self.stateView = [WNXStateView viewFromNib];
-    self.stateView.frame = CGRectMake(0, ScreenHeight - self.stateView.frame.size.height - self.leftButton.frame.size.height - 10, self.stateView.frame.size.width, self.stateView.frame.size.height);
-    [self.view addSubview:self.stateView];
 }
 
 - (void)pauseGame {
