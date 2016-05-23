@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WNXDiceView">
+            <rect key="frame" x="0.0" y="0.0" width="107" height="462"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="10_dice01-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="FQg-Gg-OR8">
+                    <rect key="frame" x="13" y="246" width="80" height="80"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="10_dice01-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="j3b-u3-B0m">
+                    <rect key="frame" x="13" y="175" width="80" height="80"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="10_dice01-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="vwt-kA-R1O">
+                    <rect key="frame" x="13" y="265" width="80" height="80"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="firstDiceIV" destination="vwt-kA-R1O" id="xih-oX-yCh"/>
+                <outlet property="secondDiceIV" destination="FQg-Gg-OR8" id="VMk-Lt-unM"/>
+                <outlet property="thirdDiceIV" destination="j3b-u3-B0m" id="8Cx-NM-6SM"/>
+            </connections>
+            <point key="canvasLocation" x="769.5" y="458"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="10_dice01-iphone4" width="170" height="170"/>
+    </resources>
+</document>
