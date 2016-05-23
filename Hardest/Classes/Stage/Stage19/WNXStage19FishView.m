@@ -23,9 +23,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        UIImageView *bgIV = [[UIImageView alloc] initWithFrame:frame];
-        bgIV.image = [UIImage imageNamed:@"06_bg-iphone4"];
-        [self addSubview:bgIV];
+        self.userInteractionEnabled = NO;
         
         self.fishView1 = [WNXFishView viewFromNib];
         [self addSubview:self.fishView1];
@@ -66,6 +64,7 @@
 }
 
 - (void)showSucessWithIndex:(NSInteger)index finish:(void (^)())finish {
+    
     if (index == 0) {
         [self.fishView1 showSucess];
     } else if (index == 1) {
@@ -76,11 +75,11 @@
     
     int imageIndex = arc4random_uniform(3) + 1;
     if (imageIndex == 1) {
-        self.goodsIV.frame = CGRectMake(kCountStartX(150), 200, 150, 180);
+        self.goodsIV.frame = CGRectMake(kCountStartX(150), 160, 150, 180);
     } else if (imageIndex == 2) {
-        self.goodsIV.frame = CGRectMake(kCountStartX(150), 200, 150, 111);
+        self.goodsIV.frame = CGRectMake(kCountStartX(150), 160, 150, 111);
     } else {
-        self.goodsIV.frame = CGRectMake(kCountStartX(150), 200, 150, 135);
+        self.goodsIV.frame = CGRectMake(kCountStartX(150), 160, 150, 135);
     }
     
     self.goodsIV.transform = CGAffineTransformMakeScale(0, 0);
@@ -90,6 +89,7 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.goodsIV.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundCatchFishName];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.goodsIV.hidden = YES;
             
@@ -107,7 +107,36 @@
         });
 
     }];
+}
 
+- (void)pause {
+    [self.fishView1 pause];
+    [self.fishView2 pause];
+    [self.fishView3 pause];
+}
+
+- (void)resume {
+    [self.fishView1 resume];
+    [self.fishView2 resume];
+    [self.fishView3 resume];
+}
+
+- (void)removeData {
+    [self removeTimer];
+    
+    [self.fishView1 removeFromSuperview];
+    [self.fishView2 removeFromSuperview];
+    [self.fishView3 removeFromSuperview];
+    
+    self.fishView1 = nil;
+    self.fishView2 = nil;
+    self.fishView3 = nil;
+}
+
+- (void)removeTimer {
+    [self.fishView1 killTimer];
+    [self.fishView2 killTimer];
+    [self.fishView3 killTimer];
 }
 
 @end

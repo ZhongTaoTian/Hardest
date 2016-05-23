@@ -104,4 +104,4 @@
 
 // stage19
 #define kSoundCatchFishName @"06_catchFish.mp3"
-#define kSoundReekinName @"06_reelin.mp3"
+#define kSoundReelinName @"06_reelin.mp3"

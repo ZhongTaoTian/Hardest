@@ -336,9 +336,9 @@
 		<key>intro</key>
 		<string>当任何钩杆晃动时\n以最快速度点击按钮并向上翻转你的设备!\n***需要用真机***!</string>
 		<key>max</key>
-		<string>400</string>
+		<string>450</string>
 		<key>min</key>
-		<string>800</string>
+		<string>850</string>
 		<key>title</key>
 		<string>让\n我们\n去钓鱼</string>
 		<key>unit</key>

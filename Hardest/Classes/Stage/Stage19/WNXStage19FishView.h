@@ -16,4 +16,10 @@
 
 - (void)showSucessWithIndex:(NSInteger)index finish:(void(^)())finish;
 
+- (void)removeData;
+- (void)pause;
+- (void)resume;
+
+- (void)removeTimer;
+
 @end

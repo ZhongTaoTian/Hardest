@@ -9,6 +9,9 @@
 #import "WNXFishView.h"
 
 @interface WNXFishView ()
+{
+    int _index;
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView *peopleIV;
 @property (weak, nonatomic) IBOutlet UIImageView *rodIV;
@@ -19,8 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *lineIV;
 @property (weak, nonatomic) IBOutlet UIImageView *happyIV;
 
-@property (nonatomic, strong) NSTimer *sprayTimer;
-@property (nonatomic, strong) NSTimer *rodTimer;
+@property (nonatomic, strong) CADisplayLink *timer;
 
 @end
 
@@ -58,14 +60,9 @@
 }
 
 - (void)killTimer {
-    if (self.sprayTimer) {
-        [self.sprayTimer invalidate];
-        self.sprayTimer = nil;
-    }
-    
-    if (self.rodTimer) {
-        [self.rodTimer invalidate];
-        self.rodTimer = nil;
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
     }
 }
 
@@ -86,11 +83,24 @@
     
     [self killTimer];
     
-    self.sprayTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(startSprayAnimation) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.sprayTimer forMode:NSRunLoopCommonModes];
+    _index = 0;
     
-    self.rodTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(startRodAnimation) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.rodTimer forMode:NSRunLoopCommonModes];
+    [self startSprayAnimation];
+    [self startRodAnimation];
+    
+    self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updataTime)];
+    [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+    //    self.sprayTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(startSprayAnimation) userInfo:nil repeats:YES];
+    
+}
+
+- (void)updataTime {
+    _index++;
+    if (_index == 12) {
+        [self startRodAnimation];
+        [self startSprayAnimation];
+        _index = 0;
+    }
 }
 
 - (void)stopFishBite {
@@ -125,6 +135,28 @@
     });
 }
 
+- (void)pause {
+    if (self.timer) {
+        self.timer.paused = YES;
+    }
+    
+    if (self.blackView.hidden == NO) {
+        if ([self.iphoneIV isAnimating]) {
+            [self.iphoneIV stopAnimating];
+        }
+    }
+}
+
+- (void)resume {
+    if (self.timer) {
+        self.timer.paused = NO;
+    }
+    
+    if (self.blackView.hidden == NO) {
+        [self.iphoneIV startAnimating];
+    }
+}
+
 - (void)resumeData {
     self.happyIV.hidden = YES;
     self.lineIV.hidden = YES;
@@ -136,7 +168,7 @@
 #pragma mark - Private Method
 
 - (void)startSprayAnimation {
-    
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundReelinName];
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.sprayIV.transform = CGAffineTransformMakeScale(0, 1);
     } completion:^(BOOL finished) {
@@ -159,5 +191,7 @@
         
     }];
 }
+
+
 
 @end
