@@ -105,3 +105,6 @@
 // stage19
 #define kSoundCatchFishName @"06_catchFish.mp3"
 #define kSoundReelinName @"06_reelin.mp3"
+
+// stage20
+#define kSoundRollDiceName @"10_rollDice.mp3"

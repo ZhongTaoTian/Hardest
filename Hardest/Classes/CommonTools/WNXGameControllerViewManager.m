@@ -27,7 +27,7 @@
 #import "WNXStage17ViewController.h"
 #import "WNXStage18ViewController.h"
 #import "WNXStage19ViewController.h"
-//#import "WNXStage20ViewController.h"
+#import "WNXStage20ViewController.h"
 //#import "WNXStage21ViewController.h"
 //#import "WNXStage22ViewController.h"
 //#import "WNXStage23ViewController.h"
@@ -151,6 +151,12 @@
             gameVC = [WNXStage19ViewController new];
             gameVC.stage = stage;
             gameVC.guideType = WNXGameGuideTypeNone;
+            gameVC.scoreboardType = WNXScoreboardTypeTimeMS;
+            break;
+        case 20:
+            gameVC = [WNXStage20ViewController new];
+            gameVC.stage = stage;
+            gameVC.guideType = WNXScoreboardTypeNone;
             gameVC.scoreboardType = WNXScoreboardTypeTimeMS;
             break;
         default:
