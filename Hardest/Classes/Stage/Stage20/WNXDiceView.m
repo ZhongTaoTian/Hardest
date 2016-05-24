@@ -14,6 +14,7 @@
     int _number1;
     int _number2;
     int _number3;
+    NSInteger _duration;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *thirdDiceIV;
@@ -31,6 +32,24 @@
     self.secondDiceIV.hidden = YES;
     self.thirdDiceIV.hidden = YES;
     [self setImageViewAnimationAttribute];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
+}
+
+- (void)removeTimer {
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+}
+
+- (void)dealloc {
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setImageViewAnimationAttribute {
@@ -44,7 +63,7 @@
     self.firstDiceIV.animationRepeatCount = self.secondDiceIV.animationRepeatCount = self.thirdDiceIV.animationRepeatCount = MAXFLOAT;
 }
 
-- (void)startShakeDiceWithFirstDiceNumber:(int)number1 secoundDiceNumber:(int)number2 thridDiceNumber:(int)number3 {
+- (void)startShakeDiceWithFirstDiceNumber:(int)number1 secoundDiceNumber:(int)number2 thridDiceNumber:(int)number3 shakeDuration:(NSInteger)duration {
     if (number1 != -1 && number2 == -1 && number3 == -1) {
         self.secondDiceIV.hidden = YES;
         self.thirdDiceIV.hidden = YES;
@@ -65,6 +84,7 @@
     _number1 = number1;
     _number2 = number2;
     _number3 = number3;
+    _duration = duration;
     
     [self startShakeDice];
 }
@@ -90,7 +110,7 @@
 
 - (void)updateTime {
     _index++;
-    if (_index == 40) {
+    if (_index == _duration) {
         [self.timer invalidate];
         self.timer = nil;
         
@@ -106,7 +126,9 @@
             self.secondDiceIV.transform = CGAffineTransformIdentity;
             self.thirdDiceIV.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
-            
+            if (self.shakeDiceFinish) {
+                self.shakeDiceFinish();
+            }
         }];
         
     }
@@ -126,6 +148,29 @@
         self.thirdDiceIV.image = [UIImage imageNamed:@"10_dice01-iphone4"];
     }
     
+}
+
+- (void)pause {
+    if (self.timer) {
+        self.timer.paused = YES;
+    }
+}
+
+- (void)resume {
+    if (self.timer) {
+        self.timer.paused = NO;
+    }
+}
+
+- (void)removeData {
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+    
+    if (self.shakeDiceFinish) {
+        self.shakeDiceFinish = nil;
+    }
 }
 
 @end

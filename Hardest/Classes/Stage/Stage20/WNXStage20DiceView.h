@@ -10,9 +10,13 @@
 
 @interface WNXStage20DiceView : UIView
 
+@property (nonatomic, copy) void (^shakeDiceFinsih)();
+
 - (int)startShakeDice;
 
 - (void)pause;
 - (void)resume;
+
+- (void)removeData;
 
 @end

@@ -45,6 +45,13 @@
         self.dice3 = [WNXDiceView viewFromNib];
         self.dice3.frame = CGRectMake(ScreenWidth / 3 * 2, 0, ScreenWidth / 3, self.dice3.frame.size.height);
         [self addSubview:self.dice3];
+        
+        __weak typeof(self) weakSelf = self;
+        self.dice1.shakeDiceFinish = ^{
+            if (weakSelf.shakeDiceFinsih) {
+                weakSelf.shakeDiceFinsih();
+            }
+        };
     }
     
     return self;
@@ -52,6 +59,11 @@
 
 - (int)startShakeDice {
     _count++;
+    
+    NSInteger shakeDuration = 45 - _count * 5;
+    if (shakeDuration < 10) {
+        shakeDuration = 10;
+    }
     
     int maxIndex = arc4random_uniform(3);
 
@@ -73,9 +85,9 @@
             }
         }
         
-        [self.dice1 startShakeDiceWithFirstDiceNumber:_diceView1Num1 secoundDiceNumber:-1 thridDiceNumber:-1];
-        [self.dice2 startShakeDiceWithFirstDiceNumber:_diceView2Num1 secoundDiceNumber:-1 thridDiceNumber:-1];
-        [self.dice3 startShakeDiceWithFirstDiceNumber:_diceView3Num1 secoundDiceNumber:-1 thridDiceNumber:-1];
+        [self.dice1 startShakeDiceWithFirstDiceNumber:_diceView1Num1 secoundDiceNumber:-1 thridDiceNumber:-1 shakeDuration:shakeDuration];
+        [self.dice2 startShakeDiceWithFirstDiceNumber:_diceView2Num1 secoundDiceNumber:-1 thridDiceNumber:-1 shakeDuration:shakeDuration];
+        [self.dice3 startShakeDiceWithFirstDiceNumber:_diceView3Num1 secoundDiceNumber:-1 thridDiceNumber:-1 shakeDuration:shakeDuration];
 
     } else if (_count <= 8) {
     
@@ -111,9 +123,9 @@
             }
         }
         
-        [self.dice1 startShakeDiceWithFirstDiceNumber:_diceView1Num1 secoundDiceNumber:_diceView1Num2 thridDiceNumber:-1];
-        [self.dice2 startShakeDiceWithFirstDiceNumber:_diceView2Num1 secoundDiceNumber:_diceView2Num2 thridDiceNumber:-1];
-        [self.dice3 startShakeDiceWithFirstDiceNumber:_diceView3Num1 secoundDiceNumber:_diceView3Num2 thridDiceNumber:-1];
+        [self.dice1 startShakeDiceWithFirstDiceNumber:_diceView1Num1 secoundDiceNumber:_diceView1Num2 thridDiceNumber:-1 shakeDuration:shakeDuration];
+        [self.dice2 startShakeDiceWithFirstDiceNumber:_diceView2Num1 secoundDiceNumber:_diceView2Num2 thridDiceNumber:-1 shakeDuration:shakeDuration];
+        [self.dice3 startShakeDiceWithFirstDiceNumber:_diceView3Num1 secoundDiceNumber:_diceView3Num2 thridDiceNumber:-1 shakeDuration:shakeDuration];
         
     } else {
     
@@ -149,9 +161,9 @@
             }
         }
         
-        [self.dice1 startShakeDiceWithFirstDiceNumber:_diceView1Num1 secoundDiceNumber:_diceView1Num2 thridDiceNumber:_diceView1Num3];
-        [self.dice2 startShakeDiceWithFirstDiceNumber:_diceView2Num1 secoundDiceNumber:_diceView2Num2 thridDiceNumber:_diceView2Num3];
-        [self.dice3 startShakeDiceWithFirstDiceNumber:_diceView3Num1 secoundDiceNumber:_diceView3Num2 thridDiceNumber:_diceView3Num3];
+        [self.dice1 startShakeDiceWithFirstDiceNumber:_diceView1Num1 secoundDiceNumber:_diceView1Num2 thridDiceNumber:_diceView1Num3 shakeDuration:shakeDuration];
+        [self.dice2 startShakeDiceWithFirstDiceNumber:_diceView2Num1 secoundDiceNumber:_diceView2Num2 thridDiceNumber:_diceView2Num3 shakeDuration:shakeDuration];
+        [self.dice3 startShakeDiceWithFirstDiceNumber:_diceView3Num1 secoundDiceNumber:_diceView3Num2 thridDiceNumber:_diceView3Num3 shakeDuration:shakeDuration];
     }
         
     return maxIndex;
@@ -177,6 +189,28 @@
     _diceView1Num3 = arc4random_uniform(6) + 1;
     _diceView2Num3 = arc4random_uniform(6) + 1;
     _diceView3Num3 = arc4random_uniform(6) + 1;
+}
+
+- (void)pause {
+    [self.dice1 pause];
+    [self.dice2 pause];
+    [self.dice3 pause];
+}
+
+- (void)resume {
+    [self.dice1 resume];
+    [self.dice2 resume];
+    [self.dice3 resume];
+}
+
+- (void)removeData {
+    [self.dice1 removeData];
+    [self.dice2 removeData];
+    [self.dice3 removeData];
+    
+    if (self.shakeDiceFinsih) {
+        self.shakeDiceFinsih = nil;
+    }
 }
 
 @end
