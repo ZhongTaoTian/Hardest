@@ -364,21 +364,21 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>错误的答案! 点击最大分数的按钮.</string>
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image21.png</string>
+		<string>select_image17</string>
 		<key>intro</key>
-		<string>以最快速度交替点击左右。\n尽可能在6秒内完成多次的引体向上！</string>
+		<string>按照那边有最大分数,\n以最快速度点击左或右按钮!</string>
 		<key>max</key>
-		<string>90.00</string>
+		<string>300</string>
 		<key>min</key>
-		<string>70.00</string>
+		<string>600</string>
 		<key>title</key>
-		<string>引体向上\n超级\n英雄</string>
+		<string>我\n讨厌\n分数</string>
 		<key>unit</key>
-		<string>次</string>
+		<string>ms</string>
 	</dict>
 	<dict>
 		<key>fail</key>

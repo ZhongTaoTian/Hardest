@@ -123,9 +123,9 @@
 - (void)updateTime {
     _timeCount++;
     
-    int interval = 50 - _diceCount * 5;
-    if (interval < 20) {
-        interval = 20;
+    int interval = 40 - _diceCount * 5;
+    if (interval < 10) {
+        interval = 10;
     }
     
     if (_timeCount == interval) {
