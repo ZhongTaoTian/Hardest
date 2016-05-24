@@ -65,6 +65,8 @@
         shakeDuration = 10;
     }
     
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundRollDiceName];
+    
     int maxIndex = arc4random_uniform(3);
 
     if (_count <= 4) {
@@ -165,7 +167,7 @@
         [self.dice2 startShakeDiceWithFirstDiceNumber:_diceView2Num1 secoundDiceNumber:_diceView2Num2 thridDiceNumber:_diceView2Num3 shakeDuration:shakeDuration];
         [self.dice3 startShakeDiceWithFirstDiceNumber:_diceView3Num1 secoundDiceNumber:_diceView3Num2 thridDiceNumber:_diceView3Num3 shakeDuration:shakeDuration];
     }
-        
+    
     return maxIndex;
 }
 
