@@ -27,4 +27,6 @@ typedef NS_ENUM(NSInteger,WNXResultStateType) {
 
 - (void)showBadStateWithFinish:(void(^)())finish;
 
+- (void)removeData;
+
 @end

@@ -12,6 +12,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *stateImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *circleImageView;
 
+@property (nonatomic, copy) void (^hiddenFinsih)();
+@property (nonatomic, copy) void (^showFinish)();
+
 @end
 
 @implementation WNXStateView
@@ -85,6 +88,7 @@
 - (void)showStateViewWithType:(WNXResultStateType)type stageViewHiddenFinishBlock:(void (^)(void))stageViewHiddenFinishBlock {
     self.type = type;
     self.hidden = NO;
+    self.hiddenFinsih = stageViewHiddenFinishBlock;
     switch (type) {
         case WNXResultStateTypeOK:
             [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundOKName];
@@ -113,8 +117,8 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.hidden = YES;
-        if (stageViewHiddenFinishBlock) {
-            stageViewHiddenFinishBlock();
+        if (self.hiddenFinsih) {
+            self.hiddenFinsih();
         }
     });
 }
@@ -123,6 +127,8 @@
     self.hidden = NO;
     self.stateImageView.layer.anchorPoint = CGPointMake(1, 0.5);
     self.stateImageView.frame = CGRectMake(self.stateImageView.frame.origin.x + self.stateImageView.frame.size.width * 0.5, self.stateImageView.frame.origin.y, self.stateImageView.frame.size.width, self.stateImageView.frame.size.height);
+    
+    self.showFinish = finish;
     
     NSString *badName = [NSString stringWithFormat:@"instantFail0%d", arc4random_uniform(3) + 2];
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:badName];
@@ -135,8 +141,8 @@
     } completion:^(BOOL finished) {
         
         self.hidden = YES;
-        if (finish) {
-            finish();
+        if (self.showFinish) {
+            self.showFinish();
         }
         
     }];
@@ -144,6 +150,12 @@
 
 - (void)hideStateView {
     self.hidden = YES;
+}
+
+- (void)removeData {
+    self.showFinish = nil;
+    self.hiddenFinsih = nil;
+    [self removeFromSuperview];
 }
 
 @end
