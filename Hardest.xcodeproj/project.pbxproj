@@ -117,6 +117,7 @@
 		B3F532631CF44B6E005F537D /* WNXStage21ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F532621CF44B6E005F537D /* WNXStage21ViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B3F532661CF45DA7005F537D /* WNXFractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F532651CF45DA7005F537D /* WNXFractionView.m */; settings = {ASSET_TAGS = (); }; };
 		B3F532691CF45EA6005F537D /* WNXStage21FractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F532681CF45EA6005F537D /* WNXStage21FractionView.m */; settings = {ASSET_TAGS = (); }; };
+		B3F5326E1CF58D46005F537D /* WNXStage22ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F5326D1CF58D46005F537D /* WNXStage22ViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B3FBDC7B1CAD158C009840C5 /* WNXStage04ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FBDC7A1CAD158C009840C5 /* WNXStage04ViewController.m */; };
 		FA48C6501CBA94A9004B326C /* WNXStage07ErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA48C64F1CBA94A9004B326C /* WNXStage07ErrorView.m */; };
 		FA48C6521CBA94BC004B326C /* WNXStage07ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA48C6511CBA94BC004B326C /* WNXStage07ErrorView.xib */; };
@@ -360,6 +361,8 @@
 		B3F532651CF45DA7005F537D /* WNXFractionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXFractionView.m; sourceTree = "<group>"; };
 		B3F532671CF45EA6005F537D /* WNXStage21FractionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage21FractionView.h; sourceTree = "<group>"; };
 		B3F532681CF45EA6005F537D /* WNXStage21FractionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage21FractionView.m; sourceTree = "<group>"; };
+		B3F5326C1CF58D46005F537D /* WNXStage22ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage22ViewController.h; sourceTree = "<group>"; };
+		B3F5326D1CF58D46005F537D /* WNXStage22ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage22ViewController.m; sourceTree = "<group>"; };
 		B3FBDC791CAD158C009840C5 /* WNXStage04ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage04ViewController.h; sourceTree = "<group>"; };
 		B3FBDC7A1CAD158C009840C5 /* WNXStage04ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage04ViewController.m; sourceTree = "<group>"; };
 		FA48C64E1CBA94A9004B326C /* WNXStage07ErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage07ErrorView.h; sourceTree = "<group>"; };
@@ -1093,6 +1096,8 @@
 		B3FBDC761CAD1421009840C5 /* Stage22 */ = {
 			isa = PBXGroup;
 			children = (
+				B3F5326C1CF58D46005F537D /* WNXStage22ViewController.h */,
+				B3F5326D1CF58D46005F537D /* WNXStage22ViewController.m */,
 			);
 			path = Stage22;
 			sourceTree = "<group>";
@@ -1328,6 +1333,7 @@
 				B3650EE21C856AC600FC2D4E /* WNXStageView.m in Sources */,
 				FAC8C1C21CAEC38E00FD8D0E /* WNXStateView.m in Sources */,
 				B35971CA1CBB7B7A0070C010 /* WNXStage08ViewController.m in Sources */,
+				B3F5326E1CF58D46005F537D /* WNXStage22ViewController.m in Sources */,
 				B30A2E6C1CB3CF5E00A3DA68 /* WNXStage06ViewController.m in Sources */,
 				B3EF93CE1C90345E006C3E42 /* WNXFeatherView.m in Sources */,
 				B30886171C895B6500AE83B2 /* WNXFootView.m in Sources */,

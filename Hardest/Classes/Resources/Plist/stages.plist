@@ -386,17 +386,17 @@
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image22.png</string>
+		<string>select_image24</string>
 		<key>intro</key>
-		<string>快速点击奔跑，然后当火柴人接近悬崖边时点击跳跃！\n分数取决于总距离。</string>
+		<string>观察并记住放屁的顺序!\n以最快速度点击顺序.</string>
 		<key>max</key>
-		<string>280.0</string>
+		<string>40</string>
 		<key>min</key>
-		<string>250.0</string>
+		<string>20</string>
 		<key>title</key>
-		<string>火柴人\n悬崖\n跳跃</string>
+		<string>是谁\n在\n放屁</string>
 		<key>unit</key>
-		<string>分</string>
+		<string>PTS</string>
 	</dict>
 	<dict>
 		<key>fail</key>

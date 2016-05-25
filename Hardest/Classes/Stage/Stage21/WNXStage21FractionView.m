@@ -29,7 +29,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
-        _speed = 6;
+        _speed = 2;
         _count = 0;
     }
     
@@ -50,10 +50,10 @@
 
 - (int)showNumber {
     int maxTag = arc4random_uniform(2) + 1;
-    _speed += _count * 0.5;
+    _speed += 2;
    
-    if (_speed > 25) {
-        _speed = 25;
+    if (_speed > 20) {
+        _speed = 20;
     }
     
     _count++;

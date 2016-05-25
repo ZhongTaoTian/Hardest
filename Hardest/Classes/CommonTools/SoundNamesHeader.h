@@ -108,3 +108,10 @@
 
 // stage20
 #define kSoundRollDiceName @"10_rollDice.mp3"
+
+// stage22
+#define kSoundFart01Nmae @"24_fart01.mp3"
+#define kSoundFart02Name @"24_fart02.mp3"
+#define kSoundFart03Name @"24_fart03.mp3"
+
+
