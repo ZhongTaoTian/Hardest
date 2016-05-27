@@ -13,6 +13,7 @@
 @interface WNXStage22PeopleView ()
 {
     int _clickCount;
+    BOOL _isReomve;
 }
 
 @property (nonatomic, strong) UIImageView *leftIV;
@@ -85,10 +86,33 @@
     
     _count++;
     for (int fartCount = 1; fartCount <= _count; fartCount++) {
+        
         int fartNum = arc4random_uniform(3);
         [self.numArr addObject:[NSNumber numberWithInt:fartNum]];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((fartCount - 1) * 0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            if (_isReomve) {
+                return;
+            }
+            
+            NSString *soundName;
+            if (fartNum == 0) {
+                soundName = kSoundFart01Nmae;
+            } else if (fartNum == 1) {
+                soundName = kSoundFart02Name;
+            } else {
+                soundName = kSoundFart03Name;
+            }
+            
+            [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:soundName];
+            
+            if (_isReomve) {
+                return;
+            }
+            
+            NSLog(@"%@", self);
+            
             if (fartNum == 0) {
                 self.leftIV.image = [UIImage imageNamed:@"24_Bbt_fart-iphone4"];
                 self.redIV.highlighted = YES;
@@ -117,8 +141,8 @@
                 self.fartIV.alpha = 1;
             }];
             
-            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
                 self.leftIV.image = [UIImage imageNamed:@"24_Bbt_stand-iphone4"];
                 self.middleIV.image = [UIImage imageNamed:@"24_Ybt_stand-iphone4"];
                 self.rightIV.image = [UIImage imageNamed:@"24_Rbt_stand-iphone4"];
@@ -146,6 +170,17 @@
         int fartIndex = [self.numArr[0] intValue];
         
         result = index == fartIndex;
+        
+        NSString *soundName;
+        if (index == 0) {
+            soundName = kSoundFart01Nmae;
+        } else if (index == 1) {
+            soundName = kSoundFart02Name;
+        } else {
+            soundName = kSoundFart03Name;
+        }
+        
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:soundName];
         
         if (result) {
             _clickCount++;
@@ -197,10 +232,64 @@
                     self.sucess();
                 }
             }
+        } else {
+            if (index == 0) {
+                self.leftIV.image = [UIImage imageNamed:@"24_Bbt_fart-iphone4"];
+                self.redIV.highlighted = YES;
+                self.fartIV.frame = CGRectMake(0 , 300, 100, 76);
+                
+            } else if (index == 1) {
+                self.middleIV.image = [UIImage imageNamed:@"24_Ybt_fart-iphone4"];
+                self.yellowIV.highlighted = YES;
+                self.fartIV.frame = CGRectMake(ScreenWidth / 3 , 300, 100, 76);
+            } else {
+                self.rightIV.image = [UIImage imageNamed:@"24_Rbt_fart-iphone4"];
+                self.blueIV.highlighted = YES;
+                self.fartIV.frame = CGRectMake(ScreenWidth / 3 * 2 , 300, 100, 76);
+            }
+            
+            self.fartIV.hidden = NO;
+            
+            [UIView animateWithDuration:0.2 animations:^{
+                self.fartIV.alpha = 0;
+            } completion:^(BOOL finished) {
+                self.fartIV.hidden = YES;
+                self.fartIV.alpha = 1;
+            }];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.leftIV.image = [UIImage imageNamed:@"24_Bbt_stand-iphone4"];
+                self.middleIV.image = [UIImage imageNamed:@"24_Ybt_stand-iphone4"];
+                self.rightIV.image = [UIImage imageNamed:@"24_Rbt_stand-iphone4"];
+                
+                self.blueIV.highlighted = NO;
+                self.redIV.highlighted = NO;
+                self.yellowIV.highlighted = NO;
+                self.countLabel.hidden = YES;
+            });
         }
     }
     
     return result;
+}
+
+- (void)removeData {
+    self.fartFinish = nil;
+    self.sucess = nil;
+    
+    self.redIV = nil;
+    self.yellowIV = nil;
+    self.blueIV = nil;
+    
+    _isReomve = YES;
+    
+    self.numArr = nil;
+    
+    [self removeFromSuperview];
+}
+
+- (void)dealloc {
+    NSLog(@"销毁了");
 }
 
 @end

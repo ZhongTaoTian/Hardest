@@ -23,4 +23,6 @@
 
 - (BOOL)fartWithIndex:(int)index;
 
+- (void)removeData;
+
 @end

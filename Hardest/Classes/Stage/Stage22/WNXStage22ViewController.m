@@ -29,6 +29,10 @@ typedef NS_ENUM(NSInteger, WNXStatusResultType) {
 @property (nonatomic, strong) UIImageView        *resultImageView;
 @property (nonatomic, strong) WNXStrokeLabel     *resultLabel;
 
+@property (nonatomic, assign) BOOL playAgain;
+
+@property (nonatomic, assign) int count;
+
 @end
 
 @implementation WNXStage22ViewController
@@ -86,6 +90,7 @@ typedef NS_ENUM(NSInteger, WNXStatusResultType) {
     
     __weak typeof(self) weakSelf = self;
     self.peopleView.fartFinish = ^{
+        weakSelf.playAgain = NO;
         weakSelf.bottomStatusView.image = [UIImage imageNamed:@"24_yourturn-iphone4"];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -113,24 +118,35 @@ typedef NS_ENUM(NSInteger, WNXStatusResultType) {
             [weakSelf showResultWithType:type];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                weakSelf.resultLabel.hidden = YES;
-                weakSelf.resultImageView.hidden = YES;
-                [(WNXCountTimeView *)weakSelf.countScore cleanData];
                 
-                _isCountTime = NO;
-                
-                weakSelf.bottomStatusView.hidden = NO;
-                weakSelf.bottomStatusView.image = [UIImage imageNamed:@"24_watch-iphone4"];
-                
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [weakSelf.peopleView startFart];
-                });
+                if (weakSelf.count == 12) {
+                    [weakSelf showResultControllerWithNewScroe:weakSelf.allScore unit:@"PTS" stage:weakSelf.stage isAddScore:YES];
+                } else {
+                    
+                    weakSelf.resultLabel.hidden = YES;
+                    weakSelf.resultImageView.hidden = YES;
+                    [(WNXCountTimeView *)weakSelf.countScore cleanData];
+                    
+                    _isCountTime = NO;
+                    
+                    weakSelf.bottomStatusView.hidden = NO;
+                    weakSelf.bottomStatusView.image = [UIImage imageNamed:@"24_watch-iphone4"];
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        
+                        if (!weakSelf.playAgain) {
+                            [weakSelf.peopleView startFart];
+                            weakSelf.count++;
+                        }
+                        
+                    });
+                    
+                }
                 
             });
             
         }];
     };
-
 }
 
 - (void)showResultWithType:(WNXStatusResultType)type {
@@ -164,6 +180,9 @@ typedef NS_ENUM(NSInteger, WNXStatusResultType) {
     badIV.image = [UIImage imageNamed:@"00_bad-iphone4"];
     [self.view addSubview:badIV];
     
+    NSString *badName = [NSString stringWithFormat:@"instantFail0%d.mp3", arc4random_uniform(3) + 2];
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:badName];
+
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.2 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         badIV.transform = CGAffineTransformMakeRotation(-M_PI_4);
     } completion:^(BOOL finished) {
@@ -194,13 +213,46 @@ typedef NS_ENUM(NSInteger, WNXStatusResultType) {
 - (void)readyGoAnimationFinish {
     [super readyGoAnimationFinish];
     
+    self.count = 0;
+     self.allScore = 0;
     [self setButtonsIsActivate:NO];
     
     self.bottomStatusView.hidden = NO;
     self.bottomStatusView.image = [UIImage imageNamed:@"24_watch-iphone4"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.peopleView startFart];
+        self.count++;
     });
+}
+
+- (void)pauseGame {
+    
+    [(WNXCountTimeView *)self.countScore pause];
+    
+    [super pauseGame];
+}
+
+- (void)continueGame {
+    [super continueGame];
+    
+    [(WNXCountTimeView *)self.countScore continueGame];
+}
+
+- (void)playAgainGame {
+    self.bottomStatusView.hidden = YES;
+    [(WNXCountTimeView *)self.countScore cleanData];
+   
+    self.resultLabel.hidden = YES;
+    self.resultImageView.hidden = YES;
+    
+    self.playAgain = YES;
+    
+    [self.peopleView removeData];
+    self.peopleView = nil;
+    
+    [self buildPeopleView];
+    
+    [super playAgainGame];
 }
 
 @end

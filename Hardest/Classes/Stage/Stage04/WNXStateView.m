@@ -69,7 +69,7 @@
             [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundPerfectName];
         case WNXResultStateTypeBad:
         {
-            NSString *badName = [NSString stringWithFormat:@"instantFail0%d", arc4random_uniform(3) + 2];
+            NSString *badName = [NSString stringWithFormat:@"instantFail0%d.mp3", arc4random_uniform(3) + 2];
             [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:badName];
         }
             break;
@@ -130,7 +130,7 @@
     
     self.showFinish = finish;
     
-    NSString *badName = [NSString stringWithFormat:@"instantFail0%d", arc4random_uniform(3) + 2];
+    NSString *badName = [NSString stringWithFormat:@"instantFail0%d.mp3", arc4random_uniform(3) + 2];
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:badName];
     
     self.stateImageView.image = [UIImage imageNamed:@"00_bad-iphone4"];
