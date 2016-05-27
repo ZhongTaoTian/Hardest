@@ -400,21 +400,21 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>错误的答案或时间已到!   请快速回答正确的答案.</string>
 		<key>format</key>
 		<string>%.1f</string>
 		<key>icon</key>
-		<string>select_image23.png</string>
+		<string>select_image12</string>
 		<key>intro</key>
-		<string>尽可能点击左右箭头来平衡男孩的头时间越长越好！</string>
+		<string>仔细观察巴士上的人!\n以最快速度点击每个人出现的次数.</string>
 		<key>max</key>
-		<string>10.0</string>
+		<string>500</string>
 		<key>min</key>
-		<string>5.0</string>
+		<string>700</string>
 		<key>title</key>
-		<string>傻乎乎的\n瞌睡\n男孩</string>
+		<string>超级\n记忆\n巴士</string>
 		<key>unit</key>
-		<string>秒</string>
+		<string>ms</string>
 	</dict>
 	<dict>
 		<key>fail</key>

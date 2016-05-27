@@ -114,4 +114,6 @@
 #define kSoundFart02Name @"24_fart02.mp3"
 #define kSoundFart03Name @"24_fart03.mp3"
 
+// stage23
+#define kSoundBusPassName @"12_busPassBy.mp3"
 
