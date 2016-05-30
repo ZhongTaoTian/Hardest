@@ -38,6 +38,32 @@
     return self;
 }
 
-
+- (void)clickIndex:(NSInteger)index {
+    if (index == 0) {
+        
+        [UIView animateWithDuration:0.15 animations:^{
+            self.leftIV.transform = CGAffineTransformMakeScale(1.3, 1.3);
+        } completion:^(BOOL finished) {
+            self.leftIV.transform = CGAffineTransformIdentity;
+        }];
+        
+    } else if (index == 1) {
+        
+        [UIView animateWithDuration:0.15 animations:^{
+            self.middleIV.transform = CGAffineTransformMakeScale(1.3, 1.3);
+        } completion:^(BOOL finished) {
+            self.middleIV.transform = CGAffineTransformIdentity;
+        }];
+        
+    } else {
+    
+        [UIView animateWithDuration:0.15 animations:^{
+            self.rightIV.transform = CGAffineTransformMakeScale(1.3, 1.3);
+        } completion:^(BOOL finished) {
+            self.rightIV.transform = CGAffineTransformIdentity;
+        }];
+        
+    }
+}
 
 @end

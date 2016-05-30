@@ -8,20 +8,31 @@
 
 #import "WNXBusView.h"
 
+typedef NS_ENUM(NSInteger, WNXDirectionType) {
+    WNXDirectionTypeLeft = 0,
+    WNXDirectionTypeRight
+};
+
 @interface WNXBusView ()
 {
     int _count;
-    int _speed;
+    float _speed;
     
     int _redBoyNum;
     int _yellowGirlNum;
     int _blueBoyNum;
+    
+    BOOL _fail;
 }
 
 @property (nonatomic, strong) CADisplayLink *timer;
 
-@property (nonatomic, copy) NSMutableArray *numArr;
-@property (nonatomic, copy) NSMutableArray *windowArr;
+@property (nonatomic, strong) NSMutableArray *numArr;
+@property (nonatomic, strong) NSMutableArray *windowArr;
+
+@property (nonatomic, assign) WNXDirectionType direction;
+
+
 
 @end
 
@@ -44,11 +55,28 @@
         iv.hidden = YES;
         [self addSubview:iv];
     }
+    
+    self.userInteractionEnabled = NO;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
 }
 
-- (void)showBusWithFinish:(void (^)())finish {
+- (void)removeTimer {
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void)dealloc {
+    if (self.timer) {
+        [self removeTimer];
+    }
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)showBus {
     _count++;
-    
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundBusPassName];
     _redBoyNum = 0;
     _yellowGirlNum = 0;
     _blueBoyNum = 0;
@@ -56,7 +84,7 @@
     if (self.timer) {
         [self.timer invalidate];
     }
-    
+        
     int child1 = -100;
     int child2 = -100;
     int child3 = -100;
@@ -116,13 +144,97 @@
         }
     }
     
+    if (_count % 2) {
+        self.transform = CGAffineTransformIdentity;
+        self.direction = WNXDirectionTypeLeft;
+    } else {
+        self.transform = CGAffineTransformScale(self.transform, -1, 1);
+        self.direction = WNXDirectionTypeRight;
+    }
+    
+    _speed = 10 + _count * 1.3;
+    
+    if (_speed >= 19) {
+        _speed = 19;
+    }
+    
     self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime)];
     [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
 
 - (void)updateTime {
 
+    self.transform = CGAffineTransformTranslate(self.transform, -_speed, 0);
+    if ((self.transform.tx <= -self.frame.size.width * 2 && self.direction == WNXDirectionTypeLeft) || (self.transform.tx >= 0 && self.direction == WNXDirectionTypeRight)) {
+
+        [self.timer invalidate];
+        self.timer = nil;
+        
+        if (self.busPassFinish) {
+            self.busPassFinish();
+        }
+    }
+}
+
+- (BOOL)guessWithIndex:(NSInteger)index {
     
+    if (self.numArr.count == 0) {
+        _fail = YES;
+        return NO;
+    }
+    
+    
+    for (int i = 0; i < self.numArr.count; i++) {
+        NSNumber *num = self.numArr[i];
+        if (index == [num integerValue]) {
+            
+            [self.numArr removeObjectAtIndex:i];
+            
+            if (self.numArr.count == 0) {
+                if (self.stopCountTime) {
+                    self.stopCountTime();
+                }
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    if (!_fail) {
+                        if (self.guessSucess) {
+                            self.guessSucess();
+                        }
+                    }
+                });
+                
+            }
+            
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+- (void)showCorrectBus {
+    self.transform = CGAffineTransformMakeScale(0.5, 0.5);
+}
+
+- (void)pause {
+    if (self.timer) {
+        [self.timer setPaused:YES];
+    }
+}
+
+- (void)resume {
+    if (self.timer) {
+        self.timer.paused = NO;
+    }
+}
+
+- (void)removeData {
+    [self removeTimer];
+    
+    self.busPassFinish = nil;
+    self.guessSucess = nil;
+    self.stopCountTime = nil;
+    [self removeFromSuperview];
 }
 
 @end

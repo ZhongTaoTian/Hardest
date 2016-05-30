@@ -10,6 +10,20 @@
 
 @interface WNXBusView : UIView
 
-- (void)showBusWithFinish:(void(^)())finish;
+@property (nonatomic, copy) void (^busPassFinish)();
+@property (nonatomic, copy) void (^guessSucess)();
+@property (nonatomic, copy) void (^stopCountTime)();
+
+//- (void)showBusWithFinish:(void(^)())finish;
+
+- (void)showBus;
+
+- (BOOL)guessWithIndex:(NSInteger)index;
+
+- (void)showCorrectBus;
+
+- (void)pause;
+- (void)resume;
+- (void)removeData;
 
 @end

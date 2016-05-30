@@ -402,7 +402,7 @@
 		<key>fail</key>
 		<string>错误的答案或时间已到!   请快速回答正确的答案.</string>
 		<key>format</key>
-		<string>%.1f</string>
+		<string>%.f</string>
 		<key>icon</key>
 		<string>select_image12</string>
 		<key>intro</key>

@@ -224,7 +224,7 @@
                 self.yellowIV.highlighted = NO;
                 self.countLabel.hidden = YES;
             });
-            
+
             [self.numArr removeObjectAtIndex:0];
             
             if (self.numArr.count == 0) {

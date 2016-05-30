@@ -29,21 +29,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12_bus_window-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="J0f-EU-sJV">
                     <rect key="frame" x="69" y="22" width="87" height="70"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12_bus_Rgirl-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="vBL-hm-LnI">
-                    <rect key="frame" x="69" y="13" width="87" height="79"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12_bus_Rgirl-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="HvV-PL-hMA">
-                    <rect key="frame" x="164" y="13" width="87" height="79"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12_bus_Rgirl-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="TRO-AU-nNa">
-                    <rect key="frame" x="261" y="13" width="87" height="79"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12_bus_Rgirl-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="DnZ-ov-B2O">
-                    <rect key="frame" x="455" y="13" width="87" height="79"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="12_bus_Rgirl-iphone4" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-jZ-wE9">
-                    <rect key="frame" x="360" y="13" width="87" height="79"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -53,7 +38,6 @@
     </objects>
     <resources>
         <image name="12_bus-iphone4" width="1152" height="302"/>
-        <image name="12_bus_Rgirl-iphone4" width="173" height="153"/>
         <image name="12_bus_window-iphone4" width="171" height="137"/>
     </resources>
 </document>

@@ -10,4 +10,6 @@
 
 @interface WNXStage23PeopleView : UIView
 
+- (void)clickIndex:(NSInteger)index;
+
 @end
