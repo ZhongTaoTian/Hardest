@@ -17,7 +17,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self buildStageInfo];
+}
+
+- (void)buildStageInfo {
     
+    [self.leftButton setImage:[UIImage imageNamed:@"22_run-iphone4"] forState:UIControlStateNormal];
+    self.leftButton.contentEdgeInsets = UIEdgeInsetsMake(30, 35, 30, 35);
+    
+    [self.leftButton setImage:[UIImage imageNamed:@"22_jump-iphone4"] forState:UIControlStateNormal];
+    self.leftButton.contentEdgeInsets = UIEdgeInsetsMake(30, 35, 30, 35);
+    
+//    [self.rightButton addTarget:self action:@selector(run) forControlEvents:UIControlEventTouchDown];
+
+    
+    [self bringPauseAndPlayAgainToFront];
 }
 
 @end
