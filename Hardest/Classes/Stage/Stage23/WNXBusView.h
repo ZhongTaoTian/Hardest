@@ -14,8 +14,6 @@
 @property (nonatomic, copy) void (^guessSucess)();
 @property (nonatomic, copy) void (^stopCountTime)();
 
-//- (void)showBusWithFinish:(void(^)())finish;
-
 - (void)showBus;
 
 - (BOOL)guessWithIndex:(NSInteger)index;
