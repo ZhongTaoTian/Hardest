@@ -422,17 +422,17 @@
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image24.png</string>
+		<string>select_image22</string>
 		<key>intro</key>
-		<string>观察并记住放屁的顺序！\n以最快速度点击顺序。</string>
+		<string>快速点击奔跑,然后当火柴人接近悬崖边的时候点击跳跃,按住跳跃键,选择起跳角度,然后松手! \n分数取决于总距离.</string>
 		<key>max</key>
-		<string>40.00</string>
+		<string>280</string>
 		<key>min</key>
-		<string>20.00</string>
+		<string>250</string>
 		<key>title</key>
-		<string>谁\n在放屁\n！？</string>
+		<string>火柴人\n悬崖\n跳跃</string>
 		<key>unit</key>
-		<string>分</string>
+		<string>PTS</string>
 	</dict>
 </array>
 </plist>
