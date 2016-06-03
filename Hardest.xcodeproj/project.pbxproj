@@ -74,6 +74,10 @@
 		B38DE92F1CA9446700583BF8 /* WNXTimeCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DE92E1CA9446700583BF8 /* WNXTimeCountView.m */; };
 		B38DE9311CA9448400583BF8 /* WNXTimeCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B38DE9301CA9448400583BF8 /* WNXTimeCountView.xib */; };
 		B39472A81C7DAE2A00CAAB6D /* WNXBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39472A71C7DAE2A00CAAB6D /* WNXBaseNavigationController.m */; };
+		B39910881D003F6500E107DD /* WNXStage24ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39910871D003F6500E107DD /* WNXStage24ViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B39910A21D0168CE00E107DD /* WNXCockroachView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39910A11D0168CE00E107DD /* WNXCockroachView.m */; settings = {ASSET_TAGS = (); }; };
+		B39910A41D0169BA00E107DD /* WNXCockroachView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B39910A31D0169BA00E107DD /* WNXCockroachView.xib */; settings = {ASSET_TAGS = (); }; };
+		B39910A71D0177AA00E107DD /* WNXStage24View.m in Sources */ = {isa = PBXBuildFile; fileRef = B39910A61D0177AA00E107DD /* WNXStage24View.m */; settings = {ASSET_TAGS = (); }; };
 		B39AE18C1CB905C4007F7554 /* WNXStage07View.m in Sources */ = {isa = PBXBuildFile; fileRef = B39AE18B1CB905C4007F7554 /* WNXStage07View.m */; };
 		B39AE1911CB9151A007F7554 /* WNXBreakGlassView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39AE1901CB9151A007F7554 /* WNXBreakGlassView.m */; };
 		B39AE1931CB91536007F7554 /* WNXBreakGlassView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B39AE1921CB91536007F7554 /* WNXBreakGlassView.xib */; };
@@ -290,6 +294,13 @@
 		B39472A11C7DA6AC00CAAB6D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B39472A61C7DAE2A00CAAB6D /* WNXBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXBaseNavigationController.h; sourceTree = "<group>"; };
 		B39472A71C7DAE2A00CAAB6D /* WNXBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXBaseNavigationController.m; sourceTree = "<group>"; };
+		B39910861D003F6500E107DD /* WNXStage24ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage24ViewController.h; sourceTree = "<group>"; };
+		B39910871D003F6500E107DD /* WNXStage24ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage24ViewController.m; sourceTree = "<group>"; };
+		B39910A01D0168CE00E107DD /* WNXCockroachView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXCockroachView.h; sourceTree = "<group>"; };
+		B39910A11D0168CE00E107DD /* WNXCockroachView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXCockroachView.m; sourceTree = "<group>"; };
+		B39910A31D0169BA00E107DD /* WNXCockroachView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXCockroachView.xib; sourceTree = "<group>"; };
+		B39910A51D0177AA00E107DD /* WNXStage24View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage24View.h; sourceTree = "<group>"; };
+		B39910A61D0177AA00E107DD /* WNXStage24View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage24View.m; sourceTree = "<group>"; };
 		B39AE18A1CB905C4007F7554 /* WNXStage07View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage07View.h; sourceTree = "<group>"; };
 		B39AE18B1CB905C4007F7554 /* WNXStage07View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage07View.m; sourceTree = "<group>"; };
 		B39AE18F1CB9151A007F7554 /* WNXBreakGlassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXBreakGlassView.h; sourceTree = "<group>"; };
@@ -1135,6 +1146,13 @@
 		B3FBDC781CAD1421009840C5 /* Stage24 */ = {
 			isa = PBXGroup;
 			children = (
+				B39910861D003F6500E107DD /* WNXStage24ViewController.h */,
+				B39910871D003F6500E107DD /* WNXStage24ViewController.m */,
+				B39910A51D0177AA00E107DD /* WNXStage24View.h */,
+				B39910A61D0177AA00E107DD /* WNXStage24View.m */,
+				B39910A01D0168CE00E107DD /* WNXCockroachView.h */,
+				B39910A11D0168CE00E107DD /* WNXCockroachView.m */,
+				B39910A31D0169BA00E107DD /* WNXCockroachView.xib */,
 			);
 			path = Stage24;
 			sourceTree = "<group>";
@@ -1299,6 +1317,7 @@
 				FA70F24E1CC66BEA002348C6 /* WNXStage09ResultView.xib in Resources */,
 				FAC8C1C41CAEC3F200FD8D0E /* WNXStateView.xib in Resources */,
 				B308860A1C8939D700AE83B2 /* Transformers Movie 变形金刚字体.ttf in Resources */,
+				B39910A41D0169BA00E107DD /* WNXCockroachView.xib in Resources */,
 				B384CD371C7F133A008AFA9E /* home.plist in Resources */,
 				B31F64031CA1653200997243 /* WNXFailView.xib in Resources */,
 				B3F5321B1CF2E308005F537D /* WNXDiceView.xib in Resources */,
@@ -1392,8 +1411,10 @@
 				B3A7875D1CD0CE4E005FC3EA /* WNXStage11View.m in Sources */,
 				FAD0DAD61CE8AAAA002E0E09 /* WNXStage16PeopleView.m in Sources */,
 				FA692DB01CB2A91F003D18F9 /* WNXIceView.m in Sources */,
+				B39910A71D0177AA00E107DD /* WNXStage24View.m in Sources */,
 				B30886051C892A8C00AE83B2 /* WNXCountDownLabel.m in Sources */,
 				B343339F1C842D1A0086EF87 /* WNXStageInfoManager.m in Sources */,
+				B39910A21D0168CE00E107DD /* WNXCockroachView.m in Sources */,
 				B3082A371C9A4F42002BB718 /* WNXHighScroeTextView.m in Sources */,
 				B3E6A5E71CE49D1200698078 /* WNXStage15View.m in Sources */,
 				FAA0FA1D1CD8E712000D80E8 /* WNXState12ResultView.m in Sources */,
@@ -1440,6 +1461,7 @@
 				FABAC8911CB131EE0061D257 /* WNXColumnIceView.m in Sources */,
 				FABAC88B1CB127B00061D257 /* WNXStage05ViewController.m in Sources */,
 				B34106D31C8826DD005969C8 /* WNXScoreboardCountView.m in Sources */,
+				B39910881D003F6500E107DD /* WNXStage24ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

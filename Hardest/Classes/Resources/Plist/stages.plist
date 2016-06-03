@@ -418,21 +418,21 @@
 	</dict>
 	<dict>
 		<key>fail</key>
-		<string>时间已到!   你用了太多时间来回答这个问题.</string>
+		<string>点错了或者太迟了! 选择正确的蟑螂,在它逃跑前干掉他!</string>
 		<key>format</key>
 		<string>%.f</string>
 		<key>icon</key>
-		<string>select_image22</string>
+		<string>select_image03</string>
 		<key>intro</key>
-		<string>快速点击奔跑,然后当火柴人接近悬崖边的时候点击跳跃,按住跳跃键,选择起跳角度,然后松手! \n分数取决于总距离.</string>
+		<string>当任何蟑螂尝试逃跑时,尽早点击该栏!</string>
 		<key>max</key>
-		<string>280</string>
+		<string>900</string>
 		<key>min</key>
-		<string>250</string>
+		<string>1400</string>
 		<key>title</key>
-		<string>火柴人\n悬崖\n跳跃</string>
+		<string>蟑螂\n对\n拖鞋</string>
 		<key>unit</key>
-		<string>PTS</string>
+		<string>MS</string>
 	</dict>
 </array>
 </plist>
