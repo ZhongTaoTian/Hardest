@@ -7,10 +7,12 @@
 //
 
 #import "WNXCockroachView.h"
+#import "UIColor+WNXColor.h"
 
 @interface WNXCockroachView ()
 {
     int _shakeIndex;
+    int _isMove;
 }
 
 @property (nonatomic, copy) void (^fail)();
@@ -56,7 +58,7 @@
     }
     
     [self shakeAnimation];
-    
+    _isMove = YES;
     self.shakeTime = [CADisplayLink displayLinkWithTarget:self selector:@selector(shakeTimeUpdate)];
     [self.shakeTime addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
@@ -86,7 +88,7 @@
     }
 }
 
-- (void)cockroachRunWithFail:(id)finish {
+- (void)cockroachRunWithFail:(void (^)())finish {
     if (self.shakeTime) {
         [self.shakeTime invalidate];
     }
@@ -97,18 +99,94 @@
         [self.moveTime invalidate];
     }
     
+    self.fail = finish;
+    
     self.moveTime = [CADisplayLink displayLinkWithTarget:self selector:@selector(moveTimeUpdate)];
     [self.moveTime addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+    
+    if (self.startCountTime) {
+        self.startCountTime();
+    }
 }
 
 - (void)moveTimeUpdate {
-    self.cockroachIV.transform = CGAffineTransformTranslate(self.cockroachIV.transform, 0, -1);
-    if (self.cockroachIV.transform.ty < 510) {
+    self.cockroachIV.transform = CGAffineTransformTranslate(self.cockroachIV.transform, 0, -10);
+    if (self.cockroachIV.transform.ty < -510) {
+        [self.moveTime invalidate];
+        self.moveTime = nil;
+        _isMove = NO;
+        [self.cockroachIV stopAnimating];
+        
+        if (self.fail) {
+            self.fail();
+        }
+    }
+}
+
+- (BOOL)hitCockroach {
+    
+    if (_isMove) {
         [self.moveTime invalidate];
         self.moveTime = nil;
         
-        
+        [self.cockroachIV stopAnimating];
+    
+        [self showPaView];
     }
+    
+    return _isMove;
+}
+
+- (void)showPaView {
+    
+    UIImageView *slipView = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth / 3 - 100) * 0.5 - 18, ScreenHeight + self.cockroachIV.transform.ty  - ScreenWidth / 3 + 50, 100, 159)];
+    slipView.layer.anchorPoint = CGPointMake(0.5, 1);
+    slipView.transform = CGAffineTransformMakeRotation(-M_PI_4 / 8);
+    slipView.image = [UIImage imageNamed:@"stage27_shoes01-iphone4"];
+    [self addSubview:slipView];
+    
+    UIView *topIV = [[UIView alloc] initWithFrame:CGRectMake(2, 0, ScreenWidth / 3 - 4, CGRectGetMaxY(slipView.frame))];
+
+    if (self.tag == 10) {
+        topIV.backgroundColor = [UIColor colorWithR:195 g:71 b:71];
+    } else if (self.tag == 11) {
+        topIV.backgroundColor = [UIColor colorWithR:225 g:200 b:66];
+    } else {
+        topIV.backgroundColor = [UIColor colorWithR:75 g:136 b:193];
+    }
+    
+    [self insertSubview:topIV belowSubview:self.cockroachIV];
+    
+    UIView *blueV = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(slipView.frame), self.frame.size.width, 5)];
+    blueV.backgroundColor = [UIColor colorWithR:43 g:243 b:250];
+    [self addSubview:blueV];
+    
+    [UIView animateWithDuration:0.1 animations:^{
+        slipView.transform = CGAffineTransformMakeRotation(M_PI_4 / 3);
+    } completion:^(BOOL finished) {
+        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSoundSlapName];
+        
+        UIImageView *bomIV = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth / 3 - 160) * 0.5, ScreenHeight + self.cockroachIV.transform.ty  - ScreenWidth / 3 - 100, 160, 170)];
+        bomIV.image = [UIImage imageNamed:@"stage27_pa0102-iphone4"];
+        [self insertSubview:bomIV aboveSubview:topIV];
+        
+        UIImageView *paIV = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth / 3 - 100) * 0.5, ScreenHeight + self.cockroachIV.transform.ty  - ScreenWidth / 3 + 40, 100, 83)];
+        paIV.image = [UIImage imageNamed:@"stage27_pa01-iphone4"];
+        [self addSubview:paIV];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.1 animations:^{
+                bomIV.alpha = 0;
+                paIV.alpha = 0;
+            } completion:^(BOOL finished) {
+                [bomIV removeFromSuperview];
+                [paIV removeFromSuperview];
+                
+                if (self.showHitFinish) {
+                    self.showHitFinish();
+                }
+            }];
+        });
+    }];
 }
 
 @end

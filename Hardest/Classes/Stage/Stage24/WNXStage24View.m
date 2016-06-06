@@ -24,6 +24,7 @@
 @property (nonatomic, strong) WNXCockroachView *cock1;
 @property (nonatomic, strong) WNXCockroachView *cock2;
 @property (nonatomic, strong) WNXCockroachView *cock3;
+@property (nonatomic, assign) BOOL frist;
 
 @property (nonatomic, strong) CADisplayLink *timer;
 
@@ -33,19 +34,54 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        __weak typeof(self) weakSelf = self;
+        
         self.cock1 = [WNXCockroachView viewFromNib];
+        self.cock1.tag = 10;
+        self.cock1.startCountTime = ^{
+            if (weakSelf.startCountTime) {
+                weakSelf.startCountTime(!weakSelf.frist);
+            }
+            weakSelf.frist = YES;
+            
+        };
         [self addSubview:self.cock1];
         
         self.cock2 = [WNXCockroachView viewFromNib];
+        self.cock2.tag = 11;
+        self.cock2.startCountTime = ^{
+            if (weakSelf.startCountTime) {
+                weakSelf.startCountTime(!weakSelf.frist);
+            }
+            weakSelf.frist = YES;
+            
+        };
         self.cock2.frame = CGRectMake(ScreenWidth / 3, 0, ScreenWidth / 3, ScreenHeight);
         [self addSubview:self.cock2];
         
         self.cock3 = [WNXCockroachView viewFromNib];
+        self.cock3.tag = 12;
+        self.cock3.startCountTime = ^{
+            if (weakSelf.startCountTime) {
+                weakSelf.startCountTime(!weakSelf.frist);
+            }
+            weakSelf.frist = YES;
+            
+        };
         self.cock3.frame = CGRectMake(ScreenWidth / 3 * 2, 0, ScreenWidth / 3, ScreenWidth);
         [self addSubview:self.cock3];
         
-         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
         
+        self.cock1.showHitFinish = ^{
+        NSLog(@"显示下一个");
+        };
+        self.cock2.showHitFinish = ^{
+        NSLog(@"显示下一个");
+        };
+        self.cock3.showHitFinish = ^{
+            NSLog(@"显示下一个");
+        };
     }
     
     return self;
@@ -91,7 +127,7 @@
             _cockorder3 = 0;
         }
     }
-   
+    
     NSTimeInterval after1 = arc4random_uniform(120) / 60.0;
     NSTimeInterval after2 = arc4random_uniform(120) / 60.0;
     NSTimeInterval after3 = arc4random_uniform(120) / 60.0;
@@ -118,17 +154,38 @@
 - (void)updateTime {
     _flag++;
     if (_flag == _index) {
+        WNXCockroachView *cockView;
         if (_cockorder1 == 0) {
-            [self.cock1 cockroachRun];
-            [self.cock1 stopShake];
+            cockView = self.cock1;
         } else if (_cockorder2 == 0) {
-            [self.cock2 cockroachRun];
-            [self.cock2 stopShake];
+            cockView = self.cock2;
         } else if (_cockorder3 == 0) {
-            [self.cock3 cockroachRun];
-            [self.cock3 stopShake];
+            cockView = self.cock3;
         }
+        
+        [cockView stopShake];
+        
+        __weak typeof(self) weakSelf = self;
+        [cockView cockroachRunWithFail:^{
+            [weakSelf.cock1 stopShake];
+            [weakSelf.cock2 stopShake];
+            [weakSelf.cock3 stopShake];
+        }];
     }
+}
+
+- (BOOL)hitCockroachWithIndex:(NSInteger)index {
+    BOOL result;
+    
+    if (index == 0) {
+        result = [self.cock1 hitCockroach];
+    } else if (index == 1) {
+        result = [self.cock2 hitCockroach];
+    } else {
+        result = [self.cock3 hitCockroach];
+    }
+    
+    return result;
 }
 
 @end

@@ -10,6 +10,10 @@
 
 @interface WNXStage24View : UIView
 
+@property (nonatomic, copy) void (^startCountTime)(BOOL isFrist);
+
 - (void)startAppearCockroach;
+
+- (BOOL)hitCockroachWithIndex:(NSInteger)index;
 
 @end

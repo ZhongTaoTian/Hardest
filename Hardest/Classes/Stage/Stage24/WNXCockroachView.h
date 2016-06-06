@@ -10,9 +10,14 @@
 
 @interface WNXCockroachView : UIView
 
+@property (nonatomic, copy) void (^startCountTime)();
+@property (nonatomic, copy) void (^showHitFinish)();
+
 - (void)shake;
 - (void)stopShake;
 
-- (void)cockroachRunWithFail:(void ^(fail)())finish;
+- (void)cockroachRunWithFail:(void (^)())finish;
+
+- (BOOL)hitCockroach;
 
 @end
