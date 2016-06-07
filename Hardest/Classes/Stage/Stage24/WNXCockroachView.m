@@ -58,7 +58,6 @@
     }
     
     [self shakeAnimation];
-    _isMove = YES;
     self.shakeTime = [CADisplayLink displayLinkWithTarget:self selector:@selector(shakeTimeUpdate)];
     [self.shakeTime addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
@@ -101,8 +100,14 @@
     
     self.fail = finish;
     
+    if (_failed) {
+        return;
+    }
+    
     self.moveTime = [CADisplayLink displayLinkWithTarget:self selector:@selector(moveTimeUpdate)];
     [self.moveTime addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+    
+    _isMove = YES;
     
     if (self.startCountTime) {
         self.startCountTime();
@@ -110,13 +115,13 @@
 }
 
 - (void)moveTimeUpdate {
-    self.cockroachIV.transform = CGAffineTransformTranslate(self.cockroachIV.transform, 0, -10);
+    self.cockroachIV.transform = CGAffineTransformTranslate(self.cockroachIV.transform, 0, -15);
+    
     if (self.cockroachIV.transform.ty < -510) {
         [self.moveTime invalidate];
         self.moveTime = nil;
-        _isMove = NO;
         [self.cockroachIV stopAnimating];
-        
+        _isMove = NO;
         if (self.fail) {
             self.fail();
         }
@@ -135,6 +140,16 @@
     }
     
     return _isMove;
+}
+
+- (void)stopMove {
+    [self.moveTime invalidate];
+    self.moveTime = nil;
+}
+
+- (void)removeData {
+    [self removeTimer];
+    _failed = YES;
 }
 
 - (void)showPaView {

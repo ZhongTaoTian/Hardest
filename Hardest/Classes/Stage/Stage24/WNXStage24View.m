@@ -19,6 +19,10 @@
     int _show3;
     int _index;
     int _flag;
+    BOOL _showed1;
+    BOOL _showed2;
+    BOOL _showed3;
+    int _currentIndex;
 }
 
 @property (nonatomic, strong) WNXCockroachView *cock1;
@@ -74,13 +78,34 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:kNotificationNameGameViewControllerDelloc object:nil];
         
         self.cock1.showHitFinish = ^{
-        NSLog(@"显示下一个");
+            if (_currentIndex == 2) {
+                if (weakSelf.finish) {
+                    weakSelf.finish();
+                }
+            } else {
+                 NSLog(@"下一个");
+                [weakSelf showNextVovkroach];
+            }
         };
         self.cock2.showHitFinish = ^{
-        NSLog(@"显示下一个");
+            if (_currentIndex == 2) {
+                if (weakSelf.finish) {
+                    weakSelf.finish();
+                }
+            } else {
+                 NSLog(@"下一个");
+                [weakSelf showNextVovkroach];
+            }
         };
         self.cock3.showHitFinish = ^{
-            NSLog(@"显示下一个");
+            if (_currentIndex == 2) {
+                if (weakSelf.finish) {
+                    weakSelf.finish();
+                }
+            } else {
+                NSLog(@"下一个");
+                [weakSelf showNextVovkroach];
+            }
         };
     }
     
@@ -146,6 +171,25 @@
     
     _index = arc4random_uniform(100) + 120;
     
+    _currentIndex = 0;
+    
+    [self removeTimer];
+    self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime)];
+    [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+- (void)showNextVovkroach {
+    _flag = 0;
+    _index = arc4random_uniform(30) + 30;
+    
+    if ((_showed1 && !_showed2 && !_showed3) || (!_showed1 && !_showed2 && _showed3) || (!_showed1 && _showed2 && !_showed3) ) {
+        _currentIndex = 1;
+
+    } else if ((!_showed1 && _showed2 && _showed3) || (_showed1 && !_showed2 && _showed3) || (_showed1 && _showed2 && !_showed3)) {
+        _currentIndex = 2;
+        
+    }
+
     [self removeTimer];
     self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime)];
     [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
@@ -153,14 +197,18 @@
 
 - (void)updateTime {
     _flag++;
+    
     if (_flag == _index) {
         WNXCockroachView *cockView;
-        if (_cockorder1 == 0) {
+        if (_cockorder1 == _currentIndex) {
             cockView = self.cock1;
-        } else if (_cockorder2 == 0) {
+            _showed1 = YES;
+        } else if (_cockorder2 == _currentIndex) {
             cockView = self.cock2;
-        } else if (_cockorder3 == 0) {
+            _showed2 = YES;
+        } else if (_cockorder3 == _currentIndex) {
             cockView = self.cock3;
+            _showed3 = YES;
         }
         
         [cockView stopShake];
@@ -170,6 +218,11 @@
             [weakSelf.cock1 stopShake];
             [weakSelf.cock2 stopShake];
             [weakSelf.cock3 stopShake];
+            
+            if (weakSelf.fail) {
+                weakSelf.fail();
+            }
+            
         }];
     }
 }
@@ -185,7 +238,28 @@
         result = [self.cock3 hitCockroach];
     }
     
+    if (!result) {
+        [self.cock1 stopMove];
+        [self.cock2 stopMove];
+        [self.cock3 stopMove];
+        
+        self.cock1.failed = YES;
+        self.cock2.failed = YES;
+        self.cock3.failed = YES;
+    }
+    
     return result;
+}
+
+- (void)removeFromSuperview {
+    [self.timer invalidate];
+    self.timer = nil;
+    
+    [self.cock1 removeData];
+    [self.cock2 removeData];
+    [self.cock3 removeData];
+    
+    [super removeFromSuperview];
 }
 
 @end
