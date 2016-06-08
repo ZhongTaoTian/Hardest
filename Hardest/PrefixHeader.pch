@@ -32,6 +32,10 @@
 /* OTHER */
 #define kCountStartX(WIDTH) (ScreenWidth - WIDTH) * 0.5
 
+/* RUL */
+#define kBlogURL @"http://www.jianshu.com/users/5fe7513c7a57/latest_articles"
+#define kWeiBoURL @"http://weibo.com/tianzhongtao"
+#define kGithubUrl @"https://github.com/ZhongTaoTian"
 
 #ifdef DEBUG
 #define NSLog(...) NSLog(__VA_ARGS__)

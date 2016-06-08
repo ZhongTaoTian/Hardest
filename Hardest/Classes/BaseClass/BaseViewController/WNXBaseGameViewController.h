@@ -26,6 +26,12 @@ typedef NS_ENUM(NSInteger, WNXScoreboardType) {
     WNXScoreboardTypeTimeS
 };
 
+typedef NS_ENUM(NSInteger, WNXADType) {
+    WNXADTypeBlog = 0,
+    WNXADTypeWeiBo,
+    WNXADTypeGithub
+};
+
 @interface WNXBaseGameViewController : UIViewController
 
 @property (nonatomic, assign) WNXGameGuideType guideType;

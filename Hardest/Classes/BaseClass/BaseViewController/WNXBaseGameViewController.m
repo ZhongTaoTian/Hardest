@@ -21,6 +21,9 @@
     float _volume;
 }
 
+@property (nonatomic, strong) UIImageView *adView;
+@property (nonatomic, assign) WNXADType adType;
+
 @end
 
 @implementation WNXBaseGameViewController
@@ -36,16 +39,7 @@
     
     [self showGuideImageView];
     
-}
-
-- (void)buildStageInfo {}
-
-- (void)bringPauseAndPlayAgainToFront {
-    [self.view bringSubviewToFront:self.pauseButton];
-    [self.view bringSubviewToFront:self.playAgainButton];
-    if (self.guideImageView) {
-        [self.view bringSubviewToFront:self.guideImageView];
-    }
+    [self buildADView];
 }
 
 - (void)dealloc {
@@ -69,6 +63,8 @@
     };
     [self.navigationController pushViewController:pauseVC animated:NO];
 }
+
+- (void)buildStageInfo {}
 
 - (void)continueGame {
     self.view.userInteractionEnabled = YES;
@@ -95,7 +91,7 @@
 
 - (void)showGameFail {
     self.view.userInteractionEnabled = NO;
-     __weak __typeof(self) weakSelf = self;
+    __weak __typeof(self) weakSelf = self;
     WNXFailView *failView = [WNXFailView viewFromNib];
     failView.frame = CGRectMake(0, ScreenHeight - failView.frame.size.width - 140, failView.frame.size.width, failView.frame.size.height);
     [self.view addSubview:failView];
@@ -129,6 +125,16 @@
     [self.view addSubview:self.playAgainButton];
 }
 
+- (void)bringPauseAndPlayAgainToFront {
+    [self.view bringSubviewToFront:self.pauseButton];
+    [self.view bringSubviewToFront:self.playAgainButton];
+    [self.view bringSubviewToFront:self.adView];
+    
+    if (self.guideImageView) {
+        [self.view bringSubviewToFront:self.guideImageView];
+    }
+}
+
 - (void)buildPauseButton {
     self.pauseButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 55, CGRectGetMaxY(self.playAgainButton.frame) + 13, 110, 52)];
     [self.pauseButton setBackgroundImage:[UIImage imageNamed:@"ing_pause"] forState:UIControlStateNormal];
@@ -148,7 +154,7 @@
         [self guideImageViewClick];
         return;
     }
-        
+    
     NSArray *animationImages;
     if (self.guideType == WNXGameGuideTypeOneFingerClick) {
         animationImages = @[[UIImage imageNamed:@"03-1-iphone4"], [UIImage imageNamed:@"03-2-iphone4"]];
@@ -196,6 +202,46 @@
     } else if (self.scoreboardType == WNXScoreboardTypeNone) {
         [self beginRedayGoView];
     }
+}
+
+- (void)buildADView {
+    self.adType = arc4random_uniform(3);
+    
+    self.adView = [[UIImageView alloc] initWithFrame:CGRectMake(kCountStartX(250), 0, 250, 50)];
+    if (self.adType == WNXADTypeBlog) {
+        self.adView.image = [UIImage imageNamed:@"ad1"];
+    } else if (self.adType == WNXADTypeWeiBo) {
+        self.adView.image = [UIImage imageNamed:@"ad3"];
+    } else {
+        self.adView.image = [UIImage imageNamed:@"ad2"];
+    }
+    
+    self.adView.userInteractionEnabled = YES;
+    [self.adView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(adViewClick)]];
+    
+    [self.view addSubview:self.adView];
+}
+
+- (void)adViewClick {
+    
+    [self pauseGame];
+    
+    NSURL *url;
+    switch (self.adType) {
+        case WNXADTypeBlog:
+            url = [NSURL URLWithString:kBlogURL];
+            break;
+        case WNXADTypeGithub:
+            url = [NSURL URLWithString:kGithubUrl];
+            break;
+        case WNXADTypeWeiBo:
+            url = [NSURL URLWithString:kWeiBoURL];
+            break;
+        default:
+            break;
+    }
+    
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 - (void)setScoreboardType:(WNXScoreboardType)scoreboardType {
