@@ -17,6 +17,6 @@
 
 - (void)showDottedLineView;
 
-- (void)addIceWithRed:(BOOL)hasRed yellow:(BOOL)hasYellow blue:(BOOL)hasBlue;
+- (void)addIceWithIndex:(NSInteger)index;
 
 @end

@@ -120,7 +120,7 @@
 - (void)showResultStateWithCount:(int)count {
     [self.view setUserInteractionEnabled:NO];
     
-    NSTimeInterval time = [(WNXTimeCountView *)self.countScore pasueTime];
+    NSTimeInterval time = [(WNXTimeCountView *)self.countScore pasueTime] / count;
     WNXResultStateType stageType;
     if (time < 0.05) {
         stageType = WNXResultStateTypePerfect;
@@ -145,19 +145,7 @@
 
 #pragma mark Action
 - (void)btnClick:(UIButton *)sender {
-    switch (sender.tag) {
-        case 0:
-            [self.iceView addIceWithRed:YES yellow:NO blue:NO];
-            break;
-        case 1:
-            [self.iceView addIceWithRed:NO yellow:YES blue:NO];
-            break;
-        case 2:
-            [self.iceView addIceWithRed:NO yellow:NO blue:YES];
-            break;
-        default:
-            break;
-    }
+    [self.iceView addIceWithIndex:sender.tag];
 }
 
 @end

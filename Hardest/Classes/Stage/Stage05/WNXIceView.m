@@ -18,6 +18,7 @@
     CGRect _lastYellowFrame;
     CGRect _lastBlueFrame;
     int _count;
+    int _isSucess;
 }
 
 @property (nonatomic, strong) NSMutableArray *colViews;
@@ -48,6 +49,8 @@
 
 - (void)showDottedLineView {
     _count++;
+    
+    _isSucess = NO;
     _random1 = arc4random_uniform(4) + 1;
     _random2 = arc4random_uniform(4) + 1;
     _random3 = arc4random_uniform(4) + 1;
@@ -109,8 +112,8 @@
     return _blueIces;
 }
 
-- (void)addIceWithRed:(BOOL)hasRed yellow:(BOOL)hasYellow blue:(BOOL)hasBlue {
-    if (hasRed) {
+- (void)addIceWithIndex:(NSInteger)index {
+    if (index == 0) {
         UIImageView *iceView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -200, 106, 89)];
         iceView.image = [UIImage imageNamed:[NSString stringWithFormat:@"03_ice0%d-iphone4", arc4random_uniform(6) + 1]];
         [self.redIces addObject:iceView];
@@ -130,7 +133,7 @@
         }];
     }
     
-    if (hasYellow) {
+    if (index == 1) {
         UIImageView *iceView = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth / 3 - 106) * 0.5 + ScreenWidth / 3, -200, 106, 89)];
         iceView.image = [UIImage imageNamed:[NSString stringWithFormat:@"03_ice0%d-iphone4", arc4random_uniform(6) + 1]];
         [self.yellowIces addObject:iceView];
@@ -150,7 +153,7 @@
         }];
     }
     
-    if (hasBlue) {
+    if (index == 2) {
         UIImageView *iceView = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth / 3 - 106) * 0.5 + ScreenWidth / 3 * 2, -200, 106, 89)];
         iceView.image = [UIImage imageNamed:[NSString stringWithFormat:@"03_ice0%d-iphone4", arc4random_uniform(6) + 1]];
         [self addSubview:iceView];
@@ -224,7 +227,11 @@
             self.isPass = YES;
             self.passBlock();
         }
-        self.successBlock(_random1 + _random2 + _random3);
+        
+        if (!_isSucess) {
+            self.successBlock(_random1 + _random2 + _random3);
+            _isSucess = YES;
+        }
     }
 }
 

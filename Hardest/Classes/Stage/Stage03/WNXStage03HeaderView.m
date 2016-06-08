@@ -86,6 +86,7 @@ typedef void (^FailBlock)();
         [self.timer invalidate];
         self.timer = nil;
     }
+    
     self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTime:)];
     [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName:kSOundNoitSoundName];
@@ -93,6 +94,7 @@ typedef void (^FailBlock)();
 
 - (void)updateTime:(CADisplayLink *)timer {
     _flag++;
+    
     _transform = CGAffineTransformRotate(_transform, self.angel);
     self.headerIV.transform = _transform;
     
@@ -109,7 +111,8 @@ typedef void (^FailBlock)();
         _index++;
         
         if (_index == _random) {
-            _speed -= 40;
+            _speed -= 30;
+            
             int random = arc4random_uniform(2);
             self.angel = random == 0 ? M_PI_4 / _speed :  -M_PI_4 / _speed;
             _index = 0;
@@ -120,6 +123,7 @@ typedef void (^FailBlock)();
     
     self.rightSnotIV.frame = CGRectMake(_rightFrame.origin.x, _rightFrame.origin.y, _rightFrame.size.width, _rightFrame.size.height - _transform.c * _leftFrame.size.height);
     self.leftSnotIV.frame = CGRectMake(_leftFrame.origin.x, _leftFrame.origin.y, _leftFrame.size.width, _leftFrame.size.height + _transform.c * _leftFrame.size.height);
+    
     if (self.rightSnotIV.frame.size.height <= 0) {
         self.rightSnotIV.frame = CGRectMake(_rightFrame.origin.x, _rightFrame.origin.y, _rightFrame.size.width, 0);
     }

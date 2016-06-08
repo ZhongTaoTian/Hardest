@@ -264,9 +264,9 @@
 		<key>intro</key>
 		<string>以最快速度跨越危险的河!</string>
 		<key>max</key>
-		<string>8.0</string>
-		<key>min</key>
 		<string>10.0</string>
+		<key>min</key>
+		<string>12.0</string>
 		<key>title</key>
 		<string>蹦\n蹦\n跳</string>
 		<key>unit</key>
