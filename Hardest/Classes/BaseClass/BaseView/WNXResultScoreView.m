@@ -247,6 +247,7 @@
 
 - (void)saveStageUserInfo {
     WNXStageInfo *lastStageInfo = [[WNXStageInfoManager sharedStageInfoManager] stageInfoWithNumber:_stageInfo.num];
+    
     if (!lastStageInfo || !lastStageInfo.rank || lastStageInfo.score == 0) {
         [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:_stageInfo];
         return;
@@ -265,6 +266,7 @@
 
 - (void)showNewCount {
     [self.delegate resultScoreViewShowNewCount];
+    
     for (int i = 0; i < 7; i++) {
         UIView *btn = [self viewWithTag:10 + i];
         [btn removeFromSuperview];
@@ -277,11 +279,13 @@
 
 - (void)showFail {
     NSString *passStr;
+    
     if (_stage.max - _stage.min > 0) {
         passStr = [NSString stringWithFormat:@" > %@", [NSString stringWithFormat:_stage.format, _stage.min]];
     } else {
         passStr = [NSString stringWithFormat:@" < %@", [NSString stringWithFormat:_stage.format, _stage.min]];
     }
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.delegate resultScoreViewShowFailViewPassScroeStr:passStr userScroeStr:[NSString stringWithFormat:_stage.format, _newScroe]];
     });

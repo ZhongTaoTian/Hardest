@@ -38,143 +38,143 @@
         WNXBaseNavigationController *rootNav = (WNXBaseNavigationController *)[sb instantiateViewControllerWithIdentifier:@"RootNavigationController"];
         self.window.rootViewController = rootNav;
         
-        WNXStageInfo *info1 = [[WNXStageInfo alloc] init];
-        info1.rank = @"s";
-        info1.num = 1;
-        info1.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info1];
-        
-        WNXStageInfo *info2 = [[WNXStageInfo alloc] init];
-        info2.rank = @"s";
-        info2.num = 2;
-        info2.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info2];
-        
-        WNXStageInfo *info3 = [[WNXStageInfo alloc] init];
-        info3.rank = @"s";
-        info3.num = 3;
-        info3.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info3];
-        
-        WNXStageInfo *info4 = [[WNXStageInfo alloc] init];
-        info4.rank = @"s";
-        info4.num = 4;
-        info4.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info4];
-        
-        WNXStageInfo *info5 = [[WNXStageInfo alloc] init];
-        info5.rank = @"s";
-        info5.num = 5;
-        info5.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info5];
-        
-        WNXStageInfo *info6 = [[WNXStageInfo alloc] init];
-        info6.rank = @"s";
-        info6.num = 6;
-        info6.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info6];
-        
-        WNXStageInfo *info7 = [[WNXStageInfo alloc] init];
-        info7.rank = @"s";
-        info7.num = 7;
-        info7.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info7];
-        
-        WNXStageInfo *info8 = [[WNXStageInfo alloc] init];
-        info8.rank = @"s";
-        info8.num = 8;
-        info8.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info8];
-        
-        WNXStageInfo *info9 = [[WNXStageInfo alloc] init];
-        info9.rank = @"s";
-        info9.num = 9;
-        info9.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info9];
-        
-        WNXStageInfo *info10 = [[WNXStageInfo alloc] init];
-        info10.rank = @"s";
-        info10.num = 10;
-        info10.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info10];
-        
-        WNXStageInfo *info11 = [[WNXStageInfo alloc] init];
-        info11.rank = @"s";
-        info11.num = 11;
-        info11.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info11];
-        
-        WNXStageInfo *info12 = [[WNXStageInfo alloc] init];
-        info12.rank = @"s";
-        info12.num = 12;
-        info12.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info12];
-        
-        WNXStageInfo *info13 = [[WNXStageInfo alloc] init];
-        info13.rank = @"b";
-        info13.num = 13;
-        info13.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info13];
-        
-        WNXStageInfo *info14 = [[WNXStageInfo alloc] init];
-        info14.rank = @"a";
-        info14.num = 14;
-        info14.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info14];
-        
-        WNXStageInfo *info15 = [[WNXStageInfo alloc] init];
-        info15.rank = @"a";
-        info15.num = 15;
-        info15.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info15];
-        
-        WNXStageInfo *info16 = [[WNXStageInfo alloc] init];
-        info16.rank = @"a";
-        info16.num = 16;
-        info16.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info16];
-        
-        WNXStageInfo *info17 = [[WNXStageInfo alloc] init];
-        info17.rank = @"a";
-        info17.num = 17;
-        info17.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info17];
-        
-        WNXStageInfo *info18 = [[WNXStageInfo alloc] init];
-        info18.rank = @"a";
-        info18.num = 18;
-        info18.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info18];
-        
-        WNXStageInfo *info19 = [[WNXStageInfo alloc] init];
-        info19.rank = @"a";
-        info19.num = 19;
-        info19.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info19];
-        
-        WNXStageInfo *info20 = [[WNXStageInfo alloc] init];
-        info20.rank = @"a";
-        info20.num = 20;
-        info20.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info20];
-
-        WNXStageInfo *info21 = [[WNXStageInfo alloc] init];
-        info21.rank = @"a";
-        info21.num = 21;
-        info21.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info21];
-        
-        WNXStageInfo *info22 = [[WNXStageInfo alloc] init];
-        info22.rank = @"a";
-        info22.num = 22;
-        info22.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info22];
-        
-        WNXStageInfo *info23 = [[WNXStageInfo alloc] init];
-        info23.rank = @"a";
-        info23.num = 23;
-        info23.unlock = YES;
-        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info23];
+//        WNXStageInfo *info1 = [[WNXStageInfo alloc] init];
+//        info1.rank = @"s";
+//        info1.num = 1;
+//        info1.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info1];
+//        
+//        WNXStageInfo *info2 = [[WNXStageInfo alloc] init];
+//        info2.rank = @"s";
+//        info2.num = 2;
+//        info2.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info2];
+//        
+//        WNXStageInfo *info3 = [[WNXStageInfo alloc] init];
+//        info3.rank = @"s";
+//        info3.num = 3;
+//        info3.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info3];
+//        
+//        WNXStageInfo *info4 = [[WNXStageInfo alloc] init];
+//        info4.rank = @"s";
+//        info4.num = 4;
+//        info4.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info4];
+//        
+//        WNXStageInfo *info5 = [[WNXStageInfo alloc] init];
+//        info5.rank = @"s";
+//        info5.num = 5;
+//        info5.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info5];
+//
+//        WNXStageInfo *info6 = [[WNXStageInfo alloc] init];
+//        info6.rank = @"s";
+//        info6.num = 6;
+//        info6.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info6];
+//        
+//        WNXStageInfo *info7 = [[WNXStageInfo alloc] init];
+//        info7.rank = @"s";
+//        info7.num = 7;
+//        info7.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info7];
+//        
+//        WNXStageInfo *info8 = [[WNXStageInfo alloc] init];
+//        info8.rank = @"s";
+//        info8.num = 8;
+//        info8.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info8];
+//        
+//        WNXStageInfo *info9 = [[WNXStageInfo alloc] init];
+//        info9.rank = @"s";
+//        info9.num = 9;
+//        info9.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info9];
+//        
+//        WNXStageInfo *info10 = [[WNXStageInfo alloc] init];
+//        info10.rank = @"s";
+//        info10.num = 10;
+//        info10.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info10];
+//        
+//        WNXStageInfo *info11 = [[WNXStageInfo alloc] init];
+//        info11.rank = @"s";
+//        info11.num = 11;
+//        info11.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info11];
+//        
+//        WNXStageInfo *info12 = [[WNXStageInfo alloc] init];
+//        info12.rank = @"s";
+//        info12.num = 12;
+//        info12.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info12];
+//        
+//        WNXStageInfo *info13 = [[WNXStageInfo alloc] init];
+//        info13.rank = @"b";
+//        info13.num = 13;
+//        info13.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info13];
+//        
+//        WNXStageInfo *info14 = [[WNXStageInfo alloc] init];
+//        info14.rank = @"a";
+//        info14.num = 14;
+//        info14.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info14];
+//        
+//        WNXStageInfo *info15 = [[WNXStageInfo alloc] init];
+//        info15.rank = @"a";
+//        info15.num = 15;
+//        info15.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info15];
+//        
+//        WNXStageInfo *info16 = [[WNXStageInfo alloc] init];
+//        info16.rank = @"a";
+//        info16.num = 16;
+//        info16.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info16];
+//        
+//        WNXStageInfo *info17 = [[WNXStageInfo alloc] init];
+//        info17.rank = @"a";
+//        info17.num = 17;
+//        info17.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info17];
+//        
+//        WNXStageInfo *info18 = [[WNXStageInfo alloc] init];
+//        info18.rank = @"a";
+//        info18.num = 18;
+//        info18.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info18];
+//        
+//        WNXStageInfo *info19 = [[WNXStageInfo alloc] init];
+//        info19.rank = @"a";
+//        info19.num = 19;
+//        info19.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info19];
+//        
+//        WNXStageInfo *info20 = [[WNXStageInfo alloc] init];
+//        info20.rank = @"a";
+//        info20.num = 20;
+//        info20.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info20];
+//
+//        WNXStageInfo *info21 = [[WNXStageInfo alloc] init];
+//        info21.rank = @"a";
+//        info21.num = 21;
+//        info21.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info21];
+//        
+//        WNXStageInfo *info22 = [[WNXStageInfo alloc] init];
+//        info22.rank = @"a";
+//        info22.num = 22;
+//        info22.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info22];
+//        
+//        WNXStageInfo *info23 = [[WNXStageInfo alloc] init];
+//        info23.rank = @"a";
+//        info23.num = 23;
+//        info23.unlock = YES;
+//        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info23];
     };
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

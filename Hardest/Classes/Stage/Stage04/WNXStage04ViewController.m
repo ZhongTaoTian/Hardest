@@ -72,11 +72,9 @@
 - (void)buildStageImageView {
     __weak typeof(self) weakSelf = self;
     self.imageView = [[WNXStage04View alloc] initWithFrame:CGRectMake(0, ScreenHeight - 96 - 300, ScreenWidth, 300)];
-    if (self.guideImageView) {
-        [self.view insertSubview:self.imageView belowSubview:self.guideImageView];
-    } else {
-        [self.view addSubview:self.guideImageView];
-    }
+
+    [self.view insertSubview:self.imageView belowSubview:self.playAgainButton];
+
     self.imageView.bgIV = self.backgroundIV;
     self.imageView.stopTime = ^(int count) {
         [((WNXCountTimeView *)weakSelf.countScore) stopCalculateByTimeWithTimeBlock:^(int second, int ms) {

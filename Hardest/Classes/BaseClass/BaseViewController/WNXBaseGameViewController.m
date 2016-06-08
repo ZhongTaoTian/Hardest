@@ -35,6 +35,7 @@
     [self buildPauseButton];
     
     [self showGuideImageView];
+    
 }
 
 - (void)buildStageInfo {}
@@ -58,8 +59,6 @@
     
     [self guideImageViewClick];
 }
-
-//- (void)buildStageInfo {}
 
 - (void)pauseGame {
     __weak __typeof(self) weakSelf = self;

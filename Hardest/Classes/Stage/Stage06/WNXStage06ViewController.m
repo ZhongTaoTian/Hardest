@@ -25,6 +25,9 @@
     [super viewDidLoad];
     
     [self buildStageInfo];
+    
+    self.leftButton.userInteractionEnabled = NO;
+    self.rightButton.userInteractionEnabled = NO;
 }
 
 - (void)buildStageInfo {
@@ -54,8 +57,9 @@
 #pragma mark Super Method
 - (void)readyGoAnimationFinish {
     [super readyGoAnimationFinish];
-    [self showScreamImageView];
     self.view.userInteractionEnabled = NO;
+    
+    [self showScreamImageView];
 }
 
 - (void)playAgainGame {
@@ -90,6 +94,8 @@
 
 - (void)startPlayGame {
     self.view.userInteractionEnabled = YES;
+    self.leftButton.userInteractionEnabled = YES;
+    self.rightButton.userInteractionEnabled = YES;
 }
 
 - (void)pauseGame {
@@ -98,7 +104,6 @@
 }
 
 - (void)beginRedayGoView {
-    [self.view setUserInteractionEnabled:NO];
     [super beginRedayGoView];
 }
 

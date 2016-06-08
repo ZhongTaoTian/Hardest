@@ -7,15 +7,38 @@
 //
 
 #import "WNXBaseNavigationController.h"
+#import "UIApplication+WNXLoad.h"
+#import "WNXSelectStageViewController.h"
 
 @interface WNXBaseNavigationController ()
 
 @end
 
+
 @implementation WNXBaseNavigationController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.delegate = self;
+}
+
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    [super pushViewController:viewController animated:NO];
+    if ([viewController isKindOfClass:[WNXSelectStageViewController class]]) {
+        [UIApplication loading];
+        [super pushViewController:viewController animated:YES];
+    } else {
+        [super pushViewController:viewController animated:NO];
+    }
+}
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    [UIApplication unLoading];
+}
+
+- (NSArray<UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
+    NSArray *array = [super popToRootViewControllerAnimated:NO];
+    
+    return array;
 }
 
 @end

@@ -26,14 +26,12 @@
     if (_bgImageName) {
         UIImage *bgImage = [UIImage imageNamed:_bgImageName];
         
-        // 2.裁剪图片
         CGFloat width = 640;
-        CGFloat height = iPhone5?1136:960;
+        CGFloat height = iPhone5 ? 1136 : 960;
         CGRect cutRect = CGRectMake((bgImage.size.width - width)*0.5, (bgImage.size.height - height)*0.5, width, height);
         CGImageRef imageRef = CGImageCreateWithImageInRect(bgImage.CGImage, cutRect);
         bgImage = [UIImage imageWithCGImage:imageRef];
         CGImageRelease(imageRef);
-        // 3.绘图
         [bgImage drawInRect:rect];
     }
 

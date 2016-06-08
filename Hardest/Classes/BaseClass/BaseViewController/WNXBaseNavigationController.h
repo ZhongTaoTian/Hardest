@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WNXBaseNavigationController : UINavigationController
+@interface WNXBaseNavigationController : UINavigationController <UINavigationControllerDelegate>
 
 @end

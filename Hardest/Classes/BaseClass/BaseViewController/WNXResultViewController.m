@@ -21,6 +21,7 @@
     NSString *_unit;
     WNXStage *_stage;
     BOOL _isAddScroe;
+    BOOL _hasNewCount;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *animationIV;
@@ -37,7 +38,6 @@
 @property (weak, nonatomic) IBOutlet UIView *failBackgrounView;
 @property (weak, nonatomic) IBOutlet UILabel *countScroeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *reBtn;
-
 
 @end
 
@@ -81,17 +81,28 @@
                 _stage.userInfo = [[WNXStageInfoManager sharedStageInfoManager] stageInfoWithNumber:_stage.num];
                 ((WNXPrepareViewController *)vc).stage = _stage;
                 [self.navigationController popToViewController:vc animated:NO];
+                
+                [self removeNewCountView];
+                
                 return;
             }
         }
+        
     } else if (sender.tag == 21) {
         for (UIViewController *vc in self.navigationController.viewControllers) {
             if ([vc isKindOfClass:[WNXSelectStageViewController class]]) {
                 [self.navigationController popToViewController:vc animated:NO];
+                
+                [self removeNewCountView];
+                
                 return;
             }
         }
     }
+}
+
+- (void)dealloc {
+    NSLog(@"被销毁了");
 }
 
 - (void)setCountScoreWithNewScroe:(double)scroe unit:(NSString *)unit stage:(WNXStage *)stage isAddScore:(BOOL)isAddScroe {
@@ -110,6 +121,16 @@
     }];
 }
 
+- (void)removeNewCountView {
+    if (!_hasNewCount) {
+        return;
+    }
+
+    [self.highScroeView hideHighScroeTextView];
+    [self.animationIV stopAnimating];
+    self.animationIV = nil;
+}
+
 #pragma mark WNXResultScoreViewDelegate
 - (void)resultScoreViewChangeWithRank:(NSString *)rank {
     self.scroeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"score_%@", rank]];
@@ -121,6 +142,7 @@
 }
 
 - (void)resultScoreViewShowNewCount {
+    _hasNewCount = YES;
     [self.highScroeView showHighScroeTextView];
     
     self.animationIV.animationImages = @[[UIImage imageNamed:@"scene_light01"],

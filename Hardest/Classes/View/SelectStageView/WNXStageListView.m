@@ -13,7 +13,7 @@
 
 @implementation WNXStageListView
 
-- (instancetype)init{
+- (instancetype)init {
     if (self = [super initWithFrame:ScreenBounds]) {
         self.contentSize = CGSizeMake(ScreenWidth * 4, ScreenHeight);
         self.showsHorizontalScrollIndicator = NO;

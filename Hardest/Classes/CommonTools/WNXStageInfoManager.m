@@ -55,6 +55,8 @@ static WNXStageInfoManager *instance = nil;
     
     [self.allStageInfos setObject:stageInfo forKey:@(stageInfo.num)];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewCount" object:@(stageInfo.num)];
+    
     if (stageInfo.rank && (![stageInfo.rank isEqualToString:@"f"]) && (![self stageInfoWithNumber:stageInfo.num + 1] || ![self stageInfoWithNumber:stageInfo.num + 1].unlock)) {
         WNXStageInfo *nextStageInfo = [[WNXStageInfo alloc] init];
         nextStageInfo.num = stageInfo.num + 1;
@@ -66,8 +68,8 @@ static WNXStageInfoManager *instance = nil;
 }
 
 - (WNXStageInfo *)stageInfoWithNumber:(int)number {
-    NSAssert(number > 0, @"读取必须大于0啊");
-    
+//    NSAssert(number > 0, @"读取必须大于0啊");
+
     WNXStageInfo *info = self.allStageInfos[@(number)];
     
     return info;

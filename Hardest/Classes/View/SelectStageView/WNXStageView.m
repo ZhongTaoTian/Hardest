@@ -106,13 +106,13 @@
     
     CAKeyframeAnimation *shake = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation"];
     CGFloat angle = M_PI_4/2;
-    shake.values = @[ @(-angle), @(angle), @(-angle), @(angle), @(-angle)];
+    shake.values = @[ @(-angle), @(angle), @(-angle), @(angle), @(-angle), @(angle), @(-angle), @0];
     
     CAKeyframeAnimation *scale = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
     scale.values = @[@1.2, @1];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    group.duration = 0.2;
+    group.duration = 0.3;
     group.animations = @[shake, scale];
     
     return group;

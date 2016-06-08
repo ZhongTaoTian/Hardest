@@ -50,6 +50,7 @@
 		B34E00D71C903F2500454720 /* WNXResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34E00D51C903F2500454720 /* WNXResultViewController.m */; };
 		B34E00D81C903F2500454720 /* WNXResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34E00D61C903F2500454720 /* WNXResultViewController.xib */; };
 		B35971CA1CBB7B7A0070C010 /* WNXStage08ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B35971C91CBB7B7A0070C010 /* WNXStage08ViewController.m */; };
+		B35C8CA11D07B1B6009162C0 /* UIApplication+WNXLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = B35C8CA01D07B1B6009162C0 /* UIApplication+WNXLoad.m */; settings = {ASSET_TAGS = (); }; };
 		B35E97F31CD1FC6B003AF56E /* WNXStage11BottomNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = B35E97F21CD1FC6B003AF56E /* WNXStage11BottomNumView.m */; };
 		B35E97F71CD218F8003AF56E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B35E97F41CD218F8003AF56E /* Default-568h@2x.png */; };
 		B35E97F81CD218F8003AF56E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B35E97F51CD218F8003AF56E /* Default.png */; };
@@ -252,6 +253,8 @@
 		B34E00D61C903F2500454720 /* WNXResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WNXResultViewController.xib; sourceTree = "<group>"; };
 		B35971C81CBB7B7A0070C010 /* WNXStage08ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage08ViewController.h; sourceTree = "<group>"; };
 		B35971C91CBB7B7A0070C010 /* WNXStage08ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage08ViewController.m; sourceTree = "<group>"; };
+		B35C8C9F1D07B1B6009162C0 /* UIApplication+WNXLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+WNXLoad.h"; sourceTree = "<group>"; };
+		B35C8CA01D07B1B6009162C0 /* UIApplication+WNXLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+WNXLoad.m"; sourceTree = "<group>"; };
 		B35E97F11CD1FC6B003AF56E /* WNXStage11BottomNumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNXStage11BottomNumView.h; sourceTree = "<group>"; };
 		B35E97F21CD1FC6B003AF56E /* WNXStage11BottomNumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNXStage11BottomNumView.m; sourceTree = "<group>"; };
 		B35E97F41CD218F8003AF56E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -694,6 +697,8 @@
 				B384CD301C7F0D8C008AFA9E /* UIView+WNXImage.m */,
 				FA6321201CB69B8C006F8714 /* UIColor+WNXColor.h */,
 				FA6321211CB69B8C006F8714 /* UIColor+WNXColor.m */,
+				B35C8C9F1D07B1B6009162C0 /* UIApplication+WNXLoad.h */,
+				B35C8CA01D07B1B6009162C0 /* UIApplication+WNXLoad.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1371,6 +1376,7 @@
 				B3C8D6231CAD2FCE001D00D4 /* WNXStage04View.m in Sources */,
 				B38CCE391C86E15300E750C2 /* WNXGameControllerViewManager.m in Sources */,
 				B30782BF1CDB358300833CDB /* WNXStage13GuessView.m in Sources */,
+				B35C8CA11D07B1B6009162C0 /* UIApplication+WNXLoad.m in Sources */,
 				B3E561961C7C6F650081C720 /* WNXLaunchAnimationViewController.m in Sources */,
 				B34E00D71C903F2500454720 /* WNXResultViewController.m in Sources */,
 				B3650EE21C856AC600FC2D4E /* WNXStageView.m in Sources */,
