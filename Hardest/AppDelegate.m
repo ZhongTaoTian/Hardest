@@ -175,6 +175,7 @@
 //        info23.num = 23;
 //        info23.unlock = YES;
 //        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info23];
+        
     };
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

@@ -75,4 +75,22 @@ static WNXStageInfoManager *instance = nil;
     return info;
 }
 
+- (BOOL)unlockNextStage {
+
+    for (int i = 2 ; i < 25; i++) {
+        NSNumber *num = [NSNumber numberWithInt:i];
+        
+        if (![self.allStageInfos objectForKey:num]) {
+            
+            WNXStageInfo *info = [WNXStageInfo new];
+            info.num = i;
+            [self.allStageInfos setObject:info forKey:num];
+            
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
 @end

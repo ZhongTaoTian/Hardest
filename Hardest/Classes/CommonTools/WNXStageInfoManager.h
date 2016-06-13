@@ -16,4 +16,6 @@
 - (BOOL)saveStageInfo:(WNXStageInfo *)stageInfo;;
 - (WNXStageInfo *)stageInfoWithNumber:(int)number;
 
+- (BOOL)unlockNextStage;
+
 @end

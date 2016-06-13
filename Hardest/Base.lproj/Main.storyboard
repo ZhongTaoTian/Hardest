@@ -24,6 +24,107 @@
             </objects>
             <point key="canvasLocation" x="-591" y="522"/>
         </scene>
+        <!--Rare View Controller-->
+        <scene sceneID="oK4-fE-WwJ">
+            <objects>
+                <viewController id="zAN-Uu-rXL" customClass="WNXRareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mCO-mS-jdg"/>
+                        <viewControllerLayoutGuide type="bottom" id="lYN-7G-xNp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U1s-z0-YhB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="秘 籍" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpv-UN-D0N">
+                                <rect key="frame" x="0.0" y="40" width="320" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Mli-Rp-WjI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前关卡无法过去时,点击解锁下一关!!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="III-ha-wbh">
+                                <rect key="frame" x="0.0" y="120" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="oJi-fV-Ofm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfP-RT-atI">
+                                <rect key="frame" x="35" y="190" width="250" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="TO4-Ul-9eu"/>
+                                    <constraint firstAttribute="height" constant="62" id="eeK-TJ-brr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                <state key="normal" title="解锁下一关" backgroundImage="bt_green">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="unlockNextStage:" destination="zAN-Uu-rXL" eventType="touchUpInside" id="CGS-Bo-Pc2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIP-fU-sFO">
+                                <rect key="frame" x="0.0" y="352" width="320" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="xWW-ib-KLZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.31552418209999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEa-2x-kV6">
+                                <rect key="frame" x="35" y="272" width="250" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="ayG-Ia-R7f"/>
+                                    <constraint firstAttribute="width" constant="250" id="vud-Br-bV0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                <state key="normal" title="继续自己来" backgroundImage="bt_green">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pause:" destination="zAN-Uu-rXL" eventType="touchUpInside" id="4LJ-8m-DxI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="III-ha-wbh" secondAttribute="trailing" id="31h-x0-yx4"/>
+                            <constraint firstItem="ZIP-fU-sFO" firstAttribute="leading" secondItem="U1s-z0-YhB" secondAttribute="leading" id="4Eu-Ur-DPo"/>
+                            <constraint firstItem="lEa-2x-kV6" firstAttribute="top" secondItem="ZIP-fU-sFO" secondAttribute="top" id="9Pt-1Y-ifI"/>
+                            <constraint firstItem="Dpv-UN-D0N" firstAttribute="leading" secondItem="U1s-z0-YhB" secondAttribute="leading" id="AlX-6z-FHo"/>
+                            <constraint firstItem="Dpv-UN-D0N" firstAttribute="top" secondItem="U1s-z0-YhB" secondAttribute="top" constant="40" id="OFZ-1h-aZj"/>
+                            <constraint firstItem="yfP-RT-atI" firstAttribute="top" secondItem="III-ha-wbh" secondAttribute="bottom" constant="20" id="c48-gS-Qpv"/>
+                            <constraint firstItem="lEa-2x-kV6" firstAttribute="centerX" secondItem="yfP-RT-atI" secondAttribute="centerX" id="eF7-WM-RPw"/>
+                            <constraint firstItem="III-ha-wbh" firstAttribute="top" secondItem="Dpv-UN-D0N" secondAttribute="bottom" id="fjc-Gh-Ckv"/>
+                            <constraint firstItem="lEa-2x-kV6" firstAttribute="top" secondItem="yfP-RT-atI" secondAttribute="bottom" constant="20" id="gH3-7x-YIo"/>
+                            <constraint firstAttribute="trailing" secondItem="Dpv-UN-D0N" secondAttribute="trailing" id="iZN-Va-hDp"/>
+                            <constraint firstAttribute="trailing" secondItem="ZIP-fU-sFO" secondAttribute="trailing" id="jqn-si-ZKd"/>
+                            <constraint firstItem="yfP-RT-atI" firstAttribute="centerX" secondItem="U1s-z0-YhB" secondAttribute="centerX" id="mAY-zM-szW"/>
+                            <constraint firstItem="III-ha-wbh" firstAttribute="leading" secondItem="U1s-z0-YhB" secondAttribute="leading" id="xZ7-Ad-DCq"/>
+                            <constraint firstItem="ZIP-fU-sFO" firstAttribute="top" secondItem="yfP-RT-atI" secondAttribute="bottom" constant="100" id="xcr-Mf-ZYM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9Pt-1Y-ifI"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="bbZ-Xf-xjf"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="ZIP-fU-sFO" id="gQD-XN-2NA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzb-2K-Gmj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-109" y="-147"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="1xa-bA-3E4">
             <objects>
@@ -41,6 +142,7 @@
                     <connections>
                         <segue destination="Mai-kF-i4N" kind="show" identifier="Setting" id="PPr-L4-ZTH"/>
                         <segue destination="4YA-dv-u5i" kind="show" identifier="PlayGame" id="Chf-QC-NZB"/>
+                        <segue destination="zAN-Uu-rXL" kind="show" identifier="Rare" id="HZK-xs-GvO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIW-pc-aUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMa-r2-ANW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213" y="505"/>
+            <point key="canvasLocation" x="282" y="513"/>
         </scene>
         <!--Select Stage View Controller-->
         <scene sceneID="Y7R-kT-Eml">

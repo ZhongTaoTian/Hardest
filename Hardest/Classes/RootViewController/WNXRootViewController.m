@@ -66,24 +66,32 @@
     
     CGPoint touchPoint = [touch locationInView:touch.view];
     
+    [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName: kSoundCliclName];
+    
     if (CGRectContainsPoint(_settingFrame, touchPoint)) {
-        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName: kSoundCliclName];
         
         [self performSegueWithIdentifier:@"Setting" sender:nil];
         
     } else if (CGRectContainsPoint(_languageFrame, touchPoint)) {
-        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName: kSoundCliclName];
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kBlogURL]];
+        
     } else if (CGRectContainsPoint(_moreFrame, touchPoint)) {
-        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName: kSoundCliclName];
+        
+        [self performSegueWithIdentifier:@"Rare" sender:nil];
+        
     } else if (CGRectContainsPoint(_rankFrame, touchPoint)) {
-        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName: kSoundCliclName];
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kWeiBoURL]];
+        
     } else if (CGRectContainsPoint(_playFrame, touchPoint)) {
-        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName: kSoundCliclName];
-       
+        
         [self performSegueWithIdentifier:@"PlayGame" sender:nil];
         
     } else if (CGRectContainsPoint(_getFrame, touchPoint)) {
-        [[WNXSoundToolManager sharedSoundToolManager] playSoundWithSoundName: kSoundCliclName];
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kGithubUrl]];
+        
     }
     
 }
