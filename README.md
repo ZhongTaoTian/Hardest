@@ -395,7 +395,7 @@ WNXTwoButtonViewController,底部拥有俩个按钮关卡,并且默认带有背�
 
 
 ### 代码下载地址(如果觉得有帮助,请点击Star★)
-[代码下载地址,记得Star★和Follow](https://github.com/ZhongTaoTian/LoveFreshBeen)
+[代码下载地址,记得Star★和Follow](https://github.com/ZhongTaoTian)
 #### 小熊的技术博客
 
 [点击链接我的博客,欢迎关注](http://www.jianshu.com/users/5fe7513c7a57/latest_articles)
