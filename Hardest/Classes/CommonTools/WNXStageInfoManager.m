@@ -2,7 +2,7 @@
 //  WNXStageInfoManger.m
 //  Hardest
 //
-//  Created by sfbest on 16/2/29.
+//  Created by 维尼的小熊 on 16/2/29.
 //  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 
@@ -15,8 +15,6 @@
 @interface WNXStageInfoManager ()
 
 @property (nonatomic, strong) NSMutableDictionary *allStageInfos;
-
-@property (nonatomic, strong) NSArray *aaa;
 
 @end
 

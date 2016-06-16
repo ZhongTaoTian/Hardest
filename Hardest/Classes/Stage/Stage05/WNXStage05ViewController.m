@@ -43,7 +43,6 @@
     [self bringPauseAndPlayAgainToFront];
 }
 
-
 - (void)buildEggRoll {
     CGFloat eggIVW = 100;
     CGFloat eggIVH = 204;

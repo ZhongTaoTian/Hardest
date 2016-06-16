@@ -2,7 +2,7 @@
 //  UIColor+WNXColor.m
 //  Hardest
 //
-//  Created by MacBook on 16/4/7.
+//  Created by 维尼的小熊 on 16/4/7.
 //  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 

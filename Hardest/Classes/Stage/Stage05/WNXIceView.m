@@ -43,7 +43,7 @@
             [self.colViews addObject:colView];
         }
     }
-    
+
     return self;
 }
 

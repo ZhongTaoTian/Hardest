@@ -2,7 +2,7 @@
 //  WNXBaseGameViewController.h
 //  Hardest
 //
-//  Created by sfbest on 16/3/2.
+//  Created by 维尼的小熊 on 16/3/2.
 //  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 
@@ -23,7 +23,6 @@ typedef NS_ENUM(NSInteger, WNXScoreboardType) {
     WNXScoreboardTypeCountPTS,
     WNXScoreboardTypeTimeMS,
     WNXScoreboardTypeSecondAndMS,
-    WNXScoreboardTypeTimeS
 };
 
 typedef NS_ENUM(NSInteger, WNXADType) {
@@ -34,15 +33,17 @@ typedef NS_ENUM(NSInteger, WNXADType) {
 
 @interface WNXBaseGameViewController : UIViewController
 
-@property (nonatomic, assign) WNXGameGuideType guideType;
-@property (nonatomic, strong) WNXStage *stage;
+@property (nonatomic, assign) WNXGameGuideType  guideType;
 @property (nonatomic, assign) WNXScoreboardType scoreboardType;
-@property (nonatomic, strong) UIImageView *guideImageView;
-@property (nonatomic, strong) UIView *countScore;
-@property (nonatomic, strong) UIButton *playAgainButton;
-@property (nonatomic, strong) UIButton *pauseButton;
+@property (nonatomic, strong) WNXStage          *stage;
 
-@property (nonatomic, strong) WNXStateView *stateView;
+@property (nonatomic, strong) UIView            *countScore;
+
+@property (nonatomic, strong) UIImageView       *guideImageView;
+@property (nonatomic, strong) UIButton          *playAgainButton;
+@property (nonatomic, strong) UIButton          *pauseButton;
+
+@property (nonatomic, strong) WNXStateView      *stateView;
 
 - (void)beginGame;
 - (void)endGame;
@@ -53,7 +54,11 @@ typedef NS_ENUM(NSInteger, WNXADType) {
 - (void)playAgainGame;
 - (void)showGameFail;
 
-- (void)showResultControllerWithNewScroe:(double)scroe unit:(NSString *)unil stage:(WNXStage *)stage isAddScore:(BOOL)isAddScroe;
+- (void)showResultControllerWithNewScroe:(double)scroe
+                                    unit:(NSString *)unil
+                                   stage:(WNXStage *)stage
+                              isAddScore:(BOOL)isAddScroe;
+
 - (void)buildStageInfo;
 
 - (void)bringPauseAndPlayAgainToFront;

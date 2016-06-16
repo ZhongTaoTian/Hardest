@@ -2,7 +2,7 @@
 //  WXNSoundToolsManger.m
 //  Hardest
 //
-//  Created by sfbest on 16/2/25.
+//  Created by 维尼的小熊 on 16/2/25.
 //  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 
@@ -72,6 +72,7 @@ static WNXSoundToolManager *instance = nil;
 
 - (void)setBgMusicType:(SoundPlayType)bgMusicType {
     _bgMusicType = bgMusicType;
+    
     [[NSUserDefaults standardUserDefaults] setInteger:bgMusicType forKey:kMusicType];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
@@ -89,6 +90,7 @@ static WNXSoundToolManager *instance = nil;
 
 - (void)setSoundType:(SoundPlayType)soundType {
     _soundType = soundType;
+    
     [[NSUserDefaults standardUserDefaults] setInteger:soundType forKey:kSoundType];
     [[NSUserDefaults standardUserDefaults] synchronize];
     

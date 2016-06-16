@@ -2,7 +2,7 @@
 //  WNXResultViewController.m
 //  Hardest
 //
-//  Created by sfbest on 16/3/9.
+//  Created by 维尼的小熊 on 16/3/9.
 //  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 

@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  Hardest
 //
-//  Created by sfbest on 16/2/23.
-//  Copyright © 2016年 sfbest. All rights reserved.
+//  Created by 维尼的小熊 on 16/2/23.
+//  Copyright © 2016年 维尼的小熊. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -32,14 +32,16 @@
 }
 
 - (void)setKeyWindow {
+    __weak typeof(self) weakSelf = self;
+    
     WNXLaunchAnimationViewController *launchAnimationVC = [[WNXLaunchAnimationViewController alloc] init];
     launchAnimationVC.animationFinish = ^{
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         WNXBaseNavigationController *rootNav = (WNXBaseNavigationController *)[sb instantiateViewControllerWithIdentifier:@"RootNavigationController"];
-        self.window.rootViewController = rootNav;
+        weakSelf.window.rootViewController = rootNav;
         
 //        WNXStageInfo *info1 = [[WNXStageInfo alloc] init];
-//        info1.rank = @"s";
+//        info1.rank = @"e";
 //        info1.num = 1;
 //        info1.unlock = YES;
 //        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info1];
@@ -57,7 +59,7 @@
 //        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info3];
 //        
 //        WNXStageInfo *info4 = [[WNXStageInfo alloc] init];
-//        info4.rank = @"s";
+//        info4.rank = @"a";
 //        info4.num = 4;
 //        info4.unlock = YES;
 //        [[WNXStageInfoManager sharedStageInfoManager] saveStageInfo:info4];
