@@ -78,7 +78,7 @@ typedef NS_ENUM(NSInteger, SoundPlayType) {
 
 ### 启动页动画
 启动页动画是目前App比较常见的功能(顺丰优选,顺手付,顺丰海淘等都有).其实这里有一种假象,在AppDelegate的`didFinishLaunchingWithOptions()`方法中,添加一个与启动图片完全一样的AnimVC,将AnimVC设置为keyWindow的rootViewController,在AnimVC的`viewDidApper()`方法中执行动画,当动画完成后通过Block切换keyWindow的rootViewController为首页VC就OK了.
-```
+```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
@@ -111,7 +111,7 @@ typedef NS_ENUM(NSInteger, SoundPlayType) {
 
 ### 首页(WNXRootViewController)
 首页其实就是一张图片,通过判断当前设备屏幕尺寸,读取当前设备尺寸对应按钮的Plist文件,拿到首页6个按钮位置的Frame,在`touchesBegan()`方法中,通过`CGRectContainsPoint`方法判断当前点击位置时候在指定的Frame内,符合条件时做出对应 的操作,具体代码
-```
+```objc
 // 加载当前设备对应首页按钮Frame
 - (void)loadHomeButtonFrame {
     NSString *framePath = [[NSBundle mainBundle] pathForResource:@"home.plist" ofType:nil];
@@ -226,7 +226,7 @@ WNXBaseGameViewController是所有关卡ViewController的基类控制器,提供�
 - `UIButton *pauseButton`暂停按钮
 
 公有方法
-```
+```objc
 - (void)beginGame; // 开始游戏
 - (void)endGame;   // 结束游戏
 - (void)beginRedayGoView; // 开始显示RedayGo动画
@@ -256,7 +256,7 @@ WNXRYBViewController,继承至WNXBaseGameViewController,底部拥有三个按钮
 
 公有属性
 
-```
+```objc
 @property (strong, nonatomic) UIImageView *redImageView;
 @property (strong, nonatomic) UIImageView *yellowImageView;
 @property (strong, nonatomic) UIImageView *blueImageView;
@@ -269,7 +269,7 @@ WNXRYBViewController,继承至WNXBaseGameViewController,底部拥有三个按钮
 @property (nonatomic, strong) NSArray *buttonImageNames;
 ```
 公有方法
-```
+```objc
 - (void)setButtonsIsActivate:(BOOL)isActivate; // 设置全部按钮是否可以点击
 
 - (void)setButtonImage:(UIImage *)image // 当底部按钮图片相同时,设置底部按钮图片
@@ -288,7 +288,7 @@ WNXRYBViewController,继承至WNXBaseGameViewController,底部拥有三个按钮
 WNXTwoButtonViewController,底部拥有俩个按钮关卡,并且默认带有背景ImageView.
 
 公有属性
-```
+```objc
 @property (nonatomic, strong) UIImageView *backgroundIV;
 
 @property (nonatomic, strong) UIButton *leftButton;
@@ -297,7 +297,7 @@ WNXTwoButtonViewController,底部拥有俩个按钮关卡,并且默认带有背�
 ```
 
 公有方法
-```
+```objc
 // 统一设置按钮是否可以被点击,部分关卡按钮点击后,不允许再次点击
 - (void)setButtonActivate:(BOOL)isActivate;
 ```
@@ -311,7 +311,7 @@ WNXTwoButtonViewController,底部拥有俩个按钮关卡,并且默认带有背�
 
 ### 分数结算控制器(WNXResultViewController)
 当每个关卡游戏结束后,都会进入分数结算控制器,这里通过在`WNXBaseGameViewController`中封装了一个方法以保证每个关卡控制器都可以直接调用计算得分,当关卡游戏结束后,调用当前关卡的下面函数即可,这里小熊偷了个懒,只实现了相加的功能,不过相信通过参考相加的功能,大家实现相减的功能也是小csae啦~
-```
+```objc
 - (void)showResultControllerWithNewScroe:(double)scroe
                                     unit:(NSString *)unil
                                    stage:(WNXStage *)stage
@@ -348,7 +348,7 @@ WNXTwoButtonViewController,底部拥有俩个按钮关卡,并且默认带有背�
 这里也是在`WNXBaseGameViewController`中封装了一个方法,当关卡失败后,直接调用`showGameFail()`方法,Push到失败控制器即可.
 
 如果需要失败时执行一些操作,如停止计时,停止动画等,在当前关卡重写`showGameFail()`方法,在调用父类方法前调用需要执行的相应代码即可,如下
-```
+```objc
 - (void)showGameFail {
     // 需要在游戏失败时执行的相应代码
     // do something
@@ -364,7 +364,7 @@ WNXTwoButtonViewController,底部拥有俩个按钮关卡,并且默认带有背�
 
 在每个游戏关卡重写上面两个方法,当玩家点击暂停按钮时,回调用暂停方法,点击返回时,会调用继续方法,具体实现如下
 
-```
+```objc
 // 玩家点击暂停按钮
 - (void)pauseGame {
     // 关卡暂停,本关需要执行的相应操作,如暂停计时器,动画等.
