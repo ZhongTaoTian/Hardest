@@ -27,7 +27,7 @@
 音效和背景音乐采用了`AVFoundation`框架封装了一个`WNXSoundToolManager`的单利对象,背景音乐采用`AVAudioPlayer`,背景音效采用`AudioServicesPlaySystemSound`.
 
 提供以下方法和属性供全局调用或修改,通过修改`bgMusicType`和`soundType`可以控制背景音乐和音效声音的大小,通过`playSoundWithSoundName:`方法根据音效名称设置播放不同的音效.
-```
+```objc
 // 音效或背景音乐播放声音打大小枚举
 typedef NS_ENUM(NSInteger, SoundPlayType) {
     SoundPlayTypeHight = 0,
@@ -63,7 +63,7 @@ typedef NS_ENUM(NSInteger, SoundPlayType) {
 ### 保存和读取玩家关卡记录(WNXStageInfoManager)
 如何持久化存储玩家过关信息和每关的得分记录.本项目采用归档和解档的方案.
 拿到`WNXStageInfoManager`的单例对象,通过调用Save和Read方法保存或读取关卡信息,当游戏关卡进入结算得分控制器后,判断新记录是否需要保存,如果需要调用保存接口.具体实现代码请参照`WNXStageInfoManager.m`文件
-```
+```objc
 // 单例方法
 + (instancetype)sharedStageInfoManager;
 
